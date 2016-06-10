@@ -1,0 +1,24 @@
+﻿Imports Entidades
+Imports ReglasNegocio
+Public Class frmNuevaCarp
+
+    Dim level As Int16 = 0
+    Dim namePadre As String = String.Empty
+    Sub New(ByVal nivel As Int16, ByVal NodoPadre As String)
+
+        level = nivel
+        namePadre = NodoPadre
+        ' Llamada necesaria para el diseñador.
+        InitializeComponent()
+
+        ' Agregue cualquier inicialización después de la llamada a InitializeComponent().
+
+    End Sub
+
+    Private Sub frmNuevaCarp_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+
+        Dim loColores As List(Of EETablaGeneral)
+
+
+    End Sub
+End Class

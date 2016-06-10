@@ -1,0 +1,151 @@
+﻿
+Imports ReglasNegocio
+Imports SaimtControles
+Imports Entidades
+
+Public Class frmManSubProcesos
+    Inherits frmMantenimientos
+    Dim dtTablaListado As New DataTable
+    Dim dtTablaSubProcesos As New DataTable
+    Dim ListaTemporalEliminados As List(Of String) = New List(Of String)
+    Dim ListaTemporalNuevos As List(Of EESubProcesos) = Nothing
+#Region "Funciones Sobrescritas"
+
+    Private Sub ConstruirTable()
+        dtTablaListado.Columns.Add("procId", GetType(String))
+        dtTablaListado.Columns.Add("procNombre", GetType(String))
+        dtTablaListado.Columns.Add("procDescripcion", GetType(String))
+        dtTablaListado.Columns.Add("procActivo", GetType(Boolean))
+    End Sub
+
+    Private Sub ConstruirTableDetalle()
+        dtTablaSubProcesos.Columns.Add("subProcId", GetType(String))
+        dtTablaSubProcesos.Columns.Add("subProcNombre", GetType(String))
+        dtTablaSubProcesos.Columns.Add("subProcDescripcion", GetType(String))
+        dtTablaSubProcesos.Columns.Add("subProcActivo", GetType(Boolean))
+    End Sub
+
+    Protected Overrides Sub guardar()
+        Try
+
+            If String.IsNullOrEmpty(txtProcNombre.EditValue) Then
+                SaimtMessageBox.mostrarAlertaAdvertencia("El Proceso no se ha seleccionado")
+                'txtProcId.Focus()
+                Return
+            End If
+ 
+            Dim ListaSubProcesos As List(Of EESubProcesos)
+            Dim loProceso As EESubProcesos = Nothing
+            For Each row As DataRow In dtTablaSubProcesos.Rows
+                If ListaSubProcesos IsNot Nothing Then
+                    ListaSubProcesos = New List(Of EESubProcesos)
+                End If
+                loProceso = New EESubProcesos() With {.ProcId = txtProcNombre.Tag,
+                                                    .SubProcNombre = row("subProcNombre").ToString,
+                                                    .SubProcId = row("subProcId").ToString,
+                                                    .SubProcDescripcion = row("subProcDescripcion").ToString,
+                                                    .SubProcActivo = row("subProcActivo").ToString
+                                                  }
+                ListaSubProcesos.Add(loProceso)
+            Next
+        
+            ' MantenimientosBL.Instancia.subprocesosActualizar(ListaSubProcesos)
+
+            Me.enabledGA = False
+            MyBase.guardar()
+        Catch ex As Exception
+            SaimtMessageBox.mostrarAlertaError(ex.Message)
+        End Try
+    End Sub
+
+    Protected Overrides Sub nuevo()
+        MyBase.nuevo()
+        'txtProcId.Text = MantenimientosBL.Instancia.procesosNewCodigo()
+        'txtProcId.Properties.ReadOnly = True
+    End Sub
+
+    Protected Overrides Sub Buscar()
+        Try
+            ' dtTablaProcesos.Rows.Clear()
+            GValorTextoBuscado = txtBuscar.Text
+            GCriterioBuscado = cbBuscarPor.SelectedIndex
+
+            Dim ListaProcesos As List(Of EEProcesos) = MantenimientosBL.Instancia.procesosListarXCriterios(GCriterioBuscado, GValorTextoBuscado)
+            If ListaProcesos IsNot Nothing Then
+                For Each frow As EEProcesos In ListaProcesos
+                    ' dtTablaProcesos.LoadDataRow(New Object() {frow.ProcId, frow.ProcNombre, frow.ProcDescripcion, frow.ProcActivo}, True)
+                Next
+                gvListado.BestFitColumns()
+                gvListado.SelectRow(0)
+                dgvListado_Click(Nothing, Nothing)
+            End If
+            MyBase.Buscar()
+        Catch ex As Exception
+            SaimtMessageBox.mostrarAlertaError(ex.Message)
+        End Try
+    End Sub
+
+    Protected Overrides Sub seleccionarListado()
+        Try
+            If Me.gvListado.DataRowCount <> 0 Then
+
+                'txtProcId.EditValue = gvListado.GetRowCellValue(Me.gvListado.GetSelectedRows(0), "procId").ToString()
+                'GIdRegistroActual = gvListado.GetRowCellValue(Me.gvListado.GetSelectedRows(0), "procId").ToString()
+                'txtProcNombre.EditValue = gvListado.GetRowCellValue(Me.gvListado.GetSelectedRows(0), "procNombre").ToString()
+                'txtSubProcDescripcion.EditValue = gvListado.GetRowCellValue(Me.gvListado.GetSelectedRows(0), "procDescripcion").ToString()
+                'chkSubProcActivo.Checked = gvListado.GetRowCellValue(Me.gvListado.GetSelectedRows(0), "procActivo").ToString()
+                MyBase.seleccionarListado()
+            End If
+        Catch ex As Exception
+            SaimtMessageBox.mostrarAlertaError(ex.Message)
+        End Try
+    End Sub
+
+
+
+    Protected Overrides Sub Editar()
+        MyBase.editar()
+        ' txtProcId.Properties.ReadOnly = True
+    End Sub
+#End Region
+
+
+    Private Sub frmManProcesos_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        ConstruirTable()
+        dgvListado.DataSource = dtTablaSubProcesos
+    End Sub
+
+
+    Private Sub btnAgregar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAgregar.Click
+        If String.IsNullOrEmpty(txtSubProcNombre.Text) Then
+            SaimtMessageBox.mostrarAlertaAdvertencia("Ingrese Nombre del Subproceso")
+            txtSubProcNombre.Focus()
+            Exit Sub
+        End If
+
+        For Each row As DataRow In dtTablaSubProcesos.Rows
+            If row("subProcNombre") = txtSubProcNombre.Text Then
+                SaimtMessageBox.mostrarAlertaInformativa("Ya se encuentra agregado " & txtSubProcNombre.Text)
+                Exit Sub
+            End If
+        Next
+
+        dtTablaSubProcesos.LoadDataRow(New Object() { _
+            0, _
+            txtSubProcNombre.Text, _
+            txtSubProcDescripcion.Text, _
+            chkSubProcActivo.Checked
+        }, True)
+
+        If ListaTemporalNuevos Is Nothing Then
+            ListaTemporalNuevos = New List(Of EESubProcesos)
+        End If
+
+        Dim loSubProcesos As EESubProcesos = New EESubProcesos()
+        loSubProcesos.SubProcId = 0
+        loSubProcesos.SubProcNombre = txtSubProcNombre.Text
+        loSubProcesos.SubProcDescripcion = txtSubProcDescripcion.Text
+        loSubProcesos.SubProcDescripcion = txtSubProcDescripcion.Text
+        ListaTemporalNuevos.Add(loSubProcesos)
+    End Sub
+End Class

@@ -1,0 +1,185 @@
+﻿Imports Microsoft.Practices.EnterpriseLibrary.Data
+Imports System.Data.Common
+Imports System.Data
+Imports Entidades
+
+Public Class ProcesosDAS
+
+	Public Shared Function NewCodigo() As String
+        Dim codigo As String = String.Empty
+        Try
+            Dim db As Database = DatabaseFactory.CreateDatabase()
+            Dim cmd As DbCommand = db.GetStoredProcCommand("Mostrar_Procesos_NewCodigo")
+            codigo = db.ExecuteScalar(cmd)
+        Catch ex As Exception
+            Throw New Exception("Nuevo Codigo Procesos => " + ex.Message, ex)
+        End Try
+        Return codigo
+    End Function
+
+
+    Public Shared Function listarCriterio(ByVal aiTipoCriterio As Int32, ByVal asCriterio As [String]) As List(Of EEProcesos)
+        Dim ListaProcesos As List(Of EEProcesos) = Nothing
+        Dim loProcesos As EEProcesos = Nothing
+        Dim dr As IDataReader = Nothing
+        Try
+            Dim db As Database = DatabaseFactory.CreateDatabase()
+            Dim cmd As DbCommand = db.GetStoredProcCommand("Listar_Procesos_Criterio_pa")
+            db.AddInParameter(cmd, "criterio", DbType.String, asCriterio)
+            db.AddInParameter(cmd, "tipoCriterio", DbType.Int32, aiTipoCriterio)
+
+            dr = db.ExecuteReader(cmd)
+            While dr.Read()
+                If ListaProcesos Is Nothing Then
+                    ListaProcesos = New List(Of EEProcesos)()
+                End If
+
+                loProcesos = New EEProcesos()
+
+                loProcesos.ProcId = dr("ProcId").ToString()
+                loProcesos.ProcNombre = dr("ProcNombre").ToString()
+                loProcesos.ProcDescripcion = dr("ProcDescripcion").ToString()
+                loProcesos.ProcActivo = Convert.ToBoolean(dr("ProcActivo").ToString())
+
+
+                ListaProcesos.Add(loProcesos)
+            End While
+            dr.Close()
+        Catch ex As Exception
+            Throw New Exception("Listar Procesos Criterio => " + ex.Message, ex)
+        End Try
+        Return ListaProcesos
+    End Function
+
+    'Public Shared Function listarXProcId(ByVal vProcId As String) As List(Of EEProcesos)
+
+    '    Dim ListaProcesos As List(Of EEProcesos) = Nothing
+    '    Dim loProcesos As EEProcesos = Nothing
+    '    Dim dr As IDataReader = Nothing
+    '    Try
+    '        Dim db As Database = DatabaseFactory.CreateDatabase()
+    '        Dim cmd As DbCommand = db.GetStoredProcCommand("Listar_Procesos_XProcId_pa")
+    '        db.AddInParameter(cmd, "ProcId", DbType.String, vProcId)
+
+    '        dr = db.ExecuteReader(cmd)
+    '        While dr.Read()
+    '            If ListaProcesos Is Nothing Then
+    '                ListaProcesos = New List(Of EEProcesos)()
+    '            End If
+
+    '            loProcesos = New EEProcesos()
+    '            loProcesos.ProcId = dr("ProcId").ToString()
+    '            loProcesos.ProcNombre = dr("ProcNombre").ToString()
+    '            loProcesos.ProcDescripcion = dr("ProcDescripcion").ToString()
+    '            loProcesos.ProcActivo = Convert.ToBoolean(dr("ProcActivo").ToString())
+
+
+    '            ListaProcesos.Add(loProcesos)
+    '        End While
+    '        dr.Close()
+    '    Catch ex As Exception
+    '        Throw New Exception("Listar Procesos X ProcId Criterio => " + ex.Message, ex)
+    '    End Try
+    '    Return ListaProcesos
+    'End Function
+
+    'Public Shared Function listarXProcNombre(ByVal vsProcNombre As String) As List(Of EEProcesos)
+
+    '    Dim ListaProcesos As List(Of EEProcesos) = Nothing
+    '    Dim loProcesos As EEProcesos = Nothing
+    '    Dim dr As IDataReader = Nothing
+    '    Try
+    '        Dim db As Database = DatabaseFactory.CreateDatabase()
+    '        Dim cmd As DbCommand = db.GetStoredProcCommand("Listar_Procesos_XProcNombre_pa")
+    '        db.AddInParameter(cmd, "ProcNombre", DbType.String, vsProcNombre)
+
+    '        dr = db.ExecuteReader(cmd)
+    '        While dr.Read()
+    '            If ListaProcesos Is Nothing Then
+    '                ListaProcesos = New List(Of EEProcesos)()
+    '            End If
+
+    '            loProcesos = New EEProcesos()
+    '            loProcesos.ProcId = dr("ProcId").ToString()
+    '            loProcesos.ProcNombre = dr("ProcNombre").ToString()
+    '            loProcesos.ProcDescripcion = dr("ProcDescripcion").ToString()
+    '            loProcesos.ProcActivo = Convert.ToBoolean(dr("ProcActivo").ToString())
+
+
+    '            ListaProcesos.Add(loProcesos)
+    '        End While
+    '        dr.Close()
+    '    Catch ex As Exception
+    '        Throw New Exception("Listar Procesos X ProcNombre Criterio => " + ex.Message, ex)
+    '    End Try
+    '    Return ListaProcesos
+    'End Function
+
+    'Public Shared Function listarXProcDescripcion(ByVal vsProcDescripcion As String) As List(Of EEProcesos)
+
+    '    Dim ListaProcesos As List(Of EEProcesos) = Nothing
+    '    Dim loProcesos As EEProcesos = Nothing
+    '    Dim dr As IDataReader = Nothing
+    '    Try
+    '        Dim db As Database = DatabaseFactory.CreateDatabase()
+    '        Dim cmd As DbCommand = db.GetStoredProcCommand("Listar_Procesos_XProcDescripcion_pa")
+    '        db.AddInParameter(cmd, "ProcDescripcion", DbType.String, vsProcDescripcion)
+
+    '        dr = db.ExecuteReader(cmd)
+    '        While dr.Read()
+    '            If ListaProcesos Is Nothing Then
+    '                ListaProcesos = New List(Of EEProcesos)()
+    '            End If
+
+    '            loProcesos = New EEProcesos()
+    '            loProcesos.ProcId = dr("ProcId").ToString()
+    '            loProcesos.ProcNombre = dr("ProcNombre").ToString()
+    '            loProcesos.ProcDescripcion = dr("ProcDescripcion").ToString()
+    '            loProcesos.ProcActivo = Convert.ToBoolean(dr("ProcActivo").ToString())
+
+
+    '            ListaProcesos.Add(loProcesos)
+    '        End While
+    '        dr.Close()
+    '    Catch ex As Exception
+    '        Throw New Exception("Listar Procesos X ProcDescripcion Criterio => " + ex.Message, ex)
+    '    End Try
+    '    Return ListaProcesos
+    'End Function
+
+    'Public Shared Function listarXProcActivo(ByVal vbProcActivo As Boolean) As List(Of EEProcesos)
+
+    '    Dim ListaProcesos As List(Of EEProcesos) = Nothing
+    '    Dim loProcesos As EEProcesos = Nothing
+    '    Dim dr As IDataReader = Nothing
+    '    Try
+    '        Dim db As Database = DatabaseFactory.CreateDatabase()
+    '        Dim cmd As DbCommand = db.GetStoredProcCommand("Listar_Procesos_XProcActivo_pa")
+    '        db.AddInParameter(cmd, "ProcActivo", DbType.String, vbProcActivo)
+
+    '        dr = db.ExecuteReader(cmd)
+    '        While dr.Read()
+    '            If ListaProcesos Is Nothing Then
+    '                ListaProcesos = New List(Of EEProcesos)()
+    '            End If
+
+    '            loProcesos = New EEProcesos()
+
+    '            loProcesos.ProcId = dr("ProcId").ToString()
+    '            loProcesos.ProcNombre = dr("ProcNombre").ToString()
+    '            loProcesos.ProcDescripcion = dr("ProcDescripcion").ToString()
+    '            loProcesos.ProcActivo = Convert.ToBoolean(dr("ProcActivo").ToString())
+
+    '            ListaProcesos.Add(loProcesos)
+    '        End While
+    '        dr.Close()
+    '    Catch ex As Exception
+    '        Throw New Exception("Listar Procesos X ProcActivo Criterio => " + ex.Message, ex)
+    '    End Try
+    '    Return ListaProcesos
+    'End Function
+
+
+
+
+End Class

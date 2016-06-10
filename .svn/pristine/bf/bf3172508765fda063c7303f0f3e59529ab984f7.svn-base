@@ -1,0 +1,262 @@
+﻿Imports ReglasNegocio
+Imports SaimtControles
+Imports Entidades
+Imports DevExpress.XtraEditors.Controls
+Public Class frmRecaudacionDet
+    Inherits frmMantenimientos
+    Dim dtRecaudacionDet As DataTable = New DataTable()
+    Dim ListRecDetEliminar As New List(Of EERecaudacionDet)
+    Dim RecDetEliminar As EERecaudacionDet = Nothing
+    Public Sub New()
+        ' Llamada necesaria para el diseñador.
+        InitializeComponent()
+        ' Agregue cualquier inicialización después de la llamada a InitializeComponent().
+    End Sub
+    Private lbConsulta As Boolean = False
+    Private lsRecId As String
+    Private lsRecfecPag As Date
+    Private lsRecdId As String
+    Private lsGrupoId As String
+    Private lsRecRecMonto As Decimal
+    Private lsRecDepositante As String
+    Private lsRectipoDoc As String
+    Private lsRecNDoc As String
+    Private lsRecconcepto As String
+    Private lsFechaLiq As Date
+    Private loRecaudacion As EERecaudacion = Nothing
+
+    Public Sub New(ByVal RecId As String, ByVal RecfecPag As Date, ByVal RecaudadorId As String, ByVal RecMonto As Decimal, ByVal Depositante As String, ByVal tipoDoc As String, ByVal NDoc As String, ByVal concepto As String, ByVal FecLiquidacion As Date, ByVal grupo As String)
+        ' Llamada necesaria para el diseñador.
+        InitializeComponent()
+        ' Agregue cualquier inicialización después de la llamada a InitializeComponent().
+        lsRecId = RecId
+        lsRecfecPag = RecfecPag
+        lsRecdId = RecaudadorId
+        lsRecRecMonto = RecMonto
+        lsRecDepositante = Depositante
+        lsRectipoDoc = tipoDoc
+        lsRecNDoc = NDoc
+        lsRecconcepto = concepto
+        lbConsulta = True
+        lsFechaLiq = FecLiquidacion
+        lsGrupoId = grupo
+
+    End Sub
+
+    Private Sub frmRecaudacionDet_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        ConstruirTable()
+        nuevo()
+        dgvRecaudacionDet.DataSource = dtRecaudacionDet
+        cboConcepto.mColumnas(SaimtComboBoxLookUp.Entidades.ConceptoGrupos)
+        cboConcepto.Properties.DisplayMember = "ConNombre"
+        cboConcepto.Properties.ValueMember = "ConIdProcentaje"
+        cboConcepto.Properties.DataSource = MantenimientosBL.Instancia.conceptoListarXAñoXTgGrupo(dtpRecfecPago.DateTime.Year, lsGrupoId)
+        cboConcepto.ItemIndex = 0
+        Me.txtPorConcepto.Properties.ReadOnly = True
+        Me.dtpfechaliq.Properties.ReadOnly = False
+        Me.btnfechaliqui.Enabled = True
+        If gvRecaudacionDet.RowCount > 0 Then
+            gvRecaudacionDet.BestFitColumns()
+        End If
+        Me.dtpfechaliq.Properties.MinValue = "01/01/1980"
+    End Sub
+
+    Private Sub ConstruirTable()
+        dtRecaudacionDet.Columns.Add("conid", GetType(String))
+        dtRecaudacionDet.Columns.Add("concepto", GetType(String))
+        dtRecaudacionDet.Columns.Add("montodep", GetType(Decimal))
+        dtRecaudacionDet.Columns.Add("porsaimt", GetType(Decimal))
+        dtRecaudacionDet.Columns.Add("ingsaimt", GetType(Decimal))
+        dtRecaudacionDet.Columns.Add("fechaLiq", GetType(Date))
+    End Sub
+
+    Protected Overrides Sub nuevo()
+        MyBase.nuevo()
+        hodControlesTotal(SaimtGroupBox2.Controls, True)
+        cboRecaudador.mColumnas(SaimtComboBoxLookUp.Entidades.TablaGeneral)
+        cboRecaudador.Properties.DisplayMember = "TgNombre"
+        cboRecaudador.Properties.ValueMember = "TgCodigo"
+        cboRecaudador.Properties.DataSource = MantenimientosBL.Instancia.tablageneralListarXClsId(34)
+        cboRecaudador.ItemIndex = 0
+        cboTipoDoc.mColumnas(SaimtComboBoxLookUp.Entidades.TablaGeneral)
+        cboTipoDoc.Properties.DisplayMember = "TgNombre"
+        cboTipoDoc.Properties.ValueMember = "TgCodigo"
+        cboTipoDoc.Properties.DataSource = MantenimientosBL.Instancia.tablageneralListarXClsId(4)
+
+        TxtRecId.Text = lsRecId
+        dtpRecfecPago.Text = lsRecfecPag
+        cboRecaudador.EditValue = lsRecdId
+        TxtMontoTotal.Text = lsRecRecMonto
+        txtDepositante.Text = lsRecDepositante
+        cboTipoDoc.EditValue = lsRectipoDoc
+        TxtNroDoc.Text = lsRecNDoc
+        txtconcepto.Text = lsRecconcepto
+        dtpfechaliq.DateTime = lsFechaLiq
+        cargardatos()
+    End Sub
+
+    Sub cargardatos()
+        Try
+            Dim ListaRecaudacionDet As List(Of EERecaudacionDet) = MantenimientosBL.Instancia.RecaudacionDet_by_recid_fechaPag_recdid(TxtRecId.Text, dtpRecfecPago.EditValue, cboRecaudador.EditValue)
+
+            If ListaRecaudacionDet IsNot Nothing Then
+                For Each fRecaudacionDet As EERecaudacionDet In ListaRecaudacionDet
+                    dtRecaudacionDet.LoadDataRow(New Object() {fRecaudacionDet.ConId, fRecaudacionDet.Concepto, fRecaudacionDet.RecDMonto, fRecaudacionDet.ConPorcentaje, fRecaudacionDet.RecDTotalIng, fRecaudacionDet.RecDFechaLiquidacion}, True)
+                Next
+                dgvRecaudacionDet.DataSource = dtRecaudacionDet
+                Me.gvRecaudacionDet.BestFitColumns()
+            End If
+        Catch ex As Exception
+            SaimtMessageBox.mostrarAlertaError(ex.Message)
+        End Try
+    End Sub
+
+    Private Sub cboConcepto_EditValueChanged(sender As System.Object, e As System.EventArgs) Handles cboConcepto.EditValueChanged
+        txtPorConcepto.Text = CDec(Mid(cboConcepto.EditValue, 11)) / 100
+    End Sub
+
+    Private Sub txtMontoDepositado_EditValueChanged(sender As System.Object, e As System.EventArgs) Handles txtMontoDepositado.EditValueChanged
+        Try
+            txtIngresoSaimt.Text = (txtMontoDepositado.Text * Val(txtPorConcepto.Text.Replace("%", ""))) / 100
+        Catch ex As Exception
+
+        End Try
+    End Sub
+
+    Private Sub SaimtButton1_Click(sender As System.Object, e As System.EventArgs) Handles SaimtButton1.Click
+        Try
+            Dim liPosicionDetalleCuota As Int16 = 0
+            Dim encontrado As Boolean
+            If Not IsDate(dtpfechaLiqDet.EditValue) Then
+                SaimtMessageBox.mostrarAlertaAdvertencia("Ingrese una fecha de liquidación valida para cada detalle")
+                Exit Sub
+            End If
+            If txtMontoDepositado.Text > 0 Then
+                For Each fDetalleCuota As DataRow In dtRecaudacionDet.Rows
+
+                    If fDetalleCuota("conId") = Mid(cboConcepto.EditValue, 1, 9) Then
+                        If SaimtMessageBox.mostrarAlertaPregunta("El Concepto ya se encuentra agregado, decea adicionar el monto o remplazarlo, Para adicionar presione Yes, en caso contrario se remplazara", "Pregunta") = True Then
+                            dtRecaudacionDet.Rows(liPosicionDetalleCuota)("montodep") = Convert.ToDecimal(dtRecaudacionDet.Rows(liPosicionDetalleCuota)("montodep")) + Convert.ToDecimal(txtMontoDepositado.Text)
+                            dtRecaudacionDet.Rows(liPosicionDetalleCuota)("porsaimt") = txtPorConcepto.Text.Replace("%", "")
+                            dtRecaudacionDet.Rows(liPosicionDetalleCuota)("ingsaimt") = dtRecaudacionDet.Rows(liPosicionDetalleCuota)("ingsaimt") + Convert.ToDecimal(txtIngresoSaimt.Text)
+                        Else
+                            dtRecaudacionDet.Rows(liPosicionDetalleCuota)("montodep") = Convert.ToDecimal(txtMontoDepositado.Text)
+                            dtRecaudacionDet.Rows(liPosicionDetalleCuota)("porsaimt") = Convert.ToDecimal(txtPorConcepto.Text)
+                            dtRecaudacionDet.Rows(liPosicionDetalleCuota)("ingsaimt") = Convert.ToDecimal(txtIngresoSaimt.Text)
+                        End If
+                        encontrado = True
+                        liPosicionDetalleCuota = liPosicionDetalleCuota + 1
+                        Exit For
+                    End If
+                Next
+                If encontrado = False Then
+                    dtRecaudacionDet.LoadDataRow(New Object() {Mid(cboConcepto.EditValue, 1, 9), cboConcepto.Text, txtMontoDepositado.Text, Val(txtPorConcepto.Text.Replace("%", "") / 100), txtIngresoSaimt.Text, dtpfechaLiqDet.DateTime}, True)
+                    dgvRecaudacionDet.DataSource = dtRecaudacionDet
+                    gvRecaudacionDet.BestFitColumns()
+                    mostrarMensajeBarra("")
+                End If
+            Else
+                SaimtMessageBox.mostrarAlertaAdvertencia("El Monto debe ser superior a 0, ingrese un monto correcto")
+            End If
+        Catch ex As Exception
+
+        End Try
+    End Sub
+
+
+    Protected Overrides Sub guardar()
+        Try
+            If Me.TxtRecId.Text Is Nothing Then
+                SaimtMessageBox.mostrarAlertaInformativa("La recaudacion debe tener un valor")
+                Exit Sub
+            End If
+            If Me.dtpRecfecPago.EditValue Is Nothing Then
+                SaimtMessageBox.mostrarAlertaInformativa("Fecha de pago debe tener un valor")
+                Exit Sub
+            End If
+            If Me.cboRecaudador.EditValue Is Nothing Then
+                SaimtMessageBox.mostrarAlertaInformativa("Recaudador debe tener un valor")
+                Exit Sub
+            End If
+            If dtRecaudacionDet.Rows.Count >= 0 Then
+                Dim loRecDet As EERecaudacionDet = New EERecaudacionDet()
+                Dim guardados As Int16
+                loRecDet.RecId = TxtRecId.Text
+                loRecDet.RecFecPago = dtpRecfecPago.EditValue
+                loRecDet.TgRecaudadorId = cboRecaudador.EditValue
+                MantenimientosBL.Instancia.RecaudacionDetEliminar(loRecDet, 1)
+                For Each fDetalleCuota As DataRow In dtRecaudacionDet.Rows
+                    Dim loRecaudacionDet As EERecaudacionDet = New EERecaudacionDet() With {.RecId = TxtRecId.Text, _
+                    .RecFecPago = dtpRecfecPago.EditValue, _
+                    .TgRecaudadorId = cboRecaudador.EditValue, _
+                        .ConId = fDetalleCuota("conId"), _
+                        .RecDMonto = fDetalleCuota("montodep"), _
+                        .ConPorcentaje = fDetalleCuota("porsaimt"), _
+                        .RecDTotalIng = fDetalleCuota("ingsaimt"), _
+                        .RecDFechaLiquidacion = fDetalleCuota("fechaLiq")}
+                    If GEstadoNuevo Then
+                        MantenimientosBL.Instancia.RecaudacionDetGuardar(loRecaudacionDet)
+                        guardados = guardados + 1
+                    End If
+                    Me.enabledGA = False
+                    MyBase.guardar()
+                Next
+                MantenimientosBL.Instancia.RecaudacionDetValida_recDMonto(loRecDet)
+                If SaimtMessageBox.mostrarAlertaPregunta("Desea Actualizar la fecha de liquidación del Deposito? ") Then
+                    ActualizarFechaLiqRecaudacion()
+                End If
+                'If ListRecDetEliminar.Count > 0 Then
+                'For Each RecDetAux As EERecaudacionDet In ListRecDetEliminar
+                'MantenimientosBL.Instancia.RecaudacionDetEliminar(RecDetAux, 2)
+                'Next
+                'ListRecDetEliminar.Clear()
+                'End If
+                If guardados = dtRecaudacionDet.Rows.Count Then
+                    If SaimtMessageBox.mostrarAlertaPregunta("Los detalle se Guardaron correctamente, Desea Continuar? ") = False Then
+                        Me.Close()
+                    End If
+                End If
+
+            End If
+        Catch ex As Exception
+            SaimtMessageBox.mostrarAlertaError(ex.Message)
+        End Try
+    End Sub
+
+    Private Sub SaimtButton2_Click(sender As System.Object, e As System.EventArgs) Handles SaimtButton2.Click
+        Try
+            RecDetEliminar = New EERecaudacionDet
+            RecDetEliminar.RecId = CInt(Me.TxtRecId.Text)
+            RecDetEliminar.RecFecPago = dtpRecfecPago.DateTime
+            RecDetEliminar.TgRecaudadorId = cboRecaudador.EditValue
+            RecDetEliminar.ConId = Me.gvRecaudacionDet.GetFocusedRowCellValue("conid").ToString
+            ListRecDetEliminar.Add(RecDetEliminar)
+            dtRecaudacionDet.Rows.RemoveAt(Me.gvRecaudacionDet.GetSelectedRows(0))
+        Catch ex As Exception
+
+        End Try
+    End Sub
+
+    Private Sub btnfechaliqui_Click(sender As System.Object, e As System.EventArgs) Handles btnfechaliqui.Click
+        ActualizarFechaLiqRecaudacion()
+    End Sub
+    Private Sub ActualizarFechaLiqRecaudacion()
+        loRecaudacion = New EERecaudacion
+        loRecaudacion.RecId = CInt(Me.TxtRecId.Text)
+        loRecaudacion.RecFecPago = dtpRecfecPago.DateTime
+        loRecaudacion.TgRecaudadorId = cboRecaudador.EditValue
+        loRecaudacion.RecFechaLiquidacion = Me.dtpfechaliq.DateTime
+        If IsDate(Me.dtpfechaliq.EditValue) Then
+            If MantenimientosBL.Instancia.RecaudacionActualizar(loRecaudacion, "01") Then
+                Me.bsiMensaje.Caption = "Se actualizo la fecha de Liquidación Correctamente"
+            End If
+        Else
+            Me.bsiMensaje.Caption = "Debe seleccionar la fecha de liquidación del Deposito en General"
+        End If
+    End Sub
+
+    Private Sub dtpfechaliq_EditValueChanged(sender As System.Object, e As System.EventArgs) Handles dtpfechaliq.EditValueChanged
+        Me.dtpfechaLiqDet.DateTime = Me.dtpfechaliq.DateTime
+    End Sub
+
+End Class

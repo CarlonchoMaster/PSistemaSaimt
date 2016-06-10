@@ -1,0 +1,104 @@
+﻿Imports SaimtControles
+Imports ReglasNegocio
+Imports Entidades
+Public Class frmCambiarEstadoSTD
+    Inherits frmMantenimientos
+    Dim vMovId As String
+    Dim loPersona As EEPersona
+    Dim loInstitucion As EETablaGeneral
+    Dim loArea As EETablaGeneral
+    Dim loCargo As EETablaGeneral
+    Dim dtTablaContacto As DataTable = New DataTable()
+
+    Public Sub New(v_MovId As String)
+        ' Llamada necesaria para el diseñador.
+        InitializeComponent()
+        ' Agregue cualquier inicialización después de la llamada a InitializeComponent().
+        vMovId = v_MovId
+    End Sub
+    Private Sub ConstruirTableContacto()
+        dtTablaContacto.Columns.Add("Descripcion", GetType(String))
+        dtTablaContacto.Columns.Add("Contacto", GetType(String))
+    End Sub
+
+    Sub CargarMovDocumento(movId As String)
+        Dim listaMov As List(Of EEMovimientoSTD)
+        Try
+            listaMov = MantenimientosBL.Instancia.movimientoSTDxCriterio(3, movId)
+            If Not listaMov Is Nothing Then
+                Dim fmovimiento As New EEMovimientoSTD
+                fmovimiento = listaMov(0)
+                txtcodint.EditValue = fmovimiento.DocId
+                txtnroreg.EditValue = fmovimiento.ODocumento.DocNReg
+                txtTipoDoc.EditValue = fmovimiento.ODocumento.TgTDoc
+                txtasunto.EditValue = fmovimiento.ODocumento.DocAsunto
+                txtremitente.EditValue = fmovimiento.ODocumento.perNombre
+                txtcargorem.EditValue = fmovimiento.OJerarquia.CargoOrigen
+                dtpfechaenvio.EditValue = fmovimiento.MovFechaEnv
+                txtaccionadoptar.EditValue = fmovimiento.tgTDestino
+                txtcomentario.EditValue = fmovimiento.MovComentario
+                sCboEstadoSTD.mColumnas(SaimtComboBoxLookUp.Entidades.TablaGeneral)
+                sCboEstadoSTD.Properties.DisplayMember = "TgNombre"
+                sCboEstadoSTD.Properties.ValueMember = "TgCodigo"
+                sCboEstadoSTD.Properties.DataSource = MantenimientosBL.Instancia.tablageneralListar_XClsId_XTgExtra(99, fmovimiento.TgEstadoMovId)
+                Me.Tag = fmovimiento.OJerarquia.CargoDestino
+                rgtupa.EditValue = fmovimiento.ODocumento.DocTupac
+                spfolios.Value = fmovimiento.ODocumento.DocNFolio
+                dtpfecharecep.DateTime = fmovimiento.MovFechaRec
+                dtpfechaing.DateTime = fmovimiento.ODocumento.DocFechaIng
+                txtexpedienteMPT.Text = fmovimiento.ODocumento.DocExpMPT1 & " - " & fmovimiento.ODocumento.DocExpMPTAño1 & " Parte: " & fmovimiento.ODocumento.DocExpMPTParte1 & " //" & fmovimiento.ODocumento.DocExpMPT2 & " - " & fmovimiento.ODocumento.DocExpMPTAño2 & " Parte: " & fmovimiento.ODocumento.DocExpMPTParte2
+                txtcomentariodoc.Text = fmovimiento.ODocumento.DocComentario
+                txtdocreferencia.Text = fmovimiento.ODocumento.DocNRef
+                txtprioridad.Text = fmovimiento.ODocumento.TgPrioridad
+                txtdocaux.Text = fmovimiento.ODocumento.DocAux
+                loPersona = MantenimientosBL.Instancia.personaListarXPerId(fmovimiento.ODocumento.PerId)
+                txtinteresado.Text = loPersona.perNombresoRazon
+                txtdireccion.Text = loPersona.PerDireccion
+                For Each fContacto As EEPersona.EEContacto In loPersona.ListaContacto
+                    dtTablaContacto.LoadDataRow(New Object() {fContacto.ContDescripcion, _
+                         fContacto.OTablaGeneral.TgCodigo
+                       }, True)
+                Next
+                gvDatosAdicionales.BestFitColumns()
+                loInstitucion = MantenimientosBL.Instancia.tablageneralListarXClsId_Opcion_tgCodigo_tgAbrev_tgExtra_pa(82, fmovimiento.ODocumento.DocInt.Substring(0, 4)).Item(0)
+                loArea = MantenimientosBL.Instancia.tablageneralListarXClsId_Opcion_tgCodigo_tgAbrev_tgExtra_pa(83, fmovimiento.ODocumento.DocInt.Substring(4, 3), Nothing, fmovimiento.ODocumento.DocInt.Substring(0, 4)).Item(0)
+                loCargo = MantenimientosBL.Instancia.tablageneralListarXClsId_Opcion_tgCodigo_tgAbrev_tgExtra_pa(84, fmovimiento.ODocumento.DocInt.Substring(7, 2), Nothing, fmovimiento.ODocumento.DocInt.Substring(4, 3) & fmovimiento.ODocumento.DocInt.Substring(0, 4)).Item(0)
+                txtinstitucion.Text = loInstitucion.TgNombre
+                txtarea.Text = loArea.TgNombre
+                txtcargo.Text = loCargo.TgNombre
+            End If
+        Catch ex As Exception
+            SaimtMessageBox.mostrarAlertaError(ex.Message)
+        End Try
+    End Sub
+    Protected Overrides Sub guardar()
+        If sCboEstadoSTD.EditValue IsNot Nothing And vMovId IsNot Nothing Then
+            MantenimientosBL.Instancia.movimientostdActualizarEstadoMov(vMovId, sCboEstadoSTD.EditValue, Trim(txtComentarioFinal.EditValue), Me.Tag, txtcodint.Text.Trim, chkautoproveido.Checked)
+            Me.enabledGA = False
+            MyBase.guardar()
+        End If
+    End Sub
+
+    Private Sub frmCambiarEstadoSTD_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
+        sCboEstadoSTD.Enabled = True
+        sCboEstadoSTD.Properties.ReadOnly = False
+        txtComentarioFinal.Enabled = True
+        txtComentarioFinal.Properties.ReadOnly = False
+        btnGuardar.Enabled = True
+        ConstruirTableContacto()
+        CargarMovDocumento(vMovId)
+        If EEUsuarios.UsuIdOnline = 41 Then
+            chkautoproveido.Enabled = True
+            chkautoproveido.Properties.ReadOnly = False
+            chkautoproveido.Visible = True
+        Else
+            chkautoproveido.Visible = False
+        End If
+    End Sub
+
+    Private Sub btnGuardar_Click(sender As System.Object, e As System.EventArgs) Handles btnGuardar.Click
+
+    End Sub
+
+   
+End Class

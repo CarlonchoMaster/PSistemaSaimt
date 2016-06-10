@@ -1,0 +1,579 @@
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+Partial Class frmCargoTipoAccionSTD
+    Inherits frmMantenimientos
+
+    'Form reemplaza a Dispose para limpiar la lista de componentes.
+    <System.Diagnostics.DebuggerNonUserCode()> _
+    Protected Overrides Sub Dispose(ByVal disposing As Boolean)
+        Try
+            If disposing AndAlso components IsNot Nothing Then
+                components.Dispose()
+            End If
+        Finally
+            MyBase.Dispose(disposing)
+        End Try
+    End Sub
+
+    'Requerido por el Diseñador de Windows Forms
+    Private components As System.ComponentModel.IContainer
+
+    'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
+    'Se puede modificar usando el Diseñador de Windows Forms.  
+    'No lo modifique con el editor de código.
+    <System.Diagnostics.DebuggerStepThrough()> _
+    Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmCargoTipoAccionSTD))
+        Me.cboAreaCriterio = New SaimtControles.SaimtComboBoxLookUp()
+        Me.btnCancelar = New SaimtControles.SaimtButton()
+        Me.btnEliminar = New SaimtControles.SaimtButton()
+        Me.btnLimpiar = New SaimtControles.SaimtButton()
+        Me.btnGuardar = New SaimtControles.SaimtButton()
+        Me.btnEditar = New SaimtControles.SaimtButton()
+        Me.txtInstitucionCriterio = New SaimtControles.SaimtButtonEdit()
+        Me.SaimtLabel8 = New SaimtControles.SaimtLabel()
+        Me.SaimtLabel7 = New SaimtControles.SaimtLabel()
+        Me.SaimtGroupBox2 = New SaimtControles.SaimtGroupBox()
+        Me.lstCargoTipoAccion = New SaimtControles.SaimtListBox()
+        Me.SaimtLabel6 = New SaimtControles.SaimtLabel()
+        Me.SaimtGroupBox1 = New SaimtControles.SaimtGroupBox()
+        Me.txtCargo = New SaimtControles.SaimtTextBox()
+        Me.txtArea = New SaimtControles.SaimtTextBox()
+        Me.spnAño = New SaimtControles.SaimtSpinner()
+        Me.SaimtLabel10 = New SaimtControles.SaimtLabel()
+        Me.spnNroAccionGenerados = New SaimtControles.SaimtSpinner()
+        Me.SaimtLabel5 = New SaimtControles.SaimtLabel()
+        Me.cboTipoAccion = New SaimtControles.SaimtComboBoxLookUp()
+        Me.SaimtLabel4 = New SaimtControles.SaimtLabel()
+        Me.SaimtLabel3 = New SaimtControles.SaimtLabel()
+        Me.SaimtLabel2 = New SaimtControles.SaimtLabel()
+        Me.txtInstitucion = New SaimtControles.SaimtTextBox()
+        Me.SaimtLabel1 = New SaimtControles.SaimtLabel()
+        Me.dgvCargoTipoAccion = New SaimtControles.SaimtDataGrid()
+        Me.gvCargoTipoAccion = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.GridColumn11 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn1 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn2 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn3 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn4 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn5 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn6 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn7 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn8 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn9 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn10 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.btnQuitar = New SaimtControles.SaimtButton()
+        Me.btnAgregar = New SaimtControles.SaimtButton()
+        CType(Me.pmconsultorpropagos, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.cboAreaCriterio.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtInstitucionCriterio.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.SaimtGroupBox2, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SaimtGroupBox2.SuspendLayout()
+        CType(Me.lstCargoTipoAccion, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.SaimtGroupBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SaimtGroupBox1.SuspendLayout()
+        CType(Me.txtCargo.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtArea.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.spnAño.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.spnNroAccionGenerados.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.cboTipoAccion.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtInstitucion.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgvCargoTipoAccion, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.gvCargoTipoAccion, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SuspendLayout()
+        '
+        'rsbMensajeBarra
+        '
+        Me.rsbMensajeBarra.Location = New System.Drawing.Point(0, 562)
+        Me.rsbMensajeBarra.Size = New System.Drawing.Size(862, 27)
+        '
+        'cboAreaCriterio
+        '
+        Me.cboAreaCriterio.Location = New System.Drawing.Point(4, 80)
+        Me.cboAreaCriterio.MenuManager = Me.RibbonControl
+        Me.cboAreaCriterio.Name = "cboAreaCriterio"
+        Me.cboAreaCriterio.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.cboAreaCriterio.Properties.NullText = ""
+        Me.cboAreaCriterio.Size = New System.Drawing.Size(262, 20)
+        Me.cboAreaCriterio.TabIndex = 4
+        '
+        'btnCancelar
+        '
+        Me.btnCancelar.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.btnCancelar.Image = CType(resources.GetObject("btnCancelar.Image"), System.Drawing.Image)
+        Me.btnCancelar.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter
+        Me.btnCancelar.Location = New System.Drawing.Point(528, 485)
+        Me.btnCancelar.LookAndFeel.SkinName = "Seven"
+        Me.btnCancelar.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Style3D
+        Me.btnCancelar.Name = "btnCancelar"
+        Me.btnCancelar.Size = New System.Drawing.Size(64, 64)
+        Me.btnCancelar.TabIndex = 12
+        Me.btnCancelar.Text = "Cancelar"
+        '
+        'btnEliminar
+        '
+        Me.btnEliminar.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.btnEliminar.Image = CType(resources.GetObject("btnEliminar.Image"), System.Drawing.Image)
+        Me.btnEliminar.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter
+        Me.btnEliminar.Location = New System.Drawing.Point(668, 485)
+        Me.btnEliminar.LookAndFeel.SkinName = "Seven"
+        Me.btnEliminar.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Style3D
+        Me.btnEliminar.Name = "btnEliminar"
+        Me.btnEliminar.Size = New System.Drawing.Size(64, 64)
+        Me.btnEliminar.TabIndex = 14
+        Me.btnEliminar.Text = "Eliminar"
+        '
+        'btnLimpiar
+        '
+        Me.btnLimpiar.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.btnLimpiar.Image = CType(resources.GetObject("btnLimpiar.Image"), System.Drawing.Image)
+        Me.btnLimpiar.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter
+        Me.btnLimpiar.Location = New System.Drawing.Point(458, 485)
+        Me.btnLimpiar.LookAndFeel.SkinName = "Seven"
+        Me.btnLimpiar.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Style3D
+        Me.btnLimpiar.Name = "btnLimpiar"
+        Me.btnLimpiar.Size = New System.Drawing.Size(64, 64)
+        Me.btnLimpiar.TabIndex = 11
+        Me.btnLimpiar.Text = "Limpiar"
+        '
+        'btnGuardar
+        '
+        Me.btnGuardar.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.btnGuardar.Image = CType(resources.GetObject("btnGuardar.Image"), System.Drawing.Image)
+        Me.btnGuardar.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter
+        Me.btnGuardar.Location = New System.Drawing.Point(598, 485)
+        Me.btnGuardar.LookAndFeel.SkinName = "Seven"
+        Me.btnGuardar.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Style3D
+        Me.btnGuardar.Name = "btnGuardar"
+        Me.btnGuardar.Size = New System.Drawing.Size(64, 64)
+        Me.btnGuardar.TabIndex = 13
+        Me.btnGuardar.Text = "Guardar"
+        '
+        'btnEditar
+        '
+        Me.btnEditar.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.btnEditar.Image = CType(resources.GetObject("btnEditar.Image"), System.Drawing.Image)
+        Me.btnEditar.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter
+        Me.btnEditar.Location = New System.Drawing.Point(388, 485)
+        Me.btnEditar.LookAndFeel.SkinName = "Seven"
+        Me.btnEditar.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Style3D
+        Me.btnEditar.Name = "btnEditar"
+        Me.btnEditar.Size = New System.Drawing.Size(64, 64)
+        Me.btnEditar.TabIndex = 10
+        Me.btnEditar.Text = "Editar"
+        '
+        'txtInstitucionCriterio
+        '
+        Me.txtInstitucionCriterio.Location = New System.Drawing.Point(4, 41)
+        Me.txtInstitucionCriterio.MenuManager = Me.RibbonControl
+        Me.txtInstitucionCriterio.Name = "txtInstitucionCriterio"
+        Me.txtInstitucionCriterio.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton()})
+        Me.txtInstitucionCriterio.Size = New System.Drawing.Size(262, 20)
+        Me.txtInstitucionCriterio.TabIndex = 2
+        '
+        'SaimtLabel8
+        '
+        Me.SaimtLabel8.Location = New System.Drawing.Point(7, 64)
+        Me.SaimtLabel8.Name = "SaimtLabel8"
+        Me.SaimtLabel8.Size = New System.Drawing.Size(23, 13)
+        Me.SaimtLabel8.TabIndex = 3
+        Me.SaimtLabel8.Text = "Área"
+        '
+        'SaimtLabel7
+        '
+        Me.SaimtLabel7.Location = New System.Drawing.Point(7, 26)
+        Me.SaimtLabel7.Name = "SaimtLabel7"
+        Me.SaimtLabel7.Size = New System.Drawing.Size(50, 13)
+        Me.SaimtLabel7.TabIndex = 1
+        Me.SaimtLabel7.Text = "Institución"
+        '
+        'SaimtGroupBox2
+        '
+        Me.SaimtGroupBox2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.SaimtGroupBox2.Controls.Add(Me.lstCargoTipoAccion)
+        Me.SaimtGroupBox2.Location = New System.Drawing.Point(4, 106)
+        Me.SaimtGroupBox2.LookAndFeel.SkinName = "Office 2010 Blue"
+        Me.SaimtGroupBox2.LookAndFeel.UseDefaultLookAndFeel = False
+        Me.SaimtGroupBox2.Name = "SaimtGroupBox2"
+        Me.SaimtGroupBox2.Size = New System.Drawing.Size(264, 449)
+        Me.SaimtGroupBox2.TabIndex = 6
+        Me.SaimtGroupBox2.Text = "Resultados de Busqueda"
+        '
+        'lstCargoTipoAccion
+        '
+        Me.lstCargoTipoAccion.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.lstCargoTipoAccion.HorizontalScrollbar = True
+        Me.lstCargoTipoAccion.Location = New System.Drawing.Point(2, 22)
+        Me.lstCargoTipoAccion.Name = "lstCargoTipoAccion"
+        Me.lstCargoTipoAccion.Size = New System.Drawing.Size(260, 425)
+        Me.lstCargoTipoAccion.TabIndex = 0
+        '
+        'SaimtLabel6
+        '
+        Me.SaimtLabel6.Location = New System.Drawing.Point(6, 5)
+        Me.SaimtLabel6.Name = "SaimtLabel6"
+        Me.SaimtLabel6.Size = New System.Drawing.Size(58, 13)
+        Me.SaimtLabel6.TabIndex = 0
+        Me.SaimtLabel6.Text = "Buscar por :"
+        '
+        'SaimtGroupBox1
+        '
+        Me.SaimtGroupBox1.Controls.Add(Me.txtCargo)
+        Me.SaimtGroupBox1.Controls.Add(Me.txtArea)
+        Me.SaimtGroupBox1.Controls.Add(Me.spnAño)
+        Me.SaimtGroupBox1.Controls.Add(Me.SaimtLabel10)
+        Me.SaimtGroupBox1.Controls.Add(Me.spnNroAccionGenerados)
+        Me.SaimtGroupBox1.Controls.Add(Me.SaimtLabel5)
+        Me.SaimtGroupBox1.Controls.Add(Me.cboTipoAccion)
+        Me.SaimtGroupBox1.Controls.Add(Me.SaimtLabel4)
+        Me.SaimtGroupBox1.Controls.Add(Me.SaimtLabel3)
+        Me.SaimtGroupBox1.Controls.Add(Me.SaimtLabel2)
+        Me.SaimtGroupBox1.Controls.Add(Me.txtInstitucion)
+        Me.SaimtGroupBox1.Controls.Add(Me.SaimtLabel1)
+        Me.SaimtGroupBox1.Location = New System.Drawing.Point(277, 9)
+        Me.SaimtGroupBox1.LookAndFeel.SkinName = "Office 2010 Blue"
+        Me.SaimtGroupBox1.LookAndFeel.UseDefaultLookAndFeel = False
+        Me.SaimtGroupBox1.Name = "SaimtGroupBox1"
+        Me.SaimtGroupBox1.Size = New System.Drawing.Size(579, 143)
+        Me.SaimtGroupBox1.TabIndex = 5
+        Me.SaimtGroupBox1.Text = "Asignacion de Tipo Documentos por Cargos"
+        '
+        'txtCargo
+        '
+        Me.txtCargo.Location = New System.Drawing.Point(66, 81)
+        Me.txtCargo.MenuManager = Me.RibbonControl
+        Me.txtCargo.Name = "txtCargo"
+        Me.txtCargo.Size = New System.Drawing.Size(499, 20)
+        Me.txtCargo.TabIndex = 5
+        '
+        'txtArea
+        '
+        Me.txtArea.Location = New System.Drawing.Point(66, 55)
+        Me.txtArea.MenuManager = Me.RibbonControl
+        Me.txtArea.Name = "txtArea"
+        Me.txtArea.Size = New System.Drawing.Size(499, 20)
+        Me.txtArea.TabIndex = 3
+        '
+        'spnAño
+        '
+        Me.spnAño.EditValue = New Decimal(New Integer() {2000, 0, 0, 0})
+        Me.spnAño.Location = New System.Drawing.Point(495, 111)
+        Me.spnAño.MenuManager = Me.RibbonControl
+        Me.spnAño.Name = "spnAño"
+        Me.spnAño.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton()})
+        Me.spnAño.Properties.Mask.EditMask = "f0"
+        Me.spnAño.Properties.MaxValue = New Decimal(New Integer() {2100, 0, 0, 0})
+        Me.spnAño.Properties.MinValue = New Decimal(New Integer() {2000, 0, 0, 0})
+        Me.spnAño.Size = New System.Drawing.Size(70, 20)
+        Me.spnAño.TabIndex = 11
+        '
+        'SaimtLabel10
+        '
+        Me.SaimtLabel10.Location = New System.Drawing.Point(470, 114)
+        Me.SaimtLabel10.Name = "SaimtLabel10"
+        Me.SaimtLabel10.Size = New System.Drawing.Size(19, 13)
+        Me.SaimtLabel10.TabIndex = 10
+        Me.SaimtLabel10.Text = "Año"
+        '
+        'spnNroAccionGenerados
+        '
+        Me.spnNroAccionGenerados.EditValue = New Decimal(New Integer() {0, 0, 0, 0})
+        Me.spnNroAccionGenerados.Location = New System.Drawing.Point(377, 111)
+        Me.spnNroAccionGenerados.MenuManager = Me.RibbonControl
+        Me.spnNroAccionGenerados.Name = "spnNroAccionGenerados"
+        Me.spnNroAccionGenerados.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton()})
+        Me.spnNroAccionGenerados.Properties.Mask.EditMask = "f0"
+        Me.spnNroAccionGenerados.Size = New System.Drawing.Size(87, 20)
+        Me.spnNroAccionGenerados.TabIndex = 9
+        '
+        'SaimtLabel5
+        '
+        Me.SaimtLabel5.Location = New System.Drawing.Point(250, 114)
+        Me.SaimtLabel5.Name = "SaimtLabel5"
+        Me.SaimtLabel5.Size = New System.Drawing.Size(121, 13)
+        Me.SaimtLabel5.TabIndex = 8
+        Me.SaimtLabel5.Text = "Nro. Acciones Generados"
+        '
+        'cboTipoAccion
+        '
+        Me.cboTipoAccion.Location = New System.Drawing.Point(66, 111)
+        Me.cboTipoAccion.MenuManager = Me.RibbonControl
+        Me.cboTipoAccion.Name = "cboTipoAccion"
+        Me.cboTipoAccion.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.cboTipoAccion.Properties.NullText = ""
+        Me.cboTipoAccion.Size = New System.Drawing.Size(178, 20)
+        Me.cboTipoAccion.TabIndex = 7
+        '
+        'SaimtLabel4
+        '
+        Me.SaimtLabel4.Location = New System.Drawing.Point(8, 114)
+        Me.SaimtLabel4.Name = "SaimtLabel4"
+        Me.SaimtLabel4.Size = New System.Drawing.Size(54, 13)
+        Me.SaimtLabel4.TabIndex = 6
+        Me.SaimtLabel4.Text = "Tipo Acción"
+        '
+        'SaimtLabel3
+        '
+        Me.SaimtLabel3.Location = New System.Drawing.Point(31, 86)
+        Me.SaimtLabel3.Name = "SaimtLabel3"
+        Me.SaimtLabel3.Size = New System.Drawing.Size(29, 13)
+        Me.SaimtLabel3.TabIndex = 4
+        Me.SaimtLabel3.Text = "Cargo"
+        '
+        'SaimtLabel2
+        '
+        Me.SaimtLabel2.Location = New System.Drawing.Point(37, 58)
+        Me.SaimtLabel2.Name = "SaimtLabel2"
+        Me.SaimtLabel2.Size = New System.Drawing.Size(23, 13)
+        Me.SaimtLabel2.TabIndex = 2
+        Me.SaimtLabel2.Text = "Área"
+        '
+        'txtInstitucion
+        '
+        Me.txtInstitucion.Location = New System.Drawing.Point(66, 28)
+        Me.txtInstitucion.MenuManager = Me.RibbonControl
+        Me.txtInstitucion.Name = "txtInstitucion"
+        Me.txtInstitucion.Size = New System.Drawing.Size(499, 20)
+        Me.txtInstitucion.TabIndex = 1
+        '
+        'SaimtLabel1
+        '
+        Me.SaimtLabel1.Location = New System.Drawing.Point(10, 31)
+        Me.SaimtLabel1.Name = "SaimtLabel1"
+        Me.SaimtLabel1.Size = New System.Drawing.Size(50, 13)
+        Me.SaimtLabel1.TabIndex = 0
+        Me.SaimtLabel1.Text = "Institución"
+        '
+        'dgvCargoTipoAccion
+        '
+        Me.dgvCargoTipoAccion.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.dgvCargoTipoAccion.Location = New System.Drawing.Point(277, 179)
+        Me.dgvCargoTipoAccion.MainView = Me.gvCargoTipoAccion
+        Me.dgvCargoTipoAccion.MenuManager = Me.RibbonControl
+        Me.dgvCargoTipoAccion.Name = "dgvCargoTipoAccion"
+        Me.dgvCargoTipoAccion.Size = New System.Drawing.Size(579, 300)
+        Me.dgvCargoTipoAccion.TabIndex = 9
+        Me.dgvCargoTipoAccion.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.gvCargoTipoAccion})
+        '
+        'gvCargoTipoAccion
+        '
+        Me.gvCargoTipoAccion.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.GridColumn11, Me.GridColumn1, Me.GridColumn2, Me.GridColumn3, Me.GridColumn4, Me.GridColumn5, Me.GridColumn6, Me.GridColumn7, Me.GridColumn8, Me.GridColumn9, Me.GridColumn10})
+        Me.gvCargoTipoAccion.GridControl = Me.dgvCargoTipoAccion
+        Me.gvCargoTipoAccion.Name = "gvCargoTipoAccion"
+        Me.gvCargoTipoAccion.OptionsView.ColumnAutoWidth = False
+        Me.gvCargoTipoAccion.OptionsView.ShowGroupPanel = False
+        '
+        'GridColumn11
+        '
+        Me.GridColumn11.Caption = "Id"
+        Me.GridColumn11.FieldName = "id"
+        Me.GridColumn11.Name = "GridColumn11"
+        '
+        'GridColumn1
+        '
+        Me.GridColumn1.Caption = "Cod. Institución"
+        Me.GridColumn1.FieldName = "codInstitucion"
+        Me.GridColumn1.Name = "GridColumn1"
+        '
+        'GridColumn2
+        '
+        Me.GridColumn2.Caption = "Institución"
+        Me.GridColumn2.FieldName = "institucion"
+        Me.GridColumn2.Name = "GridColumn2"
+        Me.GridColumn2.Visible = True
+        Me.GridColumn2.VisibleIndex = 0
+        '
+        'GridColumn3
+        '
+        Me.GridColumn3.Caption = "Cod. Área"
+        Me.GridColumn3.FieldName = "codArea"
+        Me.GridColumn3.Name = "GridColumn3"
+        '
+        'GridColumn4
+        '
+        Me.GridColumn4.Caption = "Área"
+        Me.GridColumn4.FieldName = "area"
+        Me.GridColumn4.Name = "GridColumn4"
+        Me.GridColumn4.Visible = True
+        Me.GridColumn4.VisibleIndex = 1
+        '
+        'GridColumn5
+        '
+        Me.GridColumn5.Caption = "Cod. Cargo"
+        Me.GridColumn5.FieldName = "codCargo"
+        Me.GridColumn5.Name = "GridColumn5"
+        '
+        'GridColumn6
+        '
+        Me.GridColumn6.Caption = "Cargo"
+        Me.GridColumn6.FieldName = "cargo"
+        Me.GridColumn6.Name = "GridColumn6"
+        Me.GridColumn6.Visible = True
+        Me.GridColumn6.VisibleIndex = 2
+        '
+        'GridColumn7
+        '
+        Me.GridColumn7.Caption = "Cod. Tipo Accion"
+        Me.GridColumn7.FieldName = "codTipoAccion"
+        Me.GridColumn7.Name = "GridColumn7"
+        '
+        'GridColumn8
+        '
+        Me.GridColumn8.Caption = "Tipo Acción"
+        Me.GridColumn8.FieldName = "tipoAccion"
+        Me.GridColumn8.Name = "GridColumn8"
+        Me.GridColumn8.Visible = True
+        Me.GridColumn8.VisibleIndex = 3
+        '
+        'GridColumn9
+        '
+        Me.GridColumn9.Caption = "Nro. Accion Generados"
+        Me.GridColumn9.FieldName = "nroAccionesGenerados"
+        Me.GridColumn9.Name = "GridColumn9"
+        Me.GridColumn9.Visible = True
+        Me.GridColumn9.VisibleIndex = 4
+        '
+        'GridColumn10
+        '
+        Me.GridColumn10.Caption = "Año"
+        Me.GridColumn10.FieldName = "año"
+        Me.GridColumn10.Name = "GridColumn10"
+        Me.GridColumn10.Visible = True
+        Me.GridColumn10.VisibleIndex = 5
+        '
+        'btnQuitar
+        '
+        Me.btnQuitar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnQuitar.Image = Global.Presentacion.My.Resources.Resources.remover
+        Me.btnQuitar.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter
+        Me.btnQuitar.Location = New System.Drawing.Point(831, 157)
+        Me.btnQuitar.LookAndFeel.SkinName = "Seven"
+        Me.btnQuitar.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Style3D
+        Me.btnQuitar.Name = "btnQuitar"
+        Me.btnQuitar.Size = New System.Drawing.Size(25, 18)
+        Me.btnQuitar.TabIndex = 8
+        '
+        'btnAgregar
+        '
+        Me.btnAgregar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnAgregar.Image = Global.Presentacion.My.Resources.Resources.addc
+        Me.btnAgregar.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter
+        Me.btnAgregar.Location = New System.Drawing.Point(800, 157)
+        Me.btnAgregar.LookAndFeel.SkinName = "Seven"
+        Me.btnAgregar.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Style3D
+        Me.btnAgregar.Name = "btnAgregar"
+        Me.btnAgregar.Size = New System.Drawing.Size(25, 18)
+        Me.btnAgregar.TabIndex = 7
+        '
+        'frmCargoTipoAccionSTD
+        '
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.ButtonCancelar = Me.btnCancelar
+        Me.ButtonEditar = Me.btnEditar
+        Me.ButtonEliminar = Me.btnEliminar
+        Me.ButtonGuardar = Me.btnGuardar
+        Me.ButtonLimpiar = Me.btnLimpiar
+        Me.ClientSize = New System.Drawing.Size(862, 589)
+        Me.Controls.Add(Me.cboAreaCriterio)
+        Me.Controls.Add(Me.btnCancelar)
+        Me.Controls.Add(Me.btnEliminar)
+        Me.Controls.Add(Me.btnLimpiar)
+        Me.Controls.Add(Me.btnGuardar)
+        Me.Controls.Add(Me.btnEditar)
+        Me.Controls.Add(Me.txtInstitucionCriterio)
+        Me.Controls.Add(Me.SaimtLabel8)
+        Me.Controls.Add(Me.SaimtLabel7)
+        Me.Controls.Add(Me.SaimtGroupBox2)
+        Me.Controls.Add(Me.SaimtLabel6)
+        Me.Controls.Add(Me.SaimtGroupBox1)
+        Me.Controls.Add(Me.dgvCargoTipoAccion)
+        Me.Controls.Add(Me.btnQuitar)
+        Me.Controls.Add(Me.btnAgregar)
+        Me.LookAndFeel.SkinName = "Seven"
+        Me.lstListado = Me.lstCargoTipoAccion
+        Me.Name = "frmCargoTipoAccionSTD"
+        Me.PuedeBuscar = True
+        Me.PuedeEditar = True
+        Me.PuedeImprimir = True
+        Me.Tag = "btiCargoTipoAccion"
+        Me.Text = "CARGO TIPO ACCION STD"
+        Me.Controls.SetChildIndex(Me.rsbMensajeBarra, 0)
+        Me.Controls.SetChildIndex(Me.btnAgregar, 0)
+        Me.Controls.SetChildIndex(Me.btnQuitar, 0)
+        Me.Controls.SetChildIndex(Me.dgvCargoTipoAccion, 0)
+        Me.Controls.SetChildIndex(Me.SaimtGroupBox1, 0)
+        Me.Controls.SetChildIndex(Me.SaimtLabel6, 0)
+        Me.Controls.SetChildIndex(Me.SaimtGroupBox2, 0)
+        Me.Controls.SetChildIndex(Me.SaimtLabel7, 0)
+        Me.Controls.SetChildIndex(Me.SaimtLabel8, 0)
+        Me.Controls.SetChildIndex(Me.txtInstitucionCriterio, 0)
+        Me.Controls.SetChildIndex(Me.btnEditar, 0)
+        Me.Controls.SetChildIndex(Me.btnGuardar, 0)
+        Me.Controls.SetChildIndex(Me.btnLimpiar, 0)
+        Me.Controls.SetChildIndex(Me.btnEliminar, 0)
+        Me.Controls.SetChildIndex(Me.btnCancelar, 0)
+        Me.Controls.SetChildIndex(Me.cboAreaCriterio, 0)
+        CType(Me.pmconsultorpropagos, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.cboAreaCriterio.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtInstitucionCriterio.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.SaimtGroupBox2, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.SaimtGroupBox2.ResumeLayout(False)
+        CType(Me.lstCargoTipoAccion, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.SaimtGroupBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.SaimtGroupBox1.ResumeLayout(False)
+        Me.SaimtGroupBox1.PerformLayout()
+        CType(Me.txtCargo.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtArea.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.spnAño.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.spnNroAccionGenerados.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.cboTipoAccion.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtInstitucion.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgvCargoTipoAccion, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.gvCargoTipoAccion, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ResumeLayout(False)
+        Me.PerformLayout()
+
+    End Sub
+    Friend WithEvents cboAreaCriterio As SaimtControles.SaimtComboBoxLookUp
+    Friend WithEvents btnCancelar As SaimtControles.SaimtButton
+    Friend WithEvents btnEliminar As SaimtControles.SaimtButton
+    Friend WithEvents btnLimpiar As SaimtControles.SaimtButton
+    Friend WithEvents btnGuardar As SaimtControles.SaimtButton
+    Friend WithEvents btnEditar As SaimtControles.SaimtButton
+    Friend WithEvents txtInstitucionCriterio As SaimtControles.SaimtButtonEdit
+    Friend WithEvents SaimtLabel8 As SaimtControles.SaimtLabel
+    Friend WithEvents SaimtLabel7 As SaimtControles.SaimtLabel
+    Friend WithEvents SaimtGroupBox2 As SaimtControles.SaimtGroupBox
+    Friend WithEvents lstCargoTipoAccion As SaimtControles.SaimtListBox
+    Friend WithEvents SaimtLabel6 As SaimtControles.SaimtLabel
+    Friend WithEvents SaimtGroupBox1 As SaimtControles.SaimtGroupBox
+    Friend WithEvents spnAño As SaimtControles.SaimtSpinner
+    Friend WithEvents SaimtLabel10 As SaimtControles.SaimtLabel
+    Friend WithEvents spnNroAccionGenerados As SaimtControles.SaimtSpinner
+    Friend WithEvents SaimtLabel5 As SaimtControles.SaimtLabel
+    Friend WithEvents cboTipoAccion As SaimtControles.SaimtComboBoxLookUp
+    Friend WithEvents SaimtLabel4 As SaimtControles.SaimtLabel
+    Friend WithEvents SaimtLabel3 As SaimtControles.SaimtLabel
+    Friend WithEvents SaimtLabel2 As SaimtControles.SaimtLabel
+    Friend WithEvents txtInstitucion As SaimtControles.SaimtTextBox
+    Friend WithEvents SaimtLabel1 As SaimtControles.SaimtLabel
+    Friend WithEvents dgvCargoTipoAccion As SaimtControles.SaimtDataGrid
+    Friend WithEvents gvCargoTipoAccion As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents GridColumn11 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn1 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn2 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn3 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn4 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn5 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn6 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn7 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn8 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn9 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn10 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents btnQuitar As SaimtControles.SaimtButton
+    Friend WithEvents btnAgregar As SaimtControles.SaimtButton
+    Friend WithEvents txtCargo As SaimtControles.SaimtTextBox
+    Friend WithEvents txtArea As SaimtControles.SaimtTextBox
+End Class

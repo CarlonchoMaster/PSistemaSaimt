@@ -1,0 +1,6 @@
+﻿Public Class frmExpediente 
+
+    Private Sub TreeList1_FocusedNodeChanged(sender As System.Object, e As DevExpress.XtraTreeList.FocusedNodeChangedEventArgs) Handles TreeList1.FocusedNodeChanged
+
+    End Sub
+End Class

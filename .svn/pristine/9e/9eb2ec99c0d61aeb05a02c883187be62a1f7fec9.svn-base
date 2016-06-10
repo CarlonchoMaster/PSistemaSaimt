@@ -1,0 +1,460 @@
+﻿Imports Entidades
+Imports ReglasNegocio
+Imports SaimtControles
+Imports System.IO
+Public Class frmRegistroDocInternos
+    Inherits frmMantenimientos
+    Dim dt_documentoInt As DataTable = New DataTable()
+
+    Private Sub ConstruirTableDocumentoInterno()
+        dt_documentoInt.Columns.Add("docId", GetType(String))
+        dt_documentoInt.Columns.Add("tgMovDocId", GetType(String))
+        dt_documentoInt.Columns.Add("tgMovDoc", GetType(String))
+        dt_documentoInt.Columns.Add("tgMedDocId", GetType(String))
+        dt_documentoInt.Columns.Add("tgMedDoc", GetType(String))
+        dt_documentoInt.Columns.Add("tgTipoDocId", GetType(String))
+        dt_documentoInt.Columns.Add("tgTipoDoc", GetType(String))
+        dt_documentoInt.Columns.Add("docNro", GetType(String))
+        dt_documentoInt.Columns.Add("docNroRef", GetType(String))
+        dt_documentoInt.Columns.Add("docPerDe", GetType(String))
+        dt_documentoInt.Columns.Add("docPerPara", GetType(String))
+        dt_documentoInt.Columns.Add("perDeId", GetType(String))
+        dt_documentoInt.Columns.Add("perDe", GetType(String))
+        dt_documentoInt.Columns.Add("perParaId", GetType(String))
+        dt_documentoInt.Columns.Add("perPara", GetType(String))
+        dt_documentoInt.Columns.Add("docFechaDoc", GetType(Date))
+        dt_documentoInt.Columns.Add("docFechaRecEmi", GetType(Date))
+        dt_documentoInt.Columns.Add("docFechaReg", GetType(String))
+        dt_documentoInt.Columns.Add("tgEstadoDocId", GetType(String))
+        dt_documentoInt.Columns.Add("tgEstadoDoc", GetType(String))
+        dt_documentoInt.Columns.Add("docNroProv", GetType(String))
+        dt_documentoInt.Columns.Add("docNroRegProv", GetType(String))
+        dt_documentoInt.Columns.Add("docAsunto", GetType(String))
+        dt_documentoInt.Columns.Add("docResumen", GetType(String))
+        dt_documentoInt.Columns.Add("tgMensajeProvId", GetType(String))
+        dt_documentoInt.Columns.Add("tgPrioridadId", GetType(String))
+        dt_documentoInt.Columns.Add("tgPrioridad", GetType(String))
+        dt_documentoInt.Columns.Add("docNroFolio", GetType(String))
+
+    End Sub
+
+
+#Region "Funciones Sobrescritas"
+
+    Protected Overrides Sub guardar()
+        Try
+            '
+            If String.IsNullOrEmpty(cboMovDoc.EditValue) Then
+                cboMovDoc.Focus()
+                SaimtMessageBox.mostrarAlertaAdvertencia("Seleccione el Movimiento del Documento")
+                Return
+            End If
+
+            If String.IsNullOrEmpty(cboMedioEnvRec.EditValue) Then
+                cboMedioEnvRec.Focus()
+                SaimtMessageBox.mostrarAlertaAdvertencia("Seleccione el Medio de Envio del Documento")
+                Return
+            End If
+
+            If String.IsNullOrEmpty(cboTipoDoc.EditValue) Then
+                cboTipoDoc.Focus()
+                SaimtMessageBox.mostrarAlertaAdvertencia("Seleccione el Tipo Documento")
+                Return
+            End If
+
+            If String.IsNullOrEmpty(txtNroEncDoc.EditValue) Then
+                txtNroEncDoc.Focus()
+                SaimtMessageBox.mostrarAlertaAdvertencia("Ingrese el Nro de Encabezado")
+                Return
+            End If
+
+            If String.IsNullOrEmpty(txtNroEncDoc.EditValue) Then
+                txtNroEncDoc.Focus()
+                SaimtMessageBox.mostrarAlertaAdvertencia("Ingrese el Nro de Encabezado")
+                Return
+            Else
+                Dim lodocInt As List(Of EEDocInternoSTD)
+                lodocInt = MantenimientosBL.Instancia.docinternostdListarCriterio(0, txtNroEncDoc.EditValue)
+                If lodocInt IsNot Nothing Then
+                    txtNroEncDoc.Focus()
+                    If GEstadoNuevo = True Then
+                        SaimtMessageBox.mostrarAlertaAdvertencia("Nro de Encabezado ya se encuentra Ingresado")
+                        Return
+                    ElseIf txtNroEncDoc.EditValue <> txtNroEncDoc.Tag Then
+                        SaimtMessageBox.mostrarAlertaAdvertencia("Nro de Encabezado ya se encuentra Ingresado")
+                        Return
+                    End If
+                End If
+            End If
+
+            If String.IsNullOrEmpty(txtPersonaDE.Tag) Then
+                txtPersonaDE.Focus()
+                SaimtMessageBox.mostrarAlertaAdvertencia("Seleccione la Persona DE")
+                Return
+            End If
+
+            If String.IsNullOrEmpty(txtAreaDE.Tag) Then
+                txtAreaDE.Focus()
+                SaimtMessageBox.mostrarAlertaAdvertencia("Seleccione una Persona que pertenesca a un Area de la Institución")
+                Return
+            End If
+
+
+            If String.IsNullOrEmpty(txtPersonaPARA.Tag) Then
+                txtPersonaPARA.Focus()
+                SaimtMessageBox.mostrarAlertaAdvertencia("Seleccione la Persona Para")
+                Return
+            End If
+
+            If String.IsNullOrEmpty(txtAreaPARA.Tag) Then
+                txtAreaPARA.Focus()
+                SaimtMessageBox.mostrarAlertaAdvertencia("Seleccione una Persona que pertenesca a un Area de la Institución")
+                Return
+            End If
+
+            If String.IsNullOrEmpty(txtAsunto.EditValue) Then
+                txtAsunto.Focus()
+                SaimtMessageBox.mostrarAlertaAdvertencia("Ingrese el Asunto del Documento")
+                Return
+            End If
+
+            If String.IsNullOrEmpty(dtpFechaDoc.EditValue) Then
+                dtpFechaDoc.Focus()
+                SaimtMessageBox.mostrarAlertaAdvertencia("Ingrese la fecha del documento")
+                Return
+            End If
+
+            If String.IsNullOrEmpty(dtpFecRecEmi.EditValue) Then
+                dtpFecRecEmi.Focus()
+                SaimtMessageBox.mostrarAlertaAdvertencia("Ingrese la fecha de Emisión o recepción del documento")
+                Return
+            End If
+            If String.IsNullOrEmpty(cboEstadoDoc.EditValue) Then
+                cboEstadoDoc.Focus()
+                SaimtMessageBox.mostrarAlertaAdvertencia("Seleccione el estado del documento")
+                Return
+            End If
+
+            If String.IsNullOrEmpty(cboPrioridad.EditValue) Then
+                cboPrioridad.Focus()
+                SaimtMessageBox.mostrarAlertaAdvertencia("Seleccione la prioridad del documento")
+                Return
+            End If
+
+
+            Dim loDocumentoInt As EEDocInternoSTD = New EEDocInternoSTD() With {.DocAsunto = txtAsunto.EditValue, .DocFechaDoc = dtpFechaDoc.EditValue, .DocFechaRecEmi = dtpFecRecEmi.EditValue, .DocId = txtCodInterno.EditValue, .DocNro = txtNroEncDoc.EditValue, .DocNroProv = txtProveidoNro.EditValue, .DocNroRef = txtRefDoc.EditValue, .DocNroRegProv = txtRegistroProveido.EditValue, .DocPerDe = txtAreaDE.Tag, .DocPerPara = txtAreaPARA.Tag, .DocResumen = txtResumen.EditValue, .PerDeId = txtPersonaDE.Tag, .PerParaId = txtPersonaPARA.Tag, .TgEstadoDocId = cboEstadoDoc.EditValue, .TgMedDocId = cboMedioEnvRec.EditValue, .TgMensajeProvId = cboMensajeProveido.cboUpdate.EditValue, .TgPrioridadId = cboPrioridad.EditValue, .TgMovDocId = cboMovDoc.EditValue, .TgTipoDocId = cboTipoDoc.EditValue, .PerRegId = EEComun._PerId, .DocPerReg = "", .docNroFolio = ssNroFolio.EditValue}
+
+            If GEstadoNuevo Then
+                MantenimientosBL.Instancia.docinternostdGuardar(loDocumentoInt)
+            Else
+                MantenimientosBL.Instancia.docinternostdActualizar(loDocumentoInt)
+            End If
+            Me.enabledGA = False
+            MyBase.guardar()
+            listar()
+        Catch ex As Exception
+            SaimtMessageBox.mostrarAlertaError(ex.Message)
+        End Try
+    End Sub
+
+    Protected Overrides Sub listar()
+
+    End Sub
+
+    Protected Overrides Sub Buscar()
+        Try
+
+
+            GCriterioBuscado = cbCriterios.SelectedIndex
+            Select Case GCriterioBuscado
+                Case 0, 1, 2, 3, 4, 5, 6, 7, 8
+                    GValorTextoBuscado = txtBuscarPor.Text
+                Case 9, 10, 11, 12
+                    GValorTextoBuscado = cboBuscasPor.EditValue
+
+            End Select
+
+            Dim loDocumentoInt As List(Of EEDocInternoSTD)
+            loDocumentoInt = MantenimientosBL.Instancia.docinternostdListarCriterio(cbCriterios.SelectedIndex, GValorTextoBuscado)
+            dt_documentoInt.Clear()
+
+            If loDocumentoInt IsNot Nothing Then
+                For Each frow As EEDocInternoSTD In loDocumentoInt
+
+                    dt_documentoInt.LoadDataRow(New Object() {frow.DocId, _
+                                                              frow.TgMovDocId, _
+                                                              frow.TgMovDoc, _
+                                                              frow.TgMedDocId, _
+                                                              frow.TgMedDoc, _
+                                                              frow.TgTipoDocId, _
+                                                              frow.TgTipoDoc, _
+                                                              frow.DocNro, _
+                                                              frow.DocNroRef, _
+                                                              frow.DocPerDe, _
+                                                              frow.DocPerPara, _
+                                                              frow.PerDeId, _
+                                                              frow.PerDe, _
+                                                              frow.PerParaId, _
+                                                              frow.PerPara, _
+                                                              frow.DocFechaDoc, _
+                                                              frow.DocFechaRecEmi, _
+                                                              frow.DocFechaReg, _
+                                                              frow.TgEstadoDocId, _
+                                                              frow.TgEstadoDoc, _
+                                                              frow.DocNroProv, _
+                                                              frow.DocNroRegProv, _
+                                                              frow.DocAsunto, _
+                                                              frow.DocResumen, _
+                                                              frow.TgMensajeProvId, _
+                                                              frow.TgPrioridadId, _
+                                                              frow.TgPrioridad,
+                                                              frow.docNroFolio}, True)
+
+                Next
+                gvResultadoBusqueda.BestFitColumns()
+                gvResultadoBusqueda.SelectRow(0)
+                dgvListado_Click(Nothing, Nothing)
+            End If
+
+        Catch ex As Exception
+            SaimtMessageBox.mostrarAlertaError(ex.Message)
+        End Try
+
+
+    End Sub
+
+    Protected Overrides Sub seleccionarListado()
+        Try
+            If Me.gvResultadoBusqueda.DataRowCount <> 0 Then
+                GIndiceSeleccionado = gvResultadoBusqueda.GetSelectedRows(0)
+                txtCodInterno.EditValue = gvResultadoBusqueda.GetRowCellValue(gvResultadoBusqueda.GetSelectedRows(0), "docId").ToString()
+                cboMovDoc.EditValue = gvResultadoBusqueda.GetRowCellValue(gvResultadoBusqueda.GetSelectedRows(0), "tgMovDocId").ToString()
+                cboMedioEnvRec.EditValue = gvResultadoBusqueda.GetRowCellValue(gvResultadoBusqueda.GetSelectedRows(0), "tgMedDocId").ToString()
+                cboTipoDoc.EditValue = gvResultadoBusqueda.GetRowCellValue(gvResultadoBusqueda.GetSelectedRows(0), "tgTipoDocId").ToString()
+                txtNroEncDoc.EditValue = gvResultadoBusqueda.GetRowCellValue(gvResultadoBusqueda.GetSelectedRows(0), "docNro").ToString()
+                txtNroEncDoc.Tag = gvResultadoBusqueda.GetRowCellValue(gvResultadoBusqueda.GetSelectedRows(0), "docNro").ToString()
+                txtRefDoc.EditValue = gvResultadoBusqueda.GetRowCellValue(gvResultadoBusqueda.GetSelectedRows(0), "docNroRef").ToString()
+                txtPersonaDE.EditValue = gvResultadoBusqueda.GetRowCellValue(gvResultadoBusqueda.GetSelectedRows(0), "perDe").ToString()
+                txtPersonaPARA.EditValue = gvResultadoBusqueda.GetRowCellValue(gvResultadoBusqueda.GetSelectedRows(0), "perPara").ToString()
+                txtPersonaDE.Tag = gvResultadoBusqueda.GetRowCellValue(gvResultadoBusqueda.GetSelectedRows(0), "perDeId").ToString()
+                txtPersonaPARA.Tag = gvResultadoBusqueda.GetRowCellValue(gvResultadoBusqueda.GetSelectedRows(0), "perParaId").ToString()
+                Dim loCargoPersonalDe As List(Of EECargoPersonal) = MantenimientosBL.Instancia.CargoListarXPerId_pa(txtPersonaDE.Tag)
+                If loCargoPersonalDe IsNot Nothing Then
+                    txtAreaDE.Tag = loCargoPersonalDe(0).CodInstitucion & loCargoPersonalDe(0).CodArea & loCargoPersonalDe(0).CodCargo
+                    txtCargoDE.EditValue = loCargoPersonalDe(0).Cargo
+                    txtAreaDE.EditValue = loCargoPersonalDe(0).Area
+                End If
+
+                Dim loPersonaDe As List(Of EEPersona) = MantenimientosBL.Instancia.personaListarCriterio(5, txtPersonaDE.Tag)
+                If loPersonaDe IsNot Nothing Then
+                    txtTipoDocDE.Text = loPersonaDe(0).TgTipoDoc
+                    txtNroDocDE.Text = loPersonaDe(0).PerNDoc
+                End If
+
+                Dim loPersonaPara As List(Of EEPersona) = MantenimientosBL.Instancia.personaListarCriterio(5, txtPersonaPARA.Tag)
+                If loPersonaPara IsNot Nothing Then
+                    txtTipoDocPARA.Text = loPersonaPara(0).TgTipoDoc
+                    txtNroDocPARA.Text = loPersonaPara(0).PerNDoc
+                End If
+
+                Dim loCargoPersonalPara As List(Of EECargoPersonal) = MantenimientosBL.Instancia.CargoListarXPerId_pa(txtPersonaPARA.Tag)
+                If loCargoPersonalPara IsNot Nothing Then
+                    txtAreaPARA.Tag = loCargoPersonalPara(0).CodInstitucion & loCargoPersonalPara(0).CodArea & loCargoPersonalPara(0).CodCargo
+                    txtCargoPARA.EditValue = loCargoPersonalPara(0).Cargo
+                    txtAreaPARA.EditValue = loCargoPersonalPara(0).Area
+                End If
+                txtAsunto.EditValue = gvResultadoBusqueda.GetRowCellValue(gvResultadoBusqueda.GetSelectedRows(0), "docAsunto").ToString()
+                dtpFechaDoc.EditValue = gvResultadoBusqueda.GetRowCellValue(gvResultadoBusqueda.GetSelectedRows(0), "docFechaDoc").ToString()
+                dtpFecRecEmi.EditValue = gvResultadoBusqueda.GetRowCellValue(gvResultadoBusqueda.GetSelectedRows(0), "docFechaRecEmi").ToString()
+                cboEstadoDoc.EditValue = gvResultadoBusqueda.GetRowCellValue(gvResultadoBusqueda.GetSelectedRows(0), "tgEstadoDocId").ToString()
+                txtResumen.EditValue = gvResultadoBusqueda.GetRowCellValue(gvResultadoBusqueda.GetSelectedRows(0), "docResumen").ToString()
+                txtProveidoNro.EditValue = gvResultadoBusqueda.GetRowCellValue(gvResultadoBusqueda.GetSelectedRows(0), "docNroProv").ToString()
+                txtRegistroProveido.EditValue = gvResultadoBusqueda.GetRowCellValue(gvResultadoBusqueda.GetSelectedRows(0), "docNroRegProv").ToString()
+                cboPrioridad.EditValue = gvResultadoBusqueda.GetRowCellValue(gvResultadoBusqueda.GetSelectedRows(0), "tgPrioridadId").ToString()
+                cboMensajeProveido.cboUpdate.EditValue = gvResultadoBusqueda.GetRowCellValue(gvResultadoBusqueda.GetSelectedRows(0), "tgMensajeProvId").ToString()
+                ssNroFolio.EditValue = gvResultadoBusqueda.GetRowCellValue(gvResultadoBusqueda.GetSelectedRows(0), "docNroFolio").ToString()
+                GIdRegistroActual = txtCodInterno.Text
+                MyBase.seleccionarListado()
+            End If
+        Catch ex As Exception
+            SaimtMessageBox.mostrarAlertaError(ex.Message)
+        End Try
+
+    End Sub
+
+
+    Protected Overrides Sub Editar()
+        MyBase.editar()
+        txtCodInterno.Properties.ReadOnly = True
+        'txtCodPartida.Properties.ReadOnly = True
+
+        'btnConsultarPartidaDestino.Enabled = True
+        'btnConsultarPartidaOrigen.Enabled = True
+        'dtpfechaAprueba.Properties.ReadOnly = True
+        'txtMonto.Properties.ReadOnly = True
+        'txtDocReferencia.Properties.ReadOnly = True
+
+        'btnNuevoDetalle.Enabled = True
+        'btnEditarDetalle.Enabled = True
+        'btnGuardarDetalle.Enabled = False
+    End Sub
+
+
+    Protected Overrides Sub Nuevo()
+        MyBase.nuevo()
+        txtCodInterno.EditValue = MantenimientosBL.Instancia.documentosInternoGenerarCodigo()
+        txtCodInterno.Properties.ReadOnly = True
+        txtAreaDE.Properties.ReadOnly = True
+        txtCargoDE.Properties.ReadOnly = True
+        txtNroDocDE.Properties.ReadOnly = True
+        txtTipoDocDE.Properties.ReadOnly = True
+        txtPersonaDE.Properties.ReadOnly = True
+
+        txtAreaPARA.Properties.ReadOnly = True
+        txtCargoPARA.Properties.ReadOnly = True
+        txtNroDocPARA.Properties.ReadOnly = True
+        txtTipoDocPARA.Properties.ReadOnly = True
+        txtPersonaPARA.Properties.ReadOnly = True
+    End Sub
+#End Region
+
+    Private Sub frmRegistroDocInternos_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Me.PuedeBuscar = True
+        Me.PuedeCrear = True
+        Me.PuedeEditar = True
+        Me.PuedeExportar = True
+        Me.PuedeImprimir = True
+        ConstruirTableDocumentoInterno()
+        gcResultadoBusqueda.DataSource = dt_documentoInt
+
+        cboMovDoc.mColumnas(SaimtComboBoxLookUp.Entidades.TablaGeneral)
+        cboMovDoc.Properties.DisplayMember = "TgNombre"
+        cboMovDoc.Properties.ValueMember = "TgCodigo"
+        cboMovDoc.Properties.DataSource = MantenimientosBL.Instancia.tablageneralListarXClsId(165)
+        cboMovDoc.ItemIndex = 0
+
+        cboMedioEnvRec.mColumnas(SaimtComboBoxLookUp.Entidades.TablaGeneral)
+        cboMedioEnvRec.Properties.DisplayMember = "TgNombre"
+        cboMedioEnvRec.Properties.ValueMember = "TgCodigo"
+        cboMedioEnvRec.Properties.DataSource = MantenimientosBL.Instancia.tablageneralListarXClsId(166)
+        cboMedioEnvRec.ItemIndex = 0
+
+
+        cboTipoDoc.mColumnas(SaimtComboBoxLookUp.Entidades.TablaGeneral)
+        cboTipoDoc.Properties.DisplayMember = "TgNombre"
+        cboTipoDoc.Properties.ValueMember = "TgCodigo"
+        cboTipoDoc.Properties.DataSource = MantenimientosBL.Instancia.tablageneralListarXClsId(86)
+        cboTipoDoc.ItemIndex = 0
+
+
+        cboEstadoDoc.mColumnas(SaimtComboBoxLookUp.Entidades.TablaGeneral)
+        cboEstadoDoc.Properties.DisplayMember = "TgNombre"
+        cboEstadoDoc.Properties.ValueMember = "TgCodigo"
+        cboEstadoDoc.Properties.DataSource = MantenimientosBL.Instancia.tablageneralListarXClsId(164)
+        cboEstadoDoc.ItemIndex = 0
+
+
+        cboPrioridad.mColumnas(SaimtComboBoxLookUp.Entidades.TablaGeneral)
+        cboPrioridad.Properties.DisplayMember = "TgNombre"
+        cboPrioridad.Properties.ValueMember = "TgCodigo"
+        cboPrioridad.Properties.DataSource = MantenimientosBL.Instancia.tablageneralListarXClsId(87)
+        cboPrioridad.ItemIndex = 0
+
+        cboMensajeProveido.cboUpdate.mColumnas(SaimtComboBoxLookUp.Entidades.TablaGeneral)
+        cboMensajeProveido.cboUpdate.Properties.DisplayMember = "TgNombre"
+        cboMensajeProveido.cboUpdate.Properties.ValueMember = "TgCodigo"
+        cboMensajeProveido.cboUpdate.Properties.DataSource = MantenimientosBL.Instancia.tablageneralListarXClsId(167)
+        cboMensajeProveido.cboUpdate.ItemIndex = 0
+
+    End Sub
+
+    Private Sub btnaddInst_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnaddInst.Click
+        Using fmConsultaPersona As frmConsultaPersonaGeneral = New frmConsultaPersonaGeneral(3)
+            If fmConsultaPersona.ShowDialog() = DialogResult.OK Then
+                txtPersonaDE.EditValue = fmConsultaPersona.PerNombre
+                txtPersonaDE.Tag = fmConsultaPersona.PerId
+                txtTipoDocDE.EditValue = fmConsultaPersona.PerTipoDoc
+                txtNroDocDE.EditValue = fmConsultaPersona.perNdoc
+                Dim loCargoPersonal As List(Of EECargoPersonal) = MantenimientosBL.Instancia.CargoListarXPerId_pa(txtPersonaDE.Tag)
+                If loCargoPersonal IsNot Nothing Then
+                    txtAreaDE.Tag = loCargoPersonal(0).CodInstitucion & loCargoPersonal(0).CodArea & loCargoPersonal(0).CodCargo
+                    txtCargoDE.EditValue = loCargoPersonal(0).Cargo
+                    txtAreaDE.EditValue = loCargoPersonal(0).Area
+                End If
+            Else
+                txtCargoDE.EditValue = Nothing
+                txtAreaDE.EditValue = Nothing
+                txtNroDocDE.EditValue = Nothing
+                txtTipoDocDE.EditValue = Nothing
+                txtPersonaDE.EditValue = Nothing
+                txtAreaDE.Tag = Nothing
+            End If
+        End Using
+    End Sub
+
+    Private Sub SaimtButton1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SaimtButton1.Click
+        Using fmConsultaPersona As frmConsultaPersonaGeneral = New frmConsultaPersonaGeneral(3)
+            If fmConsultaPersona.ShowDialog() = DialogResult.OK Then
+                txtPersonaPARA.EditValue = fmConsultaPersona.PerNombre
+                txtPersonaPARA.Tag = fmConsultaPersona.PerId
+                txtTipoDocPARA.EditValue = fmConsultaPersona.PerTipoDoc
+                txtNroDocPARA.EditValue = fmConsultaPersona.perNdoc
+                Dim loCargoPersonal As List(Of EECargoPersonal) = MantenimientosBL.Instancia.CargoListarXPerId_pa(txtPersonaPARA.Tag)
+                If loCargoPersonal IsNot Nothing Then
+                    txtAreaPARA.Tag = loCargoPersonal(0).CodInstitucion & loCargoPersonal(0).CodArea & loCargoPersonal(0).CodCargo
+                    txtCargoPARA.EditValue = loCargoPersonal(0).Cargo
+                    txtAreaPARA.EditValue = loCargoPersonal(0).Area
+                End If
+
+            Else
+                txtCargoPARA.EditValue = Nothing
+                txtAreaPARA.EditValue = Nothing
+                txtNroDocPARA.EditValue = Nothing
+                txtTipoDocPARA.EditValue = Nothing
+                txtPersonaPARA.EditValue = Nothing
+                txtAreaPARA.Tag = Nothing
+            End If
+        End Using
+    End Sub
+
+    Private Sub cbCriterios_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cbCriterios.SelectedIndexChanged
+        Select Case cbCriterios.SelectedIndex
+            Case 9
+                cboBuscasPor.mColumnas(SaimtComboBoxLookUp.Entidades.TablaGeneral)
+                cboBuscasPor.Properties.DisplayMember = "TgNombre"
+                cboBuscasPor.Properties.ValueMember = "TgCodigo"
+                cboBuscasPor.Properties.DataSource = MantenimientosBL.Instancia.tablageneralListarXClsId(165)
+                cboBuscasPor.ItemIndex = 0
+            Case 10
+                cboBuscasPor.mColumnas(SaimtComboBoxLookUp.Entidades.TablaGeneral)
+                cboBuscasPor.Properties.DisplayMember = "TgNombre"
+                cboBuscasPor.Properties.ValueMember = "TgCodigo"
+                cboBuscasPor.Properties.DataSource = MantenimientosBL.Instancia.tablageneralListarXClsId(166)
+                cboBuscasPor.ItemIndex = 0
+
+            Case 11
+                cboBuscasPor.mColumnas(SaimtComboBoxLookUp.Entidades.TablaGeneral)
+                cboBuscasPor.Properties.DisplayMember = "TgNombre"
+                cboBuscasPor.Properties.ValueMember = "TgCodigo"
+                cboBuscasPor.Properties.DataSource = MantenimientosBL.Instancia.tablageneralListarXClsId(86)
+                cboBuscasPor.ItemIndex = 0
+            Case 12
+                cboBuscasPor.mColumnas(SaimtComboBoxLookUp.Entidades.TablaGeneral)
+                cboBuscasPor.Properties.DisplayMember = "TgNombre"
+                cboBuscasPor.Properties.ValueMember = "TgCodigo"
+                cboBuscasPor.Properties.DataSource = MantenimientosBL.Instancia.tablageneralListarXClsId(164)
+                cboBuscasPor.ItemIndex = 0
+
+            Case 13
+                cboBuscasPor.mColumnas(SaimtComboBoxLookUp.Entidades.TablaGeneral)
+                cboBuscasPor.Properties.DisplayMember = "TgDescripcion"
+                cboBuscasPor.Properties.ValueMember = "TgCodigo"
+                cboBuscasPor.Properties.DataSource = MantenimientosBL.Instancia.tablageneralListarXClsId(167) ' Falta Definir
+                cboBuscasPor.ItemIndex = 0
+        End Select
+    End Sub
+
+    Private Sub cboBuscasPor_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cboBuscasPor.EditValueChanged
+        Buscar()
+    End Sub
+End Class

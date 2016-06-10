@@ -1,0 +1,44 @@
+﻿<%@ Master Language="VB" AutoEventWireup="false" CodeBehind="LoginInt.master.vb" Inherits="PresentacionWeb.LoginInt" %>
+
+<%@ Register assembly="DevExpress.Web.v16.1, Version=16.1.2.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web" tagprefix="dx" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head id="Head1" runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link href="~/css/LoginInt.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="Form1" runat="server">
+    <div class="page_login">
+        <div class="header">
+            <div class="title">
+               <h1>
+               <img alt="SAIMT" src="images/logosaimt.png"/><span></span>Servicio de Administración de Inmuebles Municipales de Trujillo
+                </h1>
+            </div>
+            <div class="loginDisplay">
+                La Gran Inmobiliaria de Trujillo
+            </div>
+        </div>
+        <div class="main">
+           <img alt="" src="images/fondologin.png" /> 
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            
+            </asp:ContentPlaceHolder>
+            
+        </div>
+        <div class="clear">
+        
+        </div>
+    </div>
+    <div class="footer">
+        
+    </div>
+    </form>
+</body>
+</html>

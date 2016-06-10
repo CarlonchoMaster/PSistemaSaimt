@@ -1,0 +1,111 @@
+﻿Imports Entidades
+Imports ReglasNegocio
+
+Public Class ConsultarPersonaGeneral
+    Inherits System.Web.UI.Page
+
+    Private Property TipoPersona As Int16?
+
+    Public Property Encontrado() As Boolean
+
+    Public Property PerId() As String
+    Public Property Persona() As String
+    Public Property PerTipoPersona() As String
+    Public Property PerDireccion() As String
+    Public Property PerTipoDocumero() As String
+    Public Property PerNDocumento() As String
+
+    Dim dtPersona As DataTable = New DataTable()
+
+#Region "Construir Table"
+    Private Sub ConstruirTable()
+        dtPersona.Columns.Add("perId", GetType(String))
+        dtPersona.Columns.Add("persona", GetType(String))
+        dtPersona.Columns.Add("tipoPersona", GetType(String))
+        dtPersona.Columns.Add("tipoDocumento", GetType(String))
+        dtPersona.Columns.Add("numeroDocumento", GetType(String))
+        dtPersona.Columns.Add("direccion", GetType(String))
+    End Sub
+#End Region
+
+  
+ 
+
+    Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        ConstruirTable()
+        dgvResultado.DataSource = dtPersona
+    End Sub
+
+
+    Public Sub MensajeScript(ByVal asMensaje)
+        Dim sbMensaje As StringBuilder = New StringBuilder()
+        sbMensaje.Append("<script type='text/javascript'>")
+        sbMensaje.AppendFormat("alert('{0}');", asMensaje)
+        sbMensaje.Append("</script>")
+        ClientScript.RegisterClientScriptBlock(Me.GetType(), "Mensaje", sbMensaje.ToString())
+    End Sub
+
+    Protected Sub btnBuscar_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnBuscar.Click
+        Try
+            Dim ListaPersona As List(Of EEPersona) = MantenimientosBL.Instancia.personaConsultarGeneral(3, 1, txtbuscar.Text)
+            dtPersona.Clear()
+            If ListaPersona IsNot Nothing Then
+                For Each fPersona As EEPersona In ListaPersona
+                    dtPersona.LoadDataRow(New Object() {
+                        fPersona.PerId, _
+                        fPersona.Persona, _
+                        fPersona.perTipoPersona, _
+                        fPersona.TgDocumento, _
+                        fPersona.PerNDoc, _
+                        fPersona.PerDireccion
+                    }, True)
+                Next
+                Me.Encontrado = True
+            Else
+                Me.Encontrado = False
+            End If
+            dgvResultado.DataSource = dtPersona
+            dgvResultado.DataBind()
+        Catch ex As Exception
+            MensajeScript(ex.Message)
+        End Try
+    End Sub
+
+
+    '    If Me.gvResultado.DataRowCount <> 0 Then
+    '    PerId = gvResultado.GetRowCellValue(Me.gvResultado.GetSelectedRows(0), "perId").ToString()
+    '    Persona = gvResultado.GetRowCellValue(Me.gvResultado.GetSelectedRows(0), "persona").ToString()
+    '    PerTipoDocumero = gvResultado.GetRowCellValue(Me.gvResultado.GetSelectedRows(0), "tipoDocumento").ToString()
+    '    PerNDocumento = gvResultado.GetRowCellValue(Me.gvResultado.GetSelectedRows(0), "numeroDocumento").ToString()
+    '    PerDireccion = gvResultado.GetRowCellValue(Me.gvResultado.GetSelectedRows(0), "direccion").ToString()
+
+    '    Seleccionado = True
+    '    DialogResult = DialogResult.OK
+    'Else
+    '    Seleccionado = False
+    'End If
+    'MyBase.seleccionar()
+
+    Protected Sub dgvResultado_SelectionChanged(ByVal sender As Object, ByVal e As EventArgs) Handles dgvResultado.SelectionChanged
+        
+    End Sub
+
+    Protected Sub dgvResultado_RowCommand(ByVal sender As Object, ByVal e As DevExpress.Web.ASPxGridViewRowCommandEventArgs) Handles dgvResultado.RowCommand
+        Dim sbMensaje As StringBuilder = New StringBuilder()
+        sbMensaje.Append("<script type='text/javascript'>")
+        sbMensaje.AppendFormat("alert('{0}');", "sss")
+        sbMensaje.Append("</script>")
+        ClientScript.RegisterClientScriptBlock(Me.GetType(), "Mensaje", sbMensaje.ToString())
+    End Sub
+
+  
+    Protected Sub LinkButton1_Click(ByVal sender As Object, ByVal e As EventArgs)
+        Session("perid") = DirectCast(sender, System.Web.UI.WebControls.LinkButton).Text
+        Dim sbMensaje As StringBuilder = New StringBuilder()
+        sbMensaje.Append("<script type='text/javascript'>")
+        sbMensaje.Append("close();")
+        sbMensaje.Append("</script>")
+        ClientScript.RegisterClientScriptBlock(Me.GetType(), "Mensaje", sbMensaje.ToString())
+
+    End Sub
+End Class

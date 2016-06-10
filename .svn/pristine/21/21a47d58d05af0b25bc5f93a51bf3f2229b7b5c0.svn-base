@@ -1,0 +1,15 @@
+
+Public Class EEAbonExtorno
+	
+	Public Property ExtornoId() As Int32?
+    Public Property OAbonoPEM() As EEAbonoPEM
+    Public Property OTgTipoExt() As EETablaGeneral
+	Public Property ExtObservacion() As String
+	Public Property ExtFechaReg() As DateTime?
+    Public Property ExtHora() As DateTime?
+    Public Property DiarioId() As Int32?
+    Public Property ExtDesdeCuota() As Int32?
+    Public Property ExtPerId() As String
+
+	
+End Class

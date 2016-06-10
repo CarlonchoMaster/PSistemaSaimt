@@ -1,0 +1,17 @@
+﻿Imports System.Threading
+
+Public Class frmSplash
+
+    Private Sub frmSplash_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Try
+            CheckForIllegalCrossThreadCalls = False
+
+            Dim lsRuta = Application.StartupPath & "\splash_saimt.swf"
+            Me.AxShockwaveFlash1.LoadMovie(0, lsRuta)
+            Me.AxShockwaveFlash1.Play()
+        Catch
+            Me.AxShockwaveFlash1.Visible = False
+        End Try
+    End Sub
+
+End Class

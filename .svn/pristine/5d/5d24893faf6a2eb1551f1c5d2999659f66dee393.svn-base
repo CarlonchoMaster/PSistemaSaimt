@@ -1,0 +1,420 @@
+﻿Imports ReglasNegocio
+Imports SaimtControles
+Imports Entidades
+
+Public Class RptResumido
+    Inherits frmConsultas
+    Dim CBus_oTable As DataTable = New DataTable()
+    Dim CExpDep_oTable As DataTable = New DataTable()
+    Dim CExpInt_oTable As DataTable = New DataTable()
+    Dim CExpSG_oTable As DataTable = New DataTable()
+    Dim CExp_oTable As DataTable = New DataTable()
+    Dim CExp_oTableDet As DataTable = New DataTable()
+    Dim CExp_oTableGeneral As DataTable = New DataTable()
+
+    Private Sub CExp_ConstruirTable_General()
+        CExp_oTableGeneral.Columns.Add("docNReg", GetType(String))
+        CExp_oTableGeneral.Columns.Add("docComentario", GetType(String))
+
+    End Sub
+
+    Private Sub CExp_ConstruirTable_Detalle()
+        CExp_oTableDet.Columns.Add("item", GetType(String))
+        CExp_oTableDet.Columns.Add("movId", GetType(String))
+        CExp_oTableDet.Columns.Add("movFechaRec", GetType(String))
+        CExp_oTableDet.Columns.Add("dependencia", GetType(String))
+        CExp_oTableDet.Columns.Add("persona", GetType(String))
+        CExp_oTableDet.Columns.Add("personaPara", GetType(String))
+        CExp_oTableDet.Columns.Add("resultado", GetType(String))
+        CExp_oTableDet.Columns.Add("movFechaEnv", GetType(String))
+        CExp_oTableDet.Columns.Add("dependenciaPara", GetType(String))
+        CExp_oTableDet.Columns.Add("movComentario", GetType(String))
+
+    End Sub
+
+    Private Sub CExp_ConstruirTable()
+        CExp_oTable.Columns.Add("docId", GetType(String))
+        CExp_oTable.Columns.Add("nroReg", GetType(String))
+        CExp_oTable.Columns.Add("parte", GetType(String))
+        CExp_oTable.Columns.Add("procedimiento", GetType(String))
+        CExp_oTable.Columns.Add("usuario", GetType(String))
+        CExp_oTable.Columns.Add("dependencia", GetType(String))
+        CExp_oTable.Columns.Add("folio", GetType(String))
+        CExp_oTable.Columns.Add("fecha", GetType(String))
+        CExp_oTable.Columns.Add("interesado", GetType(String))
+        CExp_oTable.Columns.Add("derivado", GetType(String))
+        CExp_oTable.Columns.Add("fechaderivado", GetType(String))
+        CExp_oTable.Columns.Add("perId", GetType(String))
+
+    End Sub
+
+    Private Sub CBus_ConstruirTable()
+        CBus_oTable.Columns.Add("docId", GetType(String))
+        CBus_oTable.Columns.Add("expediente", GetType(String))
+        CBus_oTable.Columns.Add("expedienteMpt", GetType(String))
+        CBus_oTable.Columns.Add("fechaExp", GetType(String))
+        CBus_oTable.Columns.Add("procedimiento", GetType(String))
+        CBus_oTable.Columns.Add("interesado", GetType(String))
+        CBus_oTable.Columns.Add("dependencia", GetType(String))
+        CBus_oTable.Columns.Add("area", GetType(String))
+        CBus_oTable.Columns.Add("observacion", GetType(String))
+
+    End Sub
+    Private Sub CExpInt_ConstruirTable()
+        CExpInt_oTable.Columns.Add("docId", GetType(String))
+        CExpInt_oTable.Columns.Add("expediente", GetType(String))
+        CExpInt_oTable.Columns.Add("expedienteMpt", GetType(String))
+        CExpInt_oTable.Columns.Add("fechaExp", GetType(String))
+        CExpInt_oTable.Columns.Add("procedimiento", GetType(String))
+        CExpInt_oTable.Columns.Add("tipodoc", GetType(String))
+        CExpInt_oTable.Columns.Add("estado", GetType(String))
+        CExpInt_oTable.Columns.Add("dias", GetType(String))
+        CExpInt_oTable.Columns.Add("interesado", GetType(String))
+        CExpInt_oTable.Columns.Add("dependencia", GetType(String))
+        CExpInt_oTable.Columns.Add("area", GetType(String))
+        CExpInt_oTable.Columns.Add("observacion", GetType(String))
+        CExpInt_oTable.Columns.Add("indicador", GetType(String))
+    End Sub
+
+
+    Private Sub CExpDep_ConstruirTable()
+        CExpDep_oTable.Columns.Add("docId", GetType(String))
+        CExpDep_oTable.Columns.Add("expediente", GetType(String))
+        CExpDep_oTable.Columns.Add("expedienteMpt", GetType(String))
+        CExpDep_oTable.Columns.Add("fechaExp", GetType(String))
+        CExpDep_oTable.Columns.Add("procedimiento", GetType(String))
+        CExpDep_oTable.Columns.Add("tipodoc", GetType(String))
+        CExpDep_oTable.Columns.Add("estado", GetType(String))
+        CExpDep_oTable.Columns.Add("dias", GetType(String))
+        CExpDep_oTable.Columns.Add("interesado", GetType(String))
+        CExpDep_oTable.Columns.Add("dependencia", GetType(String))
+        CExpDep_oTable.Columns.Add("area", GetType(String))
+        CExpDep_oTable.Columns.Add("observacion", GetType(String))
+        CExpDep_oTable.Columns.Add("indicador", GetType(String))
+    End Sub
+
+
+    Private Sub CExpSG_ConstruirTable()
+        CExpSG_oTable.Columns.Add("docId", GetType(String))
+        CExpSG_oTable.Columns.Add("expediente", GetType(String))
+        CExpSG_oTable.Columns.Add("expedienteMpt", GetType(String))
+        CExpSG_oTable.Columns.Add("fechaExp", GetType(String))
+        CExpSG_oTable.Columns.Add("procedimiento", GetType(String))
+        CExpSG_oTable.Columns.Add("tipodoc", GetType(String))
+        CExpSG_oTable.Columns.Add("estado", GetType(String))
+        CExpSG_oTable.Columns.Add("dias", GetType(String))
+        CExpSG_oTable.Columns.Add("interesado", GetType(String))
+        CExpSG_oTable.Columns.Add("dependencia", GetType(String))
+        CExpSG_oTable.Columns.Add("area", GetType(String))
+        CExpSG_oTable.Columns.Add("observacion", GetType(String))
+        CExpSG_oTable.Columns.Add("indicador", GetType(String))
+    End Sub
+
+
+
+    Private Sub RptResumido_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        'Consultor de Expediente
+        CExp_ConstruirTable_General()
+        CExp_ConstruirTable()
+        CExp_ConstruirTable_Detalle()
+        CExp_cboAño.mColumnas(SaimtComboBoxLookUp.Entidades.TablaGeneral)
+        CExp_cboAño.Properties.DisplayMember = "TgNombre"
+        CExp_cboAño.Properties.ValueMember = "TgCodigo"
+        CExp_cboAño.Properties.DataSource = MantenimientosBL.Instancia.tablageneralListarXClsIdOrderbytgOrden(76)
+
+        ' Busqueda
+        CBus_ConstruirTable()
+        ' Buscar Expediente por Dependencia
+        CExpDep_ConstruirTable()
+        'Buscar Expediente por Interesado
+        CExpInt_ConstruirTable()
+
+        ' Buscar Expediente para Secretaria
+        CExpSG_ConstruirTable()
+
+        'tagocultar()
+    End Sub
+
+    Private Sub CExp_btnConsultar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CExp_btnConsultar.Click
+        Dim paso As Boolean = True
+        If CExp_txtNroExpediente.EditValue = "" Then
+            CExp_lblNroExpediente.ForeColor = Drawing.Color.Red
+            paso = False
+        Else
+            CExp_lblNroExpediente.ForeColor = Drawing.Color.Black
+        End If
+        Dim año As String = Nothing
+        If CExp_lblcboAño.Checked = True Then
+            If CExp_cboAño.EditValue = "" Then
+                CExp_lblcboAño.ForeColor = Drawing.Color.Red
+            Else
+                CExp_lblcboAño.ForeColor = Drawing.Color.Black
+                año = CExp_cboAño.EditValue
+            End If
+        End If
+        Dim dependencia As String = Nothing
+        If CExp_lblDependencia.Checked = True Then
+            If CExp_cboDependencia.EditValue = "" Then
+                CExp_lblDependencia.ForeColor = Drawing.Color.Red
+            Else
+                CExp_lblDependencia.ForeColor = Drawing.Color.Black
+                dependencia = CExp_cboDependencia.EditValue
+            End If
+        End If
+
+        If paso = True Then
+            Try
+
+                Dim ListaDatosGenerales As List(Of EEDocumentoSTD)
+                ListaDatosGenerales = MantenimientosBL.Instancia.documentosSTD_MostrarDatosExpedientexNroExpediente_Anio_Dependencia_pa(CExp_txtNroExpediente.EditValue, Nothing, Nothing, año, dependencia)
+                CExp_oTableGeneral.Clear()
+                If ListaDatosGenerales IsNot Nothing Then
+                    For Each frow As EEDocumentoSTD In ListaDatosGenerales
+                        CExp_oTableGeneral.LoadDataRow(New Object() {frow.DocNReg.ToString.Insert(5, "-"), _
+                                                                         frow.DocComentario}, True)
+                    Next
+
+                End If
+                CExp_dgvResultadoGen.DataSource = CExp_oTableGeneral
+                CExp_gvResultadoGen.BestFitColumns()
+            Catch ex As Exception
+                SaimtMessageBox.mostrarAlertaInformativa(ex.Message)
+            End Try
+        End If
+    End Sub
+
+    Private Sub SaimtButton2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SaimtButton2.Click
+        Me.sfdexportar.Filter = "Archivo de Excel|*.xls"
+        If sfdexportar.ShowDialog = Windows.Forms.DialogResult.OK Then
+            Me.CExp_gvResultado.ExportToXls(Me.sfdexportar.FileName)
+        End If
+    End Sub
+
+    Sub tagocultar()
+
+        CBus_oTable.Clear()
+        CExpDep_oTable.Clear()
+        CExpInt_oTable.Clear()
+        CExpSG_oTable.Clear()
+        CExp_oTable.Clear()
+        CExp_oTableDet.Clear()
+
+
+    End Sub
+    Private Sub CExp_txtNroExpediente_KeyUp(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles CExp_txtNroExpediente.KeyUp
+        If e.KeyCode = Keys.Enter Then
+            CExp_btnConsultar.PerformClick()
+        End If
+    End Sub
+
+    Private Sub CExp_gvResultadoGen_FocusedRowChanged(ByVal sender As System.Object, ByVal e As DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs) Handles CExp_gvResultadoGen.FocusedRowChanged
+        Dim NDocReg As String = String.Empty
+        If Me.CExp_gvResultadoGen.DataRowCount <> 0 Then
+            NDocReg = CExp_gvResultadoGen.GetFocusedRowCellValue("docNReg").ToString().Remove(5, 1)
+            Dim ListaExpedientes As List(Of EEDocumentoSTD) = Nothing
+            If NDocReg <> String.Empty Then
+                ListaExpedientes = MantenimientosBL.Instancia.documentosSTD_MostrarDetalleExpedientexNroRegAnio(NDocReg)
+            End If
+            CExp_oTableDet.Clear()
+            CExp_oTable.Clear()
+            If ListaExpedientes IsNot Nothing Then
+                For Each frow As EEDocumentoSTD In ListaExpedientes
+                    CExp_oTable.LoadDataRow(New Object() {frow.DocId, frow.DocNReg, frow.DocParte, frow.procedimiento, frow.usuario, frow.dependencia, frow.DocNFolio, frow.DocFechaIng.ToString, frow.interesado, frow.derivado, frow.fechaDerivado, frow.PerId}, True)
+                Next
+                Encontrado = True
+            Else
+                Encontrado = False
+            End If
+            If Encontrado = False Then
+                CExp_lblResultados.Text = "No se encontraron resultados de Búsqueda"
+            Else
+                CExp_lblResultados.Text = CExp_oTable.Rows.Count & " Resultados de Busquedas"
+
+                CExp_dgvResultado.DataSource = CExp_oTable
+                CExp_gvResultado.BestFitColumns()
+                CExp_gvResultado_FocusedRowChanged(Nothing, Nothing)
+
+            End If
+        End If
+    End Sub
+
+    Private Sub CExp_gvResultado_FocusedRowChanged(ByVal sender As System.Object, ByVal e As DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs) Handles CExp_gvResultado.FocusedRowChanged
+        If Me.CExp_gvResultado.DataRowCount <> 0 Then
+            CExp_lblResultadoDet.Text = ""
+
+            Dim DocId As String = CExp_gvResultado.GetFocusedRowCellValue("docId").ToString()
+            Dim parte As String = String.Empty
+            If Len(DocId) > 6 Then
+                parte = DocId.Substring(6)
+            End If
+            CExp_lblResultadoDet.Text = "Resultado de la Parte " & parte
+
+            If DocId <> "" Then
+                Dim ListaMovimientos As List(Of EEMovimientoSTD) = Nothing
+                If DocId <> String.Empty Then
+                    ListaMovimientos = MantenimientosBL.Instancia.movimientosSTD_Web_MostrarMovimientosxDocId(DocId)
+                End If
+                '  ConstruirTable_Detalle()
+                CExp_oTableDet.Clear()
+                Dim encontradoDet As Boolean = False
+                If ListaMovimientos IsNot Nothing Then
+                    Dim c As Integer = ListaMovimientos.Count
+                    For Each frow As EEMovimientoSTD In ListaMovimientos
+                        CExp_oTableDet.LoadDataRow(New Object() {c, frow.MovId, frow.MovFechaRec, frow.MovDe, frow.MovPerDe, frow.MovPerPara, frow.TgEstadoMov, frow.MovFechaEnv, frow.MovPara, frow.MovComentario}, True)
+                        c = c - 1
+                    Next
+
+                    encontradoDet = True
+                Else
+                    encontradoDet = False
+                End If
+
+                CExp_dgvResultadoDet.DataSource = CExp_oTableDet
+
+            End If
+        End If
+    End Sub
+
+    Private Sub RadioGroup1_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RadioGroup1.SelectedIndexChanged
+        Select Case RadioGroup1.EditValue
+            Case 0
+                XtraTabControl2.SelectedTabPageIndex = 0
+                xtabRegistro.PageVisible = True
+                xtabInteresado.PageVisible = False
+                xtabInstitucion.PageVisible = False
+            Case 1
+                XtraTabControl2.SelectedTabPageIndex = 1
+                xtabInteresado.PageVisible = True
+                xtabRegistro.PageVisible = False
+                xtabInstitucion.PageVisible = False
+            Case 2
+                XtraTabControl2.SelectedTabPageIndex = 2
+                xtabInstitucion.PageVisible = True
+                xtabInteresado.PageVisible = False
+                xtabRegistro.PageVisible = False
+        End Select
+    End Sub
+
+    Private Sub SaimtButton4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SaimtButton4.Click
+        Dim frm As New frmConsultaPersonaGeneral(3)
+        frm.ShowDialog()
+        txtPersona.Text = frm.PerNombre
+        txtPersona.Tag = frm.PerId
+    End Sub
+
+
+    Private Sub SaimtButton1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnBuscarxInt.Click
+        Dim paso As Boolean = True
+        If txtPersona.Tag = "" Then
+            lblInteresado.ForeColor = Drawing.Color.Red
+            paso = False
+        Else
+            lblInteresado.ForeColor = Drawing.Color.Black
+        End If
+        Dim año As String = Nothing
+        If CExp_lblcboAño.Checked = True Then
+            If CExp_cboAño.EditValue = "" Then
+                CExp_lblcboAño.ForeColor = Drawing.Color.Red
+            Else
+                CExp_lblcboAño.ForeColor = Drawing.Color.Black
+                año = CExp_cboAño.EditValue
+            End If
+        End If
+        Dim dependencia As String = Nothing
+        If CExp_lblDependencia.Checked = True Then
+            If CExp_cboDependencia.EditValue = "" Then
+                CExp_lblDependencia.ForeColor = Drawing.Color.Red
+            Else
+                CExp_lblDependencia.ForeColor = Drawing.Color.Black
+                dependencia = CExp_cboDependencia.EditValue
+            End If
+        End If
+
+        If paso = True Then
+            Try
+
+                Dim ListaDatosGenerales As List(Of EEDocumentoSTD)
+                ListaDatosGenerales = MantenimientosBL.Instancia.documentosSTD_MostrarDatosExpedientexNroExpediente_Anio_Dependencia_pa(Nothing, txtPersona.Tag, Nothing, año, dependencia)
+                CExp_oTableGeneral.Clear()
+                If ListaDatosGenerales IsNot Nothing Then
+                    For Each frow As EEDocumentoSTD In ListaDatosGenerales
+                        CExp_oTableGeneral.LoadDataRow(New Object() {frow.DocNReg.ToString.Insert(5, "-"), _
+                                                                         frow.DocComentario}, True)
+                    Next
+
+                End If
+                CExp_dgvResultadoGen.DataSource = CExp_oTableGeneral
+                CExp_gvResultadoGen.BestFitColumns()
+                txtPersona.Tag = Nothing
+            Catch ex As Exception
+                SaimtMessageBox.mostrarAlertaInformativa(ex.Message)
+            End Try
+        End If
+    End Sub
+
+    Private Sub SaimtButton3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SaimtButton3.Click
+        Dim paso As Boolean = True
+        If txtInstitucion.Tag = "" Then
+            lblInstitucion.ForeColor = Drawing.Color.Red
+            paso = False
+        Else
+            lblInstitucion.ForeColor = Drawing.Color.Black
+        End If
+        Dim año As String = Nothing
+        If CExp_lblcboAño.Checked = True Then
+            If CExp_cboAño.EditValue = "" Then
+                CExp_lblcboAño.ForeColor = Drawing.Color.Red
+            Else
+                CExp_lblcboAño.ForeColor = Drawing.Color.Black
+                año = CExp_cboAño.EditValue
+            End If
+        End If
+        Dim dependencia As String = Nothing
+        If CExp_lblDependencia.Checked = True Then
+            If CExp_cboDependencia.EditValue = "" Then
+                CExp_lblDependencia.ForeColor = Drawing.Color.Red
+            Else
+                CExp_lblDependencia.ForeColor = Drawing.Color.Black
+                dependencia = CExp_cboDependencia.EditValue
+            End If
+        End If
+
+        If paso = True Then
+            Try
+
+                Dim ListaDatosGenerales As List(Of EEDocumentoSTD)
+                ListaDatosGenerales = MantenimientosBL.Instancia.documentosSTD_MostrarDatosExpedientexNroExpediente_Anio_Dependencia_pa(Nothing, Nothing, txtInstitucion.Tag, año, dependencia)
+                CExp_oTableGeneral.Clear()
+                If ListaDatosGenerales IsNot Nothing Then
+                    For Each frow As EEDocumentoSTD In ListaDatosGenerales
+                        CExp_oTableGeneral.LoadDataRow(New Object() {frow.DocNReg.ToString.Insert(5, "-"), _
+                                                                         frow.DocComentario}, True)
+                    Next
+
+                End If
+                CExp_dgvResultadoGen.DataSource = CExp_oTableGeneral
+                CExp_gvResultadoGen.BestFitColumns()
+                txtPersona.Tag = Nothing
+            Catch ex As Exception
+                SaimtMessageBox.mostrarAlertaInformativa(ex.Message)
+            End Try
+        End If
+    End Sub
+
+    Private Sub btnBuscarPersona_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnBuscarPersona.Click
+        Dim frm As New frmConsultaTablaGeneral(82)
+        frm.ShowDialog()
+        txtInstitucion.Text = frm.TgNombre
+        txtInstitucion.Tag = frm.TgCodigo
+    End Sub
+
+    Private Sub CExp_dgvResultado_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CExp_dgvResultado.Click
+        If CExp_gvResultado.DataRowCount > 0 Then
+            If CExp_gvResultado.Columns.View.FocusedColumn.ToString = "Interesado" Then
+                Dim perId As String = CExp_gvResultado.GetFocusedRowCellValue("perId").ToString()
+                Dim frm As New frmPersona("00", perId)
+                frm.Show()
+            End If
+        End If
+    End Sub
+End Class

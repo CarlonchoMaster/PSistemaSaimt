@@ -1,0 +1,533 @@
+﻿Imports Entidades
+Imports Microsoft.Practices.EnterpriseLibrary.Data
+Imports System.Data.Common
+
+Public Class DiarioPEMDAS
+
+    Public Shared Function MostrarRinconadaXtgEstadoIdXdiaNPlaca(ByVal astgEstadoId As [String], ByVal asdiaNPlaca As [String]) As EEDiarioPEM
+        Dim loDiarioPEM As EEDiarioPEM = Nothing
+        Dim dr As IDataReader = Nothing
+        Try
+            Dim db As Database = DatabaseFactory.CreateDatabase()
+            Dim cmd As DbCommand = db.GetStoredProcCommand("Mostrar_DiarioRinconada_XtgEstadoId_XdiaNPlaca_pa")
+            db.AddInParameter(cmd, "tgEstadoId", DbType.String, astgEstadoId)
+            db.AddInParameter(cmd, "diaNPlaca", DbType.String, asdiaNPlaca)
+
+            dr = db.ExecuteReader(cmd)
+            If dr.Read() Then
+
+                loDiarioPEM = New EEDiarioPEM()
+                loDiarioPEM.DiarioId = Convert.ToInt32(dr("DiarioId").ToString())
+                loDiarioPEM.DiaNPlaca = dr("DiaNPlaca").ToString()
+                loDiarioPEM.DiaFechaIng = IIf(IsDBNull(dr("DiaFechaIng")), Nothing, dr("DiaFechaIng"))
+                loDiarioPEM.DiaFechaSal = IIf(IsDBNull(dr("DiaFechaSal")), Nothing, dr("DiaFechaSal"))
+                loDiarioPEM.DiaPrecio = Convert.ToDecimal(dr("DiaPrecio").ToString())
+                loDiarioPEM.TgEstadoId = dr("TgEstadoId").ToString()
+                loDiarioPEM.DiaHoraIng = String.Format("{0} {1}", Date.Now.Date.ToShortDateString, IIf(IsDBNull(dr("DiaHoraIng")), Nothing, dr("DiaHoraIng")))
+                loDiarioPEM.DiaHoraSal = String.Format("{0} {1}", Date.Now.Date.ToShortDateString, IIf(IsDBNull(dr("DiaHoraSal")), Nothing, dr("DiaHoraSal")))
+                loDiarioPEM.TgTipoAbonoId = dr("TgTipoAbonoId").ToString()
+                loDiarioPEM.ConId = dr("ConId").ToString()
+                ' loDiarioPEM.PerRegEntId = dr("PerRegEntId").ToString()
+
+                ' loDiarioPEM.AbonDetId = dr("AbonDetId").ToString()
+                loDiarioPEM.DiarioCod = dr("DiarioCod").ToString()
+                'loDiarioPEM.PerRegSalId = dr("PerRegSalId").ToString()
+            End If
+        Catch ex As Exception
+            Throw New Exception("Listar Diario Rinconada XtgEstadoId XdiaNPlaca Criterio => " + ex.Message, ex)
+        End Try
+        Return loDiarioPEM
+    End Function
+
+
+    Public Shared Function MostrarXtgEstadoIdXdiaNPlaca(ByVal astgEstadoId As [String], ByVal asdiaNPlaca As [String]) As EEDiarioPEM
+        Dim loDiarioPEM As EEDiarioPEM = Nothing
+        Dim dr As IDataReader = Nothing
+        Try
+            Dim db As Database = DatabaseFactory.CreateDatabase()
+            Dim cmd As DbCommand = db.GetStoredProcCommand("Mostrar_DiarioPEM_XtgEstadoId_XdiaNPlaca_pa")
+            db.AddInParameter(cmd, "tgEstadoId", DbType.String, astgEstadoId)
+            db.AddInParameter(cmd, "diaNPlaca", DbType.String, asdiaNPlaca)
+
+            dr = db.ExecuteReader(cmd)
+            If dr.Read() Then
+
+                loDiarioPEM = New EEDiarioPEM()
+                loDiarioPEM.DiarioId = Convert.ToInt32(dr("DiarioId").ToString())
+                loDiarioPEM.DiaNPlaca = dr("DiaNPlaca").ToString()
+                loDiarioPEM.DiaFechaIng = IIf(IsDBNull(dr("DiaFechaIng")), Nothing, dr("DiaFechaIng"))
+                loDiarioPEM.DiaFechaSal = IIf(IsDBNull(dr("DiaFechaSal")), Nothing, dr("DiaFechaSal"))
+                loDiarioPEM.DiaPrecio = Convert.ToDecimal(dr("DiaPrecio").ToString())
+                loDiarioPEM.TgEstadoId = dr("TgEstadoId").ToString()
+                loDiarioPEM.DiaHoraIng = String.Format("{0} {1}", Date.Now.Date.ToShortDateString, IIf(IsDBNull(dr("DiaHoraIng")), Nothing, dr("DiaHoraIng")))
+                loDiarioPEM.DiaHoraSal = String.Format("{0} {1}", Date.Now.Date.ToShortDateString, IIf(IsDBNull(dr("DiaHoraSal")), Nothing, dr("DiaHoraSal")))
+                loDiarioPEM.TgTipoAbonoId = dr("TgTipoAbonoId").ToString()
+                loDiarioPEM.ConId = dr("ConId").ToString()
+                ' loDiarioPEM.PerRegEntId = dr("PerRegEntId").ToString()
+
+                loDiarioPEM.AbonDetId = dr("AbonDetId").ToString()
+                loDiarioPEM.DiarioCod = dr("DiarioCod").ToString()
+                'loDiarioPEM.PerRegSalId = dr("PerRegSalId").ToString()
+            End If
+        Catch ex As Exception
+            Throw New Exception("Listar XtgEstadoId XdiaNPlaca Criterio => " + ex.Message, ex)
+        End Try
+        Return loDiarioPEM
+    End Function
+
+    Public Shared Function ListarXtgEstadoIdXConId(ByVal astgEstadoId As [String], ByVal asConId As [String]) As List(Of EEDiarioPEM)
+        Dim ListaDiarioPEM As List(Of EEDiarioPEM) = Nothing
+        Dim loDiarioPEM As EEDiarioPEM = Nothing
+        Dim dr As IDataReader = Nothing
+        Try
+            Dim db As Database = DatabaseFactory.CreateDatabase()
+            Dim cmd As DbCommand = db.GetStoredProcCommand("Listar_DiarioPEM_XconId_XtgEstadoId_pa")
+            db.AddInParameter(cmd, "tgEstadoId", DbType.String, astgEstadoId)
+            db.AddInParameter(cmd, "conId", DbType.String, asConId)
+
+            dr = db.ExecuteReader(cmd)
+            While dr.Read()
+                If ListaDiarioPEM Is Nothing Then
+                    ListaDiarioPEM = New List(Of EEDiarioPEM)
+                End If
+                loDiarioPEM = New EEDiarioPEM()
+                loDiarioPEM.DiarioId = Convert.ToInt32(dr("DiarioId").ToString())
+                loDiarioPEM.DiarioCod = dr("DiarioCod").ToString()
+                loDiarioPEM.DiaNPlaca = dr("DiaNPlaca").ToString()
+                loDiarioPEM.DiaFechaIng = IIf(IsDBNull(dr("DiaFechaIng")), Nothing, dr("DiaFechaIng"))
+                loDiarioPEM.DiaFechaSal = IIf(IsDBNull(dr("DiaFechaSal")), Nothing, dr("DiaFechaSal"))
+                loDiarioPEM.DiaPrecio = Convert.ToDecimal(dr("DiaPrecio").ToString())
+                'loDiarioPEM.TgEstadoId = dr("TgEstadoId").ToString()
+                loDiarioPEM.DiaHoraIng = String.Format("{0} {1}", Date.Now.Date.ToShortDateString, IIf(IsDBNull(dr("DiaHoraIng")), Nothing, dr("DiaHoraIng")))
+                loDiarioPEM.DiaHoraSal = String.Format("{0} {1}", Date.Now.Date.ToShortDateString, IIf(IsDBNull(dr("DiaHoraSal")), Nothing, dr("DiaHoraSal")))
+                loDiarioPEM.TgTipoAbonoId = dr("TgTipoAbonoId").ToString()
+                loDiarioPEM.TgTipoAbono = dr("TgTipoAbono").ToString()
+                'loDiarioPEM.loConcepto = New EEConceptos
+                'loDiarioPEM.loConcepto.ConId = dr("ConId").ToString()
+                'loDiarioPEM.loConcepto.ConNombre = dr("Concepto").ToString()
+                loDiarioPEM.PerRegId = dr("PerRegEntId").ToString()
+                'loDiarioPEM.AbonId = dr("AbonId").ToString()
+                'loDiarioPEM.PerRegSalId = dr("PerRegSalId").ToString()
+                ListaDiarioPEM.Add(loDiarioPEM)
+            End While
+        Catch ex As Exception
+            Throw New Exception("Listar XtgEstadoId XdiaNPlaca Criterio => " + ex.Message, ex)
+        End Try
+        Return ListaDiarioPEM
+    End Function
+
+    Public Shared Function ListarRinconadaXtgEstadoIdXConId(ByVal astgEstadoId As [String], ByVal asConId As [String]) As List(Of EEDiarioPEM)
+        Dim ListaDiarioPEM As List(Of EEDiarioPEM) = Nothing
+        Dim loDiarioPEM As EEDiarioPEM = Nothing
+        Dim dr As IDataReader = Nothing
+        Try
+            Dim db As Database = DatabaseFactory.CreateDatabase()
+            Dim cmd As DbCommand = db.GetStoredProcCommand("Listar_DiarioRinconada_XconId_XtgEstadoId_pa")
+            db.AddInParameter(cmd, "tgEstadoId", DbType.String, astgEstadoId)
+            db.AddInParameter(cmd, "conId", DbType.String, asConId)
+
+            dr = db.ExecuteReader(cmd)
+            While dr.Read()
+                If ListaDiarioPEM Is Nothing Then
+                    ListaDiarioPEM = New List(Of EEDiarioPEM)
+                End If
+                loDiarioPEM = New EEDiarioPEM()
+                loDiarioPEM.DiarioId = Convert.ToInt32(dr("DiarioId").ToString())
+                loDiarioPEM.DiarioCod = dr("DiarioCod").ToString()
+                loDiarioPEM.DiaNPlaca = dr("DiaNPlaca").ToString()
+                loDiarioPEM.DiaFechaIng = IIf(IsDBNull(dr("DiaFechaIng")), Nothing, dr("DiaFechaIng"))
+                loDiarioPEM.DiaFechaSal = IIf(IsDBNull(dr("DiaFechaSal")), Nothing, dr("DiaFechaSal"))
+                loDiarioPEM.DiaPrecio = Convert.ToDecimal(dr("DiaPrecio").ToString())
+                'loDiarioPEM.TgEstadoId = dr("TgEstadoId").ToString()
+                loDiarioPEM.DiaHoraIng = String.Format("{0} {1}", Date.Now.Date.ToShortDateString, IIf(IsDBNull(dr("DiaHoraIng")), Nothing, dr("DiaHoraIng")))
+                loDiarioPEM.DiaHoraSal = String.Format("{0} {1}", Date.Now.Date.ToShortDateString, IIf(IsDBNull(dr("DiaHoraSal")), Nothing, dr("DiaHoraSal")))
+                loDiarioPEM.TgTipoAbonoId = dr("TgTipoAbonoId").ToString()
+                loDiarioPEM.TgTipoAbono = dr("TgTipoAbono").ToString()
+                'loDiarioPEM.loConcepto = New EEConceptos
+                'loDiarioPEM.loConcepto.ConId = dr("ConId").ToString()
+                'loDiarioPEM.loConcepto.ConNombre = dr("Concepto").ToString()
+                loDiarioPEM.PerRegId = dr("PerRegEntId").ToString()
+                'loDiarioPEM.AbonId = dr("AbonId").ToString()
+                'loDiarioPEM.PerRegSalId = dr("PerRegSalId").ToString()
+                ListaDiarioPEM.Add(loDiarioPEM)
+            End While
+        Catch ex As Exception
+            Throw New Exception("Listar XtgEstadoId XdiaNPlaca Criterio => " + ex.Message, ex)
+        End Try
+        Return ListaDiarioPEM
+    End Function
+
+    Public Shared Function ListarRinconadaXPreTrasDelDia(ByVal fecha As Date) As List(Of EEDiarioPEM)
+        Dim ListaDiarioPEM As List(Of EEDiarioPEM) = Nothing
+        Dim loDiarioPEM As EEDiarioPEM = Nothing
+        Dim dr As IDataReader = Nothing
+        Try
+            Dim db As Database = DatabaseFactory.CreateDatabase()
+            Dim cmd As DbCommand = db.GetStoredProcCommand("Listar_DiarioRinconadaPreTras_DelDia_pa")
+            db.AddInParameter(cmd, "diaFechaIng", DbType.Date, fecha)
+            dr = db.ExecuteReader(cmd)
+            While dr.Read()
+                If ListaDiarioPEM Is Nothing Then
+                    ListaDiarioPEM = New List(Of EEDiarioPEM)
+                End If
+                loDiarioPEM = New EEDiarioPEM()
+                loDiarioPEM.DiarioId = Convert.ToInt32(dr("DiarioId").ToString())
+                loDiarioPEM.DiarioCod = dr("DiarioCod").ToString()
+                loDiarioPEM.DiaNPlaca = dr("DiaNPlaca").ToString()
+                loDiarioPEM.DiaFechaIng = IIf(IsDBNull(dr("DiaFechaIng")), Nothing, dr("DiaFechaIng"))
+                loDiarioPEM.DiaFechaSal = IIf(IsDBNull(dr("DiaFechaSal")), Nothing, dr("DiaFechaSal"))
+                loDiarioPEM.DiaPrecio = Convert.ToDecimal(dr("DiaPrecio").ToString())
+                loDiarioPEM.ConId = dr("conId").ToString()
+
+                loDiarioPEM.DiaHoraIng = String.Format("{0} {1}", Date.Now.Date.ToShortDateString, IIf(IsDBNull(dr("DiaHoraIng")), Nothing, dr("DiaHoraIng")))
+                loDiarioPEM.DiaHoraSal = String.Format("{0} {1}", Date.Now.Date.ToShortDateString, IIf(IsDBNull(dr("DiaHoraSal")), Nothing, dr("DiaHoraSal")))
+                loDiarioPEM.TgTipoAbonoId = dr("TgTipoAbonoId").ToString()
+                loDiarioPEM.TgEstadoId = dr("TgEstadoId").ToString()
+                loDiarioPEM.PerRegEntId = dr("perRegEntId").ToString()
+                loDiarioPEM.PerRegSalId = dr("perRegSalId").ToString()
+                ListaDiarioPEM.Add(loDiarioPEM)
+            End While
+        Catch ex As Exception
+            Throw New Exception("Listar del Día => " + ex.Message, ex)
+        End Try
+        Return ListaDiarioPEM
+    End Function
+
+    Public Shared Function ReporteXFechasXtgEstadoIdXOPtgTipoVehiculoIdXOPConId(ByVal adFechaIni As Date, ByVal adFechaFin As Date, ByVal astgEstadoId As [String], Optional ByVal asTgTipoVehiculoId As String = Nothing, Optional ByVal asConId As [String] = Nothing, Optional ByVal asTgTipoAbonId As [String] = Nothing) As List(Of EEDiarioPEM)
+        Dim ListaDiarioPEM As List(Of EEDiarioPEM) = Nothing
+        Dim loDiarioPEM As EEDiarioPEM = Nothing
+        Dim dr As IDataReader = Nothing
+        Try
+            Dim db As Database = DatabaseFactory.CreateDatabase()
+            Dim cmd As DbCommand = db.GetStoredProcCommand("Reporte_DiarioPEM_XFechas_XtgEstadoId_pa")
+            db.AddInParameter(cmd, "fechaInicio", DbType.Date, adFechaIni)
+            db.AddInParameter(cmd, "fechaFin", DbType.Date, adFechaFin)
+            db.AddInParameter(cmd, "tgEstadoId", DbType.String, astgEstadoId)
+            db.AddInParameter(cmd, "tgTipoVehiculoId", DbType.String, asTgTipoVehiculoId)
+            db.AddInParameter(cmd, "conId", DbType.String, asConId)
+            db.AddInParameter(cmd, "tgTipoAbonoId", DbType.String, asTgTipoAbonId)
+
+            dr = db.ExecuteReader(cmd)
+            While dr.Read()
+                If ListaDiarioPEM Is Nothing Then
+                    ListaDiarioPEM = New List(Of EEDiarioPEM)
+                End If
+                loDiarioPEM = New EEDiarioPEM()
+                loDiarioPEM.DiarioId = Convert.ToInt32(dr("DiarioId").ToString())
+                loDiarioPEM.DiarioCod = dr("DiarioCod").ToString()
+                loDiarioPEM.DiaNPlaca = dr("DiaNPlaca").ToString()
+                loDiarioPEM.DiaFechaIng = IIf(IsDBNull(dr("DiaFechaIng")), Nothing, dr("DiaFechaIng"))
+                loDiarioPEM.DiaFechaSal = IIf(IsDBNull(dr("DiaFechaSal")), Nothing, dr("DiaFechaSal"))
+                loDiarioPEM.DiaPrecio = Convert.ToDecimal(dr("DiaPrecio").ToString())
+                loDiarioPEM.DiaHoraIng = String.Format("{0} {1}", Date.Now.Date.ToShortDateString, IIf(IsDBNull(dr("DiaHoraIng")), Nothing, dr("DiaHoraIng")))
+                loDiarioPEM.DiaHoraSal = String.Format("{0} {1}", Date.Now.Date.ToShortDateString, IIf(IsDBNull(dr("DiaHoraSal")), Nothing, dr("DiaHoraSal")))
+                loDiarioPEM.TgTipoAbonoId = dr("TgTipoAbonoId").ToString()
+                loDiarioPEM.TgTipoAbono = dr("TgTipoAbono").ToString()
+                loDiarioPEM.loConcepto = New EEConceptos
+                loDiarioPEM.loConcepto.ConId = dr("conId").ToString()
+                loDiarioPEM.loConcepto.ConNombre = dr("ConNombre").ToString()
+                loDiarioPEM.PerRegId = dr("PerRegEntId").ToString()
+                ListaDiarioPEM.Add(loDiarioPEM)
+            End While
+        Catch ex As Exception
+            Throw New Exception("Reporte Diario PEM x fecha y Estado=> " + ex.Message, ex)
+        End Try
+        Return ListaDiarioPEM
+    End Function
+
+    Public Shared Function MostrarDatosIngresoXdiaNroTicket(ByVal asdiaNroTicket As [String]) As EEDiarioPEM
+        Dim loDiarioPEM As EEDiarioPEM = Nothing
+        Dim loConceptos As EEConceptos = Nothing
+        Dim dr As IDataReader = Nothing
+        Try
+            Dim db As Database = DatabaseFactory.CreateDatabase()
+            Dim cmd As DbCommand = db.GetStoredProcCommand("Mostrar_DiarioPEMIngresoVehiculo_XdiaNroTicket_pa")
+            db.AddInParameter(cmd, "diaNroTicket", DbType.String, asdiaNroTicket)
+            dr = db.ExecuteReader(cmd)
+            If dr.Read() Then
+                loDiarioPEM = New EEDiarioPEM()
+                loConceptos = New EEConceptos
+                loDiarioPEM.DiarioId = Convert.ToInt32(dr("DiarioId").ToString())
+                loDiarioPEM.DiaNPlaca = dr("diaNPlaca").ToString()
+                loDiarioPEM.DiarioCod = dr("DiarioCod").ToString()
+                loDiarioPEM.DiaFechaIng = String.Format("{0} {1}", dr("DiaFechaIng").ToString.Substring(0, 10), dr("DiaHoraIng").ToString)
+                loConceptos.ConId = dr("conId").ToString()
+                loConceptos.ConNombre = dr("conNombre").ToString()
+                loConceptos.ConImporte = dr("conImporte").ToString()
+                loDiarioPEM.loConcepto = loConceptos
+            End If
+        Catch ex As Exception
+            Throw New Exception("Mostrar Datos Ingreso Vehiculo X diaNroTicket Criterio => " + ex.Message, ex)
+        End Try
+        Return loDiarioPEM
+    End Function
+
+    Public Shared Function MostrarRinconadaDatosIngresoXdiaNroTicket(ByVal asdiaNroTicket As [String]) As EEDiarioPEM
+        Dim loDiarioPEM As EEDiarioPEM = Nothing
+        Dim loConceptos As EEConceptos = Nothing
+        Dim dr As IDataReader = Nothing
+        Try
+            Dim db As Database = DatabaseFactory.CreateDatabase()
+            Dim cmd As DbCommand = db.GetStoredProcCommand("Mostrar_DiarioRinconadaIngresoVehiculo_XdiaNroTicket_pa")
+            db.AddInParameter(cmd, "diaNroTicket", DbType.String, asdiaNroTicket)
+            dr = db.ExecuteReader(cmd)
+            If dr.Read() Then
+                loDiarioPEM = New EEDiarioPEM()
+                loConceptos = New EEConceptos
+                loDiarioPEM.DiarioId = Convert.ToInt32(dr("DiarioId").ToString())
+                loDiarioPEM.DiaNPlaca = dr("diaNPlaca").ToString()
+                loDiarioPEM.DiarioCod = dr("DiarioCod").ToString()
+                loDiarioPEM.DiaFechaIng = String.Format("{0} {1}", dr("DiaFechaIng").ToString.Substring(0, 10), dr("DiaHoraIng").ToString)
+                loConceptos.ConId = dr("conId").ToString()
+                loConceptos.ConNombre = dr("conNombre").ToString()
+                loConceptos.ConImporte = dr("conImporte").ToString()
+                loDiarioPEM.loConcepto = loConceptos
+            End If
+        Catch ex As Exception
+            Throw New Exception("Mostrar Datos Ingreso Vehiculo X diaNroTicket Criterio => " + ex.Message, ex)
+        End Try
+        Return loDiarioPEM
+    End Function
+
+
+    Public Shared Function MostrarDatosIngresoXdiaNPlaca(ByVal asDiaNPlaca As [String]) As EEDiarioPEM
+        Dim loDiarioPEM As EEDiarioPEM = Nothing
+        Dim loConceptos As EEConceptos = Nothing
+        Dim dr As IDataReader = Nothing
+        Try
+            Dim db As Database = DatabaseFactory.CreateDatabase()
+            Dim cmd As DbCommand = db.GetStoredProcCommand("Mostrar_DiarioPEMIngresoVehiculo_XdiaNPlaca_pa")
+            db.AddInParameter(cmd, "diaNPlaca", DbType.String, asDiaNPlaca)
+            dr = db.ExecuteReader(cmd)
+            If dr.Read() Then
+                loDiarioPEM = New EEDiarioPEM()
+                loConceptos = New EEConceptos
+                loDiarioPEM.DiarioId = Convert.ToInt32(dr("DiarioId").ToString())
+                loDiarioPEM.DiarioCod = dr("DiarioCod").ToString()
+                loDiarioPEM.DiaFechaIng = String.Format("{0} {1}", dr("DiaFechaIng").ToString.Substring(0, 10), dr("DiaHoraIng").ToString)
+                loConceptos.ConId = dr("conId").ToString()
+                loConceptos.ConNombre = dr("conNombre").ToString()
+                loConceptos.ConImporte = dr("conImporte").ToString()
+                loDiarioPEM.loConcepto = loConceptos
+            End If
+        Catch ex As Exception
+            Throw New Exception("Mostrar Datos INgreso Vehiculo XdiaNPlaca Criterio => " + ex.Message, ex)
+        End Try
+        Return loDiarioPEM
+    End Function
+
+    Public Shared Function MostrarRinconadaDatosIngresoXdiaNPlaca(ByVal asDiaNPlaca As [String]) As EEDiarioPEM
+        Dim loDiarioPEM As EEDiarioPEM = Nothing
+        Dim loConceptos As EEConceptos = Nothing
+        Dim dr As IDataReader = Nothing
+        Try
+            Dim db As Database = DatabaseFactory.CreateDatabase()
+            Dim cmd As DbCommand = db.GetStoredProcCommand("Mostrar_DiarioRinconadaIngresoVehiculo_XdiaNPlaca_pa")
+            db.AddInParameter(cmd, "diaNPlaca", DbType.String, asDiaNPlaca)
+            dr = db.ExecuteReader(cmd)
+            If dr.Read() Then
+                loDiarioPEM = New EEDiarioPEM()
+                loConceptos = New EEConceptos
+                loDiarioPEM.DiarioId = Convert.ToInt32(dr("DiarioId").ToString())
+                loDiarioPEM.DiarioCod = dr("DiarioCod").ToString()
+                loDiarioPEM.DiaFechaIng = String.Format("{0} {1}", dr("DiaFechaIng").ToString.Substring(0, 10), dr("DiaHoraIng").ToString)
+                loConceptos.ConId = dr("conId").ToString()
+                loConceptos.ConNombre = dr("conNombre").ToString()
+                loConceptos.ConImporte = dr("conImporte").ToString()
+                loDiarioPEM.loConcepto = loConceptos
+            End If
+        Catch ex As Exception
+            Throw New Exception("Mostrar Datos INgreso Vehiculo XdiaNPlaca Criterio => " + ex.Message, ex)
+        End Try
+        Return loDiarioPEM
+    End Function
+
+    Public Shared Function MostrarCapacidadXtgTipoVehiculoId(ByVal astgTipoVehiculoId As [String]) As Integer
+        Dim capacidad As Integer = 0
+        Dim dr As IDataReader = Nothing
+        Try
+            Dim db As Database = DatabaseFactory.CreateDatabase()
+            Dim cmd As DbCommand = db.GetStoredProcCommand("Mostrar_DiarioPEMCapVehiculo_XtgTipoVehiculoId_pa")
+            db.AddInParameter(cmd, "tgTipoVehiculoId", DbType.String, astgTipoVehiculoId)
+            dr = db.ExecuteReader(cmd)
+            If dr.Read() Then
+
+                capacidad = Convert.ToInt32(dr("capacidad").ToString())
+            End If
+        Catch ex As Exception
+            Throw New Exception("Mostrar capacidad por tipo vehiculo=> " + ex.Message, ex)
+        End Try
+        Return capacidad
+    End Function
+
+    Public Shared Function MostrarRincondaCapacidadXtgTipoVehiculoId(ByVal astgTipoVehiculoId As [String]) As Integer
+        Dim capacidad As Integer = 0
+        Dim dr As IDataReader = Nothing
+        Try
+            Dim db As Database = DatabaseFactory.CreateDatabase()
+            Dim cmd As DbCommand = db.GetStoredProcCommand("Mostrar_DiarioRinconadaCapVehiculo_XtgTipoVehiculoId_pa")
+            db.AddInParameter(cmd, "tgTipoVehiculoId", DbType.String, astgTipoVehiculoId)
+            dr = db.ExecuteReader(cmd)
+            If dr.Read() Then
+
+                capacidad = Convert.ToInt32(dr("capacidad").ToString())
+            End If
+        Catch ex As Exception
+            Throw New Exception("Mostrar capacidad Rinconada por tipo vehiculo=> " + ex.Message, ex)
+        End Try
+        Return capacidad
+    End Function
+
+    Public Shared Function listarParaExtorno_XFecha(adFecha As DateTime) As List(Of EEDiarioPEM)
+        Dim ListaDiarioPEM As List(Of EEDiarioPEM) = Nothing
+        Dim loDiarioPEM As EEDiarioPEM = Nothing
+        Dim dr As IDataReader = Nothing
+        Try
+            Dim db As Database = DatabaseFactory.CreateDatabase(EEConexiones.CN_BDSaimt_General)
+            Dim cmd As DbCommand = db.GetStoredProcCommand("Listar_DiarioPEM_ParaExtorno_XFecha_pa")
+            db.AddInParameter(cmd, "fecha", DbType.Date, adFecha)
+
+            dr = db.ExecuteReader(cmd)
+            While dr.Read()
+                If ListaDiarioPEM Is Nothing Then
+                    ListaDiarioPEM = New List(Of EEDiarioPEM)()
+                End If
+
+                loDiarioPEM = New EEDiarioPEM()
+
+                loDiarioPEM.DiarioId = Convert.ToInt32(dr("DiarioId").ToString())
+                loDiarioPEM.DiaNPlaca = dr("DiaNPlaca").ToString()
+
+                If Not IsDBNull(dr("DiaFechaIng")) Then
+                    loDiarioPEM.DiaFechaIng = Convert.ToDateTime(dr("DiaFechaIng"))
+                End If
+
+                If Not IsDBNull(dr("DiaFechaSal")) Then
+                    loDiarioPEM.DiaFechaSal = Convert.ToDateTime(dr("DiaFechaSal"))
+                End If
+
+                loDiarioPEM.DiaPrecio = Convert.ToDecimal(dr("DiaPrecio").ToString())
+                loDiarioPEM.OTgEstado = New EETablaGeneral()
+                loDiarioPEM.OTgEstado.TgCodigo = dr("TgEstadoId").ToString()
+                loDiarioPEM.OTgEstado.TgNombre = dr("TgEstado").ToString()
+
+                If Not IsDBNull(dr("DiaHoraIng")) Then
+                    loDiarioPEM.DiaHoraIngreso = dr("DiaHoraIng")
+                End If
+
+                If Not IsDBNull(dr("DiaHoraSal")) Then
+                    loDiarioPEM.DiaHoraSalida = dr("DiaHoraSal")
+                End If
+
+                loDiarioPEM.loConcepto = New EEConceptos()
+                loDiarioPEM.loConcepto.ConId = dr("ConId").ToString()
+                loDiarioPEM.loConcepto.ConNombre = dr("ConNombre").ToString()
+                loDiarioPEM.DiarioCod = dr("DiarioCod").ToString()
+
+                ListaDiarioPEM.Add(loDiarioPEM)
+            End While
+        Catch ex As Exception
+            Throw New Exception("Listar DiarioPEM Para Extono XFecha => " & ex.Message, ex)
+        End Try
+        Return ListaDiarioPEM
+    End Function
+
+    Public Shared Function listarRinconadaParaExtorno_XFecha(ByVal adFecha As DateTime) As List(Of EEDiarioPEM)
+        Dim ListaDiarioPEM As List(Of EEDiarioPEM) = Nothing
+        Dim loDiarioPEM As EEDiarioPEM = Nothing
+        Dim dr As IDataReader = Nothing
+        Try
+            Dim db As Database = DatabaseFactory.CreateDatabase(EEConexiones.CN_BDSaimt_General)
+            Dim cmd As DbCommand = db.GetStoredProcCommand("Listar_DiarioRinconada_ParaExtorno_XFecha_pa")
+            db.AddInParameter(cmd, "fecha", DbType.Date, adFecha)
+
+            dr = db.ExecuteReader(cmd)
+            While dr.Read()
+                If ListaDiarioPEM Is Nothing Then
+                    ListaDiarioPEM = New List(Of EEDiarioPEM)()
+                End If
+
+                loDiarioPEM = New EEDiarioPEM()
+
+                loDiarioPEM.DiarioId = Convert.ToInt32(dr("DiarioId").ToString())
+                loDiarioPEM.DiaNPlaca = dr("DiaNPlaca").ToString()
+
+                If Not IsDBNull(dr("DiaFechaIng")) Then
+                    loDiarioPEM.DiaFechaIng = Convert.ToDateTime(dr("DiaFechaIng"))
+                End If
+
+                If Not IsDBNull(dr("DiaFechaSal")) Then
+                    loDiarioPEM.DiaFechaSal = Convert.ToDateTime(dr("DiaFechaSal"))
+                End If
+
+                loDiarioPEM.DiaPrecio = Convert.ToDecimal(dr("DiaPrecio").ToString())
+                loDiarioPEM.OTgEstado = New EETablaGeneral()
+                loDiarioPEM.OTgEstado.TgCodigo = dr("TgEstadoId").ToString()
+                loDiarioPEM.OTgEstado.TgNombre = dr("TgEstado").ToString()
+
+                If Not IsDBNull(dr("DiaHoraIng")) Then
+                    loDiarioPEM.DiaHoraIngreso = dr("DiaHoraIng")
+                End If
+
+                If Not IsDBNull(dr("DiaHoraSal")) Then
+                    loDiarioPEM.DiaHoraSalida = dr("DiaHoraSal")
+                End If
+
+                loDiarioPEM.loConcepto = New EEConceptos()
+                loDiarioPEM.loConcepto.ConId = dr("ConId").ToString()
+                loDiarioPEM.loConcepto.ConNombre = dr("ConNombre").ToString()
+                loDiarioPEM.DiarioCod = dr("DiarioCod").ToString()
+
+                ListaDiarioPEM.Add(loDiarioPEM)
+            End While
+        Catch ex As Exception
+            Throw New Exception("Listar DiarioPEM Para Extono XFecha => " & ex.Message, ex)
+        End Try
+        Return ListaDiarioPEM
+    End Function
+
+    ''' <summary>
+    ''' REPORTE X FECHA
+    ''' </summary>
+    ''' <param name="aiTipo">0 = FECHA INGRESO, 1 = FECHA SALIDA, </param>
+    ''' <param name="adFecha">FECHA</param>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Public Shared Function ReporteXFecha(aiTipo As Int16, ByVal adFecha As Date) As List(Of EEDiarioPEM)
+        Dim ListaDiarioPEM As List(Of EEDiarioPEM) = Nothing
+        Dim loDiarioPEM As EEDiarioPEM = Nothing
+        Dim dr As IDataReader = Nothing
+        Try
+            Dim db As Database = DatabaseFactory.CreateDatabase()
+            Dim cmd As DbCommand = db.GetStoredProcCommand("Reporte_DiarioPEM_XFecha_pa")
+            db.AddInParameter(cmd, "tipo", DbType.Int16, aiTipo)
+            db.AddInParameter(cmd, "fecha", DbType.Date, adFecha)
+
+            dr = db.ExecuteReader(cmd)
+            While dr.Read()
+                If ListaDiarioPEM Is Nothing Then
+                    ListaDiarioPEM = New List(Of EEDiarioPEM)
+                End If
+                loDiarioPEM = New EEDiarioPEM()
+                loDiarioPEM.DiarioId = Convert.ToInt32(dr("DiarioId").ToString())
+                loDiarioPEM.DiarioCod = dr("DiarioCod").ToString()
+                loDiarioPEM.DiaNPlaca = dr("DiaNPlaca").ToString()
+                loDiarioPEM.DiaFechaIng = IIf(IsDBNull(dr("DiaFechaIng")), Nothing, dr("DiaFechaIng"))
+                loDiarioPEM.DiaFechaSal = IIf(IsDBNull(dr("DiaFechaSal")), Nothing, dr("DiaFechaSal"))
+                loDiarioPEM.DiaPrecio = Convert.ToDecimal(dr("DiaPrecio").ToString())
+                loDiarioPEM.DiaHoraIng = String.Format("{0} {1}", Date.Now.Date.ToShortDateString, IIf(IsDBNull(dr("DiaHoraIng")), Nothing, dr("DiaHoraIng")))
+                loDiarioPEM.DiaHoraSal = String.Format("{0} {1}", Date.Now.Date.ToShortDateString, IIf(IsDBNull(dr("DiaHoraSal")), Nothing, dr("DiaHoraSal")))
+                loDiarioPEM.TgTipoAbonoId = dr("TgTipoAbonoId").ToString()
+                loDiarioPEM.TgTipoAbono = dr("TgTipoAbono").ToString()
+                loDiarioPEM.loConcepto = New EEConceptos
+                loDiarioPEM.loConcepto.ConId = dr("conId").ToString()
+                loDiarioPEM.loConcepto.ConNombre = dr("ConNombre").ToString()
+                loDiarioPEM.PerRegId = dr("PerRegEntId").ToString()
+                ListaDiarioPEM.Add(loDiarioPEM)
+            End While
+        Catch ex As Exception
+            Throw New Exception("Reporte Diario PEM x fecha y Estado=> " + ex.Message, ex)
+        End Try
+        Return ListaDiarioPEM
+    End Function
+End Class

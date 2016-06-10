@@ -1,0 +1,564 @@
+﻿Imports SaimtControles
+Imports ReglasNegocio
+Imports Entidades
+Imports Microsoft.Office.Interop
+Imports Microsoft.Office.Core
+
+Public Class frmConsultorSTD
+    Inherits frmConsultas
+
+    Dim dtTablaDocumento As DataTable = New DataTable()
+    Dim dtTablaMovimiento As DataTable = New DataTable()
+    Dim InstitucionRemId As String = String.Empty
+    Dim InstitucionDesId As String = String.Empty
+    Public Property docId() As String
+    Public Property docNroRegistro() As String
+    Public Property docAsunto() As String
+    Public Property docFechaIng() As String
+    Dim xl As Excel.Application
+
+#Region "Construir Tabla Documento"
+    Private Sub ConstruirTableDocumento()
+        dtTablaDocumento.Columns.Add("docInterno", GetType(String))
+        dtTablaDocumento.Columns.Add("docVin", GetType(Boolean))
+        dtTablaDocumento.Columns.Add("docNRegistro", GetType(String))
+        dtTablaDocumento.Columns.Add("docTipoDoc", GetType(String))
+        dtTablaDocumento.Columns.Add("docOrigen", GetType(String))
+        dtTablaDocumento.Columns.Add("dovMovDoc", GetType(String))
+        dtTablaDocumento.Columns.Add("docAsunto", GetType(String))
+        dtTablaDocumento.Columns.Add("docfechaIng", GetType(Date))
+        dtTablaDocumento.Columns.Add("docFechaDoc", GetType(Date))
+        dtTablaDocumento.Columns.Add("docPerInteresado", GetType(String))
+        dtTablaDocumento.Columns.Add("docCargoInteresado", GetType(String))
+        dtTablaDocumento.Columns.Add("docAreaInteresado", GetType(String))
+        dtTablaDocumento.Columns.Add("docInsInteresado", GetType(String))
+        dtTablaDocumento.Columns.Add("docNFolio", GetType(String))
+        dtTablaDocumento.Columns.Add("docTieneAnexo", GetType(Boolean))
+        dtTablaDocumento.Columns.Add("docTieneRequisitos", GetType(Boolean))
+    End Sub
+#End Region
+
+#Region "Construir Tabla Movimiento"
+    Private Sub ConstruirTableMovimiento()
+        dtTablaMovimiento.Columns.Add("instRemitente", GetType(String))
+        dtTablaMovimiento.Columns.Add("areRemitente", GetType(String))
+        dtTablaMovimiento.Columns.Add("carRemitente", GetType(String))
+        dtTablaMovimiento.Columns.Add("instDestinatario", GetType(String))
+        dtTablaMovimiento.Columns.Add("areDestinatario", GetType(String))
+        dtTablaMovimiento.Columns.Add("carDestinatario", GetType(String))
+        dtTablaMovimiento.Columns.Add("fecEnvio", GetType(String))
+        dtTablaMovimiento.Columns.Add("fecRecepcion", GetType(String))
+        dtTablaMovimiento.Columns.Add("fueLeido", GetType(String))
+        dtTablaMovimiento.Columns.Add("docInterno", GetType(String))
+        dtTablaMovimiento.Columns.Add("tgTDestino", GetType(String))
+        dtTablaMovimiento.Columns.Add("NTDestino", GetType(String))
+    End Sub
+#End Region
+
+    Private Sub frmConsultorSTD_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
+        OnLoad(e)
+    End Sub
+
+    Private Sub buscarDOCMOV()
+        Try
+            If SaimtTabs1.SelectedTabPageIndex = 0 Then
+                Dim _SQlString As String = String.Empty
+                If chkcoddocInt.Checked Then
+                    If txtCodDocInt.EditValue Is Nothing Then
+                        chkcoddocInt.ForeColor = Color.Red
+                    Else
+                        txtCodDocInt.EditValue = limpiar(txtCodDocInt.EditValue)
+                        If txtCodDocInt.EditValue.Length > 0 Then
+                            _SQlString = _SQlString & String.Format(" (YEAR(docFechaIng)={2}) AND (d.docId like '%{0}%')    {1} ", txtCodDocInt.EditValue, cmbDocInt.EditValue, CboCriterioAnio.EditValue)
+                        End If
+                        chkcoddocInt.ForeColor = Color.Black
+                    End If
+                End If
+                If chkfechaIng.Checked Then
+                    If dtpFechaIng.EditValue Is Nothing Then
+                        chkfechaIng.ForeColor = Color.Red
+                    Else
+                        _SQlString = _SQlString & String.Format(" (YEAR(docFechaIng)={2}) AND  convert(char(10),d.docFechaIng,103)= convert(char(10),'{0}',103) {1} ", dtpFechaIng.EditValue, cmbFechaIng.Text, CboCriterioAnio.EditValue)
+                        chkfechaIng.ForeColor = Color.Black
+                    End If
+                End If
+                If chkFechaDoc.Checked Then
+                    If dtpFechaDoc.EditValue Is Nothing Then
+                        chkFechaDoc.ForeColor = Color.Red
+                    Else
+                        _SQlString = _SQlString & String.Format(" (YEAR(docFechaIng)={2}) AND  convert(char(10),d.docFechaDoc,103)= convert(char(10),'{0}',103) {1} ", dtpFechaDoc.EditValue, cmbFechaDoc.Text, CboCriterioAnio.EditValue)
+                        chkFechaDoc.ForeColor = Color.Black
+                    End If
+                End If
+                If chkFechaReg.Checked Then
+                    If dtpFechaReg.EditValue Is Nothing Then
+                        chkFechaReg.ForeColor = Color.Red
+                    Else
+                        _SQlString = _SQlString & String.Format(" (YEAR(docFechaIng)={2}) AND  convert(char(10),d.docFechaReg,103)= convert(char(10),'{0}',103) {1} ", dtpFechaReg.EditValue, cmbFechaReg.Text, CboCriterioAnio.EditValue)
+                        chkFechaReg.ForeColor = Color.Black
+                    End If
+                End If
+                If chkNroReg.Checked Then
+                    If txtNroReg.EditValue Is Nothing Then
+                        chkNroReg.ForeColor = Color.Red
+                    Else
+                        txtNroReg.EditValue = limpiar(txtNroReg.EditValue)
+                        If txtNroReg.EditValue.Length > 0 Then
+                            _SQlString = _SQlString & String.Format(" (YEAR(docFechaIng)={2}) AND cast(left(d.docNReg,5) as int)=cast({0} as int) {1} ", txtNroReg.EditValue, cmbNroReg.Text, CboCriterioAnio.EditValue)
+                        End If
+                        chkNroReg.ForeColor = Color.Black
+                    End If
+                End If
+                If chkAsunto.Checked Then
+                    If txtAsunto.EditValue Is Nothing Then
+                        chkAsunto.ForeColor = Color.Red
+                    Else
+                        txtAsunto.EditValue = limpiar(txtAsunto.EditValue)
+                        If txtAsunto.EditValue.Length > 0 Then
+                            _SQlString = _SQlString & String.Format(" (YEAR(docFechaIng)={2}) AND  d.docAsunto like '%{0}%' {1} ", txtAsunto.EditValue, cmbAsunto.Text, CboCriterioAnio.EditValue)
+                        End If
+                        chkAsunto.ForeColor = Color.Black
+                    End If
+                End If
+                If chkTipoDoc.Checked Then
+                    If cmblueTipoDoc.EditValue Is Nothing Then
+                        chkTipoDoc.ForeColor = Color.Red
+                    Else
+                        If cmblueTipoDoc.EditValue.Length > 0 Then
+                            _SQlString = _SQlString & String.Format(" (YEAR(docFechaIng)={2}) AND  TD.tgCodigo= '{0}' {1} ", cmblueTipoDoc.EditValue, cmbTipoDoc.Text, CboCriterioAnio.EditValue)
+                        End If
+                        chkTipoDoc.ForeColor = Color.Black
+                    End If
+                End If
+                If chkInteresado.Checked Then
+                    If txtinteresado.EditValue Is Nothing Then
+                        chkInteresado.ForeColor = Color.Red
+                    Else
+                        txtinteresado.EditValue = limpiar(txtinteresado.EditValue)
+                        If txtinteresado.EditValue.Length > 0 Then
+                            _SQlString = _SQlString & String.Format(" (YEAR(docFechaIng)={2}) AND  per.perApePaterno+' '+per.perApeMaterno+' '+ per.perNombres like '%{0}%' {1} ", txtinteresado.EditValue, cmbInteresado.Text, CboCriterioAnio.EditValue)
+                        End If
+                        chkInteresado.ForeColor = Color.Black
+                    End If
+                End If
+                If chkOrigenDoc.Checked Then
+                    If cmblueOrigenDoc.EditValue Is Nothing Then
+                        chkOrigenDoc.ForeColor = Color.Red
+                    Else
+                        If cmblueOrigenDoc.EditValue.Length > 0 Then
+                            _SQlString = _SQlString & String.Format(" (YEAR(docFechaIng)={2}) AND d.docOrigen= '{0}' {1} ", cmblueOrigenDoc.EditValue, cmbOrigenDoc.Text, CboCriterioAnio.EditValue)
+                        End If
+                        chkOrigenDoc.ForeColor = Color.Black
+                    End If
+                End If
+                If chkmovDoc.Checked Then
+                    If cmblueMovDoc.EditValue Is Nothing Then
+                        chkmovDoc.ForeColor = Color.Red
+                    Else
+
+                        If cmblueMovDoc.EditValue.Length > 0 Then
+                            _SQlString = _SQlString & String.Format(" (YEAR(docFechaIng)={2}) AND mt.tgcodigo = '{0}' {1} ", cmblueMovDoc.EditValue, cmbMovDoc.Text, CboCriterioAnio.EditValue)
+                        End If
+                        chkmovDoc.ForeColor = Color.Black
+                    End If
+                End If
+
+                If chkexpedienteMPT.Checked Then
+                    If txtExpedienteMPT.EditValue Is Nothing Then
+                        chkexpedienteMPT.ForeColor = Color.Red
+                    Else
+                        txtExpedienteMPT.EditValue = limpiar(txtExpedienteMPT.EditValue)
+                        If txtExpedienteMPT.EditValue.Length > 0 Then
+                            _SQlString = _SQlString & String.Format("(YEAR(docFechaIng)={2}) AND d.docExpMPT like '%{0}%' {1} ", txtExpedienteMPT.EditValue, cmbExpedienteMPT.Text, CboCriterioAnio.EditValue)
+                        End If
+                        chkexpedienteMPT.ForeColor = Color.Black
+                    End If
+                End If
+                If chkexpedienteSAIMT.Checked Then
+                    If txtExpedienteSAIMT.EditValue Is Nothing Then
+                        chkexpedienteSAIMT.ForeColor = Color.Red
+                    Else
+                        txtExpedienteSAIMT.EditValue = limpiar(txtExpedienteSAIMT.EditValue)
+                        If txtExpedienteSAIMT.EditValue.Length > 0 Then
+                            _SQlString = _SQlString & String.Format(" (YEAR(docFechaIng)={2}) AND d.docExpSAIMT like '%{0}%'  {1} ", txtExpedienteSAIMT.EditValue, cmbExpedienteSAIMT.Text, CboCriterioAnio.EditValue)
+                        End If
+                        chkexpedienteSAIMT.ForeColor = Color.Black
+                    End If
+                End If
+                If chkDocAnexo.Checked Then
+                    _SQlString = _SQlString & String.Format(" (YEAR(docFechaIng)={2}) AND (SELECT CASE WHEN COUNT(aneId)>0 THEN 1 ELSE 0 END FROM  AnexoSTD An ON An.docId= D.docId)={1} {0} ", IIf(chkDocAnexo.Checked, 1, 0), cmbTieneAnexos.Text, CboCriterioAnio.EditValue)
+                End If
+
+                Dim lstDocumento As List(Of EEDocumentoSTD)
+                lstDocumento = MantenimientosBL.Instancia.documentostdListarxSQL(_SQlString)
+                dtTablaDocumento.Clear()
+                If lstDocumento IsNot Nothing Then
+                    For Each fTablaDocumento As EEDocumentoSTD In lstDocumento
+                        dtTablaDocumento.LoadDataRow(New Object() { _
+                        fTablaDocumento.DocId, _
+                        fTablaDocumento.tieneVinculos, _
+                        fTablaDocumento.DocNRegT, _
+                        fTablaDocumento.TgTDoc, _
+                        fTablaDocumento.Origen, _
+                        fTablaDocumento.TgMovTramite, _
+                        fTablaDocumento.DocAsunto, _
+                        fTablaDocumento.DocFechaIng, _
+                        fTablaDocumento.DocFechaDoc, _
+                        fTablaDocumento.perNombre, _
+                        fTablaDocumento.TgCargoInt, _
+                        fTablaDocumento.TgAreaInt, _
+                        fTablaDocumento.TgInstitucionInt, _
+                        fTablaDocumento.DocNFolio, _
+                        fTablaDocumento.tieneAnexo, _
+                        fTablaDocumento.tieneRequisitos
+                       }, True)
+                    Next
+                    Me.gcResultadoDoc.DataSource = dtTablaDocumento
+                    gvResultadoDoc.BestFitColumns()
+                End If
+            Else
+                Dim _SQlString2 As String = String.Empty
+                If chkFechaEnvio.Checked Then
+                    If dtpFechaEnvio.EditValue Is Nothing Then
+                        chkFechaEnvio.ForeColor = Color.Red
+                    Else
+                        _SQlString2 = _SQlString2 & String.Format(" (YEAR(docFechaIng)={2}) AND convert(char(10),movFechaEnv,103) = convert(char(10),'{0}',103) {1} ", dtpFechaEnvio.EditValue, cmbFechaEnv.Text, CboCriterioAnio.EditValue)
+                        chkFechaEnvio.ForeColor = Color.Black
+                    End If
+                End If
+
+                If chkComentarioEnvio.Checked Then
+                    If cmbComentarioEnvio.EditValue Is Nothing Then
+                        chkComentarioEnvio.ForeColor = Color.Red
+                    Else
+                        cmbComentarioEnvio.EditValue = limpiar(cmbComentarioEnvio.EditValue)
+                        If cmbComentarioEnvio.EditValue.Length > 0 Then
+                            _SQlString2 = _SQlString2 & String.Format(" (YEAR(docFechaIng)={2}) AND movComentario like '%{0}%' {1} ", cmbComentarioEnvio.EditValue, cmbComentario.Text, CboCriterioAnio.EditValue)
+                        End If
+                        chkComentarioEnvio.ForeColor = Color.Black
+                    End If
+                End If
+
+                If chkFechaRecep.Checked Then
+                    If dtpFechaRecep.EditValue Is Nothing Then
+                        chkFechaRecep.ForeColor = Color.Red
+                    Else
+                        _SQlString2 = _SQlString2 & String.Format(" (YEAR(docFechaIng)={2}) AND convert(char(10),movFechaRec,103) = convert(char(10),'{0}',103) {1} ", dtpFechaRecep.EditValue, cmbFechaRecep.Text, CboCriterioAnio.EditValue)
+                        chkFechaRecep.ForeColor = Color.Black
+                    End If
+                End If
+
+                If chkDocInt.Checked Then
+                    If cmbCodDocInt.EditValue Is Nothing Then
+                        chkDocInt.ForeColor = Color.Red
+                    Else
+                        cmbCodDocInt.EditValue = limpiar(cmbCodDocInt.EditValue)
+                        If cmbCodDocInt.EditValue.Length > 0 Then
+                            _SQlString2 = _SQlString2 & String.Format(" (YEAR(docFechaIng)={2}) AND d.docId like '%{0}%' {1} ", cmbCodDocInt.EditValue, cmbCodDocInt.Text, CboCriterioAnio.EditValue)
+                        End If
+                        chkDocInt.ForeColor = Color.Black
+                    End If
+                End If
+
+
+                If chkAccion.Checked Then
+                    If cmbAccionMov.EditValue Is Nothing Then
+                        chkAccion.ForeColor = Color.Red
+                    Else
+                        If cmbAccionMov.EditValue.Length > 0 Then
+                            _SQlString2 = _SQlString2 & String.Format(" (YEAR(docFechaIng)={2}) AND tgTDestinoId like '%{0}%' {1} ", cmbAccionMov.EditValue, cmbAccion.Text, CboCriterioAnio.EditValue)
+                        End If
+                        chkAccion.ForeColor = Color.Black
+                    End If
+                End If
+
+                If chkNroAccion.Checked Then
+                    If txtNroAccion.EditValue Is Nothing Then
+                        chkNroAccion.ForeColor = Color.Red
+                    Else
+                        If txtNroAccion.EditValue.Length > 0 Then
+                            _SQlString2 = _SQlString2 & String.Format(" (YEAR(docFechaIng)={2}) AND movNroTDestino like '%{0}%' {1} ", txtNroAccion.EditValue, cmbNroAccion.Text, CboCriterioAnio.EditValue)
+                        End If
+                        chkNroAccion.ForeColor = Color.Black
+                    End If
+                End If
+
+
+                If chkRemitente.Checked Then
+                    Dim MovDe As String = Nothing
+                    MovDe = InstitucionRemId & cmbAreaRem.EditValue & cmbCargoRem.EditValue
+                    If MovDe Is Nothing Then
+                        chkRemitente.ForeColor = Color.Red
+                    Else
+                        If MovDe.Length > 0 Then
+                            _SQlString2 = _SQlString2 & String.Format(" (YEAR(docFechaIng)={2}) AND movDe like '%{0}%' {1} ", MovDe, cmbRemitente.Text, CboCriterioAnio.EditValue)
+                        End If
+                        chkRemitente.ForeColor = Color.Black
+                    End If
+                End If
+
+
+                If chkDestinatario.Checked Then
+                    Dim MovPara As String = Nothing
+                    MovPara = InstitucionDesId & cmbAreaDes.EditValue & cmbCargoDes.EditValue
+                    If MovPara Is Nothing Then
+                        chkDestinatario.ForeColor = Color.Red
+                    Else
+                        If MovPara.Length > 0 Then
+                            _SQlString2 = _SQlString2 & String.Format(" (YEAR(docFechaIng)={2}) AND movPara like '%{0}%' {1} ", MovPara, cmbDestinatario.Text, CboCriterioAnio.EditValue)
+                        End If
+                        chkDestinatario.ForeColor = Color.Black
+                    End If
+                End If
+
+                If chkDocNoLeido.Checked Then
+                    _SQlString2 = _SQlString2 & String.Format(" (YEAR(docFechaIng)={2}) AND movRead like '%{0}%' {1} ", IIf(chkDocNoLeido.Checked, 1, 0), cmbNoLeido.Text, CboCriterioAnio.EditValue)
+                End If
+
+                Dim lstMovimiento As List(Of EEMovimientoSTD)
+                lstMovimiento = MantenimientosBL.Instancia.movimientoSTDListarxSQL(_SQlString2)
+                dtTablaMovimiento.Clear()
+                If lstMovimiento IsNot Nothing Then
+                    For Each fTablaMovimiento As EEMovimientoSTD In lstMovimiento
+                        dtTablaMovimiento.LoadDataRow(New Object() { _
+                               fTablaMovimiento.OJerarquia.InstitucionOrigen, _
+                               fTablaMovimiento.OJerarquia.AreaOrigen, _
+                               fTablaMovimiento.OJerarquia.CargoOrigen, _
+                               fTablaMovimiento.OJerarquia.InstitucionDestino, _
+                               fTablaMovimiento.OJerarquia.AreaDestino, _
+                               fTablaMovimiento.OJerarquia.CargoDestino, _
+                               fTablaMovimiento.MovFechaEnv, _
+                               fTablaMovimiento.MovFechaRec, _
+                               fTablaMovimiento.MovRead, _
+                               fTablaMovimiento.DocId, _
+                               fTablaMovimiento.tgTDestino, _
+                               fTablaMovimiento.MovNroTDestino
+                       }, True)
+                    Next
+                    Me.gcResultadoMov.DataSource = dtTablaMovimiento
+                    gvResultadoMov.BestFitColumns()
+                End If
+            End If
+        Catch ex As Exception
+
+        End Try
+    End Sub
+
+    Private Sub txtInstitucionRem_Click(sender As System.Object, e As System.EventArgs) Handles txtInstitucionRem.Click
+        Using fmConsultaTablaGeneral As frmConsultaTablaGeneral = New frmConsultaTablaGeneral(82)
+            If fmConsultaTablaGeneral.ShowDialog() = DialogResult.OK Then
+                txtInstitucionRem.EditValue = fmConsultaTablaGeneral.TgNombre
+                InstitucionRemId = fmConsultaTablaGeneral.TgCodigo
+            End If
+            cmbAreaRem.mColumnas(SaimtComboBoxLookUp.Entidades.TablaGeneral)
+            cmbAreaRem.Properties.DisplayMember = "TgNombre"
+            cmbAreaRem.Properties.ValueMember = "TgCodigo"
+            cmbAreaRem.Properties.DataSource = MantenimientosBL.Instancia.tablageneralListar_XClsId_XTgExtra(83, InstitucionRemId)
+            cmbAreaRem.ItemIndex = 0
+        End Using
+    End Sub
+
+    Private Sub cmbAreaRem_EditValueChanged(sender As System.Object, e As System.EventArgs) Handles cmbAreaRem.EditValueChanged
+        If cmbAreaRem.EditValue IsNot Nothing Then
+            cmbCargoRem.mColumnas(SaimtComboBoxLookUp.Entidades.TablaGeneral)
+            cmbCargoRem.Properties.DisplayMember = "TgNombre"
+            cmbCargoRem.Properties.ValueMember = "TgCodigo"
+            cmbCargoRem.Properties.DataSource = MantenimientosBL.Instancia.tablageneralListar_XClsId_XTgExtra(84, cmbAreaRem.EditValue & InstitucionRemId)
+            cmbCargoRem.ItemIndex = 0
+        End If
+    End Sub
+
+    Private Sub txtInstitucionDes_EditValueChanged(sender As System.Object, e As System.EventArgs) Handles txtInstitucionDes.EditValueChanged
+        Using fmConsultaTablaGeneral As frmConsultaTablaGeneral = New frmConsultaTablaGeneral(82)
+            If fmConsultaTablaGeneral.ShowDialog() = DialogResult.OK Then
+                txtInstitucionDes.EditValue = fmConsultaTablaGeneral.TgNombre
+                InstitucionDesId = fmConsultaTablaGeneral.TgCodigo
+            End If
+            cmbAreaDes.mColumnas(SaimtComboBoxLookUp.Entidades.TablaGeneral)
+            cmbAreaDes.Properties.DisplayMember = "TgNombre"
+            cmbAreaDes.Properties.ValueMember = "TgCodigo"
+            cmbAreaDes.Properties.DataSource = MantenimientosBL.Instancia.tablageneralListar_XClsId_XTgExtra(83, InstitucionDesId)
+            cmbAreaDes.ItemIndex = 0
+        End Using
+    End Sub
+
+    Private Sub cmbAreaDes_EditValueChanged(sender As System.Object, e As System.EventArgs) Handles cmbAreaDes.EditValueChanged
+        If cmbAreaDes.EditValue IsNot Nothing Then
+            cmbCargoDes.mColumnas(SaimtComboBoxLookUp.Entidades.TablaGeneral)
+            cmbCargoDes.Properties.DisplayMember = "TgNombre"
+            cmbCargoDes.Properties.ValueMember = "TgCodigo"
+            cmbCargoDes.Properties.DataSource = MantenimientosBL.Instancia.tablageneralListar_XClsId_XTgExtra(84, cmbAreaDes.EditValue & InstitucionRemId)
+            cmbCargoDes.ItemIndex = 0
+        End If
+    End Sub
+
+    Private Sub btnBuscarMov_Click(sender As System.Object, e As System.EventArgs) Handles btnBuscarMov.Click
+        buscarDOCMOV()
+    End Sub
+
+    Function limpiar(texto As String) As String
+        Return texto.Replace("'", "").Replace("%", "").Replace("´", "").Replace("¿", "").Replace("+", "")
+    End Function
+
+    Private Sub gcResultadoDoc_DoubleClick(sender As System.Object, e As System.EventArgs) Handles gcResultadoDoc.DoubleClick
+        btnVerDetalleDocumento.PerformClick()
+    End Sub
+
+  
+
+    Private Sub btnBuscarDoc_Click(sender As System.Object, e As System.EventArgs) Handles btnBuscarDoc.Click
+        buscarDOCMOV()
+    End Sub
+
+    Protected Overrides Sub OnLoad(e As System.EventArgs)
+        Try
+            ConstruirTableDocumento()
+            ConstruirTableMovimiento()
+            cmblueMovDoc.mColumnas(SaimtComboBoxLookUp.Entidades.TablaGeneral)
+            cmblueMovDoc.Properties.DisplayMember = "TgNombre"
+            cmblueMovDoc.Properties.ValueMember = "TgCodigo"
+            cmblueMovDoc.Properties.DataSource = MantenimientosBL.Instancia.tablageneralListarXClsId(90)
+            cmblueMovDoc.ItemIndex = 0
+
+            cmblueTipoDoc.mColumnas(SaimtComboBoxLookUp.Entidades.TablaGeneral)
+            cmblueTipoDoc.Properties.DisplayMember = "TgNombre"
+            cmblueTipoDoc.Properties.ValueMember = "TgCodigo"
+            cmblueTipoDoc.Properties.DataSource = MantenimientosBL.Instancia.tablageneralListarXClsId(86)
+            cmblueTipoDoc.ItemIndex = 0
+
+            cmblueOrigenDoc.mColumnas(SaimtComboBoxLookUp.Entidades.TablaGeneral)
+            cmblueOrigenDoc.Properties.DisplayMember = "TgNombre"
+            cmblueOrigenDoc.Properties.ValueMember = "TgCodigo"
+            cmblueOrigenDoc.Properties.DataSource = MantenimientosBL.Instancia.tablageneralListarXClsId(85)
+            cmblueOrigenDoc.ItemIndex = 0
+
+
+            cmbAccionMov.mColumnas(SaimtComboBoxLookUp.Entidades.TablaGeneral)
+            cmbAccionMov.Properties.DisplayMember = "TgNombre"
+            cmbAccionMov.Properties.ValueMember = "TgCodigo"
+            cmbAccionMov.Properties.DataSource = MantenimientosBL.Instancia.tablageneralListarXClsId(96)
+            cmbAccionMov.ItemIndex = 0
+
+            CboCriterioAnio.mColumnas(SaimtComboBoxLookUp.Entidades.TablaGeneral)
+            CboCriterioAnio.Properties.DisplayMember = "TgNombre"
+            CboCriterioAnio.Properties.ValueMember = "TgCodigo"
+            CboCriterioAnio.Properties.DataSource = MantenimientosBL.Instancia.tablageneralListarXClsId(76)
+            CboCriterioAnio.ItemIndex = MantenimientosBL.Instancia.tablageneralListarXClsId(76).Count
+
+            cmbDocInt.SelectedIndex = 0
+            cmbFechaIng.SelectedIndex = 0
+            cmbFechaDoc.SelectedIndex = 0
+            cmbFechaReg.SelectedIndex = 0
+            cmbNroReg.SelectedIndex = 0
+            cmbAsunto.SelectedIndex = 0
+            cmbTipoDoc.SelectedIndex = 0
+            cmbInteresado.SelectedIndex = 0
+            cmbOrigenDoc.SelectedIndex = 0
+            cmbMovDoc.SelectedIndex = 0
+
+        Catch ex As Exception
+            SaimtMessageBox.mostrarAlertaError(ex.Message)
+        End Try
+    End Sub
+
+    Private Sub btnVerDetalleDocumento_Click(sender As System.Object, e As System.EventArgs) Handles btnVerDetalleDocumento.Click
+        If Me.gvResultadoDoc.DataRowCount <> 0 Then
+
+            docId = dtTablaDocumento.Rows(Me.gvResultadoDoc.GetSelectedRows(0))("docInterno").ToString()
+            docNroRegistro = dtTablaDocumento.Rows(Me.gvResultadoDoc.GetSelectedRows(0))("docNRegistro").ToString()
+            Seleccionado = True
+            Dim fmVisorDocumento As frmVisorDocumento = New frmVisorDocumento(docId)
+            fmVisorDocumento.MdiParent = Me.MdiParent
+            fmVisorDocumento.BringToFront()
+            fmVisorDocumento.Show()
+        Else
+            Seleccionado = False
+        End If
+    End Sub
+
+    Private Sub btnReporteMovimientoXDocumento_Click(sender As System.Object, e As System.EventArgs) Handles btnReporteMovimientoXDocumento.Click
+        If Me.gvResultadoDoc.DataRowCount <> 0 Then
+            btnReporteMovimientoXDocumento.Enabled = False
+            xl = EEExcel.Instancia
+            xl.Workbooks.Open(EEComun.RutaReportes & "\RptMovimientoDoc.xls", 1, True, 4)
+            llenarExcel()
+            If fbdExportar.ShowDialog = Windows.Forms.DialogResult.OK Then
+                xl.ActiveWorkbook.SaveAs(Me.fbdExportar.SelectedPath & "\MovimientosDoc_" & Format(Now, "dd-MM-yyyy"))
+                xl.ActiveWorkbook.Close()
+                Me.bsiMensaje.Caption = "El archivo se guardo con exito en la carpeta seleccionada con el nombre MovimientosDoc_" & Format(Now, "dd-MM-yyyy")
+            End If
+            btnReporteMovimientoXDocumento.Enabled = True
+        End If
+    End Sub
+
+#Region "Reporte Movimientos X Documento"
+    Private Sub llenarExcel()
+        xl.Sheets(xl.Worksheets("Hoja1").Index).Select()
+
+        Dim loDocumentoSTD As EEDocumentoSTD = MantenimientosBL.Instancia.documentostdListarXdocId(dtTablaDocumento.Rows(Me.gvResultadoDoc.GetSelectedRows(0))("docInterno").ToString())
+
+        xl.Range("B3").Value = loDocumentoSTD.DocId
+        xl.Range("B4").Value = loDocumentoSTD.Origen
+        If loDocumentoSTD.DocTupac Then
+            xl.Range("E4").Value = "Sí"
+        Else
+            xl.Range("E4").Value = "No"
+        End If
+        xl.Range("I4").Value = loDocumentoSTD.TgMovTramite
+        xl.Range("B5").Value = loDocumentoSTD.TgTDoc
+        xl.Range("F5").Value = loDocumentoSTD.DocAux
+        xl.Range("C6").Value = loDocumentoSTD.DocNReg
+        xl.Range("B7").Value = loDocumentoSTD.DocNFolio
+        xl.Range("D7").Value = loDocumentoSTD.DocFechaIng
+        xl.Range("G7").Value = loDocumentoSTD.DocFechaDoc
+        xl.Range("A9").Value = loDocumentoSTD.procNombre
+        xl.Range("A11").Value = loDocumentoSTD.DocAsunto
+        xl.Range("B12").Value = loDocumentoSTD.TgPrioridad
+        xl.Range("D12").Value = loDocumentoSTD.DocNParte
+        xl.Range("F12").Value = loDocumentoSTD.DocVinId
+        xl.Range("B15").Value = loDocumentoSTD.perNombre
+        xl.Range("B16").Value = loDocumentoSTD.perDireccion
+        xl.Range("B17").Value = loDocumentoSTD.TgInstitucion
+        xl.Range("B18").Value = loDocumentoSTD.TgArea
+        xl.Range("H18").Value = loDocumentoSTD.TgCargoInt
+        xl.Range("C21").Value = loDocumentoSTD.DocExpSAIMT
+        xl.Range("I21").Value = loDocumentoSTD.DocExpMPT1 & " - " & loDocumentoSTD.DocExpMPTAño1 & " Folios: " & loDocumentoSTD.DocExpFoliosMPT1 & " //" & loDocumentoSTD.DocExpMPT2 & " - " & loDocumentoSTD.DocExpMPTAño2 & " Folios: " & loDocumentoSTD.DocExpFoliosMPT2
+        xl.Range("B22").Value = loDocumentoSTD.DocNRef
+        xl.Range("C23").Value = loDocumentoSTD.DocComentario
+        xl.Range("B25").Value = loDocumentoSTD.DocSumilla
+        Dim loMovimientoSTD As List(Of EEMovimientoSTD) = MantenimientosBL.Instancia.movimientoSTDListarxDocId(loDocumentoSTD.DocId)
+        If loMovimientoSTD IsNot Nothing Then
+            Dim liFila As Integer = 30
+            For Each fMovimientoSTD As EEMovimientoSTD In loMovimientoSTD
+
+                Dim loPersona As List(Of EEPersona) = MantenimientosBL.Instancia.personaListarXCargoId(fMovimientoSTD.MovPara)
+
+                xl.Range("A" & liFila).Value = fMovimientoSTD.tgTDestinoExtra
+                xl.Range("B" & liFila).Value = fMovimientoSTD.ODocumento.perNombre
+                xl.Range("D" & liFila).Value = fMovimientoSTD.OJerarquia.CargoOrigen
+                xl.Range("F" & liFila).Value = loPersona.Item(0).PerNombreCompleto
+                xl.Range("H" & liFila).Value = fMovimientoSTD.OJerarquia.CargoDestino
+                xl.Range("J" & liFila).Value = fMovimientoSTD.MovFechaEnv
+                xl.Range("K" & liFila).Value = fMovimientoSTD.MovFechaRec
+                xl.Range("L" & liFila).Value = fMovimientoSTD.TgEstadoMov
+                xl.Range("N" & liFila).Value = fMovimientoSTD.DiasProcedimiento
+                xl.Range("M" & liFila).Value = fMovimientoSTD.DiasTenencia
+                xl.Range("O" & liFila).Value = fMovimientoSTD.MovComentario
+                liFila = liFila + 1
+            Next
+        End If
+    End Sub
+#End Region
+
+    Private Sub btnSeleccionar_Click(sender As System.Object, e As System.EventArgs) Handles btnSeleccionar.Click
+        If Me.gvResultadoDoc.DataRowCount <> 0 Then
+            docId = dtTablaDocumento.Rows(Me.gvResultadoDoc.GetSelectedRows(0))("docInterno").ToString()
+            docNroRegistro = dtTablaDocumento.Rows(Me.gvResultadoDoc.GetSelectedRows(0))("docNRegistro").ToString()
+            docAsunto = dtTablaDocumento.Rows(Me.gvResultadoDoc.GetSelectedRows(0))("docAsunto").ToString()
+            docFechaIng = dtTablaDocumento.Rows(Me.gvResultadoDoc.GetSelectedRows(0))("docfechaIng").ToString()
+            Seleccionado = True
+        Else
+            Seleccionado = False
+        End If
+    End Sub
+End Class

@@ -1,0 +1,217 @@
+﻿Imports SaimtControles
+Imports ReglasNegocio
+Imports Entidades
+
+Public Class frmInmueblesConsultorAltasyBajas
+    Dim oTable As DataTable = New DataTable()
+    Dim oTableGRubros As DataTable = New DataTable()
+    Dim oTableRubros As DataTable = New DataTable()
+    Public Property InmId() As String
+    Public Property SQlString() As String
+    Public Property tipoImprimir As String = String.Empty
+    Private Sub ConstruirTableRubros()
+        oTableRubros.Columns.Add("TgCodigo", GetType(String))
+        oTableRubros.Columns.Add("TgNombre", GetType(String))
+    End Sub
+    Private Sub ConstruirTableGRubros()
+        oTableGRubros.Columns.Add("TgCodigo", GetType(String))
+        oTableGRubros.Columns.Add("TgNombre", GetType(String))
+    End Sub
+
+
+    Private Sub frmConsultaXUbicacion_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        EEComun.CargarTablasGenerales(MantenimientosBL.Instancia.tablageneralListarXClasesId("32,33"))
+        cboRubroGrupos.mColumnas(SaimtComboBoxLookUp.Entidades.TablaGeneral)
+        cboRubroGrupos.Properties.DisplayMember = "TgNombre"
+        cboRubroGrupos.Properties.ValueMember = "TgCodigo"
+        cboRubroGrupos.Properties.DataSource = EEComun.DtByClsId(clsVariablesTablaGeneral.tblgRubrosGrupos, True)
+        ConstruirTable()
+        dgvResultado.DataSource = oTable
+    End Sub
+
+#Region "Construir Table"
+
+    Private Sub ConstruirTable()
+        oTable.Columns.Add("InmCant", GetType(String))
+        oTable.Columns.Add("inmFileRubro", GetType(String))
+        oTable.Columns.Add("inmUbicacion", GetType(String))
+        oTable.Columns.Add("inmArea", GetType(String))
+        oTable.Columns.Add("InmTipoActualizacion", GetType(String))
+        oTable.Columns.Add("InmCausal", GetType(String))
+        oTable.Columns.Add("inmFecha", GetType(String))
+        oTable.Columns.Add("InmValComValTotal", GetType(String))
+        oTable.Columns.Add("InmDocumento", GetType(String))
+        oTable.Columns.Add("InmObservacion", GetType(String))
+        oTable.Columns.Add("InmId", GetType(String))
+        oTable.Columns.Add("InmDatoAdicional", GetType(String))
+
+    End Sub
+#End Region
+
+    Sub buscarAltasYBajas(ByVal AltaBaja As String)
+        Dim ListaInmueble As List(Of EEInmueble) = Nothing
+        Dim TgRubroId As String = Nothing
+        Dim TgGRubroId As String = Nothing
+        Dim dateInicio As Date = Nothing
+        Dim dateFin As Date = Nothing
+
+        If chkfecha.Checked = True Then
+            If dpTiempoInicio.EditValue Is Nothing Then
+                SaimtMessageBox.mostrarAlertaInformativa("Seleccione fecha Inicio")
+                Return
+            Else
+                dateInicio = dpTiempoInicio.DateTime.Date
+            End If
+            If dpTiempoFin.EditValue Is Nothing Then
+                SaimtMessageBox.mostrarAlertaInformativa("Seleccione fecha Fin")
+                Return
+            Else
+                dateFin = dpTiempoFin.DateTime.Date
+            End If
+        Else
+            dateInicio = Nothing
+        End If
+
+        If chkRubros.Checked = True Then
+            If cboRubroGrupos.EditValue IsNot Nothing Then
+                TgGRubroId = cboRubroGrupos.EditValue
+                If cboRubroGrupos.EditValue <> 0 Then
+                    If cboRubro.EditValue IsNot Nothing Then
+                        If cboRubro.EditValue = 0 Then
+                            TgRubroId = Nothing
+                        Else
+                            TgRubroId = cboRubro.EditValue
+                        End If
+                    Else
+                        SaimtMessageBox.mostrarAlertaInformativa("Seleccione el Rubro")
+                        Return
+                    End If
+                Else
+                    TgGRubroId = Nothing
+                End If
+            End If
+        Else
+            TgRubroId = Nothing
+            TgGRubroId = Nothing
+        End If
+
+        Dim inmFile, inmFileAnt As String
+        If chkFile.Checked = True Then
+            If txtFile.EditValue = "" Then
+                SaimtMessageBox.mostrarAlertaInformativa("Ingrese un valor en el para " & cboCriterioFile.Text)
+                txtFile.Focus()
+                Return
+            End If
+            inmFile = IIf(cboCriterioFile.SelectedIndex = 0, txtFile.Text, Nothing)
+            inmFileAnt = IIf(cboCriterioFile.SelectedIndex = 1, txtFile.Text, Nothing)
+        Else
+            inmFile = Nothing
+            inmFileAnt = Nothing
+        End If
+        ListaInmueble = MantenimientosBL.Instancia.inmuebleListarConsultaAltasyBajas(AltaBaja, TgGRubroId, TgRubroId, dateInicio, dateFin, inmFile, inmFileAnt)
+        Try
+            oTable.Clear()
+            If ListaInmueble IsNot Nothing Then
+                Dim i As Integer = 1
+                For Each fInmueble As EEInmueble In ListaInmueble
+                    'Const lsUbicacion As String = ""
+                    oTable.LoadDataRow(New Object() {
+                    i, _
+                    fInmueble.InmFile, _
+                    fInmueble.InmUbicacion, _
+                    fInmueble.OInmPredio.InmPredArea, _
+                    fInmueble.InmTipoActualizacion, _
+                    fInmueble.InmCausalAltaoBaja, _
+                    fInmueble.InmFechaAltaoBaja, _
+                    fInmueble.OInmValorComercial.InmValComValTotal, _
+                    fInmueble.InmDocAltaoBaja, _
+                    fInmueble.InmObservacionAltaoBaja, _
+                    fInmueble.InmId, _
+                    fInmueble.InmDatoAdicionalAltaoBaja}, True)
+                    i = i + 1
+                Next
+                gvResultado.BestFitColumns()
+                Me.Encontrado = True
+                SaimtLabel7.Text = oTable.Rows.Count & " Resultados de Busquedas"
+            Else
+                Me.Encontrado = False
+            End If
+
+            If Encontrado = False Then
+                SaimtMessageBox.mostrarAlertaInformativa("No se encontro resultados")
+            End If
+
+        Catch ex As Exception
+            SaimtMessageBox.mostrarAlertaError(ex.Message)
+        End Try
+    End Sub
+
+    Protected Overrides Sub seleccionar()
+        If Me.gvResultado.DataRowCount <> 0 Then
+            InmId = gvResultado.GetRowCellValue(Me.gvResultado.GetSelectedRows(0), "InmId").ToString()
+            Seleccionado = True
+
+            Dim fmVisorInmuebles As frmVisorInmuebles = New frmVisorInmuebles(InmId, tipoImprimir)
+            fmVisorInmuebles.MdiParent = Me.MdiParent
+            fmVisorInmuebles.BringToFront()
+            fmVisorInmuebles.Show()
+        Else
+            Seleccionado = False
+        End If
+        MyBase.seleccionar()
+    End Sub
+
+    Private Sub cboGRubroFile_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cboRubroGrupos.EditValueChanged
+
+        Dim TgExtra As String = cboRubroGrupos.EditValue
+       
+            cboRubro.mColumnas(SaimtComboBoxLookUp.Entidades.TablaGeneral)
+            cboRubro.Properties.DisplayMember = "TgNombre"
+            cboRubro.Properties.ValueMember = "TgCodigo"
+        cboRubro.Properties.DataSource = EEComun.DtByClsId(clsVariablesTablaGeneral.tblgRubros, True, TgExtra)
+            cboRubro.ItemIndex = 0
+
+    End Sub
+
+
+    Private Sub btnexportar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnexportar.Click
+        Me.sfdexportar.Filter = "Archivo de Excel|*.xls"
+        If sfdexportar.ShowDialog = Windows.Forms.DialogResult.OK Then
+            Me.gvResultado.ExportToXls(Me.sfdexportar.FileName)
+        End If
+    End Sub
+
+
+    Private Sub SaimtButton1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SaimtButton1.Click
+        buscarAltasYBajas("02")
+        tipoImprimir = "baja"
+    End Sub
+
+    Private Sub SaimtButton2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SaimtButton2.Click
+        buscarAltasYBajas("01")
+        tipoImprimir = "altas"
+    End Sub
+
+    Private Sub cboCriterioTiempo_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cboCriterioTiempo.SelectedIndexChanged
+        Dim clsId As Integer = 0
+        Select Case cboCriterioTiempo.SelectedIndex
+            Case 0
+                clsId = 40
+            Case 1
+                clsId = 190
+            Case 2
+                clsId = 191
+        End Select
+        'Mes 40 ,  190, 191
+        cboDetalleTiempo.mColumnas(SaimtComboBoxLookUp.Entidades.TablaGeneral)
+        cboDetalleTiempo.Properties.DisplayMember = "TgNombre"
+        cboDetalleTiempo.Properties.ValueMember = "TgCodigo"
+        cboDetalleTiempo.Properties.DataSource = MantenimientosBL.Instancia.tablageneralListarXClsIdOrderbytgOrden(clsId)
+        cboDetalleTiempo.ItemIndex = 0
+    End Sub
+
+
+    Private Sub btnSeleccionar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSeleccionar.Click
+
+    End Sub
+End Class

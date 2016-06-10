@@ -1,0 +1,327 @@
+﻿Imports Entidades
+Imports Microsoft.Practices.EnterpriseLibrary.Data
+Imports System.Data.Common
+
+Public Class ContratoPersonalDAS
+
+#Region "Listar Criterio"
+    Public Shared Function listarCriterio(aiTipoCriterio As Int32, asCriterio As [String]) As List(Of EEContratoPersonal)
+        Dim ListaContratoPersonal As List(Of EEContratoPersonal) = Nothing
+        Dim loContratoPersonal As EEContratoPersonal = Nothing
+        Dim loPersona As EEPersona = Nothing
+        Dim loTablaGeneral As EETablaGeneral = Nothing
+        Dim loHorarioPersonal As EEHorarioPer = Nothing
+        Dim dr As IDataReader = Nothing
+        Dim drContactoPersona As IDataReader = Nothing
+        Dim drCargoPersonal As IDataReader = Nothing
+        Try
+            Dim db As Database = DatabaseFactory.CreateDatabase(EEConexiones.CN_BDSaimt_General)
+            Dim cmd As DbCommand = db.GetStoredProcCommand("Listar_ContratoPersonal_Criterio_pa")
+            db.AddInParameter(cmd, "criterio", DbType.String, asCriterio)
+            db.AddInParameter(cmd, "tipoCriterio", DbType.Int32, aiTipoCriterio)
+
+            dr = db.ExecuteReader(cmd)
+            While dr.Read()
+                If ListaContratoPersonal Is Nothing Then
+                    ListaContratoPersonal = New List(Of EEContratoPersonal)()
+                End If
+
+                loContratoPersonal = New EEContratoPersonal()
+                loPersona = New EEPersona()
+                loPersona.PerId = dr("PerId").ToString()
+                loPersona.PerNombres = dr("PerNombres").ToString()
+                loPersona.PerApePaterno = dr("PerApePaterno").ToString()
+                loPersona.PerApeMaterno = dr("PerApeMaterno").ToString()
+                loContratoPersonal.OPersona = loPersona
+                loContratoPersonal.Sucursal = dr("Sucursal").ToString()
+                loContratoPersonal.HorarioNombre = dr("Horario").ToString()
+
+                loContratoPersonal.ConTrabId = dr("ConTrabId").ToString()
+                If Not IsDBNull(dr("ConTrabFecInicio")) Then
+                    loContratoPersonal.ConTrabFecInicio = Convert.ToDateTime(dr("ConTrabFecInicio"))
+                End If
+
+                If Not IsDBNull(dr("ConTrabFecFin")) Then
+                    loContratoPersonal.ConTrabFecFin = Convert.ToDateTime(dr("ConTrabFecFin"))
+                End If
+
+                loTablaGeneral = New EETablaGeneral()
+                loTablaGeneral.TgNombre = dr("modalidad").ToString()
+                loContratoPersonal.OTgTipoContrato = loTablaGeneral
+
+                ListaContratoPersonal.Add(loContratoPersonal)
+            End While
+            dr.Close()
+        Catch ex As Exception
+            Throw New Exception("Listar ContratoPersonal Criterio => " & ex.Message, ex)
+        End Try
+        Return ListaContratoPersonal
+    End Function
+#End Region
+
+#Region "Listar Trabajador Activo"
+    Public Shared Function listarTrabajadorCriterio(ByVal aiTipoCriterio As Int32, ByVal asCriterio As [String]) As List(Of EEContratoPersonal)
+        Dim ListaPersona As List(Of EEContratoPersonal) = Nothing
+        Dim loPersona As EEPersona = Nothing
+        Dim loTrabajador As EEContratoPersonal = Nothing
+        Dim TipoContrato As EETablaGeneral = Nothing
+        Dim cmd As DbCommand = Nothing
+        Dim dr As IDataReader = Nothing
+        Try
+            Dim db As Database = DatabaseFactory.CreateDatabase()
+            cmd = db.GetStoredProcCommand("Listar_Trabajador_Criterio_pa")
+            db.AddInParameter(cmd, "criterio", DbType.String, asCriterio)
+            db.AddInParameter(cmd, "tipoCriterio", DbType.Int32, aiTipoCriterio)
+            dr = db.ExecuteReader(cmd)
+            While dr.Read()
+                If ListaPersona Is Nothing Then
+                    ListaPersona = New List(Of EEContratoPersonal)()
+                End If
+
+                loPersona = New EEPersona()
+                loTrabajador = New EEContratoPersonal()
+                TipoContrato = New EETablaGeneral
+                loPersona.PerNombreCompleto = IIf(IsDBNull(dr("Trabajador")), Nothing, dr("Trabajador").ToString)
+                loPersona.PerId = dr("perId").ToString
+                loPersona.PerCodTarjeta = dr("codTarjeta").ToString
+                If Not IsDBNull(dr("conTrabFecInicio")) Then
+                    loTrabajador.ConTrabFecInicio = Convert.ToDateTime(dr("conTrabFecInicio"))
+                End If
+                If Not IsDBNull(dr("conTrabFecFin")) Then
+                    loTrabajador.ConTrabFecFin = Convert.ToDateTime(dr("conTrabFecFin"))
+                End If
+                TipoContrato.TgCodigo = dr("tgTipoConId").ToString()
+                TipoContrato.TgNombre = dr("tgTipoCon").ToString()
+                loTrabajador.OTgTipoContrato = TipoContrato
+                loTrabajador.Sucursal = dr("Sucursal").ToString()
+                loTrabajador.CodAsistencia = dr("CodAsistencia").ToString()
+                'loTrabajador.ConTrabFecInicio = IIf(IsDBNull(dr("conTrabFecInicio")), Nothing, dr("conTrabFecInicio").ToString)
+                'loTrabajador.ConTrabFecFin = IIf(IsDBNull(dr("conTrabFecFin")), Nothing, dr("conTrabFecFin").ToString)
+                loPersona.TgEstConId = dr("tgEstConId").ToString()
+                loTrabajador.OPersona = loPersona
+
+                ListaPersona.Add(loTrabajador)
+            End While
+            dr.Close()
+        Catch ex As Exception
+            Throw New Exception("Listar Trabajador Criterio => " + ex.Message, ex)
+        End Try
+        Return ListaPersona
+    End Function
+
+#End Region
+#Region "Listar XContrabId"
+    Public Shared Function listarXConTrabId(asContrabId As [String]) As EEContratoPersonal
+        Dim loContratoPersonal As EEContratoPersonal = Nothing
+        Dim loPersona As EEPersona = Nothing
+        Dim loTablaGeneral As EETablaGeneral = Nothing
+        Dim loHorarioPersonal As EEHorarioPer = Nothing
+        Dim dr As IDataReader = Nothing
+        Dim drContactoPersona As IDataReader = Nothing
+        Dim drCargoPersonal As IDataReader = Nothing
+        Try
+            Dim db As Database = DatabaseFactory.CreateDatabase(EEConexiones.CN_BDSaimt_General)
+            Dim cmd As DbCommand = db.GetStoredProcCommand("Listar_ContratoPersonal_XConTrabId_pa")
+            db.AddInParameter(cmd, "contrabid", DbType.String, asContrabId)
+
+            dr = db.ExecuteReader(cmd)
+            If dr.Read() Then
+                loContratoPersonal = New EEContratoPersonal()
+                loPersona = New EEPersona()
+                loPersona.PerId = dr("PerId").ToString()
+                loPersona.PerNombres = dr("PerNombres").ToString()
+                loPersona.PerApePaterno = dr("PerApePaterno").ToString()
+                loPersona.PerApeMaterno = dr("PerApeMaterno").ToString()
+                loPersona.PerDireccion = dr("PerDireccion").ToString()
+                loPersona.PerDistrito = dr("PerDistrito").ToString()
+                loPersona.PerProvincia = dr("PerProvincia").ToString()
+                loPersona.PerDepartamento = dr("PerDepartamento").ToString()
+
+                cmd = db.GetStoredProcCommand("Listar_PersonaContacto_XIdPersona_pa")
+                db.AddInParameter(cmd, "perid", DbType.String, loPersona.PerId)
+                drContactoPersona = db.ExecuteReader(cmd)
+                While drContactoPersona.Read()
+                    Dim loContacto As EEPersona.EEContacto = New EEPersona.EEContacto()
+                    loTablaGeneral = New EETablaGeneral()
+                    loTablaGeneral.TgCodigo = drContactoPersona("TgCodigo").ToString()
+                    loTablaGeneral.TgNombre = drContactoPersona("TgNombre").ToString()
+                    loContacto.ContDescripcion = drContactoPersona("ContDescripcion").ToString()
+                    loContacto.OTablaGeneral = loTablaGeneral
+                    loPersona.ListaContacto.Add(loContacto)
+                End While
+                drContactoPersona.Close()
+
+                loContratoPersonal.OPersona = loPersona
+                loContratoPersonal.ConTrabId = dr("ConTrabId").ToString()
+                If Not IsDBNull(dr("ConTrabFecInicio")) Then
+                    loContratoPersonal.ConTrabFecInicio = Convert.ToDateTime(dr("ConTrabFecInicio"))
+                End If
+
+                If Not IsDBNull(dr("ConTrabFecFin")) Then
+                    loContratoPersonal.ConTrabFecFin = Convert.ToDateTime(dr("ConTrabFecFin"))
+                End If
+
+                loTablaGeneral = New EETablaGeneral()
+                loTablaGeneral.TgCodigo = dr("tgEstConId").ToString()
+                loContratoPersonal.OTgEstadoContrato = loTablaGeneral
+
+                loHorarioPersonal = New EEHorarioPer()
+                loHorarioPersonal.HorId = dr("HorId").ToString()
+                loHorarioPersonal.HorDescripcion = dr("HorDescripcion").ToString()
+                'loHorarioPersonal.HorEntrada = dr("HorEntrada").ToString()
+                'loHorarioPersonal.HorSalida = dr("HorSalida").ToString()
+                'loHorarioPersonal.HorRecesoIni = dr("HorRecesoIni").ToString()
+                'loHorarioPersonal.HorRecesoFin = dr("HorRecesoFin").ToString()
+
+                loContratoPersonal.OHorarioPer = loHorarioPersonal
+
+                loTablaGeneral = New EETablaGeneral()
+                loTablaGeneral.TgCodigo = dr("TgTipoConId").ToString()
+                loContratoPersonal.OTgTipoContrato = loTablaGeneral
+
+                loContratoPersonal.ConTrabNroSueldos = Convert.ToInt32(dr("ConTrabNroSueldos").ToString())
+                loContratoPersonal.ConTrabMonto = Convert.ToDecimal(dr("ConTrabMonto").ToString())
+                loContratoPersonal.ConTrabResolucion = dr("ConTrabResolucion").ToString()
+
+                If Not IsDBNull(dr("ConTrabFecRes")) Then
+                    loContratoPersonal.ConTrabFecRes = Convert.ToDateTime(dr("ConTrabFecRes"))
+                End If
+
+                If Not IsDBNull(dr("ConTrabFecOficio")) Then
+                    loContratoPersonal.ConTrabFecOficio = Convert.ToDateTime(dr("ConTrabFecOficio"))
+                End If
+
+                If Not IsDBNull(dr("ConTrabFecReq")) Then
+                    loContratoPersonal.ConTrabFecReq = Convert.ToDateTime(dr("ConTrabFecReq"))
+                End If
+
+                If Not IsDBNull(dr("ConTrabFecProv")) Then
+                    loContratoPersonal.ConTrabFecProv = Convert.ToDateTime(dr("ConTrabFecProv"))
+                End If
+
+                If Not IsDBNull(dr("ConTrabFecInf")) Then
+                    loContratoPersonal.ConTrabFecInf = Convert.ToDateTime(dr("ConTrabFecInf"))
+                End If
+
+                loContratoPersonal.ConTrabOficio = dr("ConTrabOficio").ToString()
+                loContratoPersonal.ConTrabRequeriemiento = dr("ConTrabRequeriemiento").ToString()
+                loContratoPersonal.ConTrabProveido = dr("ConTrabProveido").ToString()
+                loContratoPersonal.ConTrabInforme = dr("ConTrabInforme").ToString()
+
+                loContratoPersonal.ConTrabRuc = dr("ConTrabRuc").ToString()
+                loContratoPersonal.TgBancoId = dr("TgBancoId").ToString()
+                loContratoPersonal.ConTrabNroCuenta = dr("ConTrabNroCuenta").ToString()
+
+                loContratoPersonal.tgNivEduId = dr("tgNivEduId").ToString()
+                loContratoPersonal.tgNivRemnId = dr("tgNivRemnId").ToString()
+                loContratoPersonal.tgGradoOcuId = dr("tgGradoOcuId").ToString()
+                loContratoPersonal.tgForProfId = dr("tgForProfId").ToString()
+
+                If Not IsDBNull(dr("TgEstadoCivilId")) Then
+                    loContratoPersonal.TgEstadoCivilId = Convert.ToInt32(dr("TgEstadoCivilId").ToString())
+                End If
+
+                If Not IsDBNull(dr("ConTrabNroHijos")) Then
+                    loContratoPersonal.ConTrabNroHijos = Convert.ToInt32(dr("ConTrabNroHijos").ToString())
+                End If
+                If Not IsDBNull(dr("CodSucursal")) Then
+                    loContratoPersonal.CodSucursal = Convert.ToInt32(dr("CodSucursal").ToString())
+                End If
+                If Not IsDBNull(dr("TgSeguroSocId")) Then
+                    loContratoPersonal.TgSeguroSocId = Convert.ToInt32(dr("TgSeguroSocId").ToString())
+                End If
+                loContratoPersonal.NroSeguroSoc = dr("ConTrabNroSegSoc").ToString()
+
+                cmd = db.GetStoredProcCommand("Listar_CargoPersonal_XConTrabId_pa")
+                db.AddInParameter(cmd, "contrabid", DbType.String, loContratoPersonal.ConTrabId)
+                drCargoPersonal = db.ExecuteReader(cmd)
+                While drCargoPersonal.Read()
+                    Dim loCargoPersonal As EECargoPersonal = New EECargoPersonal()
+                    loCargoPersonal.CarPerId = drCargoPersonal("CarPerId").ToString()
+
+                    loTablaGeneral = New EETablaGeneral()
+                    loTablaGeneral.TgNombre = drCargoPersonal("NombreTipoCargo").ToString()
+                    loTablaGeneral.TgCodigo = drCargoPersonal("TgTipoCargoId").ToString()
+                    loCargoPersonal.OTgTipoCargo = loTablaGeneral
+
+                    If Not IsDBNull(drCargoPersonal("CarPerFechaIni")) Then
+                        loCargoPersonal.CarPerFechaIni = Convert.ToDateTime(drCargoPersonal("CarPerFechaIni"))
+                    End If
+
+                    If Not IsDBNull(drCargoPersonal("CarPerFechaFin")) Then
+                        loCargoPersonal.CarPerFechaFin = Convert.ToDateTime(drCargoPersonal("CarPerFechaFin"))
+                    End If
+                    loCargoPersonal.TgEstadoId = Convert.ToBoolean(drCargoPersonal("TgEstadoId").ToString())
+                    loCargoPersonal.Institucion = drCargoPersonal("NombreInstitucion").ToString()
+                    loCargoPersonal.CodInstitucion = drCargoPersonal("CodigoInstitucion").ToString()
+                    loCargoPersonal.Area = drCargoPersonal("NombreArea").ToString()
+                    loCargoPersonal.CodArea = drCargoPersonal("CodigoArea").ToString()
+                    loCargoPersonal.Cargo = drCargoPersonal("NombreCargo").ToString()
+                    loCargoPersonal.CodCargo = drCargoPersonal("CodigoCargo").ToString()
+
+                    loContratoPersonal.ListaCargoPersonal.Add(loCargoPersonal)
+                End While
+                drCargoPersonal.Close()
+            End If
+            dr.Close()
+        Catch ex As Exception
+            Throw New Exception("Listar ContratoPersonal XConTrabId => " & ex.Message, ex)
+        End Try
+        Return loContratoPersonal
+    End Function
+#End Region
+    Public Shared Function PivotTrabajador() As List(Of EEContratoPersonal)
+        Dim ListaContratoPersonal As List(Of EEContratoPersonal) = Nothing
+        Dim loContratoPersonal As EEContratoPersonal = Nothing
+        Dim loPersona As EEPersona = Nothing
+        Dim dr As IDataReader = Nothing
+        Try
+            Dim db As Database = DatabaseFactory.CreateDatabase()
+            Dim cmd As DbCommand = db.GetStoredProcCommand("Pivotear_Trabajador")
+            dr = db.ExecuteReader(cmd)
+            While dr.Read()
+                loContratoPersonal = New EEContratoPersonal()
+                loPersona = New EEPersona()
+                If ListaContratoPersonal Is Nothing Then
+                    ListaContratoPersonal = New List(Of EEContratoPersonal)
+                End If
+                loPersona.TgTipoDoc = dr("tgTipoDoc").ToString()
+                loPersona.PerNDoc = dr("perNDoc").ToString()
+                loPersona.PerNombreCompleto = dr("Persona").ToString()
+                loPersona.PerDireccion = dr("perDireccion").ToString()
+                loPersona.PerRuc = dr("perRuc").ToString()
+                If Not IsDBNull(dr("perFechaNac")) Then
+                    loPersona.PerFechaNac = Convert.ToDateTime(dr("perFechaNac"))
+                End If
+                loPersona.PerDistrito = dr("PerDistrito").ToString()
+                loPersona.PerProvincia = dr("PerProvincia").ToString()
+                loPersona.PerDepartamento = dr("PerDepartamento").ToString()
+                loPersona.TgGenero = dr("TgGenero").ToString()
+                loContratoPersonal.OPersona = loPersona
+                If Not IsDBNull(dr("conTrabFecFin")) Then
+                    loContratoPersonal.ConTrabFecFin = Convert.ToDateTime(dr("conTrabFecFin"))
+                End If
+                If Not IsDBNull(dr("ConTrabFecInicio")) Then
+                    loContratoPersonal.ConTrabFecInicio = Convert.ToDateTime(dr("ConTrabFecInicio"))
+                End If
+                loContratoPersonal.ConTrabMonto = Convert.ToDecimal(dr("ConTrabMonto").ToString())
+                loContratoPersonal.Sucursal = dr("Sucursal").ToString()
+                loContratoPersonal.tgNivEdu = dr("tgNivEdu").ToString()
+                loContratoPersonal.tgForProf = dr("tgForProf").ToString()
+                loContratoPersonal.tgGradoOcu = dr("tgGradoOcu").ToString()
+                loContratoPersonal.tgNivRemn = dr("tgNivRemn").ToString()
+                loContratoPersonal.tgTipoCon = dr("tgTipoCon").ToString()
+                loContratoPersonal.tgBanco = dr("tgBanco").ToString()
+                loContratoPersonal.tgAFP = dr("tgAFP").ToString()
+                loContratoPersonal.ConTrabNroCuenta = dr("ConTrabNroCuenta").ToString()
+
+                ListaContratoPersonal.Add(loContratoPersonal)
+            End While
+
+            dr.Close()
+        Catch ex As Exception
+            Throw New Exception("Listar ContratoPersonal XConTrabId => " & ex.Message, ex)
+        End Try
+        Return ListaContratoPersonal
+    End Function
+End Class

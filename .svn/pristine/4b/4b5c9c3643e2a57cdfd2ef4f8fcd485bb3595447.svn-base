@@ -1,0 +1,283 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+Entidades
+</name>
+</assembly>
+<members>
+<member name="P:Entidades.EECargoTipoAccionSTD.OTgAccion">
+	<summary>
+ Clase 96
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="F:Entidades.EEReniec.Resul.Ok">
+	<summary>
+ Se encontro la persona
+ </summary>
+</member><member name="F:Entidades.EEReniec.Resul.NoResul">
+	<summary>
+ No se encontro la persona
+ </summary>
+</member><member name="F:Entidades.EEReniec.Resul.ErrorCapcha">
+	<summary>
+ la imagen capcha no es valida
+ </summary>
+</member><member name="F:Entidades.EEReniec.Resul.Error">
+	<summary>
+ Error no especificado
+ </summary>
+</member><member name="P:Entidades.EEReniec.GetCapcha">
+	<summary>
+ Devuelve la imagen para el reto capcha
+ </summary>
+</member><member name="P:Entidades.EEReniec.Nombres">
+	<summary>
+ Si no Hubo error en la lectura de datos devuelve los nombres 
+ de la persona caso contrario devuelve ""
+ </summary>
+</member><member name="P:Entidades.EEReniec.ApePaterno">
+	<summary>
+ Si no Hubo error en la lectura de datos devuelve el Apellido Paterno
+ de la persona caso contrario devuelve ""
+ </summary>
+</member><member name="P:Entidades.EEReniec.ApeMaterno">
+	<summary>
+ Si no Hubo error en la lectura de datos devuelve el Apellido Materno
+ de la persona caso contrario devuelve ""
+</summary>
+</member><member name="P:Entidades.EEReniec.GetResul">
+	<summary>
+ Devuelve el resultado de la busqueda de DNI
+ </summary>
+</member><member name="M:Entidades.EEReniec.ReadCapcha">
+	<summary>
+ Carga la imagen Capcha
+ </summary>
+</member><member name="M:Entidades.EEReniec.GetInfo(System.String,System.String)">
+	<summary>
+ Inicia la carga de los datos de la persona 
+ </summary>
+	<param name="numDni"></param>
+	<param name="ImgCapcha"></param>
+</member><member name="M:Entidades.CCryptorEngine.#ctor">
+	<summary>
+ Constructor de la clase CCryptorEngine
+ </summary>
+</member><member name="M:Entidades.CCryptorEngine.Encriptar(System.String)">
+	<summary>
+ Cifrar una cadena utilizando el método de cifrado. Regresa un texto de cifrado.
+ </summary>
+	<param name="texto">cadena de caracteres que se va a encriptar</param>
+	<returns></returns>
+</member><member name="M:Entidades.CCryptorEngine.Desencriptar(System.String)">
+	<summary>
+ Desencripta un texto usando el metodo de deble cadena Regresa una cadena desencriptada. 
+ </summary>
+	<returns>the decrypted string</returns>
+</member><member name="P:Entidades.EEPersona.Persona">
+	<summary>
+ MUESTRA NOMBRES O RAZON SOCIAL ASIGNADO
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Entidades.EEPersona.PerContacto">
+	<summary>
+ Para Consulta Programacion Pagos
+ </summary>
+	<remarks></remarks>
+</member><member name="P:Entidades.EEPersona.perNombresoRazon">
+	<summary>
+ Devuelve Nombres y Apellidos o Razon Social
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Entidades.EEConceptos.ConIdProcentaje">
+	<summary>
+ Para Ponerlo en ValueMember en Programacion Pagos
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="F:Entidades.EEConexiones.CN_BDSaimt">
+	<summary>
+ Base de Datos Margesi
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Entidades.EEConexiones.CN_BDSaimt_General">
+	<summary>
+ Base de Datos General
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Entidades.EEConexiones.CN_BDAsistencia">
+	<summary>
+ Base de Datos Asistencia
+ </summary>
+	<remarks></remarks>
+</member><member name="P:Entidades.EEProPagos.OTgEstado">
+	<summary>
+  Estado Programacion de Pagos
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Entidades.EEProPagos.NroComprobante">
+	<summary>
+ Nro Comprobante = Serie - Numero
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Entidades.EEProPagos.GuardarOrUpdate">
+	<summary>
+ True = Actualizar ProPagos, False = Insertar una ProPagos
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Entidades.EEProPagos.EEProPagosDet.GuardarOrUpdate">
+	<summary>
+ True = Actualizar Detalle ProPagos, False = Insertar un Detalle de ProPagos
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Entidades.EEProPagos.ListaTemporalProPagosDetalleEliminados">
+	<summary>
+ Para Almacenar el Detalle Eliminado del Formulario Programacion de Pagos
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Entidades.EEDiarioPEM.DiaHoraIngreso">
+	<summary>
+ Solo Hora Ingreso
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Entidades.EEDiarioPEM.DiaHoraSalida">
+	<summary>
+ Solo Hora Salida
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Entidades.EEDocumentoSTD.DocNro">
+	<summary>
+ 5 Primeros Digitos del Campo DocNReg
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Entidades.EEReportesGeneral.MesC_Orden">
+	<summary>
+ MES CUOTA EN NUMERO
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Entidades.EEReportesGeneral.MesP_Orden">
+	<summary>
+ MES PAGO EN NUMERO
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Entidades.EEReportesGeneral.Mes_Cuotas">
+	<summary>
+ MES CUOTAS EN LETRAS
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Entidades.EEReportesGeneral.Mes_Pagado">
+	<summary>
+ MES PAGOS EN LETRAS
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Entidades.EEReportesGeneral.InfCodMorosidad">
+	<summary>
+ Codigo del Contrato
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Entidades.EEJerarquiaSTD.Cargo">
+	<summary>
+ Para el Listar Criterio PermisosSTD
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Entidades.EEJerarquiaSTD.Id">
+	<summary>
+ Para el Listar Criterio PermisosSTD
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Entidades.My.Resources.Resources.ResourceManager">
+	<summary>
+  Devuelve la instancia de ResourceManager almacenada en caché utilizada por esta clase.
+</summary>
+</member><member name="P:Entidades.My.Resources.Resources.Culture">
+	<summary>
+  Reemplaza la propiedad CurrentUICulture del subproceso actual para todas las
+  búsquedas de recursos mediante esta clase de recurso con establecimiento inflexible de tipos.
+</summary>
+</member><member name="T:Entidades.My.Resources.Resources">
+	<summary>
+  Clase de recurso con establecimiento inflexible de tipos, para buscar cadenas traducidas, etc.
+</summary>
+</member><member name="P:Entidades.EEBoleteriaRinconada.bolHoraIngreso">
+	<summary>
+ Solo Hora Ingreso
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Entidades.EEAbonoPEM.EEAbonoDetPEM.GuardarOrUpdate">
+	<summary>
+ True = Actualizar, False = Insertar
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Entidades.EEMenuFormularios.MfrNombre">
+	<summary>
+ ES EL NAME DEL FORMULARIO
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Entidades.EERecaudacion.TgTipoDoc">
+	<summary>
+ Tipo Documento Id o Codigo
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Entidades.EERecaudacion.TgNombreTipoDoc">
+	<summary>
+ Nombre del Tipo Documento
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Entidades.EERecaudacion.PerNombre">
+	<summary>
+ Nombre Completo de Persona ya Sea Natural o Juridica
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member>
+</members>
+</doc>

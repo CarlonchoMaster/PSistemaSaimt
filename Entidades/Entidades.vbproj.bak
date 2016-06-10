@@ -1,0 +1,278 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>
+    </SchemaVersion>
+    <ProjectGuid>{8EFCC489-701F-4B18-A21C-24D0CA69FC19}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Entidades</RootNamespace>
+    <AssemblyName>Entidades</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>Windows</MyType>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>Entidades.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>Entidades.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Data.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="LibReniec">
+      <HintPath>..\dlls\LibReniec.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Word, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>..\dlls\Microsoft.Office.Interop.Word.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Core">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CCryptorEngine.vb" />
+    <Compile Include="EEExpedienteArch.vb" />
+    <Compile Include="EEInmArancelario.vb" />
+    <Compile Include="EEJerarquiaArch.vb" />
+    <Compile Include="EEProcedimientosMov.vb" />
+    <Compile Include="EEProcedimientos.vb" />
+    <Compile Include="EEProcedimientosAct.vb" />
+    <Compile Include="EERptResumidoSTD.vb" />
+    <Compile Include="EESolicitudes.vb" />
+    <Compile Include="EESubProcesos.vb" />
+    <Compile Include="EEBoleteriaRinconada.vb" />
+    <Compile Include="EECajaChica.vb" />
+    <Compile Include="EECargo.vb" />
+    <Compile Include="EECertificacion.vb" />
+    <Compile Include="EEComprobantePago.vb" />
+    <Compile Include="EECriterios.vb" />
+    <Compile Include="EEInmNivelImp.vb" />
+    <Compile Include="EEInmValorComercial.vb" />
+    <Compile Include="EEOrdenCompra.vb" />
+    <Compile Include="EEDocInternoSTD.vb" />
+    <Compile Include="EEAbonExtorno.vb" />
+    <Compile Include="EEAbonoPEM.vb" />
+    <Compile Include="EENotaSalidaLOG.vb" />
+    <Compile Include="EENotaIngresoLOG.vb" />
+    <Compile Include="EEHorarios.vb" />
+    <Compile Include="EEMarcaciones.vb" />
+    <Compile Include="EEOrdenServicio.vb" />
+    <Compile Include="EEPartidaDetalle.vb" />
+    <Compile Include="EEPartida.vb" />
+    <Compile Include="EEPedDetContable.vb" />
+    <Compile Include="EEPlanCuenta.vb" />
+    <Compile Include="EEPecosa.vb" />
+    <Compile Include="EEProcesos.vb" />
+    <Compile Include="EEServicio.vb" />
+    <Compile Include="EEArtArchivos.vb" />
+    <Compile Include="EEArticulo.vb" />
+    <Compile Include="EEDiarioPEM.vb" />
+    <Compile Include="EEDocPersonaLOG.vb" />
+    <Compile Include="EEDocTextLOG.vb" />
+    <Compile Include="EEDocumentoLOG.vb" />
+    <Compile Include="EEStockAlmacen.vb" />
+    <Compile Include="EESucursales.vb" />
+    <Compile Include="EEVehiculoPEM.vb" />
+    <Compile Include="EEAcuerdoPEM.vb" />
+    <Compile Include="EECargoTipoAccionSTD.vb" />
+    <Compile Include="EECargoTipoDocSTD.vb" />
+    <Compile Include="EEEtapaSTD.vb" />
+    <Compile Include="EEMovimientoSTD.vb" />
+    <Compile Include="EEJerarquiaSTD.vb" />
+    <Compile Include="EENivelesPEM.vb" />
+    <Compile Include="EEReqDocumentoSTD.vb" />
+    <Compile Include="EEAnexoSTD.vb" />
+    <Compile Include="EECargoPersonal.vb" />
+    <Compile Include="EEHorarioPer.vb" />
+    <Compile Include="EEDocumentoSTD.vb" />
+    <Compile Include="EEProcedimientoSTD.vb" />
+    <Compile Include="EEConArchivos.vb" />
+    <Compile Include="EEContratoPersonal.vb" />
+    <Compile Include="EEGrupoFormularios.vb" />
+    <Compile Include="EEMenuFormularios.vb" />
+    <Compile Include="EENotificaciones.vb" />
+    <Compile Include="EERecaudacionDet.vb" />
+    <Compile Include="EEReniec.vb" />
+    <Compile Include="EEReportesGeneral.vb" />
+    <Compile Include="EECompProgramacion.vb" />
+    <Compile Include="EEAbonados.vb" />
+    <Compile Include="EEDiarioTTSC.vb" />
+    <Compile Include="EEMovimiento.vb" />
+    <Compile Include="EEParametro.vb" />
+    <Compile Include="EERecaudacion.vb" />
+    <Compile Include="EEClase.vb" />
+    <Compile Include="EEComun.vb" />
+    <Compile Include="EEConceptos.vb" />
+    <Compile Include="EEConexiones.vb" />
+    <Compile Include="EEContratoInm.vb" />
+    <Compile Include="EEExcel.vb" />
+    <Compile Include="EEGastoComision.vb" />
+    <Compile Include="EEInmArchivos.vb" />
+    <Compile Include="EEInmCostMantenimiento.vb" />
+    <Compile Include="EEInmDireccion.vb" />
+    <Compile Include="EEInmGravamen.vb" />
+    <Compile Include="EEInmMantenimientos.vb" />
+    <Compile Include="EEInmPJudiciales.vb" />
+    <Compile Include="EEInmPredio.vb" />
+    <Compile Include="EEInmSuministros.vb" />
+    <Compile Include="EEInmueble.vb" />
+    <Compile Include="EEPersona.vb" />
+    <Compile Include="EEProPagos.vb" />
+    <Compile Include="EEPrueba.vb" />
+    <Compile Include="EETablaGeneral.vb" />
+    <Compile Include="EETarifasPEM.vb" />
+    <Compile Include="EETemp_ProPagos.vb" />
+    <Compile Include="EETipoCambio.vb" />
+    <Compile Include="EEUbigeo.vb" />
+    <Compile Include="EEUsuarios.vb" />
+    <Compile Include="EEExpedienteSTD.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>5</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <Private>True</Private>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Excel">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>7</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <Private>True</Private>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <Private>True</Private>
+    </COMReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

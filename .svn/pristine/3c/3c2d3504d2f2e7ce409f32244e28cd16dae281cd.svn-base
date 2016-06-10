@@ -1,0 +1,190 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+ReglasNegocio
+</name>
+</assembly>
+<members>
+<member name="M:ReglasNegocio.MantenimientosBL.tablageneralListar_XClsId_XTgExtra(System.Int32,System.String)">
+	<summary>
+ Listar Sub Items Segun ClsId y TgExtra
+ </summary>
+	<param name="aiClsId">ClsId</param>
+	<param name="asTgExtra">TgExtra = TgCodigo Campo Seleccionado</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ReglasNegocio.MantenimientosBL.tablageneralMostrarXClsIdXTgCodigo(System.Int32,System.String)">
+	<summary>
+ MUESTRA UN SOLO RESULTADO X ClsId y TgCodigo
+ </summary>
+	<param name="aiClsId">Clase Id</param>
+	<param name="asTgCodigo">TgCodigo</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ReglasNegocio.MantenimientosBL.personaListarCriterio(System.Int32,System.String)">
+	<summary>
+ PERSONA LISTAR CRITERIO
+ </summary>
+	<param name="aiTipoCriterio">1=DNI,2=RUC</param>
+	<param name="asCriterio"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ReglasNegocio.MantenimientosBL.personaConsultarConyuge(System.String)">
+	<summary>
+ Consultar Conyuge X Nombre, Paterno o Materno
+ </summary>
+	<param name="asPerTexto">Texto a Buscar</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ReglasNegocio.MantenimientosBL.personaEliminar(System.String)">
+	<summary>
+ Elimina Persona Cambiando de estado PerEliminado
+ </summary>
+	<param name="asPerId">PerId</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ReglasNegocio.MantenimientosBL.personaConsultarGeneral(System.Int16,System.Int16,System.String)">
+	<summary>
+ CONSULTAR PERSONA GENERAL
+ </summary>
+	<param name="aiTipoPersona">1=PERSONA NATURAL, 2=PERSONA JURIDICA, 3=AMBOS</param>
+	<param name="asCriterio">TEXTO A CONSULTAR</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ReglasNegocio.MantenimientosBL.inmuebleActualizarPJ(Entidades.EEInmPJudiciales)">
+	<summary>
+ Actualizar Proceso Judicial
+ </summary>
+	<param name="aoInmPJudiciales"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ReglasNegocio.MantenimientosBL.inmuebleGuardarPJ(Entidades.EEInmueble)">
+	<summary>
+ Guardar Proceso Judicial
+ </summary>
+	<param name="aoInmueble"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ReglasNegocio.MantenimientosBL.proPagosGuardar(Entidades.EEProPagos)">
+	<summary>
+ Guardar Programacion de Pagos
+ </summary>
+	<param name="aoProPagos">Objeto EEProPagos</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ReglasNegocio.MantenimientosBL.contratoInmListarXInmId_EnInmuebles(System.String)">
+	<summary>
+ Listar Contratos Por InmId en Inmuebles
+ </summary>
+	<param name="asInmId"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ReglasNegocio.MantenimientosBL.contratoMostrarXPerIdXConInmId_EnConsultarMora(System.String,System.String)">
+	<summary>
+ Muestra El Contrato Con su Programación de Pagos Respectivo
+ </summary>
+	<param name="asPerId">PerId</param>
+	<param name="asConInmId">ConInmId</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ReglasNegocio.MantenimientosBL.parametroMostrarXClsId(System.Int32)">
+	<summary>
+ RETORNA EL VALOR DE LA TABLA PARAMETRO
+ SEGUN LA CLASE ID
+ </summary>
+	<param name="aiClsId">ClsId</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ReglasNegocio.MantenimientosBL.mExceptionLongitud(System.String,System.String,System.String)">
+	<summary>
+ Mostrar Exception por Longitud
+ </summary>
+	<param name="lsCampo">Campo</param>
+	<param name="lsLongitudAceptada">Longitud Aceptada</param>
+	<param name="lsLongitudActual">Longitud Actual</param>
+	<remarks></remarks>
+</member><member name="M:ReglasNegocio.MantenimientosBL.mExceptionObligatorio(System.String)">
+	<summary>
+ Mostrar Exception Obligatoria
+ </summary>
+	<param name="lsCampo">Campo</param>
+	<remarks></remarks>
+</member><member name="M:ReglasNegocio.MantenimientosBL.grupoformulariosListarCriterio_EnMenuFomulario(System.Int32,System.String)">
+	<summary>
+ LISTA TODOS LOS FORMULARIOS CON SU RESPECTIVO GRUPO EN MENUFORMULARIOS
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ReglasNegocio.MantenimientosBL.horarioperConsultarHorario(System.String)">
+	<summary>
+ Consultar Horario en Formulario Trabajador
+ </summary>
+	<param name="asCriterio">Texto a Buscar</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ReglasNegocio.MantenimientosBL.documentostdListarCriterioVincular(System.Int32,System.String)">
+	<summary>
+ Listar Documentos en Vinculas
+ </summary>
+	<param name="aiTipoCriterio">1 Nro Registro, 2 Asunto, 3 Asunto TUPA, 4 Fec. Ingreso, 5 Siglas, 6 Prioridad</param>
+	<param name="asCriterio">Criterio</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ReglasNegocio.MantenimientosBL.diariopemReporteXFecha(System.Int16,System.DateTime)">
+	<summary>
+ REPORTE X FECHA
+ </summary>
+	<param name="aiTipo">0 = FECHA INGRESO, 1 = FECHA SALIDA, </param>
+	<param name="adFecha">FECHA</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ReglasNegocio.MantenimientosBL.abonodetpemListarDetalleEnReportePEMXAbonDetFecha(System.Int16,System.DateTime)">
+	<summary>
+ LISTAR DETALLE ABONO EN REPORTE X FECHA
+ </summary>
+	<param name="aiTipo">0 = FECHA INICIO, 1 = FECHA FIN</param>
+	<param name="adAbonFecha">FECHA</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:ReglasNegocio.My.Resources.Resources.ResourceManager">
+	<summary>
+  Devuelve la instancia de ResourceManager almacenada en caché utilizada por esta clase.
+</summary>
+</member><member name="P:ReglasNegocio.My.Resources.Resources.Culture">
+	<summary>
+  Reemplaza la propiedad CurrentUICulture del subproceso actual para todas las
+  búsquedas de recursos mediante esta clase de recurso con establecimiento inflexible de tipos.
+</summary>
+</member><member name="T:ReglasNegocio.My.Resources.Resources">
+	<summary>
+  Clase de recurso con establecimiento inflexible de tipos, para buscar cadenas traducidas, etc.
+</summary>
+</member><member name="M:ReglasNegocio.ReportesBL.ReportePivotearProPagosCriterio(System.String,System.String)">
+	<summary>
+ Reporte PivotearProPagos
+ </summary>
+	<param name="asTipoCriterio"></param>
+	<param name="asCriterio"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ReglasNegocio.ReportesBL.reporteRecaudacionDetXRangoFechaXTgGrupoConId(System.DateTime,System.DateTime,System.String)">
+	<summary>
+ Reporte Recaudacion Detalle XRangoFecha y XTgGrupoConId
+ </summary>
+	<param name="adtFecha1"></param>
+	<param name="adtFecha2"></param>
+	<param name="asTgGrupoConId">06=PEM,07=TTSC</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:ReglasNegocio.ReportesBL.reporteRecaudacionXRecFecPagoXTgGrupoConId(System.DateTime,System.String)">
+	<summary>
+ Reporte Recaudacion XRecFecPago y XTgGrupoConId
+ </summary>
+	<param name="adtRecFecPago"></param>
+	<param name="asTgGrupoConId">06=PEM,07=TTSC</param>
+	<returns></returns>
+	<remarks></remarks>
+</member>
+</members>
+</doc>

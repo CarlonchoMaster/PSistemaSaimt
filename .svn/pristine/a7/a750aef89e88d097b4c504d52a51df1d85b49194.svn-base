@@ -1,0 +1,77 @@
+﻿Imports SaimtControles
+Imports Entidades
+Imports ReglasNegocio
+
+Public Class frmPivotDocInternos
+
+    Dim dtPivoteo As DataTable = New DataTable()
+
+#Region "Construir Table"
+    Private Sub ConstruirTablePivot()
+        dtPivoteo.Columns.Add("docId", GetType(String))
+        dtPivoteo.Columns.Add("tgMovDoc", GetType(String))
+        dtPivoteo.Columns.Add("tgMedDoc", GetType(String))
+        dtPivoteo.Columns.Add("tgTipoDoc", GetType(String))
+        dtPivoteo.Columns.Add("docNro", GetType(String))
+        dtPivoteo.Columns.Add("docNroRef", GetType(String))
+        dtPivoteo.Columns.Add("perDe", GetType(String))
+        dtPivoteo.Columns.Add("perPara", GetType(String))
+        dtPivoteo.Columns.Add("docFechaDoc", GetType(String))
+        dtPivoteo.Columns.Add("docFechaRecEmi", GetType(String))
+        dtPivoteo.Columns.Add("docNroProv", GetType(String))
+        dtPivoteo.Columns.Add("tgEstadoDoc", GetType(String))
+        dtPivoteo.Columns.Add("docAsunto", GetType(String))
+        dtPivoteo.Columns.Add("docResumen", GetType(String))
+        dtPivoteo.Columns.Add("tgPrioridad", GetType(String))
+        dtPivoteo.Columns.Add("docNroFolio", GetType(String))
+        dtPivoteo.Columns.Add("tgMensajeProv", GetType(String))
+    End Sub
+#End Region
+
+    Private Sub frmPivotDocInternos_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
+        ConstruirTablePivot()
+    End Sub
+
+    Private Sub btnExportarExcel_Click(sender As System.Object, e As System.EventArgs) Handles btnExportarExcel.Click
+        Try
+            sfdDescargar.Filter = "Archivos de Excel|.xls"
+            If sfdDescargar.ShowDialog = Windows.Forms.DialogResult.OK Then
+                pgcDocumentosInternos.ExportToXls(sfdDescargar.FileName)
+            End If
+        Catch ex As Exception
+            SaimtMessageBox.mostrarAlertaError(ex.Message)
+        End Try
+    End Sub
+
+    Private Sub btnBuscar_Click(sender As System.Object, e As System.EventArgs) Handles btnBuscar.Click
+        Try
+            Dim ListaDocInternoSTD As List(Of EEDocInternoSTD) = MantenimientosBL.Instancia.docinternostdPivotearXFechaIni_XFechaFin(dtpInicio.EditValue, dtpTermino.EditValue)
+            If ListaDocInternoSTD IsNot Nothing Then
+                For Each fPivot As EEDocInternoSTD In ListaDocInternoSTD
+                    dtPivoteo.LoadDataRow(New Object() {fPivot.DocId,
+                            fPivot.TgMovDoc,
+                            fPivot.TgMedDoc,
+                            fPivot.TgTipoDoc,
+                            fPivot.DocNro,
+                            fPivot.DocNroRef,
+                            fPivot.PerDe,
+                            fPivot.PerPara,
+                            fPivot.DocFechaDoc,
+                            fPivot.DocFechaRecEmi,
+                            fPivot.DocNroProv,
+                            fPivot.TgEstadoDoc,
+                            fPivot.DocAsunto,
+                            fPivot.DocResumen,
+                            fPivot.TgPrioridad,
+                            fPivot.docNroFolio,
+                            fPivot.TgMensajeProv
+                    }, True)
+                Next
+                pgcDocumentosInternos.DataSource = dtPivoteo
+                pgcDocumentosInternos.BestFit()
+            End If
+        Catch ex As Exception
+            SaimtMessageBox.mostrarAlertaError(ex.Message)
+        End Try
+    End Sub
+End Class

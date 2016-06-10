@@ -1,0 +1,102 @@
+﻿Imports Microsoft.Practices.EnterpriseLibrary.Data
+Imports System.Data.Common
+Imports System.Data
+Imports Entidades
+
+Public Class ProcedimientoSTDDAS
+   
+    Public Shared Function listarCriterio(aiTipoCriterio As Int32, asCriterio As [String]) As List(Of EEProcedimientoSTD)
+        Dim ListaProcedimientoSTD As List(Of EEProcedimientoSTD) = Nothing
+        Dim loProcedimientoSTD As EEProcedimientoSTD = Nothing
+        Dim loTablaGeneralAreaInicio As EETablaGeneral = Nothing
+        Dim loTablaGeneralAreaFin As EETablaGeneral = Nothing
+        Dim loTablaGeneralInstitucion As EETablaGeneral = Nothing
+        Dim loTablaGeneralInstitucionR As EETablaGeneral = Nothing
+        Dim loTablaGeneralCalificacion As EETablaGeneral = Nothing
+        Dim dr As IDataReader = Nothing
+        Try
+            Dim db As Database = DatabaseFactory.CreateDatabase(EEConexiones.CN_BDSaimt_General)
+            Dim cmd As DbCommand = db.GetStoredProcCommand("Listar_ProcedimientoSTD_Criterio_pa")
+            db.AddInParameter(cmd, "criterio", DbType.String, asCriterio)
+            db.AddInParameter(cmd, "tipoCriterio", DbType.Int32, aiTipoCriterio)
+
+            dr = db.ExecuteReader(cmd)
+            While dr.Read()
+                If ListaProcedimientoSTD Is Nothing Then
+                    ListaProcedimientoSTD = New List(Of EEProcedimientoSTD)()
+                End If
+
+                loProcedimientoSTD = New EEProcedimientoSTD()
+                loTablaGeneralAreaInicio = New EETablaGeneral
+                loTablaGeneralAreaFin = New EETablaGeneral
+                loTablaGeneralInstitucion = New EETablaGeneral
+                loTablaGeneralInstitucionR = New EETablaGeneral
+                loTablaGeneralCalificacion = New EETablaGeneral
+
+                loProcedimientoSTD.ProcId = dr("ProcId").ToString()
+                loProcedimientoSTD.ProcNombre = dr("ProcNombre").ToString()
+                loProcedimientoSTD.ProcDescripcion = dr("ProcDescripcion").ToString()
+                loProcedimientoSTD.ProcMaxDia = Convert.ToInt32(dr("ProcMaxDia").ToString())
+                loTablaGeneralCalificacion.TgNombre = dr("TgCalificacion").ToString()
+                loTablaGeneralCalificacion.TgCodigo = dr("TgCalificacionId").ToString()
+                loProcedimientoSTD.TgCalificacionId = dr("TgCalificacionId").ToString()
+                loProcedimientoSTD.OUTablaGeneralCalificacion = loTablaGeneralCalificacion
+                loTablaGeneralAreaInicio.TgNombre = dr("tgAreaInicioNombre").ToString()
+                loTablaGeneralAreaInicio.TgCodigo = dr("TgAreaInicio").ToString()
+                loProcedimientoSTD.OUTablaGeneralAreaInicio = loTablaGeneralAreaInicio
+                loTablaGeneralAreaFin.TgNombre = dr("tgAreaFinNombre").ToString()
+                loTablaGeneralAreaFin.TgCodigo = dr("TgAreaFin").ToString()
+                loProcedimientoSTD.OUTablaGeneralAreaFin = loTablaGeneralAreaFin
+                loProcedimientoSTD.ProcFinalidad = dr("ProcFinalidad").ToString()
+                loProcedimientoSTD.ProcBaseLegal = dr("ProcBaseLegal").ToString()
+                loProcedimientoSTD.ProcDerTramite = dr("ProcDerTramite").ToString()
+                loProcedimientoSTD.ProcActivo = Convert.ToBoolean(dr("ProcActivo").ToString())
+                loProcedimientoSTD.ProcPUIT = Convert.ToDecimal(dr("ProcPUIT").ToString())
+                loTablaGeneralInstitucion.TgNombre = dr("tgInstitucion").ToString()
+                loTablaGeneralInstitucion.TgCodigo = dr("tgInstitucionId").ToString()
+                loTablaGeneralInstitucionR.TgNombre = dr("tgInstitucionR").ToString()
+                loTablaGeneralInstitucionR.TgCodigo = dr("tgInstitucionRId").ToString()
+                loProcedimientoSTD.OUTablaGeneralInstitucion = loTablaGeneralInstitucion
+                loProcedimientoSTD.OUTablaGeneralInstitucionR = loTablaGeneralInstitucionR
+
+
+                ListaProcedimientoSTD.Add(loProcedimientoSTD)
+            End While
+        Catch ex As Exception
+            Throw New Exception("Listar ProcedimientoSTD Criterio => " + ex.Message, ex)
+        End Try
+        Return ListaProcedimientoSTD
+    End Function
+
+
+    Public Shared Function listarALL() As List(Of EEProcedimientoSTD)
+        Dim ListaProcedimientoSTD As List(Of EEProcedimientoSTD) = Nothing
+        Dim loProcedimientoSTD As EEProcedimientoSTD = Nothing
+         
+        Dim dr As IDataReader = Nothing
+        Try
+            Dim db As Database = DatabaseFactory.CreateDatabase(EEConexiones.CN_BDSaimt_General)
+            Dim cmd As DbCommand = db.GetStoredProcCommand("Listar_ProcedimientoSTDALL_pa")
+             
+
+            dr = db.ExecuteReader(cmd)
+            While dr.Read()
+                If ListaProcedimientoSTD Is Nothing Then
+                    ListaProcedimientoSTD = New List(Of EEProcedimientoSTD)()
+                End If
+                loProcedimientoSTD = New EEProcedimientoSTD()
+                loProcedimientoSTD.ProcId = dr("ProcId").ToString()
+                loProcedimientoSTD.ProcNombre = dr("ProcNombre").ToString()
+                ListaProcedimientoSTD.Add(loProcedimientoSTD)
+            End While
+        Catch ex As Exception
+            Throw New Exception("Listar ProcedimientoSTD => " + ex.Message, ex)
+        End Try
+        Return ListaProcedimientoSTD
+    End Function
+
+    
+   
+End Class
+
+

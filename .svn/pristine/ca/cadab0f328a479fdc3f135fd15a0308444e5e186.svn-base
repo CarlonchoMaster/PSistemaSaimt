@@ -1,0 +1,107 @@
+﻿
+Public Class EEDocumentoSTD
+    Public Property DocOrigen() As String
+    Public Property Origen() As String
+    Public Property DocTupac() As Boolean
+    Public Property DocNReg() As String
+    Public Property DocNRegT() As String
+    Public Property DocVinNRegT() As String
+    Public Property DocAño() As String
+    Public Property DocSiglas() As String
+    Public Property DocFechaIng() As DateTime?
+    Public Property DocAsunto() As String
+    Public Property DocEstado() As String
+    Public Property DocDias() As Int32?
+    Public Property indicador() As Int32?
+    Public Property DocNFolio() As Int32
+    Public Property DocSumilla() As String
+    Public Property DocComentario() As String
+    Public Property DocFechaDoc() As DateTime?
+    Public Property DocNRef() As String
+    Public Property DocInt() As String
+    Public Property DocFechaReg() As DateTime?
+    Public Property DocEliminado() As Boolean
+    Public Property TgTDocId() As String
+    Public Property TgTDoc() As String
+    Public Property TgPrioridadId() As String
+    Public Property TgPrioridad() As String
+    Public Property TgInstitucionId() As String
+    Public Property TgInstitucion() As String
+    Public Property TgAreaId() As String
+    Public Property TgArea() As String
+    Public Property TgCargoInt() As String
+    Public Property DocCargoIdEdit() As String
+    Public Property TgMovTramiteId() As String
+    Public Property TgMovTramite() As String
+    Public Property TgInstitucionIntId() As String
+    Public Property TgInstitucionInt() As String
+    Public Property TgAreaIntId() As String
+    Public Property TgAreaInt() As String
+    Public Property TgCargoIntId() As String
+    Public Property DocNParte() As Int32
+    Public Property DocParte() As String
+    Public Property DocId() As String
+    ' Public Property DocVinId() As String
+    'Public Property DocExpMPT1() As String
+    'Public Property DocExpMPT2() As String
+    'Public Property DocExpMPT3() As String
+    'Public Property DocExpMPTAño1() As Short
+    'Public Property DocExpMPTAño2() As Short
+    'Public Property DocExpMPTAño3() As Short
+    'Public Property DocExpFoliosMPT1() As Short
+    'Public Property DocExpFoliosMPT2() As Short
+    'Public Property DocExpFoliosMPT3() As Short
+    'Public Property DocExpMPTParte1() As String
+    'Public Property DocExpMPTParte2() As String
+    'Public Property DocExpMPTParte3() As String
+    'Public Property DocExpSAIMT() As String
+    Public Property DocAux() As String
+    Public Property DocConfReq() As Boolean
+    Public Property ProcId() As String
+    Public Property procNombre() As String
+    Public Property PerId() As String
+    Public Property DocPerIdEdit() As String
+    Public Property perDireccion() As String
+    Public Property perNombre() As String
+    Public Property perPara() As String
+    Public Property perDoc() As String
+    Public Property tieneAnexo() As Boolean
+    Public Property tieneVinculos() As Boolean
+    Public Property tieneRequisitos() As Boolean
+    Public Property DocFormReg() As Int16
+    ''' <summary>
+    ''' 5 Primeros Digitos del Campo DocNReg
+    ''' </summary>
+    ''' <value></value>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Public Property DocNro() As String
+
+    ' Para Reporte
+    Public Property interesado As String
+    Public Property derivado As String
+    Public Property fechaDerivado As Date?
+    Public Property procedimiento As String
+    Public Property usuario As String
+    Public Property dependencia As String
+
+
+#Region "Archivos"
+    Public Property ListaAnexosTemporalEliminados() As List(Of String)
+    Public Property ListaAnexosTemporalNuevos() As List(Of EEAnexoSTD)
+    Public Property ListaAnexosEditados() As List(Of EEAnexoSTD)
+#End Region
+
+    Public Property ListaAnexosArchivos() As List(Of EEAnexoSTD) = New List(Of EEAnexoSTD)
+    Public Property ListaRequisitosDoc() As List(Of EEReqDocumentoSTD) = New List(Of EEReqDocumentoSTD)
+
+    Public ReadOnly Property DocumentoSTD() As String
+        Get
+            Return DocNRegT
+        End Get
+    End Property
+
+    Public Property ListaDocumentosVinculados() As List(Of EEDocumentoSTD) = New List(Of EEDocumentoSTD)
+End Class
+
+

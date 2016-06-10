@@ -1,0 +1,1052 @@
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+Partial Class frmVisorArchivo
+    Inherits frmGeneral
+
+    'Form reemplaza a Dispose para limpiar la lista de componentes.
+    <System.Diagnostics.DebuggerNonUserCode()> _
+    Protected Overrides Sub Dispose(ByVal disposing As Boolean)
+        Try
+            If disposing AndAlso components IsNot Nothing Then
+                components.Dispose()
+            End If
+        Finally
+            MyBase.Dispose(disposing)
+        End Try
+    End Sub
+
+    'Requerido por el Diseñador de Windows Forms
+    Private components As System.ComponentModel.IContainer
+
+    'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
+    'Se puede modificar usando el Diseñador de Windows Forms.  
+    'No lo modifique con el editor de código.
+    <System.Diagnostics.DebuggerStepThrough()> _
+    Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmVisorArchivo))
+        Dim ReduceOperation1 As DevExpress.XtraBars.Ribbon.ReduceOperation = New DevExpress.XtraBars.Ribbon.ReduceOperation()
+        Dim ReduceOperation2 As DevExpress.XtraBars.Ribbon.ReduceOperation = New DevExpress.XtraBars.Ribbon.ReduceOperation()
+        Me.StylesRibbonPageGroup1 = New DevExpress.XtraRichEdit.UI.StylesRibbonPageGroup()
+        Me.StylesRibbonPageGroup2 = New DevExpress.XtraRichEdit.UI.StylesRibbonPageGroup()
+        Me.RichEditControl1 = New DevExpress.XtraRichEdit.RichEditControl()
+        Me.RepositoryItemFontEdit1 = New DevExpress.XtraEditors.Repository.RepositoryItemFontEdit()
+        Me.RepositoryItemRichEditFontSizeEdit1 = New DevExpress.XtraRichEdit.Design.RepositoryItemRichEditFontSizeEdit()
+        Me.RepositoryItemBorderLineStyle1 = New DevExpress.XtraRichEdit.Forms.Design.RepositoryItemBorderLineStyle()
+        Me.RepositoryItemBorderLineWeight1 = New DevExpress.XtraRichEdit.Forms.Design.RepositoryItemBorderLineWeight()
+        Me.RepositoryItemFloatingObjectOutlineWeight1 = New DevExpress.XtraRichEdit.Forms.Design.RepositoryItemFloatingObjectOutlineWeight()
+        Me.RepositoryItemFontEdit2 = New DevExpress.XtraEditors.Repository.RepositoryItemFontEdit()
+        Me.RepositoryItemRichEditFontSizeEdit2 = New DevExpress.XtraRichEdit.Design.RepositoryItemRichEditFontSizeEdit()
+        Me.RepositoryItemBorderLineStyle2 = New DevExpress.XtraRichEdit.Forms.Design.RepositoryItemBorderLineStyle()
+        Me.RepositoryItemBorderLineWeight2 = New DevExpress.XtraRichEdit.Forms.Design.RepositoryItemBorderLineWeight()
+        Me.RepositoryItemFloatingObjectOutlineWeight2 = New DevExpress.XtraRichEdit.Forms.Design.RepositoryItemFloatingObjectOutlineWeight()
+        Me.CommonRibbonPageGroup1 = New DevExpress.XtraRichEdit.UI.CommonRibbonPageGroup()
+        Me.FileRibbonPage1 = New DevExpress.XtraRichEdit.UI.FileRibbonPage()
+        Me.ClipboardRibbonPageGroup1 = New DevExpress.XtraRichEdit.UI.ClipboardRibbonPageGroup()
+        Me.HomeRibbonPage1 = New DevExpress.XtraRichEdit.UI.HomeRibbonPage()
+        Me.FontRibbonPageGroup1 = New DevExpress.XtraRichEdit.UI.FontRibbonPageGroup()
+        Me.BarButtonGroup1 = New DevExpress.XtraBars.BarButtonGroup()
+        Me.BarButtonGroup2 = New DevExpress.XtraBars.BarButtonGroup()
+        Me.BarButtonGroup3 = New DevExpress.XtraBars.BarButtonGroup()
+        Me.ParagraphRibbonPageGroup1 = New DevExpress.XtraRichEdit.UI.ParagraphRibbonPageGroup()
+        Me.BarButtonGroup4 = New DevExpress.XtraBars.BarButtonGroup()
+        Me.BarButtonGroup5 = New DevExpress.XtraBars.BarButtonGroup()
+        Me.BarButtonGroup6 = New DevExpress.XtraBars.BarButtonGroup()
+        Me.BarButtonGroup7 = New DevExpress.XtraBars.BarButtonGroup()
+        Me.EditingRibbonPageGroup1 = New DevExpress.XtraRichEdit.UI.EditingRibbonPageGroup()
+        Me.PagesRibbonPageGroup1 = New DevExpress.XtraRichEdit.UI.PagesRibbonPageGroup()
+        Me.InsertRibbonPage1 = New DevExpress.XtraRichEdit.UI.InsertRibbonPage()
+        Me.TablesRibbonPageGroup1 = New DevExpress.XtraRichEdit.UI.TablesRibbonPageGroup()
+        Me.IllustrationsRibbonPageGroup1 = New DevExpress.XtraRichEdit.UI.IllustrationsRibbonPageGroup()
+        Me.LinksRibbonPageGroup1 = New DevExpress.XtraRichEdit.UI.LinksRibbonPageGroup()
+        Me.HeaderFooterRibbonPageGroup1 = New DevExpress.XtraRichEdit.UI.HeaderFooterRibbonPageGroup()
+        Me.TextRibbonPageGroup1 = New DevExpress.XtraRichEdit.UI.TextRibbonPageGroup()
+        Me.SymbolsRibbonPageGroup1 = New DevExpress.XtraRichEdit.UI.SymbolsRibbonPageGroup()
+        Me.PageSetupRibbonPageGroup1 = New DevExpress.XtraRichEdit.UI.PageSetupRibbonPageGroup()
+        Me.PageLayoutRibbonPage1 = New DevExpress.XtraRichEdit.UI.PageLayoutRibbonPage()
+        Me.PageBackgroundRibbonPageGroup1 = New DevExpress.XtraRichEdit.UI.PageBackgroundRibbonPageGroup()
+        Me.TableOfContentsRibbonPageGroup1 = New DevExpress.XtraRichEdit.UI.TableOfContentsRibbonPageGroup()
+        Me.ReferencesRibbonPage1 = New DevExpress.XtraRichEdit.UI.ReferencesRibbonPage()
+        Me.CaptionsRibbonPageGroup1 = New DevExpress.XtraRichEdit.UI.CaptionsRibbonPageGroup()
+        Me.MailMergeRibbonPageGroup1 = New DevExpress.XtraRichEdit.UI.MailMergeRibbonPageGroup()
+        Me.MailingsRibbonPage1 = New DevExpress.XtraRichEdit.UI.MailingsRibbonPage()
+        Me.DocumentProofingRibbonPageGroup1 = New DevExpress.XtraRichEdit.UI.DocumentProofingRibbonPageGroup()
+        Me.ReviewRibbonPage1 = New DevExpress.XtraRichEdit.UI.ReviewRibbonPage()
+        Me.DocumentProtectionRibbonPageGroup1 = New DevExpress.XtraRichEdit.UI.DocumentProtectionRibbonPageGroup()
+        Me.DocumentViewsRibbonPageGroup1 = New DevExpress.XtraRichEdit.UI.DocumentViewsRibbonPageGroup()
+        Me.ViewRibbonPage1 = New DevExpress.XtraRichEdit.UI.ViewRibbonPage()
+        Me.ShowRibbonPageGroup1 = New DevExpress.XtraRichEdit.UI.ShowRibbonPageGroup()
+        Me.ZoomRibbonPageGroup1 = New DevExpress.XtraRichEdit.UI.ZoomRibbonPageGroup()
+        Me.HeaderFooterToolsDesignNavigationRibbonPageGroup1 = New DevExpress.XtraRichEdit.UI.HeaderFooterToolsDesignNavigationRibbonPageGroup()
+        Me.HeaderFooterToolsDesignRibbonPage1 = New DevExpress.XtraRichEdit.UI.HeaderFooterToolsDesignRibbonPage()
+        Me.HeaderFooterToolsDesignOptionsRibbonPageGroup1 = New DevExpress.XtraRichEdit.UI.HeaderFooterToolsDesignOptionsRibbonPageGroup()
+        Me.HeaderFooterToolsDesignCloseRibbonPageGroup1 = New DevExpress.XtraRichEdit.UI.HeaderFooterToolsDesignCloseRibbonPageGroup()
+        Me.HeaderFooterToolsRibbonPageCategory1 = New DevExpress.XtraRichEdit.UI.HeaderFooterToolsRibbonPageCategory()
+        Me.TableStyleOptionsRibbonPageGroup1 = New DevExpress.XtraRichEdit.UI.TableStyleOptionsRibbonPageGroup()
+        Me.TableDesignRibbonPage1 = New DevExpress.XtraRichEdit.UI.TableDesignRibbonPage()
+        Me.TableStylesRibbonPageGroup1 = New DevExpress.XtraRichEdit.UI.TableStylesRibbonPageGroup()
+        Me.TableDrawBordersRibbonPageGroup1 = New DevExpress.XtraRichEdit.UI.TableDrawBordersRibbonPageGroup()
+        Me.TableToolsRibbonPageCategory1 = New DevExpress.XtraRichEdit.UI.TableToolsRibbonPageCategory()
+        Me.TableLayoutRibbonPage1 = New DevExpress.XtraRichEdit.UI.TableLayoutRibbonPage()
+        Me.TableTableRibbonPageGroup1 = New DevExpress.XtraRichEdit.UI.TableTableRibbonPageGroup()
+        Me.TableRowsAndColumnsRibbonPageGroup1 = New DevExpress.XtraRichEdit.UI.TableRowsAndColumnsRibbonPageGroup()
+        Me.TableMergeRibbonPageGroup1 = New DevExpress.XtraRichEdit.UI.TableMergeRibbonPageGroup()
+        Me.TableCellSizeRibbonPageGroup1 = New DevExpress.XtraRichEdit.UI.TableCellSizeRibbonPageGroup()
+        Me.TableAlignmentRibbonPageGroup1 = New DevExpress.XtraRichEdit.UI.TableAlignmentRibbonPageGroup()
+        Me.FloatingPictureToolsShapeStylesPageGroup1 = New DevExpress.XtraRichEdit.UI.FloatingPictureToolsShapeStylesPageGroup()
+        Me.FloatingPictureToolsFormatPage1 = New DevExpress.XtraRichEdit.UI.FloatingPictureToolsFormatPage()
+        Me.FloatingPictureToolsArrangePageGroup1 = New DevExpress.XtraRichEdit.UI.FloatingPictureToolsArrangePageGroup()
+        Me.FloatingPictureToolsRibbonPageCategory1 = New DevExpress.XtraRichEdit.UI.FloatingPictureToolsRibbonPageCategory()
+        Me.CommonRibbonPageGroup2 = New DevExpress.XtraRichEdit.UI.CommonRibbonPageGroup()
+        Me.FileRibbonPage2 = New DevExpress.XtraRichEdit.UI.FileRibbonPage()
+        Me.ClipboardRibbonPageGroup2 = New DevExpress.XtraRichEdit.UI.ClipboardRibbonPageGroup()
+        Me.HomeRibbonPage2 = New DevExpress.XtraRichEdit.UI.HomeRibbonPage()
+        Me.FontRibbonPageGroup2 = New DevExpress.XtraRichEdit.UI.FontRibbonPageGroup()
+        Me.BarButtonGroup8 = New DevExpress.XtraBars.BarButtonGroup()
+        Me.BarButtonGroup9 = New DevExpress.XtraBars.BarButtonGroup()
+        Me.BarButtonGroup10 = New DevExpress.XtraBars.BarButtonGroup()
+        Me.ParagraphRibbonPageGroup2 = New DevExpress.XtraRichEdit.UI.ParagraphRibbonPageGroup()
+        Me.BarButtonGroup11 = New DevExpress.XtraBars.BarButtonGroup()
+        Me.BarButtonGroup12 = New DevExpress.XtraBars.BarButtonGroup()
+        Me.BarButtonGroup13 = New DevExpress.XtraBars.BarButtonGroup()
+        Me.BarButtonGroup14 = New DevExpress.XtraBars.BarButtonGroup()
+        Me.EditingRibbonPageGroup2 = New DevExpress.XtraRichEdit.UI.EditingRibbonPageGroup()
+        Me.PagesRibbonPageGroup2 = New DevExpress.XtraRichEdit.UI.PagesRibbonPageGroup()
+        Me.InsertRibbonPage2 = New DevExpress.XtraRichEdit.UI.InsertRibbonPage()
+        Me.TablesRibbonPageGroup2 = New DevExpress.XtraRichEdit.UI.TablesRibbonPageGroup()
+        Me.IllustrationsRibbonPageGroup2 = New DevExpress.XtraRichEdit.UI.IllustrationsRibbonPageGroup()
+        Me.LinksRibbonPageGroup2 = New DevExpress.XtraRichEdit.UI.LinksRibbonPageGroup()
+        Me.HeaderFooterRibbonPageGroup2 = New DevExpress.XtraRichEdit.UI.HeaderFooterRibbonPageGroup()
+        Me.TextRibbonPageGroup2 = New DevExpress.XtraRichEdit.UI.TextRibbonPageGroup()
+        Me.SymbolsRibbonPageGroup2 = New DevExpress.XtraRichEdit.UI.SymbolsRibbonPageGroup()
+        Me.PageSetupRibbonPageGroup2 = New DevExpress.XtraRichEdit.UI.PageSetupRibbonPageGroup()
+        Me.PageLayoutRibbonPage2 = New DevExpress.XtraRichEdit.UI.PageLayoutRibbonPage()
+        Me.PageBackgroundRibbonPageGroup2 = New DevExpress.XtraRichEdit.UI.PageBackgroundRibbonPageGroup()
+        Me.TableOfContentsRibbonPageGroup2 = New DevExpress.XtraRichEdit.UI.TableOfContentsRibbonPageGroup()
+        Me.ReferencesRibbonPage2 = New DevExpress.XtraRichEdit.UI.ReferencesRibbonPage()
+        Me.CaptionsRibbonPageGroup2 = New DevExpress.XtraRichEdit.UI.CaptionsRibbonPageGroup()
+        Me.MailMergeRibbonPageGroup2 = New DevExpress.XtraRichEdit.UI.MailMergeRibbonPageGroup()
+        Me.MailingsRibbonPage2 = New DevExpress.XtraRichEdit.UI.MailingsRibbonPage()
+        Me.DocumentProofingRibbonPageGroup2 = New DevExpress.XtraRichEdit.UI.DocumentProofingRibbonPageGroup()
+        Me.ReviewRibbonPage2 = New DevExpress.XtraRichEdit.UI.ReviewRibbonPage()
+        Me.DocumentProtectionRibbonPageGroup2 = New DevExpress.XtraRichEdit.UI.DocumentProtectionRibbonPageGroup()
+        Me.DocumentViewsRibbonPageGroup2 = New DevExpress.XtraRichEdit.UI.DocumentViewsRibbonPageGroup()
+        Me.ViewRibbonPage2 = New DevExpress.XtraRichEdit.UI.ViewRibbonPage()
+        Me.ShowRibbonPageGroup2 = New DevExpress.XtraRichEdit.UI.ShowRibbonPageGroup()
+        Me.ZoomRibbonPageGroup2 = New DevExpress.XtraRichEdit.UI.ZoomRibbonPageGroup()
+        Me.HeaderFooterToolsDesignNavigationRibbonPageGroup2 = New DevExpress.XtraRichEdit.UI.HeaderFooterToolsDesignNavigationRibbonPageGroup()
+        Me.HeaderFooterToolsDesignRibbonPage2 = New DevExpress.XtraRichEdit.UI.HeaderFooterToolsDesignRibbonPage()
+        Me.HeaderFooterToolsDesignOptionsRibbonPageGroup2 = New DevExpress.XtraRichEdit.UI.HeaderFooterToolsDesignOptionsRibbonPageGroup()
+        Me.HeaderFooterToolsDesignCloseRibbonPageGroup2 = New DevExpress.XtraRichEdit.UI.HeaderFooterToolsDesignCloseRibbonPageGroup()
+        Me.HeaderFooterToolsRibbonPageCategory2 = New DevExpress.XtraRichEdit.UI.HeaderFooterToolsRibbonPageCategory()
+        Me.TableStyleOptionsRibbonPageGroup2 = New DevExpress.XtraRichEdit.UI.TableStyleOptionsRibbonPageGroup()
+        Me.TableDesignRibbonPage2 = New DevExpress.XtraRichEdit.UI.TableDesignRibbonPage()
+        Me.TableStylesRibbonPageGroup2 = New DevExpress.XtraRichEdit.UI.TableStylesRibbonPageGroup()
+        Me.TableDrawBordersRibbonPageGroup2 = New DevExpress.XtraRichEdit.UI.TableDrawBordersRibbonPageGroup()
+        Me.TableToolsRibbonPageCategory2 = New DevExpress.XtraRichEdit.UI.TableToolsRibbonPageCategory()
+        Me.TableLayoutRibbonPage2 = New DevExpress.XtraRichEdit.UI.TableLayoutRibbonPage()
+        Me.TableTableRibbonPageGroup2 = New DevExpress.XtraRichEdit.UI.TableTableRibbonPageGroup()
+        Me.TableRowsAndColumnsRibbonPageGroup2 = New DevExpress.XtraRichEdit.UI.TableRowsAndColumnsRibbonPageGroup()
+        Me.TableMergeRibbonPageGroup2 = New DevExpress.XtraRichEdit.UI.TableMergeRibbonPageGroup()
+        Me.TableCellSizeRibbonPageGroup2 = New DevExpress.XtraRichEdit.UI.TableCellSizeRibbonPageGroup()
+        Me.TableAlignmentRibbonPageGroup2 = New DevExpress.XtraRichEdit.UI.TableAlignmentRibbonPageGroup()
+        Me.FloatingPictureToolsShapeStylesPageGroup2 = New DevExpress.XtraRichEdit.UI.FloatingPictureToolsShapeStylesPageGroup()
+        Me.FloatingPictureToolsFormatPage2 = New DevExpress.XtraRichEdit.UI.FloatingPictureToolsFormatPage()
+        Me.FloatingPictureToolsArrangePageGroup2 = New DevExpress.XtraRichEdit.UI.FloatingPictureToolsArrangePageGroup()
+        Me.FloatingPictureToolsRibbonPageCategory2 = New DevExpress.XtraRichEdit.UI.FloatingPictureToolsRibbonPageCategory()
+        CType(Me.pmconsultorpropagos, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.RepositoryItemFontEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.RepositoryItemRichEditFontSizeEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.RepositoryItemBorderLineStyle1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.RepositoryItemBorderLineWeight1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.RepositoryItemFloatingObjectOutlineWeight1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.RepositoryItemFontEdit2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.RepositoryItemRichEditFontSizeEdit2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.RepositoryItemBorderLineStyle2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.RepositoryItemBorderLineWeight2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.RepositoryItemFloatingObjectOutlineWeight2, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SuspendLayout()
+        '
+        'rsbMensajeBarra
+        '
+        Me.rsbMensajeBarra.Location = New System.Drawing.Point(0, 663)
+        Me.rsbMensajeBarra.Size = New System.Drawing.Size(1169, 27)
+        '
+        'StylesRibbonPageGroup1
+        '
+        Me.StylesRibbonPageGroup1.Glyph = CType(resources.GetObject("StylesRibbonPageGroup1.Glyph"), System.Drawing.Image)
+        Me.StylesRibbonPageGroup1.Name = "StylesRibbonPageGroup1"
+        Me.StylesRibbonPageGroup1.Text = ""
+        '
+        'StylesRibbonPageGroup2
+        '
+        Me.StylesRibbonPageGroup2.Glyph = CType(resources.GetObject("StylesRibbonPageGroup2.Glyph"), System.Drawing.Image)
+        Me.StylesRibbonPageGroup2.Name = "StylesRibbonPageGroup2"
+        Me.StylesRibbonPageGroup2.Text = ""
+        '
+        'RichEditControl1
+        '
+        Me.RichEditControl1.Location = New System.Drawing.Point(36, 30)
+        Me.RichEditControl1.MenuManager = Me.RibbonControl
+        Me.RichEditControl1.Name = "RichEditControl1"
+        Me.RichEditControl1.Options.Fields.UseCurrentCultureDateTimeFormat = False
+        Me.RichEditControl1.Options.MailMerge.KeepLastParagraph = False
+        Me.RichEditControl1.Size = New System.Drawing.Size(869, 497)
+        Me.RichEditControl1.TabIndex = 2
+        Me.RichEditControl1.Text = "RichEditControl1"
+        '
+        'RepositoryItemFontEdit1
+        '
+        Me.RepositoryItemFontEdit1.AutoHeight = False
+        Me.RepositoryItemFontEdit1.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.RepositoryItemFontEdit1.Name = "RepositoryItemFontEdit1"
+        '
+        'RepositoryItemRichEditFontSizeEdit1
+        '
+        Me.RepositoryItemRichEditFontSizeEdit1.AutoHeight = False
+        Me.RepositoryItemRichEditFontSizeEdit1.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.RepositoryItemRichEditFontSizeEdit1.Control = Me.RichEditControl1
+        Me.RepositoryItemRichEditFontSizeEdit1.Name = "RepositoryItemRichEditFontSizeEdit1"
+        '
+        'RepositoryItemBorderLineStyle1
+        '
+        Me.RepositoryItemBorderLineStyle1.AutoHeight = False
+        Me.RepositoryItemBorderLineStyle1.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.RepositoryItemBorderLineStyle1.Control = Me.RichEditControl1
+        Me.RepositoryItemBorderLineStyle1.Name = "RepositoryItemBorderLineStyle1"
+        '
+        'RepositoryItemBorderLineWeight1
+        '
+        Me.RepositoryItemBorderLineWeight1.AutoHeight = False
+        Me.RepositoryItemBorderLineWeight1.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.RepositoryItemBorderLineWeight1.Control = Me.RichEditControl1
+        Me.RepositoryItemBorderLineWeight1.Name = "RepositoryItemBorderLineWeight1"
+        '
+        'RepositoryItemFloatingObjectOutlineWeight1
+        '
+        Me.RepositoryItemFloatingObjectOutlineWeight1.AutoHeight = False
+        Me.RepositoryItemFloatingObjectOutlineWeight1.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.RepositoryItemFloatingObjectOutlineWeight1.Control = Me.RichEditControl1
+        Me.RepositoryItemFloatingObjectOutlineWeight1.Name = "RepositoryItemFloatingObjectOutlineWeight1"
+        '
+        'RepositoryItemFontEdit2
+        '
+        Me.RepositoryItemFontEdit2.AutoHeight = False
+        Me.RepositoryItemFontEdit2.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.RepositoryItemFontEdit2.Name = "RepositoryItemFontEdit2"
+        '
+        'RepositoryItemRichEditFontSizeEdit2
+        '
+        Me.RepositoryItemRichEditFontSizeEdit2.AutoHeight = False
+        Me.RepositoryItemRichEditFontSizeEdit2.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.RepositoryItemRichEditFontSizeEdit2.Control = Me.RichEditControl1
+        Me.RepositoryItemRichEditFontSizeEdit2.Name = "RepositoryItemRichEditFontSizeEdit2"
+        '
+        'RepositoryItemBorderLineStyle2
+        '
+        Me.RepositoryItemBorderLineStyle2.AutoHeight = False
+        Me.RepositoryItemBorderLineStyle2.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.RepositoryItemBorderLineStyle2.Control = Me.RichEditControl1
+        Me.RepositoryItemBorderLineStyle2.Name = "RepositoryItemBorderLineStyle2"
+        '
+        'RepositoryItemBorderLineWeight2
+        '
+        Me.RepositoryItemBorderLineWeight2.AutoHeight = False
+        Me.RepositoryItemBorderLineWeight2.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.RepositoryItemBorderLineWeight2.Control = Me.RichEditControl1
+        Me.RepositoryItemBorderLineWeight2.Name = "RepositoryItemBorderLineWeight2"
+        '
+        'RepositoryItemFloatingObjectOutlineWeight2
+        '
+        Me.RepositoryItemFloatingObjectOutlineWeight2.AutoHeight = False
+        Me.RepositoryItemFloatingObjectOutlineWeight2.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.RepositoryItemFloatingObjectOutlineWeight2.Control = Me.RichEditControl1
+        Me.RepositoryItemFloatingObjectOutlineWeight2.Name = "RepositoryItemFloatingObjectOutlineWeight2"
+        '
+        'CommonRibbonPageGroup1
+        '
+        Me.CommonRibbonPageGroup1.Name = "CommonRibbonPageGroup1"
+        Me.CommonRibbonPageGroup1.Text = ""
+        '
+        'FileRibbonPage1
+        '
+        Me.FileRibbonPage1.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.CommonRibbonPageGroup1})
+        Me.FileRibbonPage1.Name = "FileRibbonPage1"
+        '
+        'ClipboardRibbonPageGroup1
+        '
+        Me.ClipboardRibbonPageGroup1.Name = "ClipboardRibbonPageGroup1"
+        Me.ClipboardRibbonPageGroup1.Text = ""
+        '
+        'HomeRibbonPage1
+        '
+        Me.HomeRibbonPage1.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.ClipboardRibbonPageGroup1, Me.FontRibbonPageGroup1, Me.ParagraphRibbonPageGroup1, Me.StylesRibbonPageGroup1, Me.EditingRibbonPageGroup1})
+        Me.HomeRibbonPage1.Name = "HomeRibbonPage1"
+        ReduceOperation1.Behavior = DevExpress.XtraBars.Ribbon.ReduceOperationBehavior.UntilAvailable
+        ReduceOperation1.Group = Me.StylesRibbonPageGroup1
+        ReduceOperation1.ItemLinkIndex = 0
+        ReduceOperation1.ItemLinksCount = 0
+        ReduceOperation1.Operation = DevExpress.XtraBars.Ribbon.ReduceOperationType.Gallery
+        Me.HomeRibbonPage1.ReduceOperations.Add(ReduceOperation1)
+        '
+        'FontRibbonPageGroup1
+        '
+        Me.FontRibbonPageGroup1.ItemLinks.Add(Me.BarButtonGroup1)
+        Me.FontRibbonPageGroup1.ItemLinks.Add(Me.BarButtonGroup2)
+        Me.FontRibbonPageGroup1.ItemLinks.Add(Me.BarButtonGroup3)
+        Me.FontRibbonPageGroup1.Name = "FontRibbonPageGroup1"
+        Me.FontRibbonPageGroup1.Text = ""
+        '
+        'BarButtonGroup1
+        '
+        Me.BarButtonGroup1.Id = 13
+        Me.BarButtonGroup1.Name = "BarButtonGroup1"
+        Me.BarButtonGroup1.Tag = "{97BBE334-159B-44d9-A168-0411957565E8}"
+        '
+        'BarButtonGroup2
+        '
+        Me.BarButtonGroup2.Id = 14
+        Me.BarButtonGroup2.Name = "BarButtonGroup2"
+        Me.BarButtonGroup2.Tag = "{433DA7F0-03E2-4650-9DB5-66DD92D16E39}"
+        '
+        'BarButtonGroup3
+        '
+        Me.BarButtonGroup3.Id = 15
+        Me.BarButtonGroup3.Name = "BarButtonGroup3"
+        Me.BarButtonGroup3.Tag = "{DF8C5334-EDE3-47c9-A42C-FE9A9247E180}"
+        '
+        'ParagraphRibbonPageGroup1
+        '
+        Me.ParagraphRibbonPageGroup1.ItemLinks.Add(Me.BarButtonGroup4)
+        Me.ParagraphRibbonPageGroup1.ItemLinks.Add(Me.BarButtonGroup5)
+        Me.ParagraphRibbonPageGroup1.ItemLinks.Add(Me.BarButtonGroup6)
+        Me.ParagraphRibbonPageGroup1.ItemLinks.Add(Me.BarButtonGroup7)
+        Me.ParagraphRibbonPageGroup1.Name = "ParagraphRibbonPageGroup1"
+        Me.ParagraphRibbonPageGroup1.Text = ""
+        '
+        'BarButtonGroup4
+        '
+        Me.BarButtonGroup4.Id = 16
+        Me.BarButtonGroup4.Name = "BarButtonGroup4"
+        Me.BarButtonGroup4.Tag = "{0B3A7A43-3079-4ce0-83A8-3789F5F6DC9F}"
+        '
+        'BarButtonGroup5
+        '
+        Me.BarButtonGroup5.Id = 17
+        Me.BarButtonGroup5.Name = "BarButtonGroup5"
+        Me.BarButtonGroup5.Tag = "{4747D5AB-2BEB-4ea6-9A1D-8E4FB36F1B40}"
+        '
+        'BarButtonGroup6
+        '
+        Me.BarButtonGroup6.Id = 18
+        Me.BarButtonGroup6.Name = "BarButtonGroup6"
+        Me.BarButtonGroup6.Tag = "{8E89E775-996E-49a0-AADA-DE338E34732E}"
+        '
+        'BarButtonGroup7
+        '
+        Me.BarButtonGroup7.Id = 19
+        Me.BarButtonGroup7.Name = "BarButtonGroup7"
+        Me.BarButtonGroup7.Tag = "{9A8DEAD8-3890-4857-A395-EC625FD02217}"
+        '
+        'EditingRibbonPageGroup1
+        '
+        Me.EditingRibbonPageGroup1.Name = "EditingRibbonPageGroup1"
+        Me.EditingRibbonPageGroup1.Text = ""
+        '
+        'PagesRibbonPageGroup1
+        '
+        Me.PagesRibbonPageGroup1.AllowTextClipping = False
+        Me.PagesRibbonPageGroup1.Name = "PagesRibbonPageGroup1"
+        Me.PagesRibbonPageGroup1.Text = ""
+        '
+        'InsertRibbonPage1
+        '
+        Me.InsertRibbonPage1.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.PagesRibbonPageGroup1, Me.TablesRibbonPageGroup1, Me.IllustrationsRibbonPageGroup1, Me.LinksRibbonPageGroup1, Me.HeaderFooterRibbonPageGroup1, Me.TextRibbonPageGroup1, Me.SymbolsRibbonPageGroup1})
+        Me.InsertRibbonPage1.Name = "InsertRibbonPage1"
+        '
+        'TablesRibbonPageGroup1
+        '
+        Me.TablesRibbonPageGroup1.AllowTextClipping = False
+        Me.TablesRibbonPageGroup1.Name = "TablesRibbonPageGroup1"
+        Me.TablesRibbonPageGroup1.Text = ""
+        '
+        'IllustrationsRibbonPageGroup1
+        '
+        Me.IllustrationsRibbonPageGroup1.Name = "IllustrationsRibbonPageGroup1"
+        Me.IllustrationsRibbonPageGroup1.Text = ""
+        '
+        'LinksRibbonPageGroup1
+        '
+        Me.LinksRibbonPageGroup1.Name = "LinksRibbonPageGroup1"
+        Me.LinksRibbonPageGroup1.Text = ""
+        '
+        'HeaderFooterRibbonPageGroup1
+        '
+        Me.HeaderFooterRibbonPageGroup1.Name = "HeaderFooterRibbonPageGroup1"
+        Me.HeaderFooterRibbonPageGroup1.Text = ""
+        '
+        'TextRibbonPageGroup1
+        '
+        Me.TextRibbonPageGroup1.Glyph = CType(resources.GetObject("TextRibbonPageGroup1.Glyph"), System.Drawing.Image)
+        Me.TextRibbonPageGroup1.Name = "TextRibbonPageGroup1"
+        Me.TextRibbonPageGroup1.Text = ""
+        '
+        'SymbolsRibbonPageGroup1
+        '
+        Me.SymbolsRibbonPageGroup1.AllowTextClipping = False
+        Me.SymbolsRibbonPageGroup1.Name = "SymbolsRibbonPageGroup1"
+        Me.SymbolsRibbonPageGroup1.Text = ""
+        '
+        'PageSetupRibbonPageGroup1
+        '
+        Me.PageSetupRibbonPageGroup1.Name = "PageSetupRibbonPageGroup1"
+        Me.PageSetupRibbonPageGroup1.Text = ""
+        '
+        'PageLayoutRibbonPage1
+        '
+        Me.PageLayoutRibbonPage1.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.PageSetupRibbonPageGroup1, Me.PageBackgroundRibbonPageGroup1})
+        Me.PageLayoutRibbonPage1.Name = "PageLayoutRibbonPage1"
+        '
+        'PageBackgroundRibbonPageGroup1
+        '
+        Me.PageBackgroundRibbonPageGroup1.AllowTextClipping = False
+        Me.PageBackgroundRibbonPageGroup1.Name = "PageBackgroundRibbonPageGroup1"
+        Me.PageBackgroundRibbonPageGroup1.Text = ""
+        '
+        'TableOfContentsRibbonPageGroup1
+        '
+        Me.TableOfContentsRibbonPageGroup1.Name = "TableOfContentsRibbonPageGroup1"
+        Me.TableOfContentsRibbonPageGroup1.Text = ""
+        '
+        'ReferencesRibbonPage1
+        '
+        Me.ReferencesRibbonPage1.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.TableOfContentsRibbonPageGroup1, Me.CaptionsRibbonPageGroup1})
+        Me.ReferencesRibbonPage1.Name = "ReferencesRibbonPage1"
+        '
+        'CaptionsRibbonPageGroup1
+        '
+        Me.CaptionsRibbonPageGroup1.Name = "CaptionsRibbonPageGroup1"
+        Me.CaptionsRibbonPageGroup1.Text = ""
+        '
+        'MailMergeRibbonPageGroup1
+        '
+        Me.MailMergeRibbonPageGroup1.Name = "MailMergeRibbonPageGroup1"
+        Me.MailMergeRibbonPageGroup1.Text = ""
+        '
+        'MailingsRibbonPage1
+        '
+        Me.MailingsRibbonPage1.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.MailMergeRibbonPageGroup1})
+        Me.MailingsRibbonPage1.Name = "MailingsRibbonPage1"
+        '
+        'DocumentProofingRibbonPageGroup1
+        '
+        Me.DocumentProofingRibbonPageGroup1.Name = "DocumentProofingRibbonPageGroup1"
+        Me.DocumentProofingRibbonPageGroup1.Text = ""
+        '
+        'ReviewRibbonPage1
+        '
+        Me.ReviewRibbonPage1.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.DocumentProofingRibbonPageGroup1, Me.DocumentProtectionRibbonPageGroup1})
+        Me.ReviewRibbonPage1.Name = "ReviewRibbonPage1"
+        '
+        'DocumentProtectionRibbonPageGroup1
+        '
+        Me.DocumentProtectionRibbonPageGroup1.Name = "DocumentProtectionRibbonPageGroup1"
+        Me.DocumentProtectionRibbonPageGroup1.Text = ""
+        '
+        'DocumentViewsRibbonPageGroup1
+        '
+        Me.DocumentViewsRibbonPageGroup1.Name = "DocumentViewsRibbonPageGroup1"
+        Me.DocumentViewsRibbonPageGroup1.Text = ""
+        '
+        'ViewRibbonPage1
+        '
+        Me.ViewRibbonPage1.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.DocumentViewsRibbonPageGroup1, Me.ShowRibbonPageGroup1, Me.ZoomRibbonPageGroup1})
+        Me.ViewRibbonPage1.Name = "ViewRibbonPage1"
+        '
+        'ShowRibbonPageGroup1
+        '
+        Me.ShowRibbonPageGroup1.Name = "ShowRibbonPageGroup1"
+        Me.ShowRibbonPageGroup1.Text = ""
+        '
+        'ZoomRibbonPageGroup1
+        '
+        Me.ZoomRibbonPageGroup1.Name = "ZoomRibbonPageGroup1"
+        Me.ZoomRibbonPageGroup1.Text = ""
+        '
+        'HeaderFooterToolsDesignNavigationRibbonPageGroup1
+        '
+        Me.HeaderFooterToolsDesignNavigationRibbonPageGroup1.Name = "HeaderFooterToolsDesignNavigationRibbonPageGroup1"
+        Me.HeaderFooterToolsDesignNavigationRibbonPageGroup1.Text = ""
+        '
+        'HeaderFooterToolsDesignRibbonPage1
+        '
+        Me.HeaderFooterToolsDesignRibbonPage1.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.HeaderFooterToolsDesignNavigationRibbonPageGroup1, Me.HeaderFooterToolsDesignOptionsRibbonPageGroup1, Me.HeaderFooterToolsDesignCloseRibbonPageGroup1})
+        Me.HeaderFooterToolsDesignRibbonPage1.Name = "HeaderFooterToolsDesignRibbonPage1"
+        '
+        'HeaderFooterToolsDesignOptionsRibbonPageGroup1
+        '
+        Me.HeaderFooterToolsDesignOptionsRibbonPageGroup1.Name = "HeaderFooterToolsDesignOptionsRibbonPageGroup1"
+        Me.HeaderFooterToolsDesignOptionsRibbonPageGroup1.Text = ""
+        '
+        'HeaderFooterToolsDesignCloseRibbonPageGroup1
+        '
+        Me.HeaderFooterToolsDesignCloseRibbonPageGroup1.Name = "HeaderFooterToolsDesignCloseRibbonPageGroup1"
+        Me.HeaderFooterToolsDesignCloseRibbonPageGroup1.Text = ""
+        '
+        'HeaderFooterToolsRibbonPageCategory1
+        '
+        Me.HeaderFooterToolsRibbonPageCategory1.Color = System.Drawing.Color.FromArgb(CType(CType(38, Byte), Integer), CType(CType(176, Byte), Integer), CType(CType(35, Byte), Integer))
+        Me.HeaderFooterToolsRibbonPageCategory1.Control = Me.RichEditControl1
+        Me.HeaderFooterToolsRibbonPageCategory1.Name = "HeaderFooterToolsRibbonPageCategory1"
+        Me.HeaderFooterToolsRibbonPageCategory1.Pages.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPage() {Me.HeaderFooterToolsDesignRibbonPage1})
+        '
+        'TableStyleOptionsRibbonPageGroup1
+        '
+        Me.TableStyleOptionsRibbonPageGroup1.Name = "TableStyleOptionsRibbonPageGroup1"
+        Me.TableStyleOptionsRibbonPageGroup1.Text = ""
+        '
+        'TableDesignRibbonPage1
+        '
+        Me.TableDesignRibbonPage1.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.TableStyleOptionsRibbonPageGroup1, Me.TableStylesRibbonPageGroup1, Me.TableDrawBordersRibbonPageGroup1})
+        Me.TableDesignRibbonPage1.Name = "TableDesignRibbonPage1"
+        '
+        'TableStylesRibbonPageGroup1
+        '
+        Me.TableStylesRibbonPageGroup1.Name = "TableStylesRibbonPageGroup1"
+        Me.TableStylesRibbonPageGroup1.Text = ""
+        '
+        'TableDrawBordersRibbonPageGroup1
+        '
+        Me.TableDrawBordersRibbonPageGroup1.Name = "TableDrawBordersRibbonPageGroup1"
+        Me.TableDrawBordersRibbonPageGroup1.Text = ""
+        '
+        'TableToolsRibbonPageCategory1
+        '
+        Me.TableToolsRibbonPageCategory1.Color = System.Drawing.Color.FromArgb(CType(CType(252, Byte), Integer), CType(CType(233, Byte), Integer), CType(CType(20, Byte), Integer))
+        Me.TableToolsRibbonPageCategory1.Control = Me.RichEditControl1
+        Me.TableToolsRibbonPageCategory1.Name = "TableToolsRibbonPageCategory1"
+        Me.TableToolsRibbonPageCategory1.Pages.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPage() {Me.TableDesignRibbonPage1, Me.TableLayoutRibbonPage1})
+        '
+        'TableLayoutRibbonPage1
+        '
+        Me.TableLayoutRibbonPage1.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.TableTableRibbonPageGroup1, Me.TableRowsAndColumnsRibbonPageGroup1, Me.TableMergeRibbonPageGroup1, Me.TableCellSizeRibbonPageGroup1, Me.TableAlignmentRibbonPageGroup1})
+        Me.TableLayoutRibbonPage1.Name = "TableLayoutRibbonPage1"
+        '
+        'TableTableRibbonPageGroup1
+        '
+        Me.TableTableRibbonPageGroup1.Name = "TableTableRibbonPageGroup1"
+        Me.TableTableRibbonPageGroup1.Text = ""
+        '
+        'TableRowsAndColumnsRibbonPageGroup1
+        '
+        Me.TableRowsAndColumnsRibbonPageGroup1.Name = "TableRowsAndColumnsRibbonPageGroup1"
+        Me.TableRowsAndColumnsRibbonPageGroup1.Text = ""
+        '
+        'TableMergeRibbonPageGroup1
+        '
+        Me.TableMergeRibbonPageGroup1.Name = "TableMergeRibbonPageGroup1"
+        Me.TableMergeRibbonPageGroup1.Text = ""
+        '
+        'TableCellSizeRibbonPageGroup1
+        '
+        Me.TableCellSizeRibbonPageGroup1.AllowTextClipping = False
+        Me.TableCellSizeRibbonPageGroup1.Name = "TableCellSizeRibbonPageGroup1"
+        Me.TableCellSizeRibbonPageGroup1.Text = ""
+        '
+        'TableAlignmentRibbonPageGroup1
+        '
+        Me.TableAlignmentRibbonPageGroup1.Glyph = CType(resources.GetObject("TableAlignmentRibbonPageGroup1.Glyph"), System.Drawing.Image)
+        Me.TableAlignmentRibbonPageGroup1.Name = "TableAlignmentRibbonPageGroup1"
+        Me.TableAlignmentRibbonPageGroup1.Text = ""
+        '
+        'FloatingPictureToolsShapeStylesPageGroup1
+        '
+        Me.FloatingPictureToolsShapeStylesPageGroup1.Name = "FloatingPictureToolsShapeStylesPageGroup1"
+        Me.FloatingPictureToolsShapeStylesPageGroup1.Text = ""
+        '
+        'FloatingPictureToolsFormatPage1
+        '
+        Me.FloatingPictureToolsFormatPage1.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.FloatingPictureToolsShapeStylesPageGroup1, Me.FloatingPictureToolsArrangePageGroup1})
+        Me.FloatingPictureToolsFormatPage1.Name = "FloatingPictureToolsFormatPage1"
+        '
+        'FloatingPictureToolsArrangePageGroup1
+        '
+        Me.FloatingPictureToolsArrangePageGroup1.Name = "FloatingPictureToolsArrangePageGroup1"
+        Me.FloatingPictureToolsArrangePageGroup1.Text = ""
+        '
+        'FloatingPictureToolsRibbonPageCategory1
+        '
+        Me.FloatingPictureToolsRibbonPageCategory1.Color = System.Drawing.Color.FromArgb(CType(CType(201, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(119, Byte), Integer))
+        Me.FloatingPictureToolsRibbonPageCategory1.Control = Me.RichEditControl1
+        Me.FloatingPictureToolsRibbonPageCategory1.Name = "FloatingPictureToolsRibbonPageCategory1"
+        Me.FloatingPictureToolsRibbonPageCategory1.Pages.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPage() {Me.FloatingPictureToolsFormatPage1})
+        '
+        'CommonRibbonPageGroup2
+        '
+        Me.CommonRibbonPageGroup2.Name = "CommonRibbonPageGroup2"
+        Me.CommonRibbonPageGroup2.Text = ""
+        '
+        'FileRibbonPage2
+        '
+        Me.FileRibbonPage2.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.CommonRibbonPageGroup2})
+        Me.FileRibbonPage2.Name = "FileRibbonPage2"
+        '
+        'ClipboardRibbonPageGroup2
+        '
+        Me.ClipboardRibbonPageGroup2.Name = "ClipboardRibbonPageGroup2"
+        Me.ClipboardRibbonPageGroup2.Text = ""
+        '
+        'HomeRibbonPage2
+        '
+        Me.HomeRibbonPage2.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.ClipboardRibbonPageGroup2, Me.FontRibbonPageGroup2, Me.ParagraphRibbonPageGroup2, Me.StylesRibbonPageGroup2, Me.EditingRibbonPageGroup2})
+        Me.HomeRibbonPage2.Name = "HomeRibbonPage2"
+        ReduceOperation2.Behavior = DevExpress.XtraBars.Ribbon.ReduceOperationBehavior.UntilAvailable
+        ReduceOperation2.Group = Me.StylesRibbonPageGroup2
+        ReduceOperation2.ItemLinkIndex = 0
+        ReduceOperation2.ItemLinksCount = 0
+        ReduceOperation2.Operation = DevExpress.XtraBars.Ribbon.ReduceOperationType.Gallery
+        Me.HomeRibbonPage2.ReduceOperations.Add(ReduceOperation2)
+        '
+        'FontRibbonPageGroup2
+        '
+        Me.FontRibbonPageGroup2.ItemLinks.Add(Me.BarButtonGroup8)
+        Me.FontRibbonPageGroup2.ItemLinks.Add(Me.BarButtonGroup9)
+        Me.FontRibbonPageGroup2.ItemLinks.Add(Me.BarButtonGroup10)
+        Me.FontRibbonPageGroup2.Name = "FontRibbonPageGroup2"
+        Me.FontRibbonPageGroup2.Text = ""
+        '
+        'BarButtonGroup8
+        '
+        Me.BarButtonGroup8.Id = 13
+        Me.BarButtonGroup8.Name = "BarButtonGroup8"
+        Me.BarButtonGroup8.Tag = "{97BBE334-159B-44d9-A168-0411957565E8}"
+        '
+        'BarButtonGroup9
+        '
+        Me.BarButtonGroup9.Id = 14
+        Me.BarButtonGroup9.Name = "BarButtonGroup9"
+        Me.BarButtonGroup9.Tag = "{433DA7F0-03E2-4650-9DB5-66DD92D16E39}"
+        '
+        'BarButtonGroup10
+        '
+        Me.BarButtonGroup10.Id = 15
+        Me.BarButtonGroup10.Name = "BarButtonGroup10"
+        Me.BarButtonGroup10.Tag = "{DF8C5334-EDE3-47c9-A42C-FE9A9247E180}"
+        '
+        'ParagraphRibbonPageGroup2
+        '
+        Me.ParagraphRibbonPageGroup2.ItemLinks.Add(Me.BarButtonGroup11)
+        Me.ParagraphRibbonPageGroup2.ItemLinks.Add(Me.BarButtonGroup12)
+        Me.ParagraphRibbonPageGroup2.ItemLinks.Add(Me.BarButtonGroup13)
+        Me.ParagraphRibbonPageGroup2.ItemLinks.Add(Me.BarButtonGroup14)
+        Me.ParagraphRibbonPageGroup2.Name = "ParagraphRibbonPageGroup2"
+        Me.ParagraphRibbonPageGroup2.Text = ""
+        '
+        'BarButtonGroup11
+        '
+        Me.BarButtonGroup11.Id = 16
+        Me.BarButtonGroup11.Name = "BarButtonGroup11"
+        Me.BarButtonGroup11.Tag = "{0B3A7A43-3079-4ce0-83A8-3789F5F6DC9F}"
+        '
+        'BarButtonGroup12
+        '
+        Me.BarButtonGroup12.Id = 17
+        Me.BarButtonGroup12.Name = "BarButtonGroup12"
+        Me.BarButtonGroup12.Tag = "{4747D5AB-2BEB-4ea6-9A1D-8E4FB36F1B40}"
+        '
+        'BarButtonGroup13
+        '
+        Me.BarButtonGroup13.Id = 18
+        Me.BarButtonGroup13.Name = "BarButtonGroup13"
+        Me.BarButtonGroup13.Tag = "{8E89E775-996E-49a0-AADA-DE338E34732E}"
+        '
+        'BarButtonGroup14
+        '
+        Me.BarButtonGroup14.Id = 19
+        Me.BarButtonGroup14.Name = "BarButtonGroup14"
+        Me.BarButtonGroup14.Tag = "{9A8DEAD8-3890-4857-A395-EC625FD02217}"
+        '
+        'EditingRibbonPageGroup2
+        '
+        Me.EditingRibbonPageGroup2.Name = "EditingRibbonPageGroup2"
+        Me.EditingRibbonPageGroup2.Text = ""
+        '
+        'PagesRibbonPageGroup2
+        '
+        Me.PagesRibbonPageGroup2.AllowTextClipping = False
+        Me.PagesRibbonPageGroup2.Name = "PagesRibbonPageGroup2"
+        Me.PagesRibbonPageGroup2.Text = ""
+        '
+        'InsertRibbonPage2
+        '
+        Me.InsertRibbonPage2.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.PagesRibbonPageGroup2, Me.TablesRibbonPageGroup2, Me.IllustrationsRibbonPageGroup2, Me.LinksRibbonPageGroup2, Me.HeaderFooterRibbonPageGroup2, Me.TextRibbonPageGroup2, Me.SymbolsRibbonPageGroup2})
+        Me.InsertRibbonPage2.Name = "InsertRibbonPage2"
+        '
+        'TablesRibbonPageGroup2
+        '
+        Me.TablesRibbonPageGroup2.AllowTextClipping = False
+        Me.TablesRibbonPageGroup2.Name = "TablesRibbonPageGroup2"
+        Me.TablesRibbonPageGroup2.Text = ""
+        '
+        'IllustrationsRibbonPageGroup2
+        '
+        Me.IllustrationsRibbonPageGroup2.Name = "IllustrationsRibbonPageGroup2"
+        Me.IllustrationsRibbonPageGroup2.Text = ""
+        '
+        'LinksRibbonPageGroup2
+        '
+        Me.LinksRibbonPageGroup2.Name = "LinksRibbonPageGroup2"
+        Me.LinksRibbonPageGroup2.Text = ""
+        '
+        'HeaderFooterRibbonPageGroup2
+        '
+        Me.HeaderFooterRibbonPageGroup2.Name = "HeaderFooterRibbonPageGroup2"
+        Me.HeaderFooterRibbonPageGroup2.Text = ""
+        '
+        'TextRibbonPageGroup2
+        '
+        Me.TextRibbonPageGroup2.Glyph = CType(resources.GetObject("TextRibbonPageGroup2.Glyph"), System.Drawing.Image)
+        Me.TextRibbonPageGroup2.Name = "TextRibbonPageGroup2"
+        Me.TextRibbonPageGroup2.Text = ""
+        '
+        'SymbolsRibbonPageGroup2
+        '
+        Me.SymbolsRibbonPageGroup2.AllowTextClipping = False
+        Me.SymbolsRibbonPageGroup2.Name = "SymbolsRibbonPageGroup2"
+        Me.SymbolsRibbonPageGroup2.Text = ""
+        '
+        'PageSetupRibbonPageGroup2
+        '
+        Me.PageSetupRibbonPageGroup2.Name = "PageSetupRibbonPageGroup2"
+        Me.PageSetupRibbonPageGroup2.Text = ""
+        '
+        'PageLayoutRibbonPage2
+        '
+        Me.PageLayoutRibbonPage2.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.PageSetupRibbonPageGroup2, Me.PageBackgroundRibbonPageGroup2})
+        Me.PageLayoutRibbonPage2.Name = "PageLayoutRibbonPage2"
+        '
+        'PageBackgroundRibbonPageGroup2
+        '
+        Me.PageBackgroundRibbonPageGroup2.AllowTextClipping = False
+        Me.PageBackgroundRibbonPageGroup2.Name = "PageBackgroundRibbonPageGroup2"
+        Me.PageBackgroundRibbonPageGroup2.Text = ""
+        '
+        'TableOfContentsRibbonPageGroup2
+        '
+        Me.TableOfContentsRibbonPageGroup2.Name = "TableOfContentsRibbonPageGroup2"
+        Me.TableOfContentsRibbonPageGroup2.Text = ""
+        '
+        'ReferencesRibbonPage2
+        '
+        Me.ReferencesRibbonPage2.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.TableOfContentsRibbonPageGroup2, Me.CaptionsRibbonPageGroup2})
+        Me.ReferencesRibbonPage2.Name = "ReferencesRibbonPage2"
+        '
+        'CaptionsRibbonPageGroup2
+        '
+        Me.CaptionsRibbonPageGroup2.Name = "CaptionsRibbonPageGroup2"
+        Me.CaptionsRibbonPageGroup2.Text = ""
+        '
+        'MailMergeRibbonPageGroup2
+        '
+        Me.MailMergeRibbonPageGroup2.Name = "MailMergeRibbonPageGroup2"
+        Me.MailMergeRibbonPageGroup2.Text = ""
+        '
+        'MailingsRibbonPage2
+        '
+        Me.MailingsRibbonPage2.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.MailMergeRibbonPageGroup2})
+        Me.MailingsRibbonPage2.Name = "MailingsRibbonPage2"
+        '
+        'DocumentProofingRibbonPageGroup2
+        '
+        Me.DocumentProofingRibbonPageGroup2.Name = "DocumentProofingRibbonPageGroup2"
+        Me.DocumentProofingRibbonPageGroup2.Text = ""
+        '
+        'ReviewRibbonPage2
+        '
+        Me.ReviewRibbonPage2.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.DocumentProofingRibbonPageGroup2, Me.DocumentProtectionRibbonPageGroup2})
+        Me.ReviewRibbonPage2.Name = "ReviewRibbonPage2"
+        '
+        'DocumentProtectionRibbonPageGroup2
+        '
+        Me.DocumentProtectionRibbonPageGroup2.Name = "DocumentProtectionRibbonPageGroup2"
+        Me.DocumentProtectionRibbonPageGroup2.Text = ""
+        '
+        'DocumentViewsRibbonPageGroup2
+        '
+        Me.DocumentViewsRibbonPageGroup2.Name = "DocumentViewsRibbonPageGroup2"
+        Me.DocumentViewsRibbonPageGroup2.Text = ""
+        '
+        'ViewRibbonPage2
+        '
+        Me.ViewRibbonPage2.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.DocumentViewsRibbonPageGroup2, Me.ShowRibbonPageGroup2, Me.ZoomRibbonPageGroup2})
+        Me.ViewRibbonPage2.Name = "ViewRibbonPage2"
+        '
+        'ShowRibbonPageGroup2
+        '
+        Me.ShowRibbonPageGroup2.Name = "ShowRibbonPageGroup2"
+        Me.ShowRibbonPageGroup2.Text = ""
+        '
+        'ZoomRibbonPageGroup2
+        '
+        Me.ZoomRibbonPageGroup2.Name = "ZoomRibbonPageGroup2"
+        Me.ZoomRibbonPageGroup2.Text = ""
+        '
+        'HeaderFooterToolsDesignNavigationRibbonPageGroup2
+        '
+        Me.HeaderFooterToolsDesignNavigationRibbonPageGroup2.Name = "HeaderFooterToolsDesignNavigationRibbonPageGroup2"
+        Me.HeaderFooterToolsDesignNavigationRibbonPageGroup2.Text = ""
+        '
+        'HeaderFooterToolsDesignRibbonPage2
+        '
+        Me.HeaderFooterToolsDesignRibbonPage2.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.HeaderFooterToolsDesignNavigationRibbonPageGroup2, Me.HeaderFooterToolsDesignOptionsRibbonPageGroup2, Me.HeaderFooterToolsDesignCloseRibbonPageGroup2})
+        Me.HeaderFooterToolsDesignRibbonPage2.Name = "HeaderFooterToolsDesignRibbonPage2"
+        '
+        'HeaderFooterToolsDesignOptionsRibbonPageGroup2
+        '
+        Me.HeaderFooterToolsDesignOptionsRibbonPageGroup2.Name = "HeaderFooterToolsDesignOptionsRibbonPageGroup2"
+        Me.HeaderFooterToolsDesignOptionsRibbonPageGroup2.Text = ""
+        '
+        'HeaderFooterToolsDesignCloseRibbonPageGroup2
+        '
+        Me.HeaderFooterToolsDesignCloseRibbonPageGroup2.Name = "HeaderFooterToolsDesignCloseRibbonPageGroup2"
+        Me.HeaderFooterToolsDesignCloseRibbonPageGroup2.Text = ""
+        '
+        'HeaderFooterToolsRibbonPageCategory2
+        '
+        Me.HeaderFooterToolsRibbonPageCategory2.Color = System.Drawing.Color.FromArgb(CType(CType(38, Byte), Integer), CType(CType(176, Byte), Integer), CType(CType(35, Byte), Integer))
+        Me.HeaderFooterToolsRibbonPageCategory2.Control = Me.RichEditControl1
+        Me.HeaderFooterToolsRibbonPageCategory2.Name = "HeaderFooterToolsRibbonPageCategory2"
+        Me.HeaderFooterToolsRibbonPageCategory2.Pages.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPage() {Me.HeaderFooterToolsDesignRibbonPage2})
+        '
+        'TableStyleOptionsRibbonPageGroup2
+        '
+        Me.TableStyleOptionsRibbonPageGroup2.Name = "TableStyleOptionsRibbonPageGroup2"
+        Me.TableStyleOptionsRibbonPageGroup2.Text = ""
+        '
+        'TableDesignRibbonPage2
+        '
+        Me.TableDesignRibbonPage2.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.TableStyleOptionsRibbonPageGroup2, Me.TableStylesRibbonPageGroup2, Me.TableDrawBordersRibbonPageGroup2})
+        Me.TableDesignRibbonPage2.Name = "TableDesignRibbonPage2"
+        '
+        'TableStylesRibbonPageGroup2
+        '
+        Me.TableStylesRibbonPageGroup2.Name = "TableStylesRibbonPageGroup2"
+        Me.TableStylesRibbonPageGroup2.Text = ""
+        '
+        'TableDrawBordersRibbonPageGroup2
+        '
+        Me.TableDrawBordersRibbonPageGroup2.Name = "TableDrawBordersRibbonPageGroup2"
+        Me.TableDrawBordersRibbonPageGroup2.Text = ""
+        '
+        'TableToolsRibbonPageCategory2
+        '
+        Me.TableToolsRibbonPageCategory2.Color = System.Drawing.Color.FromArgb(CType(CType(252, Byte), Integer), CType(CType(233, Byte), Integer), CType(CType(20, Byte), Integer))
+        Me.TableToolsRibbonPageCategory2.Control = Me.RichEditControl1
+        Me.TableToolsRibbonPageCategory2.Name = "TableToolsRibbonPageCategory2"
+        Me.TableToolsRibbonPageCategory2.Pages.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPage() {Me.TableDesignRibbonPage2, Me.TableLayoutRibbonPage2})
+        '
+        'TableLayoutRibbonPage2
+        '
+        Me.TableLayoutRibbonPage2.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.TableTableRibbonPageGroup2, Me.TableRowsAndColumnsRibbonPageGroup2, Me.TableMergeRibbonPageGroup2, Me.TableCellSizeRibbonPageGroup2, Me.TableAlignmentRibbonPageGroup2})
+        Me.TableLayoutRibbonPage2.Name = "TableLayoutRibbonPage2"
+        '
+        'TableTableRibbonPageGroup2
+        '
+        Me.TableTableRibbonPageGroup2.Name = "TableTableRibbonPageGroup2"
+        Me.TableTableRibbonPageGroup2.Text = ""
+        '
+        'TableRowsAndColumnsRibbonPageGroup2
+        '
+        Me.TableRowsAndColumnsRibbonPageGroup2.Name = "TableRowsAndColumnsRibbonPageGroup2"
+        Me.TableRowsAndColumnsRibbonPageGroup2.Text = ""
+        '
+        'TableMergeRibbonPageGroup2
+        '
+        Me.TableMergeRibbonPageGroup2.Name = "TableMergeRibbonPageGroup2"
+        Me.TableMergeRibbonPageGroup2.Text = ""
+        '
+        'TableCellSizeRibbonPageGroup2
+        '
+        Me.TableCellSizeRibbonPageGroup2.AllowTextClipping = False
+        Me.TableCellSizeRibbonPageGroup2.Name = "TableCellSizeRibbonPageGroup2"
+        Me.TableCellSizeRibbonPageGroup2.Text = ""
+        '
+        'TableAlignmentRibbonPageGroup2
+        '
+        Me.TableAlignmentRibbonPageGroup2.Glyph = CType(resources.GetObject("TableAlignmentRibbonPageGroup2.Glyph"), System.Drawing.Image)
+        Me.TableAlignmentRibbonPageGroup2.Name = "TableAlignmentRibbonPageGroup2"
+        Me.TableAlignmentRibbonPageGroup2.Text = ""
+        '
+        'FloatingPictureToolsShapeStylesPageGroup2
+        '
+        Me.FloatingPictureToolsShapeStylesPageGroup2.Name = "FloatingPictureToolsShapeStylesPageGroup2"
+        Me.FloatingPictureToolsShapeStylesPageGroup2.Text = ""
+        '
+        'FloatingPictureToolsFormatPage2
+        '
+        Me.FloatingPictureToolsFormatPage2.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.FloatingPictureToolsShapeStylesPageGroup2, Me.FloatingPictureToolsArrangePageGroup2})
+        Me.FloatingPictureToolsFormatPage2.Name = "FloatingPictureToolsFormatPage2"
+        '
+        'FloatingPictureToolsArrangePageGroup2
+        '
+        Me.FloatingPictureToolsArrangePageGroup2.Name = "FloatingPictureToolsArrangePageGroup2"
+        Me.FloatingPictureToolsArrangePageGroup2.Text = ""
+        '
+        'FloatingPictureToolsRibbonPageCategory2
+        '
+        Me.FloatingPictureToolsRibbonPageCategory2.Color = System.Drawing.Color.FromArgb(CType(CType(201, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(119, Byte), Integer))
+        Me.FloatingPictureToolsRibbonPageCategory2.Control = Me.RichEditControl1
+        Me.FloatingPictureToolsRibbonPageCategory2.Name = "FloatingPictureToolsRibbonPageCategory2"
+        Me.FloatingPictureToolsRibbonPageCategory2.Pages.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPage() {Me.FloatingPictureToolsFormatPage2})
+        '
+        'frmVisorArchivo
+        '
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.ClientSize = New System.Drawing.Size(1169, 690)
+        Me.Controls.Add(Me.RichEditControl1)
+        Me.LookAndFeel.SkinName = "Seven"
+        Me.Name = "frmVisorArchivo"
+        Me.Text = "frmVisorArchivo"
+        Me.Controls.SetChildIndex(Me.RichEditControl1, 0)
+        Me.Controls.SetChildIndex(Me.rsbMensajeBarra, 0)
+        CType(Me.pmconsultorpropagos, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.RepositoryItemFontEdit1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.RepositoryItemRichEditFontSizeEdit1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.RepositoryItemBorderLineStyle1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.RepositoryItemBorderLineWeight1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.RepositoryItemFloatingObjectOutlineWeight1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.RepositoryItemFontEdit2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.RepositoryItemRichEditFontSizeEdit2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.RepositoryItemBorderLineStyle2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.RepositoryItemBorderLineWeight2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.RepositoryItemFloatingObjectOutlineWeight2, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ResumeLayout(False)
+
+    End Sub
+    Friend WithEvents RichEditControl1 As DevExpress.XtraRichEdit.RichEditControl
+    Friend WithEvents RepositoryItemFontEdit1 As DevExpress.XtraEditors.Repository.RepositoryItemFontEdit
+    Friend WithEvents RepositoryItemRichEditFontSizeEdit1 As DevExpress.XtraRichEdit.Design.RepositoryItemRichEditFontSizeEdit
+    Friend WithEvents RepositoryItemBorderLineStyle1 As DevExpress.XtraRichEdit.Forms.Design.RepositoryItemBorderLineStyle
+    Friend WithEvents RepositoryItemBorderLineWeight1 As DevExpress.XtraRichEdit.Forms.Design.RepositoryItemBorderLineWeight
+    Friend WithEvents RepositoryItemFloatingObjectOutlineWeight1 As DevExpress.XtraRichEdit.Forms.Design.RepositoryItemFloatingObjectOutlineWeight
+    Friend WithEvents CommonRibbonPageGroup1 As DevExpress.XtraRichEdit.UI.CommonRibbonPageGroup
+    Friend WithEvents FileRibbonPage1 As DevExpress.XtraRichEdit.UI.FileRibbonPage
+    Friend WithEvents ClipboardRibbonPageGroup1 As DevExpress.XtraRichEdit.UI.ClipboardRibbonPageGroup
+    Friend WithEvents HomeRibbonPage1 As DevExpress.XtraRichEdit.UI.HomeRibbonPage
+    Friend WithEvents FontRibbonPageGroup1 As DevExpress.XtraRichEdit.UI.FontRibbonPageGroup
+    Friend WithEvents BarButtonGroup1 As DevExpress.XtraBars.BarButtonGroup
+    Friend WithEvents BarButtonGroup2 As DevExpress.XtraBars.BarButtonGroup
+    Friend WithEvents BarButtonGroup3 As DevExpress.XtraBars.BarButtonGroup
+    Friend WithEvents ParagraphRibbonPageGroup1 As DevExpress.XtraRichEdit.UI.ParagraphRibbonPageGroup
+    Friend WithEvents BarButtonGroup4 As DevExpress.XtraBars.BarButtonGroup
+    Friend WithEvents BarButtonGroup5 As DevExpress.XtraBars.BarButtonGroup
+    Friend WithEvents BarButtonGroup6 As DevExpress.XtraBars.BarButtonGroup
+    Friend WithEvents BarButtonGroup7 As DevExpress.XtraBars.BarButtonGroup
+    Friend WithEvents StylesRibbonPageGroup1 As DevExpress.XtraRichEdit.UI.StylesRibbonPageGroup
+    Friend WithEvents EditingRibbonPageGroup1 As DevExpress.XtraRichEdit.UI.EditingRibbonPageGroup
+    Friend WithEvents PagesRibbonPageGroup1 As DevExpress.XtraRichEdit.UI.PagesRibbonPageGroup
+    Friend WithEvents InsertRibbonPage1 As DevExpress.XtraRichEdit.UI.InsertRibbonPage
+    Friend WithEvents TablesRibbonPageGroup1 As DevExpress.XtraRichEdit.UI.TablesRibbonPageGroup
+    Friend WithEvents IllustrationsRibbonPageGroup1 As DevExpress.XtraRichEdit.UI.IllustrationsRibbonPageGroup
+    Friend WithEvents LinksRibbonPageGroup1 As DevExpress.XtraRichEdit.UI.LinksRibbonPageGroup
+    Friend WithEvents HeaderFooterRibbonPageGroup1 As DevExpress.XtraRichEdit.UI.HeaderFooterRibbonPageGroup
+    Friend WithEvents TextRibbonPageGroup1 As DevExpress.XtraRichEdit.UI.TextRibbonPageGroup
+    Friend WithEvents SymbolsRibbonPageGroup1 As DevExpress.XtraRichEdit.UI.SymbolsRibbonPageGroup
+    Friend WithEvents PageSetupRibbonPageGroup1 As DevExpress.XtraRichEdit.UI.PageSetupRibbonPageGroup
+    Friend WithEvents PageLayoutRibbonPage1 As DevExpress.XtraRichEdit.UI.PageLayoutRibbonPage
+    Friend WithEvents PageBackgroundRibbonPageGroup1 As DevExpress.XtraRichEdit.UI.PageBackgroundRibbonPageGroup
+    Friend WithEvents TableOfContentsRibbonPageGroup1 As DevExpress.XtraRichEdit.UI.TableOfContentsRibbonPageGroup
+    Friend WithEvents ReferencesRibbonPage1 As DevExpress.XtraRichEdit.UI.ReferencesRibbonPage
+    Friend WithEvents CaptionsRibbonPageGroup1 As DevExpress.XtraRichEdit.UI.CaptionsRibbonPageGroup
+    Friend WithEvents MailMergeRibbonPageGroup1 As DevExpress.XtraRichEdit.UI.MailMergeRibbonPageGroup
+    Friend WithEvents MailingsRibbonPage1 As DevExpress.XtraRichEdit.UI.MailingsRibbonPage
+    Friend WithEvents DocumentProofingRibbonPageGroup1 As DevExpress.XtraRichEdit.UI.DocumentProofingRibbonPageGroup
+    Friend WithEvents ReviewRibbonPage1 As DevExpress.XtraRichEdit.UI.ReviewRibbonPage
+    Friend WithEvents DocumentProtectionRibbonPageGroup1 As DevExpress.XtraRichEdit.UI.DocumentProtectionRibbonPageGroup
+    Friend WithEvents DocumentViewsRibbonPageGroup1 As DevExpress.XtraRichEdit.UI.DocumentViewsRibbonPageGroup
+    Friend WithEvents ViewRibbonPage1 As DevExpress.XtraRichEdit.UI.ViewRibbonPage
+    Friend WithEvents ShowRibbonPageGroup1 As DevExpress.XtraRichEdit.UI.ShowRibbonPageGroup
+    Friend WithEvents ZoomRibbonPageGroup1 As DevExpress.XtraRichEdit.UI.ZoomRibbonPageGroup
+    Friend WithEvents HeaderFooterToolsDesignNavigationRibbonPageGroup1 As DevExpress.XtraRichEdit.UI.HeaderFooterToolsDesignNavigationRibbonPageGroup
+    Friend WithEvents HeaderFooterToolsDesignRibbonPage1 As DevExpress.XtraRichEdit.UI.HeaderFooterToolsDesignRibbonPage
+    Friend WithEvents HeaderFooterToolsDesignOptionsRibbonPageGroup1 As DevExpress.XtraRichEdit.UI.HeaderFooterToolsDesignOptionsRibbonPageGroup
+    Friend WithEvents HeaderFooterToolsDesignCloseRibbonPageGroup1 As DevExpress.XtraRichEdit.UI.HeaderFooterToolsDesignCloseRibbonPageGroup
+    Friend WithEvents HeaderFooterToolsRibbonPageCategory1 As DevExpress.XtraRichEdit.UI.HeaderFooterToolsRibbonPageCategory
+    Friend WithEvents TableStyleOptionsRibbonPageGroup1 As DevExpress.XtraRichEdit.UI.TableStyleOptionsRibbonPageGroup
+    Friend WithEvents TableDesignRibbonPage1 As DevExpress.XtraRichEdit.UI.TableDesignRibbonPage
+    Friend WithEvents TableStylesRibbonPageGroup1 As DevExpress.XtraRichEdit.UI.TableStylesRibbonPageGroup
+    Friend WithEvents TableDrawBordersRibbonPageGroup1 As DevExpress.XtraRichEdit.UI.TableDrawBordersRibbonPageGroup
+    Friend WithEvents TableToolsRibbonPageCategory1 As DevExpress.XtraRichEdit.UI.TableToolsRibbonPageCategory
+    Friend WithEvents TableLayoutRibbonPage1 As DevExpress.XtraRichEdit.UI.TableLayoutRibbonPage
+    Friend WithEvents TableTableRibbonPageGroup1 As DevExpress.XtraRichEdit.UI.TableTableRibbonPageGroup
+    Friend WithEvents TableRowsAndColumnsRibbonPageGroup1 As DevExpress.XtraRichEdit.UI.TableRowsAndColumnsRibbonPageGroup
+    Friend WithEvents TableMergeRibbonPageGroup1 As DevExpress.XtraRichEdit.UI.TableMergeRibbonPageGroup
+    Friend WithEvents TableCellSizeRibbonPageGroup1 As DevExpress.XtraRichEdit.UI.TableCellSizeRibbonPageGroup
+    Friend WithEvents TableAlignmentRibbonPageGroup1 As DevExpress.XtraRichEdit.UI.TableAlignmentRibbonPageGroup
+    Friend WithEvents FloatingPictureToolsShapeStylesPageGroup1 As DevExpress.XtraRichEdit.UI.FloatingPictureToolsShapeStylesPageGroup
+    Friend WithEvents FloatingPictureToolsFormatPage1 As DevExpress.XtraRichEdit.UI.FloatingPictureToolsFormatPage
+    Friend WithEvents FloatingPictureToolsArrangePageGroup1 As DevExpress.XtraRichEdit.UI.FloatingPictureToolsArrangePageGroup
+    Friend WithEvents FloatingPictureToolsRibbonPageCategory1 As DevExpress.XtraRichEdit.UI.FloatingPictureToolsRibbonPageCategory
+    Friend WithEvents RepositoryItemFontEdit2 As DevExpress.XtraEditors.Repository.RepositoryItemFontEdit
+    Friend WithEvents RepositoryItemRichEditFontSizeEdit2 As DevExpress.XtraRichEdit.Design.RepositoryItemRichEditFontSizeEdit
+    Friend WithEvents RepositoryItemBorderLineStyle2 As DevExpress.XtraRichEdit.Forms.Design.RepositoryItemBorderLineStyle
+    Friend WithEvents RepositoryItemBorderLineWeight2 As DevExpress.XtraRichEdit.Forms.Design.RepositoryItemBorderLineWeight
+    Friend WithEvents RepositoryItemFloatingObjectOutlineWeight2 As DevExpress.XtraRichEdit.Forms.Design.RepositoryItemFloatingObjectOutlineWeight
+    Friend WithEvents CommonRibbonPageGroup2 As DevExpress.XtraRichEdit.UI.CommonRibbonPageGroup
+    Friend WithEvents FileRibbonPage2 As DevExpress.XtraRichEdit.UI.FileRibbonPage
+    Friend WithEvents ClipboardRibbonPageGroup2 As DevExpress.XtraRichEdit.UI.ClipboardRibbonPageGroup
+    Friend WithEvents HomeRibbonPage2 As DevExpress.XtraRichEdit.UI.HomeRibbonPage
+    Friend WithEvents FontRibbonPageGroup2 As DevExpress.XtraRichEdit.UI.FontRibbonPageGroup
+    Friend WithEvents BarButtonGroup8 As DevExpress.XtraBars.BarButtonGroup
+    Friend WithEvents BarButtonGroup9 As DevExpress.XtraBars.BarButtonGroup
+    Friend WithEvents BarButtonGroup10 As DevExpress.XtraBars.BarButtonGroup
+    Friend WithEvents ParagraphRibbonPageGroup2 As DevExpress.XtraRichEdit.UI.ParagraphRibbonPageGroup
+    Friend WithEvents BarButtonGroup11 As DevExpress.XtraBars.BarButtonGroup
+    Friend WithEvents BarButtonGroup12 As DevExpress.XtraBars.BarButtonGroup
+    Friend WithEvents BarButtonGroup13 As DevExpress.XtraBars.BarButtonGroup
+    Friend WithEvents BarButtonGroup14 As DevExpress.XtraBars.BarButtonGroup
+    Friend WithEvents StylesRibbonPageGroup2 As DevExpress.XtraRichEdit.UI.StylesRibbonPageGroup
+    Friend WithEvents EditingRibbonPageGroup2 As DevExpress.XtraRichEdit.UI.EditingRibbonPageGroup
+    Friend WithEvents PagesRibbonPageGroup2 As DevExpress.XtraRichEdit.UI.PagesRibbonPageGroup
+    Friend WithEvents InsertRibbonPage2 As DevExpress.XtraRichEdit.UI.InsertRibbonPage
+    Friend WithEvents TablesRibbonPageGroup2 As DevExpress.XtraRichEdit.UI.TablesRibbonPageGroup
+    Friend WithEvents IllustrationsRibbonPageGroup2 As DevExpress.XtraRichEdit.UI.IllustrationsRibbonPageGroup
+    Friend WithEvents LinksRibbonPageGroup2 As DevExpress.XtraRichEdit.UI.LinksRibbonPageGroup
+    Friend WithEvents HeaderFooterRibbonPageGroup2 As DevExpress.XtraRichEdit.UI.HeaderFooterRibbonPageGroup
+    Friend WithEvents TextRibbonPageGroup2 As DevExpress.XtraRichEdit.UI.TextRibbonPageGroup
+    Friend WithEvents SymbolsRibbonPageGroup2 As DevExpress.XtraRichEdit.UI.SymbolsRibbonPageGroup
+    Friend WithEvents PageSetupRibbonPageGroup2 As DevExpress.XtraRichEdit.UI.PageSetupRibbonPageGroup
+    Friend WithEvents PageLayoutRibbonPage2 As DevExpress.XtraRichEdit.UI.PageLayoutRibbonPage
+    Friend WithEvents PageBackgroundRibbonPageGroup2 As DevExpress.XtraRichEdit.UI.PageBackgroundRibbonPageGroup
+    Friend WithEvents TableOfContentsRibbonPageGroup2 As DevExpress.XtraRichEdit.UI.TableOfContentsRibbonPageGroup
+    Friend WithEvents ReferencesRibbonPage2 As DevExpress.XtraRichEdit.UI.ReferencesRibbonPage
+    Friend WithEvents CaptionsRibbonPageGroup2 As DevExpress.XtraRichEdit.UI.CaptionsRibbonPageGroup
+    Friend WithEvents MailMergeRibbonPageGroup2 As DevExpress.XtraRichEdit.UI.MailMergeRibbonPageGroup
+    Friend WithEvents MailingsRibbonPage2 As DevExpress.XtraRichEdit.UI.MailingsRibbonPage
+    Friend WithEvents DocumentProofingRibbonPageGroup2 As DevExpress.XtraRichEdit.UI.DocumentProofingRibbonPageGroup
+    Friend WithEvents ReviewRibbonPage2 As DevExpress.XtraRichEdit.UI.ReviewRibbonPage
+    Friend WithEvents DocumentProtectionRibbonPageGroup2 As DevExpress.XtraRichEdit.UI.DocumentProtectionRibbonPageGroup
+    Friend WithEvents DocumentViewsRibbonPageGroup2 As DevExpress.XtraRichEdit.UI.DocumentViewsRibbonPageGroup
+    Friend WithEvents ViewRibbonPage2 As DevExpress.XtraRichEdit.UI.ViewRibbonPage
+    Friend WithEvents ShowRibbonPageGroup2 As DevExpress.XtraRichEdit.UI.ShowRibbonPageGroup
+    Friend WithEvents ZoomRibbonPageGroup2 As DevExpress.XtraRichEdit.UI.ZoomRibbonPageGroup
+    Friend WithEvents HeaderFooterToolsDesignNavigationRibbonPageGroup2 As DevExpress.XtraRichEdit.UI.HeaderFooterToolsDesignNavigationRibbonPageGroup
+    Friend WithEvents HeaderFooterToolsDesignRibbonPage2 As DevExpress.XtraRichEdit.UI.HeaderFooterToolsDesignRibbonPage
+    Friend WithEvents HeaderFooterToolsDesignOptionsRibbonPageGroup2 As DevExpress.XtraRichEdit.UI.HeaderFooterToolsDesignOptionsRibbonPageGroup
+    Friend WithEvents HeaderFooterToolsDesignCloseRibbonPageGroup2 As DevExpress.XtraRichEdit.UI.HeaderFooterToolsDesignCloseRibbonPageGroup
+    Friend WithEvents HeaderFooterToolsRibbonPageCategory2 As DevExpress.XtraRichEdit.UI.HeaderFooterToolsRibbonPageCategory
+    Friend WithEvents TableStyleOptionsRibbonPageGroup2 As DevExpress.XtraRichEdit.UI.TableStyleOptionsRibbonPageGroup
+    Friend WithEvents TableDesignRibbonPage2 As DevExpress.XtraRichEdit.UI.TableDesignRibbonPage
+    Friend WithEvents TableStylesRibbonPageGroup2 As DevExpress.XtraRichEdit.UI.TableStylesRibbonPageGroup
+    Friend WithEvents TableDrawBordersRibbonPageGroup2 As DevExpress.XtraRichEdit.UI.TableDrawBordersRibbonPageGroup
+    Friend WithEvents TableToolsRibbonPageCategory2 As DevExpress.XtraRichEdit.UI.TableToolsRibbonPageCategory
+    Friend WithEvents TableLayoutRibbonPage2 As DevExpress.XtraRichEdit.UI.TableLayoutRibbonPage
+    Friend WithEvents TableTableRibbonPageGroup2 As DevExpress.XtraRichEdit.UI.TableTableRibbonPageGroup
+    Friend WithEvents TableRowsAndColumnsRibbonPageGroup2 As DevExpress.XtraRichEdit.UI.TableRowsAndColumnsRibbonPageGroup
+    Friend WithEvents TableMergeRibbonPageGroup2 As DevExpress.XtraRichEdit.UI.TableMergeRibbonPageGroup
+    Friend WithEvents TableCellSizeRibbonPageGroup2 As DevExpress.XtraRichEdit.UI.TableCellSizeRibbonPageGroup
+    Friend WithEvents TableAlignmentRibbonPageGroup2 As DevExpress.XtraRichEdit.UI.TableAlignmentRibbonPageGroup
+    Friend WithEvents FloatingPictureToolsShapeStylesPageGroup2 As DevExpress.XtraRichEdit.UI.FloatingPictureToolsShapeStylesPageGroup
+    Friend WithEvents FloatingPictureToolsFormatPage2 As DevExpress.XtraRichEdit.UI.FloatingPictureToolsFormatPage
+    Friend WithEvents FloatingPictureToolsArrangePageGroup2 As DevExpress.XtraRichEdit.UI.FloatingPictureToolsArrangePageGroup
+    Friend WithEvents FloatingPictureToolsRibbonPageCategory2 As DevExpress.XtraRichEdit.UI.FloatingPictureToolsRibbonPageCategory
+End Class

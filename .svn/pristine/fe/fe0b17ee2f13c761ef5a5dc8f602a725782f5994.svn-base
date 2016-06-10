@@ -1,0 +1,278 @@
+﻿Imports Entidades
+Imports ReglasNegocio
+Imports SaimtControles
+Imports Microsoft.Office.Interop
+Public Class frmBoleteriaRinconada
+    Dim dt_conceptos As DataTable = New DataTable
+    Dim loconcepto As List(Of EEConceptos) = Nothing
+    Dim dt_Boleteria As DataTable = New DataTable
+    Private Property tgTipoAbonId As String = String.Empty
+    Private Property AbonadoID As String = String.Empty
+    Dim xl As Excel.Application
+    Dim HoraIng As String = String.Empty
+    Dim DiaIng As Date = Nothing
+    Dim DescripcionTicket As String = String.Empty
+    Dim IsAdministrador As Boolean = False
+
+    Private Sub ConstruirTableConceptos()
+        dt_conceptos.Columns.Add("conId", GetType(String))
+        dt_conceptos.Columns.Add("conNombre", GetType(String))
+        dt_conceptos.Columns.Add("conGrupo", GetType(String))
+        dt_conceptos.Columns.Add("conImporte", GetType(Decimal))
+        dt_conceptos.Columns.Add("tgSubGrupoId", GetType(String))
+        dt_conceptos.Columns.Add("ConIdConNombre", GetType(String))
+
+    End Sub
+
+    Private Sub ConstruirTableDiarioPEM()
+        dt_Boleteria.Columns.Add("bolId", GetType(String))
+        dt_Boleteria.Columns.Add("bolCod", GetType(String))
+        dt_Boleteria.Columns.Add("bolFechaIng", GetType(Date))
+        dt_Boleteria.Columns.Add("bolHoraIng", GetType(String))
+        dt_Boleteria.Columns.Add("bolCantidad", GetType(Integer))
+        dt_Boleteria.Columns.Add("bolPrecio", GetType(Decimal))
+        dt_Boleteria.Columns.Add("bolTotal", GetType(Decimal))
+        dt_Boleteria.Columns.Add("tgEstado", GetType(String))
+    End Sub
+
+    Private Sub frmBoleteriaRinconada_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        ConstruirTableConceptos()
+        ConstruirTableDiarioPEM()
+        dgvBoleteria.DataSource = dt_Boleteria
+        txtfecha.Text = Date.Now.ToShortDateString
+        txtHora.Text = Date.Now.ToString("HH:mm")
+        loconcepto = MantenimientosBL.Instancia.conceptoListarXAñoXTgGrupo(Date.Now.Year, "08")
+        Dim isFeriado As Boolean = False
+        If Weekday(EEComun.FechaServidor.Value) = 1 Or Weekday(EEComun.FechaServidor.Value) = 7 Then
+            isFeriado = True
+        Else
+            Dim loFeriados As List(Of EETablaGeneral) = MantenimientosBL.Instancia.tablageneralMostrarXClsId(198)
+            For Each fr As EETablaGeneral In loFeriados
+                If CDate(fr.TgNombre) = CDate(EEComun.FechaServidor.Value.ToShortDateString) Then
+                    isFeriado = True
+                End If
+            Next
+        End If
+        dt_conceptos.Clear()
+        For Each fConcepto As EEConceptos In loconcepto
+            If fConcepto.ConId.Contains("S0030") = False And fConcepto.ConId.Contains("S0031") = False And fConcepto.ConId.Contains("S0033") = False And fConcepto.ConId.Contains("S0054") = False Then
+                dt_conceptos.LoadDataRow(New Object() {fConcepto.ConId, _
+                fConcepto.ConNombre, _
+                fConcepto.ConGrupo, _
+                fConcepto.ConImporte, _
+                fConcepto.TgSubGrupoId, _
+                 fConcepto.ConIdConNombre
+              }, True)
+            End If
+  
+
+            'If fConcepto.TgSubGrupoId = "01" Then
+            '    If isFeriado = True Then
+            '        If fConcepto.ConId.Contains("S0033") = True Then
+            '            dt_conceptos.LoadDataRow(New Object() {fConcepto.ConId, _
+            '              fConcepto.ConNombre, _
+            '              fConcepto.ConGrupo, _
+            '              fConcepto.ConImporte, _
+            '              fConcepto.TgSubGrupoId, _
+            '               fConcepto.ConIdConNombre
+            '            }, True)
+            '        End If
+            '    Else
+            '        If fConcepto.ConId.Contains("S0032") = True Then
+            '            dt_conceptos.LoadDataRow(New Object() {fConcepto.ConId, _
+            '              fConcepto.ConNombre, _
+            '              fConcepto.ConGrupo, _
+            '              fConcepto.ConImporte, _
+            '              fConcepto.TgSubGrupoId, _
+            '               fConcepto.ConIdConNombre
+            '            }, True)
+            '        End If
+            '    End If
+
+            'End If
+        Next
+
+        cboConcepto.mColumnas(SaimtComboBoxLookUp.Entidades.Concepto)
+        cboConcepto.Properties.DisplayMember = "ConIdConNombre"
+        cboConcepto.Properties.ValueMember = "conId"
+        cboConcepto.Properties.DataSource = dt_conceptos
+        cboConcepto.ItemIndex = 0
+        Dim lotablageneral As List(Of EETablaGeneral) = MantenimientosBL.Instancia.tablageneralListarXClsId(160)
+        If lotablageneral IsNot Nothing Then
+            DescripcionTicket = lotablageneral.Item(0).TgDescripcion.ToUpper
+        End If
+
+        Me.tmhora.Enabled = True
+        Buscar(Date.Now.ToShortDateString)
+
+        Dim loAdministrado As List(Of EETablaGeneral) = MantenimientosBL.Instancia.tablageneralListarXClsIdtgCodigo(200, EEComun._PerId)
+        If loAdministrado IsNot Nothing Then
+            IsAdministrador = True
+            btnExtornar.Visible = True
+            btnImprimir.Visible = True
+        Else
+            IsAdministrador = False
+            btnExtornar.Visible = False
+            btnImprimir.Visible = False
+        End If
+    End Sub
+
+    Private Sub tmhora_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tmhora.Tick
+        txtfecha.Text = Date.Now.ToShortDateString
+        txtHora.Text = Date.Now.ToString("HH:mm")
+    End Sub
+
+    Private Sub cboConcepto_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cboConcepto.EditValueChanged
+        For Each row As DataRow In dt_conceptos.Rows
+            If row("conId") = cboConcepto.EditValue Then
+                txtimporte.Text = row("conImporte")
+            End If
+        Next
+    End Sub
+
+    Private Sub btnOK_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnOK.Click
+        'Importe 
+        Dim selectConc As Boolean = False
+        Dim conImporte As Decimal = 0
+        Dim tgSubGrupoId As String = String.Empty
+        For Each fConcepto As DataRow In dt_conceptos.Rows
+            If fConcepto("conId") = cboConcepto.EditValue Then
+                conImporte = fConcepto("conImporte")
+                selectConc = True
+            End If
+        Next
+        If selectConc = False Then
+            SaimtMessageBox.mostrarAlertaAdvertencia("Seleccione Concepto")
+            cboConcepto.Focus()
+            Return
+        End If
+        If SaimtSpinner1.Value < 1 Then
+            SaimtMessageBox.mostrarAlertaAdvertencia("Ingrese correctamente la cantidad")
+            SaimtSpinner1.Focus()
+            Return
+        End If
+        'Verificar si es abonado
+        Dim loBoleteria As New EEBoleteriaRinconada() With {.bolcantidad = SaimtSpinner1.Value, .TgEstadoId = "01", .ConId = cboConcepto.EditValue, .bolFechaIng = Date.Now, .bolHoraIng = Date.Now, .bolPrecio = conImporte, .bolId = 0, .bolCod = "", .PerRegId = EEComun._PerId}
+        Dim NroTicket As String = MantenimientosBL.Instancia.boleteriaRinconadaGuardar(loBoleteria)
+        txtNticket.Text = NroTicket
+        If String.Compare(NroTicket, "", True) <> 0 Then
+            'If tgTipoAbonId = "02" Then
+            SaimtMessageBox.mostrarAlertaInformativa("Se registro correctamente el Ingreso")
+            Try
+                xl = EEExcel.Instancia
+                xl.Workbooks.Open(EEComun.RutaReportes & "\RptBoleteria.xls", 1, True, 4)
+                ImprimirTikect(NroTicket)
+            Catch ex As Exception
+                SaimtMessageBox.mostrarAlertaError(ex.Message)
+            End Try
+            txtNticket.Text = ""
+            txtNticket.Focus()
+        End If
+        Buscar(Date.Now)
+
+    End Sub
+    Sub Buscar(ByVal bolFechaIng As Date)
+        Try
+            dt_Boleteria.Rows.Clear()
+
+            Dim ListaDiarioPEM As List(Of EEBoleteriaRinconada) = MantenimientosBL.Instancia.boleteriaRinconadaListarIngresosDelDia(bolFechaIng)
+            If ListaDiarioPEM IsNot Nothing Then
+                For Each frow As EEBoleteriaRinconada In ListaDiarioPEM
+
+                    Dim horaEntrada As Date = frow.bolHoraIng
+
+                    dt_Boleteria.LoadDataRow(New Object() {frow.bolId, _
+                                                         frow.bolCod, _
+                                                           frow.bolFechaIng, _
+                                                         Format(horaEntrada, "HH:mm:ss"), _
+                                                           frow.bolcantidad, _
+                                                        frow.bolPrecio, _
+                                                          CDbl(CInt(frow.bolcantidad) * CDbl(frow.bolPrecio)), frow.TgEstado}, True)
+
+                Next
+            End If
+            GridColumn6.Width = 110
+        Catch ex As Exception
+            SaimtMessageBox.mostrarAlertaError(ex.Message)
+        End Try
+
+    End Sub
+
+
+    Private Sub ImprimirTikect(ByVal NroTicket As String)
+        xl.Sheets(xl.Worksheets("Boleteria").Index).Select()
+        xl.Cells(5, 1).Value = "RUC. 20481297223 - " & EEComun.Usuario
+        xl.Cells(5, 1).HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter
+        xl.Cells(5, 1).Resize(1, 2).MergeCells = True
+        xl.Range("B6").Value = "'" & NroTicket
+        xl.Range("A7").Value = String.Format("{0}", cboConcepto.Text)
+        xl.Range("B8").Value = Date.Now.Date.ToShortDateString
+        xl.Range("B9").Value = Date.Now.ToString("HH:mm:ss")
+        xl.Range("B10").Value = SaimtSpinner1.Value
+        xl.Range("B11").Value = CDec(txtimporte.Text.Trim)
+ 
+        xl.Range("A12").Value = DescripcionTicket
+
+        xl.ActiveSheet.Protect("GeneralX2011", True, True)
+        xl.ActiveWindow.Zoom = 130
+        xl.Application.Visible = True
+        xl.Application.WindowState = Excel.XlWindowState.xlMaximized
+        xl.ActiveWorkbook.PrintOutEx(1, 1, 1, False, xl.ActivePrinter, False, False, "", False)
+        EEComun.CloseAllExcel(xl)
+    End Sub
+
+    Private Sub btnImprimir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnImprimir.Click
+        Try
+            xl = EEExcel.Instancia
+            xl.Workbooks.Open(EEComun.RutaReportes & "\RptBoleteria.xls", 1, True, 4)
+            xl.Sheets(xl.Worksheets("Boleteria").Index).Select()
+            xl.Cells(5, 1).Value = "RUC. 20481297223 - " & EEComun.Usuario
+            xl.Cells(5, 1).HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter
+            xl.Cells(5, 1).Resize(1, 2).MergeCells = True
+            xl.Range("B6").Value = "'" & gvBoleteria.GetRowCellValue(Me.gvBoleteria.GetSelectedRows(0), "bolCod")
+            xl.Range("A7").Value = String.Format("{0}", cboConcepto.Text)
+            xl.Range("B8").Value = gvBoleteria.GetRowCellValue(Me.gvBoleteria.GetSelectedRows(0), "bolFechaIng").ToShortDateString
+            xl.Range("B9").Value = gvBoleteria.GetRowCellValue(Me.gvBoleteria.GetSelectedRows(0), "bolHoraIng")
+            xl.Range("B10").Value = gvBoleteria.GetRowCellValue(Me.gvBoleteria.GetSelectedRows(0), "bolCantidad")
+            xl.Range("B11").Value = CDec(gvBoleteria.GetRowCellValue(Me.gvBoleteria.GetSelectedRows(0), "bolTotal"))
+            xl.Range("A12").Value = DescripcionTicket
+            xl.ActiveSheet.Protect("GeneralX2011", True, True)
+            xl.ActiveWindow.Zoom = 130
+            xl.Application.Visible = True
+            xl.Application.WindowState = Excel.XlWindowState.xlMaximized
+            xl.ActiveWorkbook.PrintOutEx(1, 1, 1, False, xl.ActivePrinter, False, False, "", False)
+            EEComun.CloseAllExcel(xl)
+        Catch ex As Exception
+            SaimtMessageBox.mostrarAlertaError(ex.Message)
+        End Try
+    End Sub
+
+    Private Sub SaimtSpinner1_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SaimtSpinner1.EditValueChanged
+        If SaimtSpinner1.Value >= 1 Then
+            Dim conImporte As Decimal = 0.0
+            For Each fConcepto As DataRow In dt_conceptos.Rows
+                If fConcepto("conId") = cboConcepto.EditValue Then
+                    conImporte = fConcepto("conImporte")
+                End If
+            Next
+            txtimporte.Text = conImporte * SaimtSpinner1.Value
+        Else
+            SaimtSpinner1.Value = 1
+        End If
+ 
+    End Sub
+
+    Private Sub SaimtDateTimePicker1_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SaimtDateTimePicker1.EditValueChanged
+        If SaimtDateTimePicker1.EditValue IsNot Nothing Then
+            Buscar(SaimtDateTimePicker1.EditValue.ToShortDateString)
+        End If
+    End Sub
+
+    Private Sub btnExtornar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnExtornar.Click
+        If gvBoleteria.DataRowCount <> 0 Then
+            MantenimientosBL.Instancia.boleteriaRinconadaExtornoXbolId(gvBoleteria.GetRowCellValue(Me.gvBoleteria.GetSelectedRows(0), "bolId").ToString())
+            SaimtMessageBox.mostrarAlertaInformativa("Se Realizo el Extorno Correctamente")
+            Buscar(SaimtDateTimePicker1.EditValue)
+        End If
+    End Sub
+End Class

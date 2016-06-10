@@ -1,0 +1,240 @@
+﻿Imports SaimtControles
+Imports ReglasNegocio
+Imports Entidades
+
+Public Class frmCargoTipoDoc
+
+    Dim ListaTemporalNuevos As List(Of EECargoTipoDocSTD)
+    Dim ListaTemporalEliminados As List(Of String)
+    Dim dtCargoTipoDocSTD As DataTable = New DataTable()
+
+#Region "Construir Table"
+    Private Sub ConstruirTable()
+        dtCargoTipoDocSTD.Columns.Add("id", GetType(String))
+        dtCargoTipoDocSTD.Columns.Add("codInstitucion", GetType(String))
+        dtCargoTipoDocSTD.Columns.Add("institucion", GetType(String))
+        dtCargoTipoDocSTD.Columns.Add("codArea", GetType(String))
+        dtCargoTipoDocSTD.Columns.Add("area", GetType(String))
+        dtCargoTipoDocSTD.Columns.Add("codCargo", GetType(String))
+        dtCargoTipoDocSTD.Columns.Add("cargo", GetType(String))
+        dtCargoTipoDocSTD.Columns.Add("codTipoDocumento", GetType(String))
+        dtCargoTipoDocSTD.Columns.Add("tipoDocumento", GetType(String))
+        dtCargoTipoDocSTD.Columns.Add("nroDocGenerados", GetType(String))
+        dtCargoTipoDocSTD.Columns.Add("año", GetType(String))
+    End Sub
+#End Region
+
+#Region "Funciones Sobrescritas"
+    Protected Overrides Sub seleccionarListado()
+        Try
+            If lstTipoDocumentoCargos.SelectedItem IsNot Nothing Then
+                GIndiceSeleccionado = lstTipoDocumentoCargos.SelectedIndex
+
+                Dim lsCarTipoDocId As String = txtInstitucionCriterio.Tag & cboAreaCriterio.EditValue & lstTipoDocumentoCargos.SelectedValue
+
+                txtInstitucion.Text = txtInstitucionCriterio.Text
+                txtInstitucion.Tag = txtInstitucionCriterio.Tag
+                txtArea.Text = cboAreaCriterio.Text
+                txtArea.Tag = cboAreaCriterio.EditValue
+                txtCargo.Text = lstTipoDocumentoCargos.Text
+                txtCargo.Tag = lstTipoDocumentoCargos.SelectedValue
+
+                Dim ListaCargoTipoDocSTD As List(Of EECargoTipoDocSTD) = MantenimientosBL.Instancia.cargotipodocstdListarCriterio(1, lsCarTipoDocId)
+
+                dtCargoTipoDocSTD.Clear()
+                If ListaCargoTipoDocSTD IsNot Nothing Then
+                    For Each fCargoTipoDocSTD As EECargoTipoDocSTD In ListaCargoTipoDocSTD
+                        dtCargoTipoDocSTD.LoadDataRow(New Object() { _
+                               fCargoTipoDocSTD.CarTipoDocId & fCargoTipoDocSTD.OTgTipoDocumento.TgCodigo & fCargoTipoDocSTD.CarTipoAño, _
+                               fCargoTipoDocSTD.CodInstitucion, _
+                               fCargoTipoDocSTD.Institucion, _
+                               fCargoTipoDocSTD.CodArea, _
+                               fCargoTipoDocSTD.Area, _
+                               fCargoTipoDocSTD.CodCargo, _
+                               fCargoTipoDocSTD.Cargo, _
+                               fCargoTipoDocSTD.OTgTipoDocumento.TgCodigo, _
+                               fCargoTipoDocSTD.OTgTipoDocumento.TgNombre, _
+                               fCargoTipoDocSTD.CarTipoDocNroIni, _
+                               fCargoTipoDocSTD.CarTipoAño
+                        }, True)
+                    Next
+                    gvTipoDocumentosCargos.BestFitColumns()
+                End If
+                MyBase.seleccionarListado()
+                txtInstitucionCriterio.Properties.ReadOnly = False
+                cboAreaCriterio.Properties.ReadOnly = False
+            End If
+        Catch ex As Exception
+            SaimtMessageBox.mostrarAlertaError(ex.Message)
+        End Try
+    End Sub
+
+    Protected Overrides Sub Buscar()
+        MyBase.Buscar()
+    End Sub
+
+    Protected Overrides Sub listar()
+        MyBase.listar()
+    End Sub
+
+    Protected Overrides Sub guardar()
+        Try
+            Dim loCargoTipoDocSTDPrincipal As EECargoTipoDocSTD = New EECargoTipoDocSTD()
+            For Each fCargoTipoDocSTD As DataRow In dtCargoTipoDocSTD.Rows
+                Dim loCargoTípoDocSTD As EECargoTipoDocSTD = New EECargoTipoDocSTD()
+                Dim loTipoDocumento As EETablaGeneral = New EETablaGeneral()
+                loTipoDocumento.TgCodigo = fCargoTipoDocSTD("codTipoDocumento")
+
+                loCargoTípoDocSTD.CarTipoDocId = fCargoTipoDocSTD("codInstitucion") & fCargoTipoDocSTD("codArea") & fCargoTipoDocSTD("codCargo")
+                loCargoTípoDocSTD.CarTipoDocNroIni = Convert.ToInt32(fCargoTipoDocSTD("nroDocGenerados"))
+                loCargoTípoDocSTD.CarTipoAño = fCargoTipoDocSTD("año")
+                loCargoTípoDocSTD.OTgTipoDocumento = loTipoDocumento
+
+                loCargoTipoDocSTDPrincipal.ListaCargoTipoDocSTD.Add(loCargoTípoDocSTD)
+            Next
+
+            If GEstadoNuevo = False Then
+                loCargoTipoDocSTDPrincipal.ListaTemporalNuevos = ListaTemporalNuevos
+                loCargoTipoDocSTDPrincipal.ListaTemporalEliminados = ListaTemporalEliminados
+                MantenimientosBL.Instancia.cargotipodocstdActualizar(loCargoTipoDocSTDPrincipal)
+
+                ListaTemporalEliminados.Clear()
+                ListaTemporalNuevos.Clear()
+            End If
+            Me.enabledGA = False
+            MyBase.guardar()
+            Me.lstListado.SelectionMode = SelectionMode.One
+        Catch ex As Exception
+            SaimtMessageBox.mostrarAlertaError(ex.Message)
+        End Try
+    End Sub
+
+    Protected Overrides Sub eliminar()
+        Try
+            MyBase.eliminar()
+        Catch ex As Exception
+            SaimtMessageBox.mostrarAlertaError(ex.Message)
+        End Try
+    End Sub
+
+    Protected Overrides Sub editar()
+        MyBase.editar()
+        txtInstitucion.Properties.ReadOnly = True
+        txtInstitucionCriterio.Properties.ReadOnly = False
+        cboAreaCriterio.Properties.ReadOnly = False
+        txtArea.Properties.ReadOnly = True
+        txtCargo.Properties.ReadOnly = True
+    End Sub
+#End Region
+
+    Private Sub frmCargoTipoDoc_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
+        Me.PuedeBuscar = True
+        Me.PuedeCrear = True
+        Me.PuedeEditar = True
+        Me.PuedeExportar = True
+        Me.PuedeImprimir = True
+        txtInstitucionCriterio.Properties.ReadOnly = False
+        cboAreaCriterio.Properties.ReadOnly = False
+
+        ConstruirTable()
+        dgvTipoDocumentosCargos.DataSource = dtCargoTipoDocSTD
+
+        If ListaTemporalNuevos Is Nothing Then
+            ListaTemporalNuevos = New List(Of EECargoTipoDocSTD)
+        End If
+        If ListaTemporalEliminados Is Nothing Then
+            ListaTemporalEliminados = New List(Of String)
+        End If
+        cboTipoDocumento.mColumnas(SaimtComboBoxLookUp.Entidades.TablaGeneral)
+        cboTipoDocumento.Properties.DisplayMember = "TgNombre"
+        cboTipoDocumento.Properties.ValueMember = "TgCodigo"
+        cboTipoDocumento.Properties.DataSource = MantenimientosBL.Instancia.tablageneralListarXClsId(86)
+        spnAño.Value = Year(EEComun.FechaServidor)
+    End Sub
+
+    Private Sub txtInstitucionCriterio_ButtonClick(sender As System.Object, e As DevExpress.XtraEditors.Controls.ButtonPressedEventArgs) Handles txtInstitucionCriterio.ButtonClick
+        Using fmConsultaTablaGeneral As frmConsultaTablaGeneral = New frmConsultaTablaGeneral(82)
+            If fmConsultaTablaGeneral.ShowDialog() = DialogResult.OK Then
+                txtInstitucionCriterio.Text = fmConsultaTablaGeneral.TgNombre
+                txtInstitucionCriterio.Tag = fmConsultaTablaGeneral.TgCodigo
+                cboAreaCriterio.mColumnas(SaimtComboBoxLookUp.Entidades.TablaGeneral)
+                cboAreaCriterio.Properties.DisplayMember = "TgNombre"
+                cboAreaCriterio.Properties.ValueMember = "TgCodigo"
+                cboAreaCriterio.Properties.DataSource = MantenimientosBL.Instancia.tablageneralListar_XClsId_XTgExtra(83, txtInstitucionCriterio.Tag)
+            End If
+        End Using
+    End Sub
+
+    Private Sub cboAreaCriterio_EditValueChanged(sender As System.Object, e As System.EventArgs) Handles cboAreaCriterio.EditValueChanged
+        lstTipoDocumentoCargos.DisplayMember = "TgNombre"
+        lstTipoDocumentoCargos.ValueMember = "TgCodigo"
+        lstTipoDocumentoCargos.DataSource = MantenimientosBL.Instancia.tablageneralListar_XClsId_XTgExtra(84, cboAreaCriterio.EditValue & txtInstitucionCriterio.Tag)
+    End Sub
+
+    Private Sub btnAgregar_Click(sender As System.Object, e As System.EventArgs) Handles btnAgregar.Click
+        Try
+            If txtInstitucion.Text Is Nothing Then
+                SaimtMessageBox.mostrarAlertaAdvertencia("Seleccione una Institución")
+                Exit Sub
+            End If
+            If txtArea.Text Is Nothing Then
+                SaimtMessageBox.mostrarAlertaAdvertencia("Seleccione un Area")
+                Exit Sub
+            End If
+            If txtCargo.Text Is Nothing Then
+                SaimtMessageBox.mostrarAlertaAdvertencia("Seleccione un Cargo")
+                Exit Sub
+            End If
+            dtCargoTipoDocSTD.LoadDataRow(New Object() { _
+                String.Empty, _
+                txtInstitucion.Tag, _
+                txtInstitucion.Text, _
+                txtArea.Tag, _
+                txtArea.Text, _
+                txtCargo.Tag, _
+                txtCargo.Text, _
+                cboTipoDocumento.EditValue, _
+                cboTipoDocumento.Text, _
+                spnNroDocGenerados.EditValue, _
+                spnAño.EditValue
+            }, True)
+            gvTipoDocumentosCargos.BestFitColumns()
+            If GEstadoNuevo = False Then
+                Dim loCargoTipoDocSTD As EECargoTipoDocSTD = New EECargoTipoDocSTD()
+                Dim loTipoDocumento As EETablaGeneral = New EETablaGeneral()
+                loTipoDocumento.TgCodigo = cboTipoDocumento.EditValue
+                loCargoTipoDocSTD.CarTipoDocId = txtInstitucion.Tag & txtArea.Tag & txtCargo.Tag
+                loCargoTipoDocSTD.CarTipoDocNroIni = Convert.ToInt32(spnNroDocGenerados.EditValue)
+                loCargoTipoDocSTD.OTgTipoDocumento = loTipoDocumento
+                loCargoTipoDocSTD.CarTipoAño = spnAño.EditValue
+                ListaTemporalNuevos.Add(loCargoTipoDocSTD)
+            End If
+        Catch ex As Exception
+            SaimtMessageBox.mostrarAlertaError(ex.Message)
+        End Try
+    End Sub
+
+    Private Sub btnQuitar_Click(sender As System.Object, e As System.EventArgs) Handles btnQuitar.Click
+        If Me.gvTipoDocumentosCargos.DataRowCount <> 0 Then
+            If GEstadoNuevo = False Then
+                If Not String.IsNullOrEmpty(dtCargoTipoDocSTD.Rows(Me.gvTipoDocumentosCargos.GetSelectedRows(0))("id").ToString()) Then
+                    ListaTemporalEliminados.Add(dtCargoTipoDocSTD.Rows(Me.gvTipoDocumentosCargos.GetSelectedRows(0))("id").ToString())
+                End If
+            End If
+            If ListaTemporalNuevos.Count > 0 Then
+                Dim liIndiceNuevoModificar As Int16 = 0
+                Dim liFila As Int16 = -1
+                For Each fCargoTipoDoc As DataRow In dtCargoTipoDocSTD.Rows
+                    If String.IsNullOrEmpty(fCargoTipoDoc("id")) And Me.gvTipoDocumentosCargos.FocusedRowHandle = liFila Then
+                        liIndiceNuevoModificar = liIndiceNuevoModificar + 1
+                    End If
+                    liFila = liFila + 1
+                Next
+                ListaTemporalNuevos.RemoveAt(liIndiceNuevoModificar)
+            End If
+            dtCargoTipoDocSTD.Rows.RemoveAt(Me.gvTipoDocumentosCargos.GetSelectedRows(0))
+        Else
+            SaimtMessageBox.mostrarAlertaAdvertencia("No Hay Ninguna Fila Seleccionada")
+        End If
+    End Sub
+End Class

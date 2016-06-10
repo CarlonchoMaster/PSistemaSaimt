@@ -1,0 +1,15 @@
+﻿Public Class frmGerarquia 
+    Dim nodo As Int16 = 0
+    Dim nnodo As String = String.Empty
+    Private Sub btnNuevo_ItemClick(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs) Handles btnNuevo.ItemClick
+        Dim frm As New frmNuevaCarp(nodo, nnodo)
+        frm.ShowDialog()
+
+
+    End Sub
+
+    Private Sub tlJerarquia_FocusedNodeChanged(ByVal sender As System.Object, ByVal e As DevExpress.XtraTreeList.FocusedNodeChangedEventArgs) Handles tlJerarquia.FocusedNodeChanged
+        nodo = e.Node.Level
+        nnodo = e.Node.ParentNode.ToString
+    End Sub
+End Class

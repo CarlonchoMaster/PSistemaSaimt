@@ -1,0 +1,1262 @@
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+Partial Class frmRegistroDocInternos
+    Inherits frmMantenimientos
+
+    'Form reemplaza a Dispose para limpiar la lista de componentes.
+    <System.Diagnostics.DebuggerNonUserCode()> _
+    Protected Overrides Sub Dispose(ByVal disposing As Boolean)
+        Try
+            If disposing AndAlso components IsNot Nothing Then
+                components.Dispose()
+            End If
+        Finally
+            MyBase.Dispose(disposing)
+        End Try
+    End Sub
+
+    'Requerido por el Diseñador de Windows Forms
+    Private components As System.ComponentModel.IContainer
+
+    'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
+    'Se puede modificar usando el Diseñador de Windows Forms.  
+    'No lo modifique con el editor de código.
+    <System.Diagnostics.DebuggerStepThrough()> _
+    Private Sub InitializeComponent()
+        Dim StyleFormatCondition1 As DevExpress.XtraGrid.StyleFormatCondition = New DevExpress.XtraGrid.StyleFormatCondition()
+        Dim StyleFormatCondition2 As DevExpress.XtraGrid.StyleFormatCondition = New DevExpress.XtraGrid.StyleFormatCondition()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmRegistroDocInternos))
+        Me.GridColumn24 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.SaimtSplitContainerControl1 = New SaimtControles.SaimtSplitContainerControl()
+        Me.cboBuscasPor = New SaimtControles.SaimtComboBoxLookUp()
+        Me.txtBuscarPor = New SaimtControles.SaimtTextBox()
+        Me.cbCriterios = New SaimtControles.SaimtComboBox()
+        Me.SaimtLabel1 = New SaimtControles.SaimtLabel()
+        Me.gcResultadoBusqueda = New SaimtControles.SaimtDataGrid()
+        Me.gvResultadoBusqueda = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.GridColumn1 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn17 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn2 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn18 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn3 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn19 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn4 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn5 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn6 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn20 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn22 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn7 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn21 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn23 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn8 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn9 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn10 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn11 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn12 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn13 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.RepositoryItemMemoExEdit1 = New DevExpress.XtraEditors.Repository.RepositoryItemMemoExEdit()
+        Me.GridColumn14 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn15 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn25 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn16 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn26 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn27 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.ssNroFolio = New SaimtControles.SaimtSpinner()
+        Me.SaimtLabel28 = New SaimtControles.SaimtLabel()
+        Me.SaimtLabel27 = New SaimtControles.SaimtLabel()
+        Me.cboMensajeProveido = New SaimtControles.SaimtComboBoxLookUpUpdate()
+        Me.cboPrioridad = New SaimtControles.SaimtComboBoxLookUp()
+        Me.SaimtLabel2 = New SaimtControles.SaimtLabel()
+        Me.SaimtLabel26 = New SaimtControles.SaimtLabel()
+        Me.txtRegistroProveido = New SaimtControles.SaimtSpinner()
+        Me.SaimtLabel25 = New SaimtControles.SaimtLabel()
+        Me.txtProveidoNro = New SaimtControles.SaimtSpinner()
+        Me.btnNuevo = New SaimtControles.SaimtButton()
+        Me.btnEditar = New SaimtControles.SaimtButton()
+        Me.btnCancelar = New SaimtControles.SaimtButton()
+        Me.btnGuardar = New SaimtControles.SaimtButton()
+        Me.btnEliminar = New SaimtControles.SaimtButton()
+        Me.btnLimpiar = New SaimtControles.SaimtButton()
+        Me.SaimtGroupBox2 = New SaimtControles.SaimtGroupBox()
+        Me.txtAreaPARA = New SaimtControles.SaimtTextBox()
+        Me.SaimtLabel23 = New SaimtControles.SaimtLabel()
+        Me.txtCargoPARA = New SaimtControles.SaimtTextBox()
+        Me.SaimtLabel18 = New SaimtControles.SaimtLabel()
+        Me.txtNroDocPARA = New SaimtControles.SaimtTextBox()
+        Me.SaimtLabel19 = New SaimtControles.SaimtLabel()
+        Me.txtTipoDocPARA = New SaimtControles.SaimtTextBox()
+        Me.SaimtLabel20 = New SaimtControles.SaimtLabel()
+        Me.SaimtButton1 = New SaimtControles.SaimtButton()
+        Me.txtPersonaPARA = New SaimtControles.SaimtTextBox()
+        Me.SaimtLabel21 = New SaimtControles.SaimtLabel()
+        Me.SaimtGroupBox1 = New SaimtControles.SaimtGroupBox()
+        Me.txtAreaDE = New SaimtControles.SaimtTextBox()
+        Me.SaimtLabel22 = New SaimtControles.SaimtLabel()
+        Me.txtCargoDE = New SaimtControles.SaimtTextBox()
+        Me.SaimtLabel17 = New SaimtControles.SaimtLabel()
+        Me.txtNroDocDE = New SaimtControles.SaimtTextBox()
+        Me.SaimtLabel16 = New SaimtControles.SaimtLabel()
+        Me.txtTipoDocDE = New SaimtControles.SaimtTextBox()
+        Me.SaimtLabel15 = New SaimtControles.SaimtLabel()
+        Me.btnaddInst = New SaimtControles.SaimtButton()
+        Me.txtPersonaDE = New SaimtControles.SaimtTextBox()
+        Me.SaimtLabel14 = New SaimtControles.SaimtLabel()
+        Me.txtResumen = New SaimtControles.SaimtTextBoxMultiline()
+        Me.SaimtLabel13 = New SaimtControles.SaimtLabel()
+        Me.txtAsunto = New SaimtControles.SaimtTextBoxMultiline()
+        Me.SaimtLabel12 = New SaimtControles.SaimtLabel()
+        Me.txtRefDoc = New SaimtControles.SaimtTextBox()
+        Me.SaimtLabel11 = New SaimtControles.SaimtLabel()
+        Me.cboEstadoDoc = New SaimtControles.SaimtComboBoxLookUp()
+        Me.SaimtLabel10 = New SaimtControles.SaimtLabel()
+        Me.txtNroEncDoc = New SaimtControles.SaimtTextBox()
+        Me.SaimtLabel9 = New SaimtControles.SaimtLabel()
+        Me.cboTipoDoc = New SaimtControles.SaimtComboBoxLookUp()
+        Me.cboMedioEnvRec = New SaimtControles.SaimtComboBoxLookUp()
+        Me.SaimtLabel8 = New SaimtControles.SaimtLabel()
+        Me.SaimtLabel7 = New SaimtControles.SaimtLabel()
+        Me.dtpFecRecEmi = New SaimtControles.SaimtDateTimePicker()
+        Me.SaimtLabel6 = New SaimtControles.SaimtLabel()
+        Me.cboMovDoc = New SaimtControles.SaimtComboBoxLookUp()
+        Me.SaimtLabel5 = New SaimtControles.SaimtLabel()
+        Me.dtpFechaDoc = New SaimtControles.SaimtDateTimePicker()
+        Me.SaimtLabel4 = New SaimtControles.SaimtLabel()
+        Me.txtCodInterno = New SaimtControles.SaimtTextBox()
+        Me.SaimtLabel3 = New SaimtControles.SaimtLabel()
+        CType(Me.pmconsultorpropagos, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.SaimtSplitContainerControl1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SaimtSplitContainerControl1.SuspendLayout()
+        CType(Me.cboBuscasPor.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtBuscarPor.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.cbCriterios.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.gcResultadoBusqueda, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.gvResultadoBusqueda, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.RepositoryItemMemoExEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ssNroFolio.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.cboPrioridad.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtRegistroProveido.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtProveidoNro.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.SaimtGroupBox2, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SaimtGroupBox2.SuspendLayout()
+        CType(Me.txtAreaPARA.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtCargoPARA.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtNroDocPARA.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtTipoDocPARA.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtPersonaPARA.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.SaimtGroupBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SaimtGroupBox1.SuspendLayout()
+        CType(Me.txtAreaDE.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtCargoDE.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtNroDocDE.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtTipoDocDE.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtPersonaDE.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtResumen.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtAsunto.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtRefDoc.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.cboEstadoDoc.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtNroEncDoc.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.cboTipoDoc.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.cboMedioEnvRec.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dtpFecRecEmi.Properties.VistaTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dtpFecRecEmi.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.cboMovDoc.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dtpFechaDoc.Properties.VistaTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dtpFechaDoc.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtCodInterno.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SuspendLayout()
+        '
+        'rsbMensajeBarra
+        '
+        Me.rsbMensajeBarra.Location = New System.Drawing.Point(0, 747)
+        Me.rsbMensajeBarra.Size = New System.Drawing.Size(1143, 27)
+        '
+        'GridColumn24
+        '
+        Me.GridColumn24.Caption = "tgEstadoDocId"
+        Me.GridColumn24.FieldName = "tgEstadoDocId"
+        Me.GridColumn24.Name = "GridColumn24"
+        '
+        'SaimtSplitContainerControl1
+        '
+        Me.SaimtSplitContainerControl1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.SaimtSplitContainerControl1.Location = New System.Drawing.Point(0, 0)
+        Me.SaimtSplitContainerControl1.Name = "SaimtSplitContainerControl1"
+        Me.SaimtSplitContainerControl1.Panel1.Controls.Add(Me.cboBuscasPor)
+        Me.SaimtSplitContainerControl1.Panel1.Controls.Add(Me.txtBuscarPor)
+        Me.SaimtSplitContainerControl1.Panel1.Controls.Add(Me.cbCriterios)
+        Me.SaimtSplitContainerControl1.Panel1.Controls.Add(Me.SaimtLabel1)
+        Me.SaimtSplitContainerControl1.Panel1.Controls.Add(Me.gcResultadoBusqueda)
+        Me.SaimtSplitContainerControl1.Panel1.Text = "Panel1"
+        Me.SaimtSplitContainerControl1.Panel2.Controls.Add(Me.ssNroFolio)
+        Me.SaimtSplitContainerControl1.Panel2.Controls.Add(Me.SaimtLabel28)
+        Me.SaimtSplitContainerControl1.Panel2.Controls.Add(Me.SaimtLabel27)
+        Me.SaimtSplitContainerControl1.Panel2.Controls.Add(Me.cboMensajeProveido)
+        Me.SaimtSplitContainerControl1.Panel2.Controls.Add(Me.cboPrioridad)
+        Me.SaimtSplitContainerControl1.Panel2.Controls.Add(Me.SaimtLabel2)
+        Me.SaimtSplitContainerControl1.Panel2.Controls.Add(Me.SaimtLabel26)
+        Me.SaimtSplitContainerControl1.Panel2.Controls.Add(Me.txtRegistroProveido)
+        Me.SaimtSplitContainerControl1.Panel2.Controls.Add(Me.SaimtLabel25)
+        Me.SaimtSplitContainerControl1.Panel2.Controls.Add(Me.txtProveidoNro)
+        Me.SaimtSplitContainerControl1.Panel2.Controls.Add(Me.btnNuevo)
+        Me.SaimtSplitContainerControl1.Panel2.Controls.Add(Me.btnEditar)
+        Me.SaimtSplitContainerControl1.Panel2.Controls.Add(Me.btnCancelar)
+        Me.SaimtSplitContainerControl1.Panel2.Controls.Add(Me.btnGuardar)
+        Me.SaimtSplitContainerControl1.Panel2.Controls.Add(Me.btnEliminar)
+        Me.SaimtSplitContainerControl1.Panel2.Controls.Add(Me.btnLimpiar)
+        Me.SaimtSplitContainerControl1.Panel2.Controls.Add(Me.SaimtGroupBox2)
+        Me.SaimtSplitContainerControl1.Panel2.Controls.Add(Me.SaimtGroupBox1)
+        Me.SaimtSplitContainerControl1.Panel2.Controls.Add(Me.txtResumen)
+        Me.SaimtSplitContainerControl1.Panel2.Controls.Add(Me.SaimtLabel13)
+        Me.SaimtSplitContainerControl1.Panel2.Controls.Add(Me.txtAsunto)
+        Me.SaimtSplitContainerControl1.Panel2.Controls.Add(Me.SaimtLabel12)
+        Me.SaimtSplitContainerControl1.Panel2.Controls.Add(Me.txtRefDoc)
+        Me.SaimtSplitContainerControl1.Panel2.Controls.Add(Me.SaimtLabel11)
+        Me.SaimtSplitContainerControl1.Panel2.Controls.Add(Me.cboEstadoDoc)
+        Me.SaimtSplitContainerControl1.Panel2.Controls.Add(Me.SaimtLabel10)
+        Me.SaimtSplitContainerControl1.Panel2.Controls.Add(Me.txtNroEncDoc)
+        Me.SaimtSplitContainerControl1.Panel2.Controls.Add(Me.SaimtLabel9)
+        Me.SaimtSplitContainerControl1.Panel2.Controls.Add(Me.cboTipoDoc)
+        Me.SaimtSplitContainerControl1.Panel2.Controls.Add(Me.cboMedioEnvRec)
+        Me.SaimtSplitContainerControl1.Panel2.Controls.Add(Me.SaimtLabel8)
+        Me.SaimtSplitContainerControl1.Panel2.Controls.Add(Me.SaimtLabel7)
+        Me.SaimtSplitContainerControl1.Panel2.Controls.Add(Me.dtpFecRecEmi)
+        Me.SaimtSplitContainerControl1.Panel2.Controls.Add(Me.SaimtLabel6)
+        Me.SaimtSplitContainerControl1.Panel2.Controls.Add(Me.cboMovDoc)
+        Me.SaimtSplitContainerControl1.Panel2.Controls.Add(Me.SaimtLabel5)
+        Me.SaimtSplitContainerControl1.Panel2.Controls.Add(Me.dtpFechaDoc)
+        Me.SaimtSplitContainerControl1.Panel2.Controls.Add(Me.SaimtLabel4)
+        Me.SaimtSplitContainerControl1.Panel2.Controls.Add(Me.txtCodInterno)
+        Me.SaimtSplitContainerControl1.Panel2.Controls.Add(Me.SaimtLabel3)
+        Me.SaimtSplitContainerControl1.Panel2.Text = "Panel2"
+        Me.SaimtSplitContainerControl1.Size = New System.Drawing.Size(1143, 747)
+        Me.SaimtSplitContainerControl1.SplitterPosition = 349
+        Me.SaimtSplitContainerControl1.TabIndex = 2
+        Me.SaimtSplitContainerControl1.Text = "SaimtSplitContainerControl1"
+        '
+        'cboBuscasPor
+        '
+        Me.cboBuscasPor.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.cboBuscasPor.Location = New System.Drawing.Point(5, 45)
+        Me.cboBuscasPor.MenuManager = Me.RibbonControl
+        Me.cboBuscasPor.Name = "cboBuscasPor"
+        Me.cboBuscasPor.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.cboBuscasPor.Properties.NullText = ""
+        Me.cboBuscasPor.Size = New System.Drawing.Size(340, 20)
+        Me.cboBuscasPor.TabIndex = 13
+        Me.cboBuscasPor.Tag = "0"
+        '
+        'txtBuscarPor
+        '
+        Me.txtBuscarPor.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtBuscarPor.Location = New System.Drawing.Point(5, 71)
+        Me.txtBuscarPor.MenuManager = Me.RibbonControl
+        Me.txtBuscarPor.Name = "txtBuscarPor"
+        Me.txtBuscarPor.Size = New System.Drawing.Size(340, 20)
+        Me.txtBuscarPor.TabIndex = 12
+        Me.txtBuscarPor.Tag = "0"
+        '
+        'cbCriterios
+        '
+        Me.cbCriterios.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.cbCriterios.Location = New System.Drawing.Point(4, 20)
+        Me.cbCriterios.MenuManager = Me.RibbonControl
+        Me.cbCriterios.Name = "cbCriterios"
+        Me.cbCriterios.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.cbCriterios.Properties.Items.AddRange(New Object() {"Nro. Documento", "Ref. Documento", "Persona DE", "Persona PARA", "Fecha Documento", "Fecha Recepción o Emisión", "Asunto", "Proveido N°", "Reg. Proveido", "Movimiento Documento", "Medio de Envio o Recepción", "Tipo de Documento", "Estado del Documento", "Mensaje Proveido", "Area que Registró"})
+        Me.cbCriterios.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
+        Me.cbCriterios.Size = New System.Drawing.Size(341, 20)
+        Me.cbCriterios.TabIndex = 2
+        Me.cbCriterios.Tag = "0"
+        '
+        'SaimtLabel1
+        '
+        Me.SaimtLabel1.Location = New System.Drawing.Point(7, 5)
+        Me.SaimtLabel1.Name = "SaimtLabel1"
+        Me.SaimtLabel1.Size = New System.Drawing.Size(51, 13)
+        Me.SaimtLabel1.TabIndex = 1
+        Me.SaimtLabel1.Text = "Buscar por"
+        '
+        'gcResultadoBusqueda
+        '
+        Me.gcResultadoBusqueda.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.gcResultadoBusqueda.Location = New System.Drawing.Point(3, 97)
+        Me.gcResultadoBusqueda.MainView = Me.gvResultadoBusqueda
+        Me.gcResultadoBusqueda.MenuManager = Me.RibbonControl
+        Me.gcResultadoBusqueda.Name = "gcResultadoBusqueda"
+        Me.gcResultadoBusqueda.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemMemoExEdit1})
+        Me.gcResultadoBusqueda.Size = New System.Drawing.Size(342, 646)
+        Me.gcResultadoBusqueda.TabIndex = 0
+        Me.gcResultadoBusqueda.Tag = "0"
+        Me.gcResultadoBusqueda.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.gvResultadoBusqueda})
+        '
+        'gvResultadoBusqueda
+        '
+        Me.gvResultadoBusqueda.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.GridColumn1, Me.GridColumn17, Me.GridColumn2, Me.GridColumn18, Me.GridColumn3, Me.GridColumn19, Me.GridColumn4, Me.GridColumn5, Me.GridColumn6, Me.GridColumn20, Me.GridColumn22, Me.GridColumn7, Me.GridColumn21, Me.GridColumn23, Me.GridColumn8, Me.GridColumn9, Me.GridColumn10, Me.GridColumn11, Me.GridColumn24, Me.GridColumn12, Me.GridColumn13, Me.GridColumn14, Me.GridColumn15, Me.GridColumn25, Me.GridColumn16, Me.GridColumn26, Me.GridColumn27})
+        StyleFormatCondition1.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(77, Byte), Integer))
+        StyleFormatCondition1.Appearance.Options.UseBackColor = True
+        StyleFormatCondition1.ApplyToRow = True
+        StyleFormatCondition1.Column = Me.GridColumn24
+        StyleFormatCondition1.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal
+        StyleFormatCondition1.Value1 = "01"
+        StyleFormatCondition2.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(149, Byte), Integer), CType(CType(179, Byte), Integer), CType(CType(215, Byte), Integer))
+        StyleFormatCondition2.Appearance.Options.UseBackColor = True
+        StyleFormatCondition2.ApplyToRow = True
+        StyleFormatCondition2.Column = Me.GridColumn24
+        StyleFormatCondition2.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal
+        StyleFormatCondition2.Value1 = "03"
+        Me.gvResultadoBusqueda.FormatConditions.AddRange(New DevExpress.XtraGrid.StyleFormatCondition() {StyleFormatCondition1, StyleFormatCondition2})
+        Me.gvResultadoBusqueda.GridControl = Me.gcResultadoBusqueda
+        Me.gvResultadoBusqueda.Name = "gvResultadoBusqueda"
+        Me.gvResultadoBusqueda.OptionsBehavior.ReadOnly = True
+        Me.gvResultadoBusqueda.OptionsFind.AlwaysVisible = True
+        Me.gvResultadoBusqueda.OptionsView.ColumnAutoWidth = False
+        Me.gvResultadoBusqueda.OptionsView.ShowGroupPanel = False
+        '
+        'GridColumn1
+        '
+        Me.GridColumn1.Caption = "Cod. Interno"
+        Me.GridColumn1.FieldName = "docId"
+        Me.GridColumn1.Name = "GridColumn1"
+        Me.GridColumn1.Visible = True
+        Me.GridColumn1.VisibleIndex = 0
+        '
+        'GridColumn17
+        '
+        Me.GridColumn17.Caption = "tgMovDocId"
+        Me.GridColumn17.FieldName = "tgMovDocId"
+        Me.GridColumn17.Name = "GridColumn17"
+        '
+        'GridColumn2
+        '
+        Me.GridColumn2.Caption = "Movimiento Doc."
+        Me.GridColumn2.FieldName = "tgMovDoc"
+        Me.GridColumn2.Name = "GridColumn2"
+        Me.GridColumn2.Visible = True
+        Me.GridColumn2.VisibleIndex = 7
+        '
+        'GridColumn18
+        '
+        Me.GridColumn18.Caption = "tgMedDocId"
+        Me.GridColumn18.FieldName = "tgMedDocId"
+        Me.GridColumn18.Name = "GridColumn18"
+        '
+        'GridColumn3
+        '
+        Me.GridColumn3.Caption = "Medio Envio o Recepción"
+        Me.GridColumn3.FieldName = "tgMedDoc"
+        Me.GridColumn3.Name = "GridColumn3"
+        Me.GridColumn3.Visible = True
+        Me.GridColumn3.VisibleIndex = 8
+        Me.GridColumn3.Width = 159
+        '
+        'GridColumn19
+        '
+        Me.GridColumn19.Caption = "tgTipoDocId"
+        Me.GridColumn19.FieldName = "tgTipoDocId"
+        Me.GridColumn19.Name = "GridColumn19"
+        '
+        'GridColumn4
+        '
+        Me.GridColumn4.Caption = "Tipo Doc."
+        Me.GridColumn4.FieldName = "tgTipoDoc"
+        Me.GridColumn4.Name = "GridColumn4"
+        Me.GridColumn4.Visible = True
+        Me.GridColumn4.VisibleIndex = 1
+        '
+        'GridColumn5
+        '
+        Me.GridColumn5.Caption = "Nro. Encabezado"
+        Me.GridColumn5.FieldName = "docNro"
+        Me.GridColumn5.Name = "GridColumn5"
+        Me.GridColumn5.Visible = True
+        Me.GridColumn5.VisibleIndex = 2
+        '
+        'GridColumn6
+        '
+        Me.GridColumn6.Caption = "Ref. Doc"
+        Me.GridColumn6.FieldName = "docNroRef"
+        Me.GridColumn6.Name = "GridColumn6"
+        Me.GridColumn6.Visible = True
+        Me.GridColumn6.VisibleIndex = 9
+        '
+        'GridColumn20
+        '
+        Me.GridColumn20.Caption = "docPerDe"
+        Me.GridColumn20.FieldName = "docPerDe"
+        Me.GridColumn20.Name = "GridColumn20"
+        '
+        'GridColumn22
+        '
+        Me.GridColumn22.Caption = "perDeId"
+        Me.GridColumn22.FieldName = "perDeId"
+        Me.GridColumn22.Name = "GridColumn22"
+        '
+        'GridColumn7
+        '
+        Me.GridColumn7.Caption = "Persona DE"
+        Me.GridColumn7.FieldName = "perDe"
+        Me.GridColumn7.Name = "GridColumn7"
+        Me.GridColumn7.Visible = True
+        Me.GridColumn7.VisibleIndex = 3
+        '
+        'GridColumn21
+        '
+        Me.GridColumn21.Caption = "docPerPara"
+        Me.GridColumn21.FieldName = "docPerPara"
+        Me.GridColumn21.Name = "GridColumn21"
+        '
+        'GridColumn23
+        '
+        Me.GridColumn23.Caption = "perParaId"
+        Me.GridColumn23.FieldName = "perParaId"
+        Me.GridColumn23.Name = "GridColumn23"
+        '
+        'GridColumn8
+        '
+        Me.GridColumn8.Caption = "Persona PARA"
+        Me.GridColumn8.FieldName = "perPara"
+        Me.GridColumn8.Name = "GridColumn8"
+        Me.GridColumn8.Visible = True
+        Me.GridColumn8.VisibleIndex = 4
+        '
+        'GridColumn9
+        '
+        Me.GridColumn9.Caption = "Asunto"
+        Me.GridColumn9.FieldName = "docAsunto"
+        Me.GridColumn9.Name = "GridColumn9"
+        Me.GridColumn9.Visible = True
+        Me.GridColumn9.VisibleIndex = 10
+        '
+        'GridColumn10
+        '
+        Me.GridColumn10.Caption = "Fecha Doc."
+        Me.GridColumn10.FieldName = "docFechaDoc"
+        Me.GridColumn10.Name = "GridColumn10"
+        Me.GridColumn10.Visible = True
+        Me.GridColumn10.VisibleIndex = 5
+        '
+        'GridColumn11
+        '
+        Me.GridColumn11.Caption = "Fecha Recepción o Envio"
+        Me.GridColumn11.FieldName = "docFechaRecEmi"
+        Me.GridColumn11.Name = "GridColumn11"
+        Me.GridColumn11.Visible = True
+        Me.GridColumn11.VisibleIndex = 6
+        Me.GridColumn11.Width = 99
+        '
+        'GridColumn12
+        '
+        Me.GridColumn12.Caption = "Estado Doc."
+        Me.GridColumn12.FieldName = "tgEstadoDoc"
+        Me.GridColumn12.Name = "GridColumn12"
+        Me.GridColumn12.Visible = True
+        Me.GridColumn12.VisibleIndex = 11
+        '
+        'GridColumn13
+        '
+        Me.GridColumn13.Caption = "Resumen"
+        Me.GridColumn13.ColumnEdit = Me.RepositoryItemMemoExEdit1
+        Me.GridColumn13.FieldName = "docResumen"
+        Me.GridColumn13.Name = "GridColumn13"
+        Me.GridColumn13.Visible = True
+        Me.GridColumn13.VisibleIndex = 12
+        '
+        'RepositoryItemMemoExEdit1
+        '
+        Me.RepositoryItemMemoExEdit1.AutoHeight = False
+        Me.RepositoryItemMemoExEdit1.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.RepositoryItemMemoExEdit1.Name = "RepositoryItemMemoExEdit1"
+        Me.RepositoryItemMemoExEdit1.ShowIcon = False
+        '
+        'GridColumn14
+        '
+        Me.GridColumn14.Caption = "Proveido N°"
+        Me.GridColumn14.FieldName = "docNroProv"
+        Me.GridColumn14.Name = "GridColumn14"
+        Me.GridColumn14.Visible = True
+        Me.GridColumn14.VisibleIndex = 13
+        '
+        'GridColumn15
+        '
+        Me.GridColumn15.Caption = "Reg. Proveido"
+        Me.GridColumn15.FieldName = "docNroRegProv"
+        Me.GridColumn15.Name = "GridColumn15"
+        Me.GridColumn15.Visible = True
+        Me.GridColumn15.VisibleIndex = 14
+        '
+        'GridColumn25
+        '
+        Me.GridColumn25.Caption = "tgPrioridadId"
+        Me.GridColumn25.FieldName = "tgPrioridadId"
+        Me.GridColumn25.Name = "GridColumn25"
+        '
+        'GridColumn16
+        '
+        Me.GridColumn16.Caption = "Prioridad"
+        Me.GridColumn16.FieldName = "tgPrioridad"
+        Me.GridColumn16.Name = "GridColumn16"
+        Me.GridColumn16.Visible = True
+        Me.GridColumn16.VisibleIndex = 15
+        '
+        'GridColumn26
+        '
+        Me.GridColumn26.Caption = "tgMensajeProvId"
+        Me.GridColumn26.FieldName = "tgMensajeProvId"
+        Me.GridColumn26.Name = "GridColumn26"
+        '
+        'GridColumn27
+        '
+        Me.GridColumn27.Caption = "GridColumn27"
+        Me.GridColumn27.FieldName = "docNroFolio"
+        Me.GridColumn27.Name = "GridColumn27"
+        '
+        'ssNroFolio
+        '
+        Me.ssNroFolio.EditValue = New Decimal(New Integer() {0, 0, 0, 0})
+        Me.ssNroFolio.Location = New System.Drawing.Point(463, 609)
+        Me.ssNroFolio.MenuManager = Me.RibbonControl
+        Me.ssNroFolio.Name = "ssNroFolio"
+        Me.ssNroFolio.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton()})
+        Me.ssNroFolio.Properties.Mask.EditMask = "n0"
+        Me.ssNroFolio.Properties.Mask.UseMaskAsDisplayFormat = True
+        Me.ssNroFolio.Size = New System.Drawing.Size(100, 20)
+        Me.ssNroFolio.TabIndex = 42
+        '
+        'SaimtLabel28
+        '
+        Me.SaimtLabel28.Location = New System.Drawing.Point(406, 612)
+        Me.SaimtLabel28.Name = "SaimtLabel28"
+        Me.SaimtLabel28.Size = New System.Drawing.Size(51, 13)
+        Me.SaimtLabel28.TabIndex = 41
+        Me.SaimtLabel28.Text = "Nro. Folios"
+        '
+        'SaimtLabel27
+        '
+        Me.SaimtLabel27.Location = New System.Drawing.Point(15, 612)
+        Me.SaimtLabel27.Name = "SaimtLabel27"
+        Me.SaimtLabel27.Size = New System.Drawing.Size(66, 13)
+        Me.SaimtLabel27.TabIndex = 40
+        Me.SaimtLabel27.Text = "Nro. Proveido"
+        '
+        'cboMensajeProveido
+        '
+        Me.cboMensajeProveido.Entidad = SaimtControles.SaimtComboBoxLookUpUpdate.Entidades.MensajeProveido_DocInt
+        Me.cboMensajeProveido.Location = New System.Drawing.Point(5, 651)
+        Me.cboMensajeProveido.MinimumSize = New System.Drawing.Size(100, 20)
+        Me.cboMensajeProveido.Name = "cboMensajeProveido"
+        Me.cboMensajeProveido.Size = New System.Drawing.Size(774, 21)
+        Me.cboMensajeProveido.TabIndex = 37
+        '
+        'cboPrioridad
+        '
+        Me.cboPrioridad.Location = New System.Drawing.Point(654, 609)
+        Me.cboPrioridad.MenuManager = Me.RibbonControl
+        Me.cboPrioridad.Name = "cboPrioridad"
+        Me.cboPrioridad.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.cboPrioridad.Properties.NullText = ""
+        Me.cboPrioridad.Size = New System.Drawing.Size(117, 20)
+        Me.cboPrioridad.TabIndex = 39
+        '
+        'SaimtLabel2
+        '
+        Me.SaimtLabel2.Location = New System.Drawing.Point(606, 612)
+        Me.SaimtLabel2.Name = "SaimtLabel2"
+        Me.SaimtLabel2.Size = New System.Drawing.Size(42, 13)
+        Me.SaimtLabel2.TabIndex = 38
+        Me.SaimtLabel2.Text = "Prioridad"
+        '
+        'SaimtLabel26
+        '
+        Me.SaimtLabel26.Location = New System.Drawing.Point(9, 636)
+        Me.SaimtLabel26.Name = "SaimtLabel26"
+        Me.SaimtLabel26.Size = New System.Drawing.Size(85, 13)
+        Me.SaimtLabel26.TabIndex = 36
+        Me.SaimtLabel26.Text = "Mensaje Proveido"
+        '
+        'txtRegistroProveido
+        '
+        Me.txtRegistroProveido.EditValue = New Decimal(New Integer() {0, 0, 0, 0})
+        Me.txtRegistroProveido.Location = New System.Drawing.Point(281, 609)
+        Me.txtRegistroProveido.MenuManager = Me.RibbonControl
+        Me.txtRegistroProveido.Name = "txtRegistroProveido"
+        Me.txtRegistroProveido.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton()})
+        Me.txtRegistroProveido.Properties.Mask.EditMask = "n0"
+        Me.txtRegistroProveido.Properties.Mask.UseMaskAsDisplayFormat = True
+        Me.txtRegistroProveido.Size = New System.Drawing.Size(100, 20)
+        Me.txtRegistroProveido.TabIndex = 35
+        '
+        'SaimtLabel25
+        '
+        Me.SaimtLabel25.Location = New System.Drawing.Point(207, 612)
+        Me.SaimtLabel25.Name = "SaimtLabel25"
+        Me.SaimtLabel25.Size = New System.Drawing.Size(68, 13)
+        Me.SaimtLabel25.TabIndex = 34
+        Me.SaimtLabel25.Text = "Reg. Proveido"
+        '
+        'txtProveidoNro
+        '
+        Me.txtProveidoNro.EditValue = New Decimal(New Integer() {0, 0, 0, 0})
+        Me.txtProveidoNro.Location = New System.Drawing.Point(84, 609)
+        Me.txtProveidoNro.MenuManager = Me.RibbonControl
+        Me.txtProveidoNro.Name = "txtProveidoNro"
+        Me.txtProveidoNro.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton()})
+        Me.txtProveidoNro.Properties.Mask.EditMask = "n0"
+        Me.txtProveidoNro.Properties.Mask.UseMaskAsDisplayFormat = True
+        Me.txtProveidoNro.Size = New System.Drawing.Size(100, 20)
+        Me.txtProveidoNro.TabIndex = 33
+        '
+        'btnNuevo
+        '
+        Me.btnNuevo.Image = CType(resources.GetObject("btnNuevo.Image"), System.Drawing.Image)
+        Me.btnNuevo.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter
+        Me.btnNuevo.Location = New System.Drawing.Point(191, 679)
+        Me.btnNuevo.LookAndFeel.SkinName = "Seven"
+        Me.btnNuevo.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Style3D
+        Me.btnNuevo.Name = "btnNuevo"
+        Me.btnNuevo.Size = New System.Drawing.Size(64, 64)
+        Me.btnNuevo.TabIndex = 26
+        Me.btnNuevo.Text = "Nuevo"
+        '
+        'btnEditar
+        '
+        Me.btnEditar.Image = CType(resources.GetObject("btnEditar.Image"), System.Drawing.Image)
+        Me.btnEditar.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter
+        Me.btnEditar.Location = New System.Drawing.Point(261, 679)
+        Me.btnEditar.LookAndFeel.SkinName = "Seven"
+        Me.btnEditar.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Style3D
+        Me.btnEditar.Name = "btnEditar"
+        Me.btnEditar.Size = New System.Drawing.Size(64, 64)
+        Me.btnEditar.TabIndex = 27
+        Me.btnEditar.Text = "Editar"
+        '
+        'btnCancelar
+        '
+        Me.btnCancelar.Image = CType(resources.GetObject("btnCancelar.Image"), System.Drawing.Image)
+        Me.btnCancelar.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter
+        Me.btnCancelar.Location = New System.Drawing.Point(401, 679)
+        Me.btnCancelar.LookAndFeel.SkinName = "Seven"
+        Me.btnCancelar.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Style3D
+        Me.btnCancelar.Name = "btnCancelar"
+        Me.btnCancelar.Size = New System.Drawing.Size(64, 64)
+        Me.btnCancelar.TabIndex = 29
+        Me.btnCancelar.Text = "Cancelar"
+        '
+        'btnGuardar
+        '
+        Me.btnGuardar.Image = CType(resources.GetObject("btnGuardar.Image"), System.Drawing.Image)
+        Me.btnGuardar.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter
+        Me.btnGuardar.Location = New System.Drawing.Point(471, 679)
+        Me.btnGuardar.LookAndFeel.SkinName = "Seven"
+        Me.btnGuardar.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Style3D
+        Me.btnGuardar.Name = "btnGuardar"
+        Me.btnGuardar.Size = New System.Drawing.Size(64, 64)
+        Me.btnGuardar.TabIndex = 30
+        Me.btnGuardar.Text = "Guardar"
+        '
+        'btnEliminar
+        '
+        Me.btnEliminar.Image = CType(resources.GetObject("btnEliminar.Image"), System.Drawing.Image)
+        Me.btnEliminar.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter
+        Me.btnEliminar.Location = New System.Drawing.Point(541, 679)
+        Me.btnEliminar.LookAndFeel.SkinName = "Seven"
+        Me.btnEliminar.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Style3D
+        Me.btnEliminar.Name = "btnEliminar"
+        Me.btnEliminar.Size = New System.Drawing.Size(64, 64)
+        Me.btnEliminar.TabIndex = 31
+        Me.btnEliminar.Text = "Eliminar"
+        '
+        'btnLimpiar
+        '
+        Me.btnLimpiar.Image = CType(resources.GetObject("btnLimpiar.Image"), System.Drawing.Image)
+        Me.btnLimpiar.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter
+        Me.btnLimpiar.Location = New System.Drawing.Point(331, 679)
+        Me.btnLimpiar.LookAndFeel.SkinName = "Seven"
+        Me.btnLimpiar.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Style3D
+        Me.btnLimpiar.Name = "btnLimpiar"
+        Me.btnLimpiar.Size = New System.Drawing.Size(64, 64)
+        Me.btnLimpiar.TabIndex = 28
+        Me.btnLimpiar.Text = "Limpiar"
+        '
+        'SaimtGroupBox2
+        '
+        Me.SaimtGroupBox2.Controls.Add(Me.txtAreaPARA)
+        Me.SaimtGroupBox2.Controls.Add(Me.SaimtLabel23)
+        Me.SaimtGroupBox2.Controls.Add(Me.txtCargoPARA)
+        Me.SaimtGroupBox2.Controls.Add(Me.SaimtLabel18)
+        Me.SaimtGroupBox2.Controls.Add(Me.txtNroDocPARA)
+        Me.SaimtGroupBox2.Controls.Add(Me.SaimtLabel19)
+        Me.SaimtGroupBox2.Controls.Add(Me.txtTipoDocPARA)
+        Me.SaimtGroupBox2.Controls.Add(Me.SaimtLabel20)
+        Me.SaimtGroupBox2.Controls.Add(Me.SaimtButton1)
+        Me.SaimtGroupBox2.Controls.Add(Me.txtPersonaPARA)
+        Me.SaimtGroupBox2.Controls.Add(Me.SaimtLabel21)
+        Me.SaimtGroupBox2.Location = New System.Drawing.Point(6, 173)
+        Me.SaimtGroupBox2.LookAndFeel.SkinName = "Office 2010 Blue"
+        Me.SaimtGroupBox2.LookAndFeel.UseDefaultLookAndFeel = False
+        Me.SaimtGroupBox2.Name = "SaimtGroupBox2"
+        Me.SaimtGroupBox2.Size = New System.Drawing.Size(773, 80)
+        Me.SaimtGroupBox2.TabIndex = 25
+        Me.SaimtGroupBox2.Text = "PARA"
+        '
+        'txtAreaPARA
+        '
+        Me.txtAreaPARA.Location = New System.Drawing.Point(53, 55)
+        Me.txtAreaPARA.MenuManager = Me.RibbonControl
+        Me.txtAreaPARA.Name = "txtAreaPARA"
+        Me.txtAreaPARA.Size = New System.Drawing.Size(354, 20)
+        Me.txtAreaPARA.TabIndex = 27
+        '
+        'SaimtLabel23
+        '
+        Me.SaimtLabel23.Location = New System.Drawing.Point(24, 58)
+        Me.SaimtLabel23.Name = "SaimtLabel23"
+        Me.SaimtLabel23.Size = New System.Drawing.Size(23, 13)
+        Me.SaimtLabel23.TabIndex = 27
+        Me.SaimtLabel23.Text = "Área"
+        '
+        'txtCargoPARA
+        '
+        Me.txtCargoPARA.Location = New System.Drawing.Point(487, 55)
+        Me.txtCargoPARA.MenuManager = Me.RibbonControl
+        Me.txtCargoPARA.Name = "txtCargoPARA"
+        Me.txtCargoPARA.Size = New System.Drawing.Size(275, 20)
+        Me.txtCargoPARA.TabIndex = 24
+        '
+        'SaimtLabel18
+        '
+        Me.SaimtLabel18.Location = New System.Drawing.Point(456, 58)
+        Me.SaimtLabel18.Name = "SaimtLabel18"
+        Me.SaimtLabel18.Size = New System.Drawing.Size(29, 13)
+        Me.SaimtLabel18.TabIndex = 23
+        Me.SaimtLabel18.Text = "Cargo"
+        '
+        'txtNroDocPARA
+        '
+        Me.txtNroDocPARA.Location = New System.Drawing.Point(662, 28)
+        Me.txtNroDocPARA.MenuManager = Me.RibbonControl
+        Me.txtNroDocPARA.Name = "txtNroDocPARA"
+        Me.txtNroDocPARA.Size = New System.Drawing.Size(100, 20)
+        Me.txtNroDocPARA.TabIndex = 22
+        '
+        'SaimtLabel19
+        '
+        Me.SaimtLabel19.Location = New System.Drawing.Point(610, 30)
+        Me.SaimtLabel19.Name = "SaimtLabel19"
+        Me.SaimtLabel19.Size = New System.Drawing.Size(46, 13)
+        Me.SaimtLabel19.TabIndex = 21
+        Me.SaimtLabel19.Text = "Nro. Doc."
+        '
+        'txtTipoDocPARA
+        '
+        Me.txtTipoDocPARA.Location = New System.Drawing.Point(487, 27)
+        Me.txtTipoDocPARA.MenuManager = Me.RibbonControl
+        Me.txtTipoDocPARA.Name = "txtTipoDocPARA"
+        Me.txtTipoDocPARA.Size = New System.Drawing.Size(117, 20)
+        Me.txtTipoDocPARA.TabIndex = 20
+        '
+        'SaimtLabel20
+        '
+        Me.SaimtLabel20.Location = New System.Drawing.Point(440, 30)
+        Me.SaimtLabel20.Name = "SaimtLabel20"
+        Me.SaimtLabel20.Size = New System.Drawing.Size(45, 13)
+        Me.SaimtLabel20.TabIndex = 19
+        Me.SaimtLabel20.Text = "Tipo Doc."
+        '
+        'SaimtButton1
+        '
+        Me.SaimtButton1.Image = Global.Presentacion.My.Resources.Resources.buscar
+        Me.SaimtButton1.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter
+        Me.SaimtButton1.Location = New System.Drawing.Point(408, 27)
+        Me.SaimtButton1.Name = "SaimtButton1"
+        Me.SaimtButton1.Size = New System.Drawing.Size(21, 21)
+        Me.SaimtButton1.TabIndex = 18
+        '
+        'txtPersonaPARA
+        '
+        Me.txtPersonaPARA.Location = New System.Drawing.Point(53, 27)
+        Me.txtPersonaPARA.MenuManager = Me.RibbonControl
+        Me.txtPersonaPARA.Name = "txtPersonaPARA"
+        Me.txtPersonaPARA.Size = New System.Drawing.Size(354, 20)
+        Me.txtPersonaPARA.TabIndex = 1
+        '
+        'SaimtLabel21
+        '
+        Me.SaimtLabel21.Location = New System.Drawing.Point(8, 30)
+        Me.SaimtLabel21.Name = "SaimtLabel21"
+        Me.SaimtLabel21.Size = New System.Drawing.Size(39, 13)
+        Me.SaimtLabel21.TabIndex = 0
+        Me.SaimtLabel21.Text = "Persona"
+        '
+        'SaimtGroupBox1
+        '
+        Me.SaimtGroupBox1.Controls.Add(Me.txtAreaDE)
+        Me.SaimtGroupBox1.Controls.Add(Me.SaimtLabel22)
+        Me.SaimtGroupBox1.Controls.Add(Me.txtCargoDE)
+        Me.SaimtGroupBox1.Controls.Add(Me.SaimtLabel17)
+        Me.SaimtGroupBox1.Controls.Add(Me.txtNroDocDE)
+        Me.SaimtGroupBox1.Controls.Add(Me.SaimtLabel16)
+        Me.SaimtGroupBox1.Controls.Add(Me.txtTipoDocDE)
+        Me.SaimtGroupBox1.Controls.Add(Me.SaimtLabel15)
+        Me.SaimtGroupBox1.Controls.Add(Me.btnaddInst)
+        Me.SaimtGroupBox1.Controls.Add(Me.txtPersonaDE)
+        Me.SaimtGroupBox1.Controls.Add(Me.SaimtLabel14)
+        Me.SaimtGroupBox1.Location = New System.Drawing.Point(6, 88)
+        Me.SaimtGroupBox1.LookAndFeel.SkinName = "Office 2010 Blue"
+        Me.SaimtGroupBox1.LookAndFeel.UseDefaultLookAndFeel = False
+        Me.SaimtGroupBox1.Name = "SaimtGroupBox1"
+        Me.SaimtGroupBox1.Size = New System.Drawing.Size(773, 80)
+        Me.SaimtGroupBox1.TabIndex = 22
+        Me.SaimtGroupBox1.Text = "DE"
+        '
+        'txtAreaDE
+        '
+        Me.txtAreaDE.Location = New System.Drawing.Point(53, 53)
+        Me.txtAreaDE.MenuManager = Me.RibbonControl
+        Me.txtAreaDE.Name = "txtAreaDE"
+        Me.txtAreaDE.Size = New System.Drawing.Size(354, 20)
+        Me.txtAreaDE.TabIndex = 26
+        '
+        'SaimtLabel22
+        '
+        Me.SaimtLabel22.Location = New System.Drawing.Point(18, 56)
+        Me.SaimtLabel22.Name = "SaimtLabel22"
+        Me.SaimtLabel22.Size = New System.Drawing.Size(23, 13)
+        Me.SaimtLabel22.TabIndex = 25
+        Me.SaimtLabel22.Text = "Área"
+        '
+        'txtCargoDE
+        '
+        Me.txtCargoDE.Location = New System.Drawing.Point(487, 54)
+        Me.txtCargoDE.MenuManager = Me.RibbonControl
+        Me.txtCargoDE.Name = "txtCargoDE"
+        Me.txtCargoDE.Size = New System.Drawing.Size(275, 20)
+        Me.txtCargoDE.TabIndex = 24
+        '
+        'SaimtLabel17
+        '
+        Me.SaimtLabel17.Location = New System.Drawing.Point(452, 56)
+        Me.SaimtLabel17.Name = "SaimtLabel17"
+        Me.SaimtLabel17.Size = New System.Drawing.Size(29, 13)
+        Me.SaimtLabel17.TabIndex = 23
+        Me.SaimtLabel17.Text = "Cargo"
+        '
+        'txtNroDocDE
+        '
+        Me.txtNroDocDE.Location = New System.Drawing.Point(662, 28)
+        Me.txtNroDocDE.MenuManager = Me.RibbonControl
+        Me.txtNroDocDE.Name = "txtNroDocDE"
+        Me.txtNroDocDE.Size = New System.Drawing.Size(100, 20)
+        Me.txtNroDocDE.TabIndex = 22
+        '
+        'SaimtLabel16
+        '
+        Me.SaimtLabel16.Location = New System.Drawing.Point(610, 30)
+        Me.SaimtLabel16.Name = "SaimtLabel16"
+        Me.SaimtLabel16.Size = New System.Drawing.Size(46, 13)
+        Me.SaimtLabel16.TabIndex = 21
+        Me.SaimtLabel16.Text = "Nro. Doc."
+        '
+        'txtTipoDocDE
+        '
+        Me.txtTipoDocDE.Location = New System.Drawing.Point(487, 27)
+        Me.txtTipoDocDE.MenuManager = Me.RibbonControl
+        Me.txtTipoDocDE.Name = "txtTipoDocDE"
+        Me.txtTipoDocDE.Size = New System.Drawing.Size(117, 20)
+        Me.txtTipoDocDE.TabIndex = 20
+        '
+        'SaimtLabel15
+        '
+        Me.SaimtLabel15.Location = New System.Drawing.Point(440, 30)
+        Me.SaimtLabel15.Name = "SaimtLabel15"
+        Me.SaimtLabel15.Size = New System.Drawing.Size(45, 13)
+        Me.SaimtLabel15.TabIndex = 19
+        Me.SaimtLabel15.Text = "Tipo Doc."
+        '
+        'btnaddInst
+        '
+        Me.btnaddInst.Image = Global.Presentacion.My.Resources.Resources.buscar
+        Me.btnaddInst.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter
+        Me.btnaddInst.Location = New System.Drawing.Point(408, 27)
+        Me.btnaddInst.Name = "btnaddInst"
+        Me.btnaddInst.Size = New System.Drawing.Size(21, 21)
+        Me.btnaddInst.TabIndex = 18
+        '
+        'txtPersonaDE
+        '
+        Me.txtPersonaDE.Location = New System.Drawing.Point(53, 27)
+        Me.txtPersonaDE.MenuManager = Me.RibbonControl
+        Me.txtPersonaDE.Name = "txtPersonaDE"
+        Me.txtPersonaDE.Size = New System.Drawing.Size(354, 20)
+        Me.txtPersonaDE.TabIndex = 1
+        '
+        'SaimtLabel14
+        '
+        Me.SaimtLabel14.Location = New System.Drawing.Point(8, 30)
+        Me.SaimtLabel14.Name = "SaimtLabel14"
+        Me.SaimtLabel14.Size = New System.Drawing.Size(39, 13)
+        Me.SaimtLabel14.TabIndex = 0
+        Me.SaimtLabel14.Text = "Persona"
+        '
+        'txtResumen
+        '
+        Me.txtResumen.Location = New System.Drawing.Point(6, 399)
+        Me.txtResumen.MenuManager = Me.RibbonControl
+        Me.txtResumen.Name = "txtResumen"
+        Me.txtResumen.Size = New System.Drawing.Size(773, 204)
+        Me.txtResumen.TabIndex = 21
+        '
+        'SaimtLabel13
+        '
+        Me.SaimtLabel13.Location = New System.Drawing.Point(8, 384)
+        Me.SaimtLabel13.Name = "SaimtLabel13"
+        Me.SaimtLabel13.Size = New System.Drawing.Size(44, 13)
+        Me.SaimtLabel13.TabIndex = 20
+        Me.SaimtLabel13.Text = "Resumen"
+        '
+        'txtAsunto
+        '
+        Me.txtAsunto.Location = New System.Drawing.Point(5, 272)
+        Me.txtAsunto.MenuManager = Me.RibbonControl
+        Me.txtAsunto.Name = "txtAsunto"
+        Me.txtAsunto.Size = New System.Drawing.Size(773, 79)
+        Me.txtAsunto.TabIndex = 19
+        '
+        'SaimtLabel12
+        '
+        Me.SaimtLabel12.Location = New System.Drawing.Point(7, 258)
+        Me.SaimtLabel12.Name = "SaimtLabel12"
+        Me.SaimtLabel12.Size = New System.Drawing.Size(34, 13)
+        Me.SaimtLabel12.TabIndex = 18
+        Me.SaimtLabel12.Text = "Asunto"
+        '
+        'txtRefDoc
+        '
+        Me.txtRefDoc.Location = New System.Drawing.Point(59, 60)
+        Me.txtRefDoc.MenuManager = Me.RibbonControl
+        Me.txtRefDoc.Name = "txtRefDoc"
+        Me.txtRefDoc.Size = New System.Drawing.Size(652, 20)
+        Me.txtRefDoc.TabIndex = 17
+        '
+        'SaimtLabel11
+        '
+        Me.SaimtLabel11.Location = New System.Drawing.Point(7, 63)
+        Me.SaimtLabel11.Name = "SaimtLabel11"
+        Me.SaimtLabel11.Size = New System.Drawing.Size(46, 13)
+        Me.SaimtLabel11.TabIndex = 16
+        Me.SaimtLabel11.Text = "Ref. Doc."
+        '
+        'cboEstadoDoc
+        '
+        Me.cboEstadoDoc.Location = New System.Drawing.Point(582, 360)
+        Me.cboEstadoDoc.MenuManager = Me.RibbonControl
+        Me.cboEstadoDoc.Name = "cboEstadoDoc"
+        Me.cboEstadoDoc.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.cboEstadoDoc.Properties.NullText = ""
+        Me.cboEstadoDoc.Size = New System.Drawing.Size(197, 20)
+        Me.cboEstadoDoc.TabIndex = 15
+        '
+        'SaimtLabel10
+        '
+        Me.SaimtLabel10.Location = New System.Drawing.Point(518, 363)
+        Me.SaimtLabel10.Name = "SaimtLabel10"
+        Me.SaimtLabel10.Size = New System.Drawing.Size(58, 13)
+        Me.SaimtLabel10.TabIndex = 14
+        Me.SaimtLabel10.Text = "Estado Doc."
+        '
+        'txtNroEncDoc
+        '
+        Me.txtNroEncDoc.Location = New System.Drawing.Point(392, 34)
+        Me.txtNroEncDoc.MenuManager = Me.RibbonControl
+        Me.txtNroEncDoc.Name = "txtNroEncDoc"
+        Me.txtNroEncDoc.Size = New System.Drawing.Size(381, 20)
+        Me.txtNroEncDoc.TabIndex = 13
+        '
+        'SaimtLabel9
+        '
+        Me.SaimtLabel9.Location = New System.Drawing.Point(283, 37)
+        Me.SaimtLabel9.Name = "SaimtLabel9"
+        Me.SaimtLabel9.Size = New System.Drawing.Size(107, 13)
+        Me.SaimtLabel9.TabIndex = 12
+        Me.SaimtLabel9.Text = "Nro. Encabezado Doc."
+        '
+        'cboTipoDoc
+        '
+        Me.cboTipoDoc.Location = New System.Drawing.Point(104, 34)
+        Me.cboTipoDoc.MenuManager = Me.RibbonControl
+        Me.cboTipoDoc.Name = "cboTipoDoc"
+        Me.cboTipoDoc.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.cboTipoDoc.Properties.NullText = ""
+        Me.cboTipoDoc.Size = New System.Drawing.Size(165, 20)
+        Me.cboTipoDoc.TabIndex = 11
+        '
+        'cboMedioEnvRec
+        '
+        Me.cboMedioEnvRec.Location = New System.Drawing.Point(616, 6)
+        Me.cboMedioEnvRec.MenuManager = Me.RibbonControl
+        Me.cboMedioEnvRec.Name = "cboMedioEnvRec"
+        Me.cboMedioEnvRec.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.cboMedioEnvRec.Properties.NullText = ""
+        Me.cboMedioEnvRec.Size = New System.Drawing.Size(149, 20)
+        Me.cboMedioEnvRec.TabIndex = 10
+        '
+        'SaimtLabel8
+        '
+        Me.SaimtLabel8.Location = New System.Drawing.Point(477, 9)
+        Me.SaimtLabel8.Name = "SaimtLabel8"
+        Me.SaimtLabel8.Size = New System.Drawing.Size(133, 13)
+        Me.SaimtLabel8.TabIndex = 9
+        Me.SaimtLabel8.Text = "Medio de Envio o Recepción"
+        '
+        'SaimtLabel7
+        '
+        Me.SaimtLabel7.Location = New System.Drawing.Point(6, 37)
+        Me.SaimtLabel7.Name = "SaimtLabel7"
+        Me.SaimtLabel7.Size = New System.Drawing.Size(92, 13)
+        Me.SaimtLabel7.TabIndex = 8
+        Me.SaimtLabel7.Text = "Tipo de Documento"
+        '
+        'dtpFecRecEmi
+        '
+        Me.dtpFecRecEmi.EditValue = Nothing
+        Me.dtpFecRecEmi.Location = New System.Drawing.Point(368, 360)
+        Me.dtpFecRecEmi.MenuManager = Me.RibbonControl
+        Me.dtpFecRecEmi.Name = "dtpFecRecEmi"
+        Me.dtpFecRecEmi.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.dtpFecRecEmi.Properties.VistaTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton()})
+        Me.dtpFecRecEmi.Size = New System.Drawing.Size(119, 20)
+        Me.dtpFecRecEmi.TabIndex = 7
+        '
+        'SaimtLabel6
+        '
+        Me.SaimtLabel6.Location = New System.Drawing.Point(238, 363)
+        Me.SaimtLabel6.Name = "SaimtLabel6"
+        Me.SaimtLabel6.Size = New System.Drawing.Size(128, 13)
+        Me.SaimtLabel6.TabIndex = 6
+        Me.SaimtLabel6.Text = "Fecha Recepción o Emisión"
+        '
+        'cboMovDoc
+        '
+        Me.cboMovDoc.Location = New System.Drawing.Point(338, 6)
+        Me.cboMovDoc.MenuManager = Me.RibbonControl
+        Me.cboMovDoc.Name = "cboMovDoc"
+        Me.cboMovDoc.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.cboMovDoc.Properties.NullText = ""
+        Me.cboMovDoc.Size = New System.Drawing.Size(124, 20)
+        Me.cboMovDoc.TabIndex = 5
+        '
+        'SaimtLabel5
+        '
+        Me.SaimtLabel5.Location = New System.Drawing.Point(253, 9)
+        Me.SaimtLabel5.Name = "SaimtLabel5"
+        Me.SaimtLabel5.Size = New System.Drawing.Size(79, 13)
+        Me.SaimtLabel5.TabIndex = 4
+        Me.SaimtLabel5.Text = "Movimiento Doc."
+        '
+        'dtpFechaDoc
+        '
+        Me.dtpFechaDoc.EditValue = Nothing
+        Me.dtpFechaDoc.Location = New System.Drawing.Point(100, 360)
+        Me.dtpFechaDoc.MenuManager = Me.RibbonControl
+        Me.dtpFechaDoc.Name = "dtpFechaDoc"
+        Me.dtpFechaDoc.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.dtpFechaDoc.Properties.VistaTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton()})
+        Me.dtpFechaDoc.Size = New System.Drawing.Size(116, 20)
+        Me.dtpFechaDoc.TabIndex = 3
+        '
+        'SaimtLabel4
+        '
+        Me.SaimtLabel4.Location = New System.Drawing.Point(10, 363)
+        Me.SaimtLabel4.Name = "SaimtLabel4"
+        Me.SaimtLabel4.Size = New System.Drawing.Size(86, 13)
+        Me.SaimtLabel4.TabIndex = 2
+        Me.SaimtLabel4.Text = "Fecha Documento"
+        '
+        'txtCodInterno
+        '
+        Me.txtCodInterno.Location = New System.Drawing.Point(75, 6)
+        Me.txtCodInterno.MenuManager = Me.RibbonControl
+        Me.txtCodInterno.Name = "txtCodInterno"
+        Me.txtCodInterno.Properties.Appearance.Options.UseTextOptions = True
+        Me.txtCodInterno.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
+        Me.txtCodInterno.Properties.ReadOnly = True
+        Me.txtCodInterno.Size = New System.Drawing.Size(153, 20)
+        Me.txtCodInterno.TabIndex = 1
+        '
+        'SaimtLabel3
+        '
+        Me.SaimtLabel3.Location = New System.Drawing.Point(7, 9)
+        Me.SaimtLabel3.Name = "SaimtLabel3"
+        Me.SaimtLabel3.Size = New System.Drawing.Size(62, 13)
+        Me.SaimtLabel3.TabIndex = 0
+        Me.SaimtLabel3.Text = "Cód. Interno"
+        '
+        'frmRegistroDocInternos
+        '
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.ButtonCancelar = Me.btnCancelar
+        Me.ButtonEditar = Me.btnEditar
+        Me.ButtonEliminar = Me.btnEliminar
+        Me.ButtonGuardar = Me.btnGuardar
+        Me.ButtonLimpiar = Me.btnLimpiar
+        Me.ButtonNuevo = Me.btnNuevo
+        Me.ClientSize = New System.Drawing.Size(1143, 774)
+        Me.Controls.Add(Me.SaimtSplitContainerControl1)
+        Me.dgvListado = Me.gcResultadoBusqueda
+        Me.LookAndFeel.SkinName = "Seven"
+        Me.Name = "frmRegistroDocInternos"
+        Me.PuedeBuscar = True
+        Me.PuedeCrear = True
+        Me.PuedeEditar = True
+        Me.Text = "frmRegistroDocInternos"
+        Me.txtBuscarSaimt = Me.txtBuscarPor
+        Me.Controls.SetChildIndex(Me.rsbMensajeBarra, 0)
+        Me.Controls.SetChildIndex(Me.SaimtSplitContainerControl1, 0)
+        CType(Me.pmconsultorpropagos, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.SaimtSplitContainerControl1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.SaimtSplitContainerControl1.ResumeLayout(False)
+        CType(Me.cboBuscasPor.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtBuscarPor.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.cbCriterios.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.gcResultadoBusqueda, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.gvResultadoBusqueda, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.RepositoryItemMemoExEdit1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ssNroFolio.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.cboPrioridad.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtRegistroProveido.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtProveidoNro.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.SaimtGroupBox2, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.SaimtGroupBox2.ResumeLayout(False)
+        Me.SaimtGroupBox2.PerformLayout()
+        CType(Me.txtAreaPARA.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtCargoPARA.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtNroDocPARA.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtTipoDocPARA.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtPersonaPARA.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.SaimtGroupBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.SaimtGroupBox1.ResumeLayout(False)
+        Me.SaimtGroupBox1.PerformLayout()
+        CType(Me.txtAreaDE.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtCargoDE.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtNroDocDE.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtTipoDocDE.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtPersonaDE.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtResumen.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtAsunto.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtRefDoc.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.cboEstadoDoc.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtNroEncDoc.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.cboTipoDoc.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.cboMedioEnvRec.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dtpFecRecEmi.Properties.VistaTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dtpFecRecEmi.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.cboMovDoc.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dtpFechaDoc.Properties.VistaTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dtpFechaDoc.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtCodInterno.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ResumeLayout(False)
+
+    End Sub
+    Friend WithEvents SaimtSplitContainerControl1 As SaimtControles.SaimtSplitContainerControl
+    Friend WithEvents cbCriterios As SaimtControles.SaimtComboBox
+    Friend WithEvents SaimtLabel1 As SaimtControles.SaimtLabel
+    Friend WithEvents gcResultadoBusqueda As SaimtControles.SaimtDataGrid
+    Friend WithEvents gvResultadoBusqueda As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents SaimtLabel6 As SaimtControles.SaimtLabel
+    Friend WithEvents cboMovDoc As SaimtControles.SaimtComboBoxLookUp
+    Friend WithEvents SaimtLabel5 As SaimtControles.SaimtLabel
+    Friend WithEvents dtpFechaDoc As SaimtControles.SaimtDateTimePicker
+    Friend WithEvents SaimtLabel4 As SaimtControles.SaimtLabel
+    Friend WithEvents txtCodInterno As SaimtControles.SaimtTextBox
+    Friend WithEvents SaimtLabel3 As SaimtControles.SaimtLabel
+    Friend WithEvents txtBuscarPor As SaimtControles.SaimtTextBox
+    Friend WithEvents txtRefDoc As SaimtControles.SaimtTextBox
+    Friend WithEvents SaimtLabel11 As SaimtControles.SaimtLabel
+    Friend WithEvents cboEstadoDoc As SaimtControles.SaimtComboBoxLookUp
+    Friend WithEvents SaimtLabel10 As SaimtControles.SaimtLabel
+    Friend WithEvents txtNroEncDoc As SaimtControles.SaimtTextBox
+    Friend WithEvents SaimtLabel9 As SaimtControles.SaimtLabel
+    Friend WithEvents cboTipoDoc As SaimtControles.SaimtComboBoxLookUp
+    Friend WithEvents cboMedioEnvRec As SaimtControles.SaimtComboBoxLookUp
+    Friend WithEvents SaimtLabel8 As SaimtControles.SaimtLabel
+    Friend WithEvents SaimtLabel7 As SaimtControles.SaimtLabel
+    Friend WithEvents dtpFecRecEmi As SaimtControles.SaimtDateTimePicker
+    Friend WithEvents txtResumen As SaimtControles.SaimtTextBoxMultiline
+    Friend WithEvents SaimtLabel13 As SaimtControles.SaimtLabel
+    Friend WithEvents txtAsunto As SaimtControles.SaimtTextBoxMultiline
+    Friend WithEvents SaimtLabel12 As SaimtControles.SaimtLabel
+    Friend WithEvents SaimtGroupBox1 As SaimtControles.SaimtGroupBox
+    Friend WithEvents txtPersonaDE As SaimtControles.SaimtTextBox
+    Friend WithEvents SaimtLabel14 As SaimtControles.SaimtLabel
+    Friend WithEvents cboBuscasPor As SaimtControles.SaimtComboBoxLookUp
+    Friend WithEvents SaimtGroupBox2 As SaimtControles.SaimtGroupBox
+    Friend WithEvents txtAreaPARA As SaimtControles.SaimtTextBox
+    Friend WithEvents SaimtLabel23 As SaimtControles.SaimtLabel
+    Friend WithEvents txtCargoPARA As SaimtControles.SaimtTextBox
+    Friend WithEvents SaimtLabel18 As SaimtControles.SaimtLabel
+    Friend WithEvents txtNroDocPARA As SaimtControles.SaimtTextBox
+    Friend WithEvents SaimtLabel19 As SaimtControles.SaimtLabel
+    Friend WithEvents txtTipoDocPARA As SaimtControles.SaimtTextBox
+    Friend WithEvents SaimtLabel20 As SaimtControles.SaimtLabel
+    Friend WithEvents SaimtButton1 As SaimtControles.SaimtButton
+    Friend WithEvents txtPersonaPARA As SaimtControles.SaimtTextBox
+    Friend WithEvents SaimtLabel21 As SaimtControles.SaimtLabel
+    Friend WithEvents txtAreaDE As SaimtControles.SaimtTextBox
+    Friend WithEvents SaimtLabel22 As SaimtControles.SaimtLabel
+    Friend WithEvents txtCargoDE As SaimtControles.SaimtTextBox
+    Friend WithEvents SaimtLabel17 As SaimtControles.SaimtLabel
+    Friend WithEvents txtNroDocDE As SaimtControles.SaimtTextBox
+    Friend WithEvents SaimtLabel16 As SaimtControles.SaimtLabel
+    Friend WithEvents txtTipoDocDE As SaimtControles.SaimtTextBox
+    Friend WithEvents SaimtLabel15 As SaimtControles.SaimtLabel
+    Friend WithEvents btnaddInst As SaimtControles.SaimtButton
+    Friend WithEvents btnNuevo As SaimtControles.SaimtButton
+    Friend WithEvents btnEditar As SaimtControles.SaimtButton
+    Friend WithEvents btnCancelar As SaimtControles.SaimtButton
+    Friend WithEvents btnGuardar As SaimtControles.SaimtButton
+    Friend WithEvents btnEliminar As SaimtControles.SaimtButton
+    Friend WithEvents btnLimpiar As SaimtControles.SaimtButton
+    Friend WithEvents GridColumn1 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn2 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn3 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn4 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn5 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn6 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn7 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn8 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn9 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn10 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn11 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn12 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn13 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents RepositoryItemMemoExEdit1 As DevExpress.XtraEditors.Repository.RepositoryItemMemoExEdit
+    Friend WithEvents cboMensajeProveido As SaimtControles.SaimtComboBoxLookUpUpdate
+    Friend WithEvents SaimtLabel26 As SaimtControles.SaimtLabel
+    Friend WithEvents txtRegistroProveido As SaimtControles.SaimtSpinner
+    Friend WithEvents SaimtLabel25 As SaimtControles.SaimtLabel
+    Friend WithEvents txtProveidoNro As SaimtControles.SaimtSpinner
+    Friend WithEvents SaimtLabel24 As SaimtControles.SaimtLabel
+    Friend WithEvents GridColumn14 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn15 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn16 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents cboPrioridad As SaimtControles.SaimtComboBoxLookUp
+    Friend WithEvents SaimtLabel2 As SaimtControles.SaimtLabel
+    Friend WithEvents GridColumn17 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn18 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn19 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn20 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn22 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn21 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn23 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn24 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn25 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn26 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents SaimtLabel27 As SaimtControles.SaimtLabel
+    Friend WithEvents ssNroFolio As SaimtControles.SaimtSpinner
+    Friend WithEvents SaimtLabel28 As SaimtControles.SaimtLabel
+    Friend WithEvents GridColumn27 As DevExpress.XtraGrid.Columns.GridColumn
+End Class

@@ -1,0 +1,97 @@
+﻿Imports SaimtControles
+Imports ReglasNegocio
+Imports Entidades
+Public Class frmCambiarEstadoSTD
+    Inherits frmMantenimientos
+    Dim vMovId As String
+    Dim loPersona As EEPersona
+    Dim loInstitucion As EETablaGeneral
+    Dim loArea As EETablaGeneral
+    Dim loCargo As EETablaGeneral
+    Dim dtTablaContacto As DataTable = New DataTable()
+
+    Public Sub New(v_MovId As String)
+        ' Llamada necesaria para el diseñador.
+        InitializeComponent()
+        ' Agregue cualquier inicialización después de la llamada a InitializeComponent().
+        vMovId = v_MovId
+    End Sub
+    Private Sub ConstruirTableContacto()
+        dtTablaContacto.Columns.Add("Descripcion", GetType(String))
+        dtTablaContacto.Columns.Add("Contacto", GetType(String))
+    End Sub
+
+    Sub CargarMovDocumento(movId As String)
+        Dim fmovimiento As EEMovimientoSTD
+        Try
+            fmovimiento = MantenimientosBL.Instancia.movimientoSTDxMovId(movId)
+            If Not fmovimiento Is Nothing Then
+                txtcodint.EditValue = fmovimiento.DocId
+                txtnroreg.EditValue = fmovimiento.ODocumento.DocNReg
+                txtTipoDoc.EditValue = fmovimiento.ODocumento.TgTDoc
+                txtasunto.EditValue = fmovimiento.ODocumento.DocAsunto
+                txtremitente.EditValue = fmovimiento.OPersonaOrigen.PerNombreCompleto
+                txtcargorem.EditValue = fmovimiento.OPersonaOrigen.OPerCargoPersonal.Cargo
+                dtpfechaenvio.EditValue = fmovimiento.MovFechaEnv
+                txtaccionadoptar.EditValue = fmovimiento.TgTDestino
+                txtcomentario.EditValue = fmovimiento.MovComentario
+                sCboEstadoSTD.mColumnas(SaimtComboBoxLookUp.Entidades.TablaGeneral)
+                sCboEstadoSTD.Properties.DisplayMember = "TgNombre"
+                sCboEstadoSTD.Properties.ValueMember = "TgCodigo"
+                sCboEstadoSTD.Properties.DataSource = MantenimientosBL.Instancia.tablageneralListar_XClsId_XTgExtra(99, fmovimiento.TgEstadoMovId)
+                Me.Tag = fmovimiento.OPersonaDestino.OPerCargoPersonal.Cargo
+                rgtupa.EditValue = fmovimiento.ODocumento.DocTupac
+                spfolios.Value = fmovimiento.ODocumento.DocNFolio
+                dtpfecharecep.DateTime = fmovimiento.MovFechaRec
+                dtpfechaing.DateTime = fmovimiento.ODocumento.DocFechaIng
+                txtcomentariodoc.Text = fmovimiento.ODocumento.DocComentario
+                txtdocreferencia.Text = fmovimiento.ODocumento.DocNRef
+                txtdocaux.Text = fmovimiento.ODocumento.DocAux
+                loPersona = MantenimientosBL.Instancia.PersonaContactoXPerId(EEComun._PerId)
+                txtinteresado.Text = fmovimiento.ODocumento.OPersonaInteresada.PerNombreCompleto ' loPersona.perNombresoRazon
+                txtdireccion.Text = loPersona.PerDireccion
+                For Each fContacto As EEPersona.EEContacto In loPersona.ListaContacto
+                    dtTablaContacto.LoadDataRow(New Object() {fContacto.ContDescripcion, _
+                         fContacto.OTablaGeneral.TgCodigo
+                       }, True)
+                Next
+                gvDatosAdicionales.BestFitColumns()
+                txtinstitucion.Text = fmovimiento.ODocumento.OPersonaInteresada.OPerCargoPersonal.Institucion
+                txtarea.Text = fmovimiento.ODocumento.OPersonaInteresada.OPerCargoPersonal.Area
+                txtcargo.Text = fmovimiento.ODocumento.OPersonaInteresada.OPerCargoPersonal.Cargo
+            End If
+        Catch ex As Exception
+            SaimtMessageBox.mostrarAlertaError(ex.Message)
+        End Try
+    End Sub
+    Protected Overrides Sub guardar()
+        If sCboEstadoSTD.EditValue IsNot Nothing And vMovId IsNot Nothing Then
+            MantenimientosBL.Instancia.movimientostdActualizarEstadoMov(vMovId, sCboEstadoSTD.EditValue, Trim(txtComentarioFinal.EditValue), Me.Tag, txtcodint.Text.Trim, chkautoproveido.Checked)
+            Me.enabledGA = False
+            MyBase.guardar()
+        End If
+    End Sub
+
+    Private Sub frmCambiarEstadoSTD_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
+        sCboEstadoSTD.Enabled = True
+        sCboEstadoSTD.Properties.ReadOnly = False
+        txtComentarioFinal.Enabled = True
+        txtComentarioFinal.Properties.ReadOnly = False
+        btnGuardar.Enabled = True
+        ConstruirTableContacto()
+        CargarMovDocumento(vMovId)
+        If EEUsuarios.UsuIdOnline = 41 Then
+            chkautoproveido.Enabled = True
+            chkautoproveido.Properties.ReadOnly = False
+            chkautoproveido.Visible = True
+        Else
+            chkautoproveido.Visible = False
+        End If
+    End Sub
+
+    Private Sub btnGuardar_Click(sender As System.Object, e As System.EventArgs) Handles btnGuardar.Click
+
+    End Sub
+
+   
+End Class

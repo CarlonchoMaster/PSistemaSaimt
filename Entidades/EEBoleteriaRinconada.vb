@@ -1,0 +1,28 @@
+﻿Public Class EEBoleteriaRinconada
+    Public Property bolId() As Int32
+
+    Public Property bolFechaIng() As DateTime?
+
+    Public Property bolPrecio() As Decimal
+    Public Property TgEstadoId() As String
+    Public Property TgEstado() As String
+    Public Property OTgEstado() As EETablaGeneral
+    Public Property bolHoraIng() As DateTime?
+ 
+    Public Property ConId() As String
+    Public Property PerRegId() As String
+    Public Property PerRegExtId() As String
+    Public Property bolcantidad() As Integer?
+
+    Public Property bolCod() As String
+    Public Property loConcepto() As EEConceptos
+    ''' <summary>
+    ''' Solo Hora Ingreso
+    ''' </summary>
+    ''' <value></value>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Public Property bolHoraIngreso() As TimeSpan?
+    Public Property bolTransferido As Boolean?
+    Public Property bolModificado As Boolean?
+End Class

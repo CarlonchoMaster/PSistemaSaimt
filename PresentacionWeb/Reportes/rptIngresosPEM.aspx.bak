@@ -1,0 +1,374 @@
+﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Principal.Master"
+    CodeBehind="rptIngresosPEM.aspx.vb" Inherits="PresentacionWeb.rptIngresosPEM" %>
+
+<%@ Register Assembly="DevExpress.Web.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
+    Namespace="DevExpress.Web.ASPxPanel" TagPrefix="dx" %>
+<%@ Register Assembly="DevExpress.Web.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
+    Namespace="DevExpress.Web.ASPxRoundPanel" TagPrefix="dx" %>
+<%@ Register Assembly="SaimtControlesWeb" Namespace="SaimtControlesWeb" TagPrefix="cc1" %>
+<%@ Register Assembly="DevExpress.Web.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
+    Namespace="DevExpress.Web.ASPxEditors" TagPrefix="dx" %>
+<%@ Register Assembly="DevExpress.Web.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
+    Namespace="DevExpress.Web.ASPxGridView" TagPrefix="dx" %>
+<%@ Register Assembly="DevExpress.Web.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
+    Namespace="DevExpress.Web.ASPxPopupControl" TagPrefix="dx" %>
+<%@ Register Assembly="DevExpress.Web.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
+    Namespace="DevExpress.Web.ASPxCallback" TagPrefix="dx" %>
+<%@ Register Assembly="DevExpress.Xpo.v13.2.Web, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
+    Namespace="DevExpress.Xpo" TagPrefix="dx" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
+    <link href="../Styles/estilos.css" media="all" type="text/css" rel="Stylesheet" />
+    <style type="text/css">
+        .templateTable
+        {
+            border-collapse: collapse;
+            width: 100%;
+            background-color: #FFFFFF;
+        }
+        .templateTable td
+        {
+            border: solid 1px #C2D4DA;
+            padding: 3px;
+            color: #000000;
+        }
+        .templateTable td.value
+        {
+            font-weight: bold;
+        }
+        .style1
+        {
+            width: 54px;
+        }
+        .style2
+        {
+            height: 45px;
+        }
+    </style>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+    <table>
+        <tr>
+            <td>
+                <table>
+                    <tr>
+                        <td valign="top">
+                            <cc1:SaimtASPxPanel ID="SaimtASPxPanel1" runat="server" BackColor="#F5F5F5" Border-BorderColor="#B8B8B8"
+                                Border-BorderStyle="Solid" Border-BorderWidth="1px" Height="130px" 
+                                Width="220px">
+                                <PanelCollection>
+                                    <dx:PanelContent ID="PanelContent1" runat="server" SupportsDisabledAttribute="True">
+                                        <table cellspacing="3" cellpadding="3" width="100%">
+                                            <tr>
+                                                <td>
+                                                    <cc1:SaimtASPxCheckBox ID="chkCriterioInstitucion" runat="server" 
+                                                        Text="Por Institución">
+                                                    </cc1:SaimtASPxCheckBox>
+                                                </td>
+                                                <td align="right">
+                                                    <cc1:SaimtASPxComboBox ID="cboCriterioInstitucion" runat="server" 
+                                                        SelectedIndex="0" Width="50px">
+                                                        <Items>
+                                                            <dx:ListEditItem Selected="True" Text="O" Value="OR" />
+                                                            <dx:ListEditItem Text="Y" Value="AND" />
+                                                        </Items>
+                                                    </cc1:SaimtASPxComboBox>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2">
+                                                    <cc1:SaimtASPxComboBox ID="cboInstitucion" runat="server" AutoPostBack="True" CssFilePath="~/App_Themes/PlasticBlue/{0}/styles.css"
+                                                        CssPostfix="PlasticBlue" SpriteCssFilePath="~/App_Themes/PlasticBlue/{0}/sprite.css"
+                                                        ValueType="System.String" Width="100%">
+                                                    </cc1:SaimtASPxComboBox>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="lbl_right_td" colspan="2">
+                                                    <cc1:SaimtASPxLabel ID="SaimtASPxLabel7" runat="server" CssFilePath="~/App_Themes/PlasticBlue/{0}/styles.css"
+                                                        CssPostfix="PlasticBlue" Text="Sede">
+                                                    </cc1:SaimtASPxLabel>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2">
+                                                    <cc1:SaimtASPxComboBox ID="cboSede" runat="server" CssFilePath="~/App_Themes/PlasticBlue/{0}/styles.css"
+                                                        CssPostfix="PlasticBlue" SpriteCssFilePath="~/App_Themes/PlasticBlue/{0}/sprite.css"
+                                                        ValueType="System.String" Width="100%">
+                                                    </cc1:SaimtASPxComboBox>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </dx:PanelContent>
+                                </PanelCollection>
+                                <Border BorderColor="#B8B8B8" BorderStyle="Solid" BorderWidth="1px"></Border>
+                            </cc1:SaimtASPxPanel>
+                        </td>
+                        <td valign="top">
+                            <cc1:SaimtASPxPanel ID="SaimtASPxPanel2" runat="server" BackColor="#F5F5F5" Border-BorderColor="#B8B8B8"
+                                Border-BorderStyle="Solid" Border-BorderWidth="1px">
+                                <PanelCollection>
+                                    <dx:PanelContent ID="PanelContent2" runat="server" SupportsDisabledAttribute="True">
+                                        <table cellspacing="3" cellpadding="3">
+                                            <tr>
+                                                <td>
+                                                    <cc1:SaimtASPxCheckBox ID="chkCriterioTipoCliente" runat="server" CheckState="Unchecked"
+                                                        CssFilePath="~/App_Themes/PlasticBlue/{0}/styles.css" CssPostfix="PlasticBlue"
+                                                        SpriteCssFilePath="~/App_Themes/PlasticBlue/{0}/sprite.css" 
+                                                        Text="Por Tipo Cliente">
+                                                    </cc1:SaimtASPxCheckBox>
+                                                </td>
+                                                <td align="right">
+                                                    <cc1:SaimtASPxComboBox ID="cboCriterioTipoCliente" runat="server" 
+                                                        SelectedIndex="0" Width="50px">
+                                                        <Items>
+                                                            <dx:ListEditItem Selected="True" Text="O" Value="OR" />
+                                                            <dx:ListEditItem Text="Y" Value="AND" />
+                                                        </Items>
+                                                    </cc1:SaimtASPxComboBox>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2">
+                                                    <cc1:SaimtASPxComboBox ID="cboTipoCliente" runat="server" CssFilePath="~/App_Themes/PlasticBlue/{0}/styles.css"
+                                                        CssPostfix="PlasticBlue" SpriteCssFilePath="~/App_Themes/PlasticBlue/{0}/sprite.css"
+                                                        ValueType="System.String" Width="200px">
+                                                    </cc1:SaimtASPxComboBox>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </dx:PanelContent>
+                                </PanelCollection>
+                                <Border BorderColor="#B8B8B8" BorderStyle="Solid" BorderWidth="1px"></Border>
+                            </cc1:SaimtASPxPanel>
+                            <cc1:SaimtASPxPanel ID="SaimtASPxPanel7" runat="server" BackColor="#F5F5F5" Border-BorderColor="#B8B8B8"
+                                Border-BorderStyle="Solid" Border-BorderWidth="1px">
+                                <PanelCollection>
+                                    <dx:PanelContent ID="PanelContent7" runat="server" SupportsDisabledAttribute="True">
+                                        <table cellspacing="3" cellpadding="3">
+                                            <tr>
+                                                <td>
+                                                    <cc1:SaimtASPxCheckBox ID="chkCriterioTipoVehiculo" runat="server" 
+                                                        Text="Por Tipo Vehículo">
+                                                    </cc1:SaimtASPxCheckBox>
+                                                </td>
+                                                <td align="right">
+                                                    <cc1:SaimtASPxComboBox ID="cboCriterioTipoVehiculo" runat="server" 
+                                                        SelectedIndex="0" Width="50px">
+                                                        <Items>
+                                                            <dx:ListEditItem Selected="True" Text="O" Value="OR" />
+                                                            <dx:ListEditItem Text="Y" Value="AND" />
+                                                        </Items>
+                                                    </cc1:SaimtASPxComboBox>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2">
+                                                    <cc1:SaimtASPxComboBox ID="cboTipoVehiculo" runat="server" CssFilePath="~/App_Themes/PlasticBlue/{0}/styles.css"
+                                                        CssPostfix="PlasticBlue" SpriteCssFilePath="~/App_Themes/PlasticBlue/{0}/sprite.css"
+                                                        ValueType="System.String" Width="200px">
+                                                    </cc1:SaimtASPxComboBox>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </dx:PanelContent>
+                                </PanelCollection>
+                                <Border BorderColor="#B8B8B8" BorderStyle="Solid" BorderWidth="1px"></Border>
+                            </cc1:SaimtASPxPanel>
+                        </td>
+                        <td valign="top">
+                            <cc1:SaimtASPxPanel ID="SaimtASPxPanel3" runat="server" BackColor="#F5F5F5" Border-BorderColor="#B8B8B8"
+                                Border-BorderStyle="Solid" Border-BorderWidth="1px">
+                                <PanelCollection>
+                                    <dx:PanelContent ID="PanelContent3" runat="server" SupportsDisabledAttribute="True">
+                                        <table cellspacing="3" cellpadding="3" width="100%">
+                                            <tr>
+                                                <td>
+                                                    <cc1:SaimtASPxCheckBox ID="chkCriterioPlacaVehiculo" runat="server" 
+                                                        Text="Por Placa Vehículo">
+                                                    </cc1:SaimtASPxCheckBox>
+                                                </td>
+                                                <td align="right">
+                                                    <cc1:SaimtASPxComboBox ID="cboCriterioPlacaVehiculo" runat="server" 
+                                                        SelectedIndex="0" Width="50px">
+                                                        <Items>
+                                                            <dx:ListEditItem Selected="True" Text="O" Value="OR" />
+                                                            <dx:ListEditItem Text="Y" Value="AND" />
+                                                        </Items>
+                                                    </cc1:SaimtASPxComboBox>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2">
+                                                    <cc1:SaimtASPxTextBox ID="txtPlacaVehiculo" runat="server" Width="200px">
+                                                    </cc1:SaimtASPxTextBox>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </dx:PanelContent>
+                                </PanelCollection>
+                                <Border BorderColor="#B8B8B8" BorderStyle="Solid" BorderWidth="1px"></Border>
+                            </cc1:SaimtASPxPanel>
+                            <cc1:SaimtASPxPanel ID="SaimtASPxPanel8" runat="server" BackColor="#F5F5F5" Border-BorderColor="#B8B8B8"
+                                Border-BorderStyle="Solid" Border-BorderWidth="1px">
+                                <PanelCollection>
+                                    <dx:PanelContent ID="PanelContent8" runat="server" SupportsDisabledAttribute="True">
+                                        <table cellspacing="3" cellpadding="3">
+                                            <tr>
+                                                <td>
+                                                    <cc1:SaimtASPxCheckBox ID="chkCriterioTipoTarifa" runat="server" 
+                                                        Text="Por Tipo de Tarifa">
+                                                    </cc1:SaimtASPxCheckBox>
+                                                </td>
+                                                <td align="right">
+                                                    <cc1:SaimtASPxComboBox ID="cboCriterioTipoTarifa" runat="server" SelectedIndex="0"
+                                                        Width="50px">
+                                                        <Items>
+                                                            <dx:ListEditItem Selected="True" Text="O" Value="OR" />
+                                                            <dx:ListEditItem Text="Y" Value="AND" />
+                                                        </Items>
+                                                    </cc1:SaimtASPxComboBox>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2">
+                                                    <cc1:SaimtASPxComboBox ID="cboTarifa" runat="server" CssFilePath="~/App_Themes/PlasticBlue/{0}/styles.css"
+                                                        CssPostfix="PlasticBlue" SpriteCssFilePath="~/App_Themes/PlasticBlue/{0}/sprite.css"
+                                                        ValueType="System.String" Width="200px">
+                                                    </cc1:SaimtASPxComboBox>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </dx:PanelContent>
+                                </PanelCollection>
+                                <Border BorderColor="#B8B8B8" BorderStyle="Solid" BorderWidth="1px"></Border>
+                            </cc1:SaimtASPxPanel>
+                        </td>
+                        <td valign="top">
+                            <cc1:SaimtASPxPanel ID="SaimtASPxPanel4" runat="server" BackColor="#F5F5F5" Border-BorderColor="#B8B8B8"
+                                Border-BorderStyle="Solid" Border-BorderWidth="1px">
+                                <PanelCollection>
+                                    <dx:PanelContent ID="PanelContent4" runat="server" SupportsDisabledAttribute="True">
+                                        <table cellspacing="3" cellpadding="3">
+                                            <tr>
+                                                <td>
+                                                    <cc1:SaimtASPxCheckBox ID="chkCriterioFechaInicio" runat="server" 
+                                                        Text="Por Fecha Inicio">
+                                                    </cc1:SaimtASPxCheckBox>
+                                                </td>
+                                                <td align="right" class="style1">
+                                                    <cc1:SaimtASPxComboBox ID="cboCriterioFechaInicio" runat="server" 
+                                                        SelectedIndex="0" Width="50px">
+                                                        <Items>
+                                                            <dx:ListEditItem Selected="True" Text="O" Value="OR" />
+                                                            <dx:ListEditItem Text="Y" Value="AND" />
+                                                        </Items>
+                                                    </cc1:SaimtASPxComboBox>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2">
+                                                    <cc1:SaimtASPxDateEdit ID="dtpFechaInicio" runat="server" CssFilePath="~/App_Themes/PlasticBlue/{0}/styles.css"
+                                                        CssPostfix="PlasticBlue" SpriteCssFilePath="~/App_Themes/PlasticBlue/{0}/sprite.css"
+                                                        Width="200px">
+                                                    </cc1:SaimtASPxDateEdit>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </dx:PanelContent>
+                                </PanelCollection>
+                                <Border BorderColor="#B8B8B8" BorderStyle="Solid" BorderWidth="1px"></Border>
+                            </cc1:SaimtASPxPanel>
+                            <cc1:SaimtASPxPanel ID="SaimtASPxPanel9" runat="server" BackColor="#F5F5F5" Border-BorderColor="#B8B8B8"
+                                Border-BorderStyle="Solid" Border-BorderWidth="1px">
+                                <PanelCollection>
+                                    <dx:PanelContent ID="PanelContent9" runat="server" SupportsDisabledAttribute="True">
+                                        <table cellspacing="3" cellpadding="3" width="100%">
+                                            <tr>
+                                                <td>
+                                                    <cc1:SaimtASPxCheckBox ID="chkCriterioFechaFin" runat="server" 
+                                                        Text="Por Fecha Fin">
+                                                    </cc1:SaimtASPxCheckBox>
+                                                </td>
+                                                <td align="right">
+                                                    <cc1:SaimtASPxComboBox ID="cboCriterioFechaFin" runat="server" 
+                                                        SelectedIndex="0" Width="50px">
+                                                        <Items>
+                                                            <dx:ListEditItem Selected="True" Text="O" Value="OR" />
+                                                            <dx:ListEditItem Text="Y" Value="AND" />
+                                                        </Items>
+                                                    </cc1:SaimtASPxComboBox>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2">
+                                                    <cc1:SaimtASPxDateEdit ID="dtpFechaFin" runat="server" CssFilePath="~/App_Themes/PlasticBlue/{0}/styles.css"
+                                                        CssPostfix="PlasticBlue" SpriteCssFilePath="~/App_Themes/PlasticBlue/{0}/sprite.css"
+                                                        Width="200px">
+                                                    </cc1:SaimtASPxDateEdit>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </dx:PanelContent>
+                                </PanelCollection>
+                                <Border BorderColor="#B8B8B8" BorderStyle="Solid" BorderWidth="1px"></Border>
+                            </cc1:SaimtASPxPanel>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td align="center" class="style2">
+                <cc1:SaimtASPxButton ID="btnBuscar" runat="server" ImagePosition="Right" Text="Buscar"
+                    Width="100px">
+                    <Image Url="~/iconos/buscar32x32.png">
+                    </Image>
+                </cc1:SaimtASPxButton>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <asp:ObjectDataSource ID="odsIngresosPEM" runat="server" 
+                    SelectMethod="reporteIngresosPEM" 
+                    TypeName="ReglasNegocio.ReglasWebBL">
+                    <SelectParameters>
+                        <asp:SessionParameter Name="sqlIngresosPEM" SessionField="sqlIngresosPEM" Type="String" DefaultValue="0" />
+                    </SelectParameters>
+                </asp:ObjectDataSource>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <cc1:SaimtASPxGridView ID="dgvIngresosPEM" runat="server"
+                    AutoGenerateColumns="False" KeyFieldName="DiarioId"
+                    CssFilePath="~/App_Themes/PlasticBlue/{0}/styles.css" 
+                    CssPostfix="PlasticBlue" DataSourceID="odsIngresosPEM">
+                    <Columns>
+                        <dx:GridViewDataTextColumn VisibleIndex="0" FieldName="DiarioId" Caption="Codigo">
+                        </dx:GridViewDataTextColumn>
+                        <dx:GridViewDataTextColumn VisibleIndex="1" FieldName="Institucion" Caption="Institucion">
+                        </dx:GridViewDataTextColumn>
+                        <dx:GridViewDataTextColumn VisibleIndex="2" FieldName="Sede" Caption="Sede">
+                        </dx:GridViewDataTextColumn>
+                        <dx:GridViewDataTextColumn VisibleIndex="3" FieldName="TipoVehiculo" Caption="Vehiculo">
+                        </dx:GridViewDataTextColumn>
+                        <dx:GridViewDataTextColumn VisibleIndex="4" FieldName="FechaIngreso" Caption="Fecha Ingreso">
+                        </dx:GridViewDataTextColumn>
+                        <dx:GridViewDataTextColumn VisibleIndex="5" FieldName="FechaSalida" Caption="Fecha Salida">
+                        </dx:GridViewDataTextColumn>
+                        <dx:GridViewDataTextColumn VisibleIndex="6" FieldName="Tarifa" Caption="Tarifa">
+                        </dx:GridViewDataTextColumn>
+                        <dx:GridViewDataTextColumn VisibleIndex="7" FieldName="Placa" Caption="Placa">
+                        </dx:GridViewDataTextColumn>
+                        <dx:GridViewDataTextColumn VisibleIndex="8" FieldName="Persona" Caption="Persona">
+                        </dx:GridViewDataTextColumn>
+                        <dx:GridViewDataTextColumn VisibleIndex="8" FieldName="TipoCliente" Caption="Tipo Cliente">
+                        </dx:GridViewDataTextColumn>
+                    </Columns>
+                    <Images SpriteCssFilePath="~/App_Themes/PlasticBlue/{0}/sprite.css"></Images>
+                    <Styles CssPostfix="PlasticBlue" CssFilePath="~/App_Themes/PlasticBlue/{0}/styles.css"></Styles>
+                </cc1:SaimtASPxGridView>
+            </td>
+        </tr>
+    </table>
+    </asp:Content>

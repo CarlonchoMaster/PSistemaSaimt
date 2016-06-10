@@ -1,0 +1,406 @@
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+Partial Class frmInstitucion
+    Inherits frmMantenimientos
+
+    'Form reemplaza a Dispose para limpiar la lista de componentes.
+    <System.Diagnostics.DebuggerNonUserCode()> _
+    Protected Overrides Sub Dispose(ByVal disposing As Boolean)
+        Try
+            If disposing AndAlso components IsNot Nothing Then
+                components.Dispose()
+            End If
+        Finally
+            MyBase.Dispose(disposing)
+        End Try
+    End Sub
+
+    'Requerido por el Diseñador de Windows Forms
+    Private components As System.ComponentModel.IContainer
+
+    'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
+    'Se puede modificar usando el Diseñador de Windows Forms.  
+    'No lo modifique con el editor de código.
+    <System.Diagnostics.DebuggerStepThrough()> _
+    Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmInstitucion))
+        Me.SaimtGroupBox1 = New SaimtControles.SaimtGroupBox()
+        Me.dgvResultadoBusqueda = New SaimtControles.SaimtDataGrid()
+        Me.gvResultadoBusqueda = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.GridColumn1 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn2 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn3 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.txtBuscarPor = New SaimtControles.SaimtTextBox()
+        Me.SaimtLabel4 = New SaimtControles.SaimtLabel()
+        Me.sRbBuscarPor = New SaimtControles.SaimtRadioGroup()
+        Me.btnCancelar = New SaimtControles.SaimtButton()
+        Me.btnEliminar = New SaimtControles.SaimtButton()
+        Me.btnLimpiar = New SaimtControles.SaimtButton()
+        Me.btnNuevo = New SaimtControles.SaimtButton()
+        Me.btnGuardar = New SaimtControles.SaimtButton()
+        Me.btnEditar = New SaimtControles.SaimtButton()
+        Me.SaimtGroupBox2 = New SaimtControles.SaimtGroupBox()
+        Me.TxtCodInstitucion = New SaimtControles.SaimtTextBox()
+        Me.SaimtLabel3 = New SaimtControles.SaimtLabel()
+        Me.chkActivo = New SaimtControles.SaimtCheckBox()
+        Me.txtSiglas = New SaimtControles.SaimtTextBox()
+        Me.SaimtLabel2 = New SaimtControles.SaimtLabel()
+        Me.TxtNombre = New SaimtControles.SaimtTextBox()
+        Me.SaimtLabel1 = New SaimtControles.SaimtLabel()
+        Me.SaimtSplitContainerControl1 = New SaimtControles.SaimtSplitContainerControl()
+        CType(Me.pmconsultorpropagos, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.SaimtGroupBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SaimtGroupBox1.SuspendLayout()
+        CType(Me.dgvResultadoBusqueda, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.gvResultadoBusqueda, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtBuscarPor.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.sRbBuscarPor.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.SaimtGroupBox2, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SaimtGroupBox2.SuspendLayout()
+        CType(Me.TxtCodInstitucion.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.chkActivo.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtSiglas.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TxtNombre.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.SaimtSplitContainerControl1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SaimtSplitContainerControl1.SuspendLayout()
+        Me.SuspendLayout()
+        '
+        'rsbMensajeBarra
+        '
+        Me.rsbMensajeBarra.Location = New System.Drawing.Point(0, 273)
+        Me.rsbMensajeBarra.Size = New System.Drawing.Size(988, 27)
+        '
+        'SaimtGroupBox1
+        '
+        Me.SaimtGroupBox1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.SaimtGroupBox1.Controls.Add(Me.dgvResultadoBusqueda)
+        Me.SaimtGroupBox1.Location = New System.Drawing.Point(6, 80)
+        Me.SaimtGroupBox1.LookAndFeel.SkinName = "Office 2010 Blue"
+        Me.SaimtGroupBox1.LookAndFeel.UseDefaultLookAndFeel = False
+        Me.SaimtGroupBox1.Name = "SaimtGroupBox1"
+        Me.SaimtGroupBox1.Size = New System.Drawing.Size(488, 187)
+        Me.SaimtGroupBox1.TabIndex = 65
+        Me.SaimtGroupBox1.Text = "Resultados de Busqueda"
+        '
+        'dgvResultadoBusqueda
+        '
+        Me.dgvResultadoBusqueda.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.dgvResultadoBusqueda.Location = New System.Drawing.Point(2, 21)
+        Me.dgvResultadoBusqueda.MainView = Me.gvResultadoBusqueda
+        Me.dgvResultadoBusqueda.MenuManager = Me.RibbonControl
+        Me.dgvResultadoBusqueda.Name = "dgvResultadoBusqueda"
+        Me.dgvResultadoBusqueda.Size = New System.Drawing.Size(484, 164)
+        Me.dgvResultadoBusqueda.TabIndex = 7
+        Me.dgvResultadoBusqueda.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.gvResultadoBusqueda})
+        '
+        'gvResultadoBusqueda
+        '
+        Me.gvResultadoBusqueda.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.GridColumn1, Me.GridColumn2, Me.GridColumn3})
+        Me.gvResultadoBusqueda.GridControl = Me.dgvResultadoBusqueda
+        Me.gvResultadoBusqueda.Name = "gvResultadoBusqueda"
+        Me.gvResultadoBusqueda.OptionsBehavior.Editable = False
+        Me.gvResultadoBusqueda.OptionsView.ColumnAutoWidth = False
+        Me.gvResultadoBusqueda.OptionsView.ShowGroupPanel = False
+        '
+        'GridColumn1
+        '
+        Me.GridColumn1.Caption = "Institución"
+        Me.GridColumn1.FieldName = "tgInstitucion"
+        Me.GridColumn1.Name = "GridColumn1"
+        Me.GridColumn1.Visible = True
+        Me.GridColumn1.VisibleIndex = 1
+        '
+        'GridColumn2
+        '
+        Me.GridColumn2.Caption = "Siglas"
+        Me.GridColumn2.FieldName = "tgSiglas"
+        Me.GridColumn2.Name = "GridColumn2"
+        Me.GridColumn2.Visible = True
+        Me.GridColumn2.VisibleIndex = 0
+        '
+        'GridColumn3
+        '
+        Me.GridColumn3.Caption = "GridColumn3"
+        Me.GridColumn3.FieldName = "tgInstitucionId"
+        Me.GridColumn3.Name = "GridColumn3"
+        '
+        'txtBuscarPor
+        '
+        Me.txtBuscarPor.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.txtBuscarPor.Location = New System.Drawing.Point(6, 54)
+        Me.txtBuscarPor.Name = "txtBuscarPor"
+        Me.txtBuscarPor.Size = New System.Drawing.Size(488, 20)
+        Me.txtBuscarPor.TabIndex = 64
+        '
+        'SaimtLabel4
+        '
+        Me.SaimtLabel4.Location = New System.Drawing.Point(11, 4)
+        Me.SaimtLabel4.Name = "SaimtLabel4"
+        Me.SaimtLabel4.Size = New System.Drawing.Size(58, 13)
+        Me.SaimtLabel4.TabIndex = 63
+        Me.SaimtLabel4.Text = "Buscar por :"
+        '
+        'sRbBuscarPor
+        '
+        Me.sRbBuscarPor.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.sRbBuscarPor.EditValue = "1"
+        Me.sRbBuscarPor.Location = New System.Drawing.Point(6, 20)
+        Me.sRbBuscarPor.Name = "sRbBuscarPor"
+        Me.sRbBuscarPor.Properties.Appearance.BackColor = System.Drawing.Color.Transparent
+        Me.sRbBuscarPor.Properties.Appearance.Options.UseBackColor = True
+        Me.sRbBuscarPor.Properties.Columns = 3
+        Me.sRbBuscarPor.Properties.Items.AddRange(New DevExpress.XtraEditors.Controls.RadioGroupItem() {New DevExpress.XtraEditors.Controls.RadioGroupItem("1", "Nombre Institución"), New DevExpress.XtraEditors.Controls.RadioGroupItem("2", "Siglas")})
+        Me.sRbBuscarPor.Size = New System.Drawing.Size(488, 29)
+        Me.sRbBuscarPor.TabIndex = 62
+        '
+        'btnCancelar
+        '
+        Me.btnCancelar.Image = CType(resources.GetObject("btnCancelar.Image"), System.Drawing.Image)
+        Me.btnCancelar.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter
+        Me.btnCancelar.Location = New System.Drawing.Point(217, 196)
+        Me.btnCancelar.LookAndFeel.SkinName = "Seven"
+        Me.btnCancelar.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Style3D
+        Me.btnCancelar.Name = "btnCancelar"
+        Me.btnCancelar.Size = New System.Drawing.Size(64, 64)
+        Me.btnCancelar.TabIndex = 59
+        Me.btnCancelar.Text = "Cancelar"
+        '
+        'btnEliminar
+        '
+        Me.btnEliminar.Image = CType(resources.GetObject("btnEliminar.Image"), System.Drawing.Image)
+        Me.btnEliminar.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter
+        Me.btnEliminar.Location = New System.Drawing.Point(357, 196)
+        Me.btnEliminar.LookAndFeel.SkinName = "Seven"
+        Me.btnEliminar.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Style3D
+        Me.btnEliminar.Name = "btnEliminar"
+        Me.btnEliminar.Size = New System.Drawing.Size(64, 64)
+        Me.btnEliminar.TabIndex = 61
+        Me.btnEliminar.Text = "Eliminar"
+        '
+        'btnLimpiar
+        '
+        Me.btnLimpiar.Image = CType(resources.GetObject("btnLimpiar.Image"), System.Drawing.Image)
+        Me.btnLimpiar.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter
+        Me.btnLimpiar.Location = New System.Drawing.Point(147, 196)
+        Me.btnLimpiar.LookAndFeel.SkinName = "Seven"
+        Me.btnLimpiar.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Style3D
+        Me.btnLimpiar.Name = "btnLimpiar"
+        Me.btnLimpiar.Size = New System.Drawing.Size(64, 64)
+        Me.btnLimpiar.TabIndex = 58
+        Me.btnLimpiar.Text = "Limpiar"
+        '
+        'btnNuevo
+        '
+        Me.btnNuevo.Image = CType(resources.GetObject("btnNuevo.Image"), System.Drawing.Image)
+        Me.btnNuevo.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter
+        Me.btnNuevo.Location = New System.Drawing.Point(7, 196)
+        Me.btnNuevo.LookAndFeel.SkinName = "Seven"
+        Me.btnNuevo.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Style3D
+        Me.btnNuevo.Name = "btnNuevo"
+        Me.btnNuevo.Size = New System.Drawing.Size(64, 64)
+        Me.btnNuevo.TabIndex = 56
+        Me.btnNuevo.Text = "Nuevo"
+        '
+        'btnGuardar
+        '
+        Me.btnGuardar.Image = CType(resources.GetObject("btnGuardar.Image"), System.Drawing.Image)
+        Me.btnGuardar.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter
+        Me.btnGuardar.Location = New System.Drawing.Point(287, 196)
+        Me.btnGuardar.LookAndFeel.SkinName = "Seven"
+        Me.btnGuardar.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Style3D
+        Me.btnGuardar.Name = "btnGuardar"
+        Me.btnGuardar.Size = New System.Drawing.Size(64, 64)
+        Me.btnGuardar.TabIndex = 60
+        Me.btnGuardar.Text = "Guardar"
+        '
+        'btnEditar
+        '
+        Me.btnEditar.Image = CType(resources.GetObject("btnEditar.Image"), System.Drawing.Image)
+        Me.btnEditar.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter
+        Me.btnEditar.Location = New System.Drawing.Point(77, 196)
+        Me.btnEditar.LookAndFeel.SkinName = "Seven"
+        Me.btnEditar.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Style3D
+        Me.btnEditar.Name = "btnEditar"
+        Me.btnEditar.Size = New System.Drawing.Size(64, 64)
+        Me.btnEditar.TabIndex = 57
+        Me.btnEditar.Text = "Editar"
+        '
+        'SaimtGroupBox2
+        '
+        Me.SaimtGroupBox2.Controls.Add(Me.TxtCodInstitucion)
+        Me.SaimtGroupBox2.Controls.Add(Me.SaimtLabel3)
+        Me.SaimtGroupBox2.Controls.Add(Me.chkActivo)
+        Me.SaimtGroupBox2.Controls.Add(Me.txtSiglas)
+        Me.SaimtGroupBox2.Controls.Add(Me.SaimtLabel2)
+        Me.SaimtGroupBox2.Controls.Add(Me.TxtNombre)
+        Me.SaimtGroupBox2.Controls.Add(Me.SaimtLabel1)
+        Me.SaimtGroupBox2.Location = New System.Drawing.Point(7, 19)
+        Me.SaimtGroupBox2.LookAndFeel.SkinName = "Office 2010 Blue"
+        Me.SaimtGroupBox2.LookAndFeel.UseDefaultLookAndFeel = False
+        Me.SaimtGroupBox2.Name = "SaimtGroupBox2"
+        Me.SaimtGroupBox2.Size = New System.Drawing.Size(468, 163)
+        Me.SaimtGroupBox2.TabIndex = 55
+        Me.SaimtGroupBox2.Text = "Datos de la Institución"
+        '
+        'TxtCodInstitucion
+        '
+        Me.TxtCodInstitucion.Location = New System.Drawing.Point(235, 83)
+        Me.TxtCodInstitucion.MenuManager = Me.RibbonControl
+        Me.TxtCodInstitucion.Name = "TxtCodInstitucion"
+        Me.TxtCodInstitucion.Size = New System.Drawing.Size(131, 20)
+        Me.TxtCodInstitucion.TabIndex = 7
+        '
+        'SaimtLabel3
+        '
+        Me.SaimtLabel3.Location = New System.Drawing.Point(153, 86)
+        Me.SaimtLabel3.Name = "SaimtLabel3"
+        Me.SaimtLabel3.Size = New System.Drawing.Size(76, 13)
+        Me.SaimtLabel3.TabIndex = 6
+        Me.SaimtLabel3.Text = "Cod. Institución"
+        '
+        'chkActivo
+        '
+        Me.chkActivo.Location = New System.Drawing.Point(9, 112)
+        Me.chkActivo.MenuManager = Me.RibbonControl
+        Me.chkActivo.Name = "chkActivo"
+        Me.chkActivo.Properties.AutoWidth = True
+        Me.chkActivo.Properties.Caption = "Check si la Institución esta Activa"
+        Me.chkActivo.Size = New System.Drawing.Size(182, 19)
+        Me.chkActivo.TabIndex = 4
+        '
+        'txtSiglas
+        '
+        Me.txtSiglas.Location = New System.Drawing.Point(11, 83)
+        Me.txtSiglas.MenuManager = Me.RibbonControl
+        Me.txtSiglas.Name = "txtSiglas"
+        Me.txtSiglas.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtSiglas.Size = New System.Drawing.Size(131, 20)
+        Me.txtSiglas.TabIndex = 3
+        '
+        'SaimtLabel2
+        '
+        Me.SaimtLabel2.Location = New System.Drawing.Point(11, 67)
+        Me.SaimtLabel2.Name = "SaimtLabel2"
+        Me.SaimtLabel2.Size = New System.Drawing.Size(80, 13)
+        Me.SaimtLabel2.TabIndex = 2
+        Me.SaimtLabel2.Text = "Siglas Institucion"
+        '
+        'TxtNombre
+        '
+        Me.TxtNombre.Location = New System.Drawing.Point(11, 42)
+        Me.TxtNombre.MenuManager = Me.RibbonControl
+        Me.TxtNombre.Name = "TxtNombre"
+        Me.TxtNombre.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.TxtNombre.Size = New System.Drawing.Size(448, 20)
+        Me.TxtNombre.TabIndex = 1
+        '
+        'SaimtLabel1
+        '
+        Me.SaimtLabel1.Location = New System.Drawing.Point(11, 26)
+        Me.SaimtLabel1.Name = "SaimtLabel1"
+        Me.SaimtLabel1.Size = New System.Drawing.Size(90, 13)
+        Me.SaimtLabel1.TabIndex = 0
+        Me.SaimtLabel1.Text = "Nombre Institución"
+        '
+        'SaimtSplitContainerControl1
+        '
+        Me.SaimtSplitContainerControl1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.SaimtSplitContainerControl1.Location = New System.Drawing.Point(0, 0)
+        Me.SaimtSplitContainerControl1.Name = "SaimtSplitContainerControl1"
+        Me.SaimtSplitContainerControl1.Panel1.Controls.Add(Me.SaimtLabel4)
+        Me.SaimtSplitContainerControl1.Panel1.Controls.Add(Me.SaimtGroupBox1)
+        Me.SaimtSplitContainerControl1.Panel1.Controls.Add(Me.sRbBuscarPor)
+        Me.SaimtSplitContainerControl1.Panel1.Controls.Add(Me.txtBuscarPor)
+        Me.SaimtSplitContainerControl1.Panel1.Text = "Panel1"
+        Me.SaimtSplitContainerControl1.Panel2.Controls.Add(Me.SaimtGroupBox2)
+        Me.SaimtSplitContainerControl1.Panel2.Controls.Add(Me.btnCancelar)
+        Me.SaimtSplitContainerControl1.Panel2.Controls.Add(Me.btnNuevo)
+        Me.SaimtSplitContainerControl1.Panel2.Controls.Add(Me.btnEliminar)
+        Me.SaimtSplitContainerControl1.Panel2.Controls.Add(Me.btnEditar)
+        Me.SaimtSplitContainerControl1.Panel2.Controls.Add(Me.btnLimpiar)
+        Me.SaimtSplitContainerControl1.Panel2.Controls.Add(Me.btnGuardar)
+        Me.SaimtSplitContainerControl1.Panel2.Text = "Panel2"
+        Me.SaimtSplitContainerControl1.Size = New System.Drawing.Size(988, 273)
+        Me.SaimtSplitContainerControl1.SplitterPosition = 499
+        Me.SaimtSplitContainerControl1.TabIndex = 66
+        Me.SaimtSplitContainerControl1.Text = "SaimtSplitContainerControl1"
+        '
+        'frmInstitucion
+        '
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.ButtonCancelar = Me.btnCancelar
+        Me.ButtonEditar = Me.btnEditar
+        Me.ButtonEliminar = Me.btnEliminar
+        Me.ButtonGuardar = Me.btnGuardar
+        Me.ButtonLimpiar = Me.btnLimpiar
+        Me.ButtonNuevo = Me.btnNuevo
+        Me.ClientSize = New System.Drawing.Size(988, 300)
+        Me.Controls.Add(Me.SaimtSplitContainerControl1)
+        Me.dgvListado = Me.dgvResultadoBusqueda
+        Me.LookAndFeel.SkinName = "Seven"
+        Me.Name = "frmInstitucion"
+        Me.PuedeBuscar = True
+        Me.PuedeConfirmar = True
+        Me.PuedeCrear = True
+        Me.PuedeDesvincular = True
+        Me.PuedeEditar = True
+        Me.PuedeEliminar = True
+        Me.PuedeEnviar = True
+        Me.PuedeExportar = True
+        Me.PuedeImportar = True
+        Me.PuedeImprimir = True
+        Me.PuedeVerDetalle = True
+        Me.PuedeVincular = True
+        Me.PuedeVisualizar = True
+        Me.Text = "Registro de Instituciones"
+        Me.txtBuscarSaimt = Me.txtBuscarPor
+        Me.Controls.SetChildIndex(Me.rsbMensajeBarra, 0)
+        Me.Controls.SetChildIndex(Me.SaimtSplitContainerControl1, 0)
+        CType(Me.pmconsultorpropagos, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.SaimtGroupBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.SaimtGroupBox1.ResumeLayout(False)
+        CType(Me.dgvResultadoBusqueda, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.gvResultadoBusqueda, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtBuscarPor.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.sRbBuscarPor.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.SaimtGroupBox2, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.SaimtGroupBox2.ResumeLayout(False)
+        Me.SaimtGroupBox2.PerformLayout()
+        CType(Me.TxtCodInstitucion.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.chkActivo.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtSiglas.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TxtNombre.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.SaimtSplitContainerControl1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.SaimtSplitContainerControl1.ResumeLayout(False)
+        Me.ResumeLayout(False)
+
+    End Sub
+    Friend WithEvents SaimtGroupBox1 As SaimtControles.SaimtGroupBox
+    Friend WithEvents txtBuscarPor As SaimtControles.SaimtTextBox
+    Friend WithEvents SaimtLabel4 As SaimtControles.SaimtLabel
+    Friend WithEvents sRbBuscarPor As SaimtControles.SaimtRadioGroup
+    Friend WithEvents btnCancelar As SaimtControles.SaimtButton
+    Friend WithEvents btnEliminar As SaimtControles.SaimtButton
+    Friend WithEvents btnLimpiar As SaimtControles.SaimtButton
+    Friend WithEvents btnNuevo As SaimtControles.SaimtButton
+    Friend WithEvents btnGuardar As SaimtControles.SaimtButton
+    Friend WithEvents btnEditar As SaimtControles.SaimtButton
+    Friend WithEvents SaimtGroupBox2 As SaimtControles.SaimtGroupBox
+    Friend WithEvents TxtCodInstitucion As SaimtControles.SaimtTextBox
+    Friend WithEvents SaimtLabel3 As SaimtControles.SaimtLabel
+    Friend WithEvents chkActivo As SaimtControles.SaimtCheckBox
+    Friend WithEvents txtSiglas As SaimtControles.SaimtTextBox
+    Friend WithEvents SaimtLabel2 As SaimtControles.SaimtLabel
+    Friend WithEvents TxtNombre As SaimtControles.SaimtTextBox
+    Friend WithEvents SaimtLabel1 As SaimtControles.SaimtLabel
+    Friend WithEvents SaimtSplitContainerControl1 As SaimtControles.SaimtSplitContainerControl
+    Friend WithEvents dgvResultadoBusqueda As SaimtControles.SaimtDataGrid
+    Friend WithEvents gvResultadoBusqueda As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents GridColumn1 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn2 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn3 As DevExpress.XtraGrid.Columns.GridColumn
+End Class

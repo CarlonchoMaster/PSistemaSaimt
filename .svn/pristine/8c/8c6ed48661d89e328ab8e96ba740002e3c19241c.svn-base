@@ -1,0 +1,251 @@
+﻿Imports SaimtControles
+Imports ReglasNegocio
+Imports Entidades
+
+Public Class frmVincular
+    Inherits frmGeneral
+
+    Dim dtVincular As DataTable = New DataTable()
+
+#Region "Construir Table"
+    Private Sub ConstruirTable()
+        dtVincular.Columns.Add("docId", GetType(String))
+        dtVincular.Columns.Add("docVinId", GetType(String))
+        dtVincular.Columns.Add("docNParte", GetType(String))
+        dtVincular.Columns.Add("nroDocumento", GetType(String))
+        dtVincular.Columns.Add("año", GetType(String))
+        dtVincular.Columns.Add("siglas", GetType(String))
+        dtVincular.Columns.Add("institucionId", GetType(String))
+        dtVincular.Columns.Add("asunto", GetType(String))
+        dtVincular.Columns.Add("nroRegistro", GetType(String))
+        dtVincular.Columns.Add("fechaRegistro", GetType(DateTime))
+        dtVincular.Columns.Add("institucion", GetType(String))
+        dtVincular.Columns.Add("area", GetType(String))
+    End Sub
+#End Region
+
+    Private Sub frmVincular_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
+        ConstruirTable()
+        dgvDocumentosVinculados.DataSource = dtVincular
+
+        cboInstitucionPrincipal.mColumnas(SaimtComboBoxLookUp.Entidades.TablaGeneral)
+        cboInstitucionPrincipal.Properties.DisplayMember = "TgNombre"
+        cboInstitucionPrincipal.Properties.ValueMember = "TgCodigo"
+        cboInstitucionPrincipal.Properties.DataSource = MantenimientosBL.Instancia.tablageneralListarXClsId(82)
+
+        cboInstitucionVinculado.mColumnas(SaimtComboBoxLookUp.Entidades.TablaGeneral)
+        cboInstitucionVinculado.Properties.DisplayMember = "TgNombre"
+        cboInstitucionVinculado.Properties.ValueMember = "TgCodigo"
+        cboInstitucionVinculado.Properties.DataSource = MantenimientosBL.Instancia.tablageneralListarXClsId(82)
+
+        hodControlesTotal(grbDocumentoPrincipal.Controls, False)
+        hodControlesTotal(grbDocumentoVinculado.Controls, False)
+        spnParteVinculado.Properties.ReadOnly = False
+        btnVincular.Enabled = False
+        btnDesvincular.Enabled = False
+        btnVerDocumentoPrincipal.Enabled = True
+        btnVerDocumentoVinculado.Enabled = True
+    End Sub
+
+    Private Sub btnVincular_Click(sender As System.Object, e As System.EventArgs) Handles btnVincular.Click
+        Try
+            If spnPartePrincipal.EditValue <= 0 Then
+                SaimtMessageBox.mostrarAlertaAdvertencia("Parte del Documento Principal No Puede Ser Menor o Igual a 0.")
+                spnPartePrincipal.Focus()
+                Exit Sub
+            End If
+
+            If String.IsNullOrEmpty(txtCodigoDocumentoVinculado.Text) Then
+                SaimtMessageBox.mostrarAlertaAdvertencia("Seleccione Documento Vinculado.")
+                Exit Sub
+            End If
+            If spnParteVinculado.EditValue <= 0 Then
+                SaimtMessageBox.mostrarAlertaAdvertencia("Parte del Documento Vinculado No Puede Ser Menor o Igual a 0.")
+                spnParteVinculado.Focus()
+                Exit Sub
+            End If
+
+            If SaimtMessageBox.mostrarAlertaPregunta("Desea Vincular el Documento") Then
+                MantenimientosBL.Instancia.documentostdVincular(txtCodigoDocumentoPrincipal.Text, txtCodigoDocumentoVinculado.Text, Convert.ToInt16(spnPartePrincipal.EditValue), Convert.ToInt16(spnParteVinculado.EditValue))
+                mostrarMensajeBarra("El Documento se Vinculo Correctamente")
+
+                GLimpiarControlesTotal(grbDocumentoPrincipal.Controls)
+                GLimpiarControlesTotal(grbDocumentoVinculado.Controls)
+
+                rdbPrincipalVinculado.SelectedIndex = 1
+                rdbPrincipalVinculado.SelectedIndex = 0
+                btnVincular.Enabled = False
+                btnDesvincular.Enabled = False
+            End If
+        Catch ex As Exception
+            SaimtMessageBox.mostrarAlertaError(ex.Message)
+        End Try
+    End Sub
+
+    Private Sub btnDesvincular_Click(sender As System.Object, e As System.EventArgs) Handles btnDesvincular.Click
+        Try
+            If String.IsNullOrEmpty(txtCodigoDocumentoVinculado.Text) Then
+                SaimtMessageBox.mostrarAlertaAdvertencia("Seleccione Documento Vinculado.")
+                Exit Sub
+            End If
+
+            If SaimtMessageBox.mostrarAlertaPregunta("Desea DesVincular el Documento") Then
+                MantenimientosBL.Instancia.documentostdDesvincular(txtCodigoDocumentoVinculado.Text)
+                mostrarMensajeBarra("El Documento se DesVinculo Correctamente")
+
+                GLimpiarControlesTotal(grbDocumentoPrincipal.Controls)
+                GLimpiarControlesTotal(grbDocumentoVinculado.Controls)
+
+                rdbPrincipalVinculado.SelectedIndex = 1
+                rdbPrincipalVinculado.SelectedIndex = 0
+                btnVincular.Enabled = False
+                btnDesvincular.Enabled = False
+            End If
+        Catch ex As Exception
+            SaimtMessageBox.mostrarAlertaError(ex.Message)
+        End Try
+    End Sub
+
+    Private Sub lstDocumentos_SelectedValueChanged(sender As System.Object, e As System.EventArgs) Handles lstDocumentos.SelectedValueChanged
+        Try
+            If lstDocumentos.SelectedItem IsNot Nothing Then
+                Dim loDocumentoSTD As EEDocumentoSTD = DirectCast(lstDocumentos.SelectedItem, EEDocumentoSTD)
+                If rdbPrincipalVinculado.EditValue = 1 Then
+                    txtCodigoDocumentoPrincipal.Text = loDocumentoSTD.DocId
+                    txtNroDocumentoPrincipal.Text = loDocumentoSTD.DocNro
+                    txtAñoPrincipal.Text = loDocumentoSTD.DocAño
+                    txtSiglasPrincipal.Text = loDocumentoSTD.DocSiglas
+                    cboInstitucionPrincipal.EditValue = loDocumentoSTD.TgInstitucionId
+                    txtAreaPrincipal.EditValue = loDocumentoSTD.TgArea
+                    txtAsuntoPrincipal.EditValue = loDocumentoSTD.DocAsunto
+                    spnPartePrincipal.EditValue = loDocumentoSTD.DocNParte
+                    spnPartePrincipal.Properties.ReadOnly = False
+
+                    dtVincular.Clear()
+                    If loDocumentoSTD.ListaDocumentosVinculados IsNot Nothing Then
+                        For Each fDocumentoSTD As EEDocumentoSTD In loDocumentoSTD.ListaDocumentosVinculados
+                            dtVincular.LoadDataRow(New Object() { _
+                                fDocumentoSTD.DocId, _
+                                fDocumentoSTD.DocVinId, _
+                                fDocumentoSTD.DocNParte, _
+                                fDocumentoSTD.DocNro, _
+                                fDocumentoSTD.DocAño, _
+                                fDocumentoSTD.DocSiglas, _
+                                fDocumentoSTD.TgInstitucionId, _
+                                fDocumentoSTD.DocAsunto, _
+                                fDocumentoSTD.DocNRegT, _
+                                fDocumentoSTD.DocFechaReg, _
+                                fDocumentoSTD.TgInstitucion, _
+                                fDocumentoSTD.TgArea
+                            }, True)
+                        Next
+                    End If
+
+                    btnVincular.Enabled = False
+                    btnDesvincular.Enabled = False
+                ElseIf rdbPrincipalVinculado.EditValue = 2 Then
+                    'If Not String.IsNullOrEmpty(loDocumentoSTD.DocVinId) Then
+                    '    mostrarMensajeBarra("El Documento Seleccionado ya se Encuentra Vinculado")
+                    '    Exit Sub
+                    'Else
+                    txtCodigoDocumentoVinculado.Text = loDocumentoSTD.DocId
+                    txtNroDocumentoVinculado.Text = loDocumentoSTD.DocNro
+                    txtAñoVinculado.Text = loDocumentoSTD.DocAño
+                    txtSiglasVinculado.Text = loDocumentoSTD.DocSiglas
+                    cboInstitucionVinculado.EditValue = loDocumentoSTD.TgInstitucionId
+                    spnParteVinculado.EditValue = loDocumentoSTD.DocNParte
+                    txtCodigoPadreVinculado.Text = loDocumentoSTD.DocId
+                    txtCodigoPadreVinculado.Tag = String.Empty
+                    txtAreaVinculado.EditValue = loDocumentoSTD.TgArea
+                    txtAsuntoVinculado.EditValue = loDocumentoSTD.DocAsunto
+                    'End If
+                    '---------------------------------------------------------------------------------------------------------------------------------------------
+                    If Not String.IsNullOrEmpty(txtCodigoPadreVinculado.Tag) Then
+                        btnVincular.Enabled = False
+                        btnDesvincular.Enabled = True
+                        spnParteVinculado.Properties.ReadOnly = True
+                    Else
+                        btnVincular.Enabled = True
+                        btnDesvincular.Enabled = False
+                        spnParteVinculado.Properties.ReadOnly = False
+                    End If
+                End If
+            End If
+        Catch ex As Exception
+            SaimtMessageBox.mostrarAlertaError(ex.Message)
+        End Try
+    End Sub
+
+    Private Sub txtBuscarPor_KeyDown(sender As System.Object, e As System.Windows.Forms.KeyEventArgs) Handles txtBuscarPor.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            If PuedeBuscar Then
+                mostrarMensajeBarra("")
+                Try
+                    lstDocumentos.DisplayMember = "DocumentoSTD"
+                    If rdbPrincipalVinculado.EditValue = 1 Then
+                        lstDocumentos.DataSource = MantenimientosBL.Instancia.documentostdListarCriterioVincular(rdbCriterios.EditValue, txtBuscarPor.Text)
+                    ElseIf rdbPrincipalVinculado.EditValue = 2 Then
+                        Dim ListaDocumentoSTD As List(Of EEDocumentoSTD) = MantenimientosBL.Instancia.documentostdListarCriterioVincular(rdbCriterios.EditValue, txtBuscarPor.Text)
+                        lstDocumentos.DataSource = ListaDocumentoSTD.FindAll(Function(afParametro) afParametro.DocId <> txtCodigoDocumentoPrincipal.Text)
+                    End If
+
+                Catch ex As Exception
+                    SaimtMessageBox.mostrarAlertaError(ex.Message)
+                End Try
+            Else
+                mostrarMensajeBarra(GMensajePermiso)
+            End If
+        End If
+    End Sub
+
+    Private Sub rdbPrincipalVinculado_SelectedIndexChanged(sender As System.Object, e As System.EventArgs) Handles rdbPrincipalVinculado.SelectedIndexChanged
+        lstDocumentos.DataSource = Nothing
+    End Sub
+
+    Private Sub dgvDocumentosVinculados_DoubleClick(sender As System.Object, e As System.EventArgs) Handles dgvDocumentosVinculados.DoubleClick
+        If Me.lvDocumentosVinculados.DataRowCount <> 0 Then
+            txtCodigoDocumentoVinculado.Text = lvDocumentosVinculados.GetRowCellValue(Me.lvDocumentosVinculados.GetSelectedRows(0), "docId").ToString()
+            txtNroDocumentoVinculado.Text = lvDocumentosVinculados.GetRowCellValue(Me.lvDocumentosVinculados.GetSelectedRows(0), "nroDocumento").ToString()
+            txtAñoVinculado.Text = lvDocumentosVinculados.GetRowCellValue(Me.lvDocumentosVinculados.GetSelectedRows(0), "año").ToString()
+            txtSiglasVinculado.Text = lvDocumentosVinculados.GetRowCellValue(Me.lvDocumentosVinculados.GetSelectedRows(0), "siglas").ToString()
+            cboInstitucionVinculado.EditValue = lvDocumentosVinculados.GetRowCellValue(Me.lvDocumentosVinculados.GetSelectedRows(0), "institucionId").ToString()
+            txtCodigoPadreVinculado.Text = lvDocumentosVinculados.GetRowCellValue(Me.lvDocumentosVinculados.GetSelectedRows(0), "docVinId").ToString()
+            txtCodigoPadreVinculado.Tag = lvDocumentosVinculados.GetRowCellValue(Me.lvDocumentosVinculados.GetSelectedRows(0), "docVinId").ToString()
+            spnParteVinculado.EditValue = lvDocumentosVinculados.GetRowCellValue(Me.lvDocumentosVinculados.GetSelectedRows(0), "docNParte").ToString()
+            txtAreaVinculado.EditValue = lvDocumentosVinculados.GetRowCellValue(Me.lvDocumentosVinculados.GetSelectedRows(0), "area").ToString()
+            txtAsuntoVinculado.EditValue = lvDocumentosVinculados.GetRowCellValue(Me.lvDocumentosVinculados.GetSelectedRows(0), "asunto").ToString()
+            btnDesvincular.Enabled = True
+            spnPartePrincipal.Properties.ReadOnly = True
+            spnParteVinculado.Properties.ReadOnly = True
+        End If
+    End Sub
+
+    Private Sub btnVerDocumentoPrincipal_Click(sender As System.Object, e As System.EventArgs) Handles btnVerDocumentoPrincipal.Click
+        If Not String.IsNullOrEmpty(txtCodigoDocumentoPrincipal.Text) Then
+            Dim fmVisorDocumento As frmVisorDocumento = New frmVisorDocumento(txtCodigoDocumentoPrincipal.Text)
+            fmVisorDocumento.MdiParent = Me.MdiParent
+            fmVisorDocumento.BringToFront()
+            fmVisorDocumento.Show()
+        End If
+
+    End Sub
+
+    Private Sub btnVerDocumentoVinculado_Click(sender As System.Object, e As System.EventArgs) Handles btnVerDocumentoVinculado.Click
+        If Not String.IsNullOrEmpty(txtCodigoDocumentoVinculado.Text) Then
+            Dim fmVisorDocumento As frmVisorDocumento = New frmVisorDocumento(txtCodigoDocumentoVinculado.Text)
+            fmVisorDocumento.MdiParent = Me.MdiParent
+            fmVisorDocumento.BringToFront()
+            fmVisorDocumento.Show()
+        End If
+    End Sub
+
+    Private Sub lvDocumentosVinculados_DoubleClick(sender As System.Object, e As System.EventArgs) Handles lvDocumentosVinculados.DoubleClick
+        If Me.lvDocumentosVinculados.DataRowCount <> 0 Then
+            Dim CodDocInt As String = lvDocumentosVinculados.GetRowCellValue(Me.lvDocumentosVinculados.GetSelectedRows(0), lvcCodInterno).ToString()
+            Dim fmVisorInmuebles As frmVisorInmuebles = New frmVisorInmuebles(CodDocInt)
+            fmVisorInmuebles.MdiParent = Me.MdiParent
+            fmVisorInmuebles.BringToFront()
+            fmVisorInmuebles.Show()
+        End If
+    End Sub
+End Class

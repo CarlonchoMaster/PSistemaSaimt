@@ -1,0 +1,663 @@
+﻿'------------------------------------------------------------------------------
+' <generado automáticamente>
+'     Este código fue generado por una herramienta.
+'
+'     Los cambios en este archivo podrían causar un comportamiento incorrecto y se perderán si
+'     se vuelve a generar el código. 
+' </generado automáticamente>
+'------------------------------------------------------------------------------
+
+Option Strict On
+Option Explicit On
+
+
+Partial Public Class frmContrato
+
+    '''<summary>
+    '''Control SaimtASPxLabel2.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents SaimtASPxLabel2 As Global.SaimtControlesWeb.SaimtASPxLabel
+
+    '''<summary>
+    '''Control SaimtASPxRoundPanel2.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents SaimtASPxRoundPanel2 As Global.SaimtControlesWeb.SaimtASPxRoundPanel
+
+    '''<summary>
+    '''Control PanelContent1.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents PanelContent1 As Global.DevExpress.Web.PanelContent
+
+    '''<summary>
+    '''Control rblBuscar.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents rblBuscar As Global.SaimtControlesWeb.SaimtASPxRadioButtonList
+
+    '''<summary>
+    '''Control txtBuscarSaimt.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents txtBuscarSaimt As Global.SaimtControlesWeb.SaimtASPxTextBox
+
+    '''<summary>
+    '''Control btnSaimtBuscar.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents btnSaimtBuscar As Global.SaimtControlesWeb.SaimtASPxButton
+
+    '''<summary>
+    '''Control SaimtASPxRoundPanel3.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents SaimtASPxRoundPanel3 As Global.SaimtControlesWeb.SaimtASPxRoundPanel
+
+    '''<summary>
+    '''Control PanelContent2.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents PanelContent2 As Global.DevExpress.Web.PanelContent
+
+    '''<summary>
+    '''Control LstListado.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents LstListado As Global.SaimtControlesWeb.SaimtASPxListBox
+
+    '''<summary>
+    '''Control SaimtASPxRoundPanel1.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents SaimtASPxRoundPanel1 As Global.SaimtControlesWeb.SaimtASPxRoundPanel
+
+    '''<summary>
+    '''Control PanelContent3.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents PanelContent3 As Global.DevExpress.Web.PanelContent
+
+    '''<summary>
+    '''Control LstAcuerdos.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents LstAcuerdos As Global.SaimtControlesWeb.SaimtASPxListBox
+
+    '''<summary>
+    '''Control rpDatosAcuerdo.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents rpDatosAcuerdo As Global.SaimtControlesWeb.SaimtASPxRoundPanel
+
+    '''<summary>
+    '''Control SaimtASPxLabel20.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents SaimtASPxLabel20 As Global.SaimtControlesWeb.SaimtASPxLabel
+
+    '''<summary>
+    '''Control txtCodigo.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents txtCodigo As Global.SaimtControlesWeb.SaimtASPxTextBox
+
+    '''<summary>
+    '''Control SaimtASPxLabel12.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents SaimtASPxLabel12 As Global.SaimtControlesWeb.SaimtASPxLabel
+
+    '''<summary>
+    '''Control cboInstitucion.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents cboInstitucion As Global.SaimtControlesWeb.SaimtASPxComboBox
+
+    '''<summary>
+    '''Control SaimtASPxLabel13.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents SaimtASPxLabel13 As Global.SaimtControlesWeb.SaimtASPxLabel
+
+    '''<summary>
+    '''Control cboSede.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents cboSede As Global.SaimtControlesWeb.SaimtASPxComboBox
+
+    '''<summary>
+    '''Control SaimtASPxLabel5.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents SaimtASPxLabel5 As Global.SaimtControlesWeb.SaimtASPxLabel
+
+    '''<summary>
+    '''Control txtCliente.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents txtCliente As Global.SaimtControlesWeb.SaimtASPxTextBox
+
+    '''<summary>
+    '''Control btnBuscar.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents btnBuscar As Global.SaimtControlesWeb.SaimtASPxButton
+
+    '''<summary>
+    '''Control txtPerId.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents txtPerId As Global.SaimtControlesWeb.SaimtASPxTextBox
+
+    '''<summary>
+    '''Control SaimtASPxLabel26.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents SaimtASPxLabel26 As Global.SaimtControlesWeb.SaimtASPxLabel
+
+    '''<summary>
+    '''Control cboTipoVehiculo.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents cboTipoVehiculo As Global.SaimtControlesWeb.SaimtASPxComboBox
+
+    '''<summary>
+    '''Control ddlImpresoras.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents ddlImpresoras As Global.System.Web.UI.WebControls.DropDownList
+
+    '''<summary>
+    '''Control SaimtASPxLabel15.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents SaimtASPxLabel15 As Global.SaimtControlesWeb.SaimtASPxLabel
+
+    '''<summary>
+    '''Control txtNumPlaca1.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents txtNumPlaca1 As Global.SaimtControlesWeb.SaimtASPxTextBox
+
+    '''<summary>
+    '''Control SaimtASPxLabel18.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents SaimtASPxLabel18 As Global.SaimtControlesWeb.SaimtASPxLabel
+
+    '''<summary>
+    '''Control txtCodBarras1.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents txtCodBarras1 As Global.SaimtControlesWeb.SaimtASPxTextBox
+
+    '''<summary>
+    '''Control imgCodBarras1.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents imgCodBarras1 As Global.System.Web.UI.WebControls.Image
+
+    '''<summary>
+    '''Control btnImprimir.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents btnImprimir As Global.SaimtControlesWeb.SaimtASPxButton
+
+    '''<summary>
+    '''Control SaimtASPxLabel23.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents SaimtASPxLabel23 As Global.SaimtControlesWeb.SaimtASPxLabel
+
+    '''<summary>
+    '''Control txtNumPlaca2.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents txtNumPlaca2 As Global.SaimtControlesWeb.SaimtASPxTextBox
+
+    '''<summary>
+    '''Control SaimtASPxLabel25.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents SaimtASPxLabel25 As Global.SaimtControlesWeb.SaimtASPxLabel
+
+    '''<summary>
+    '''Control txtCodBarras2.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents txtCodBarras2 As Global.SaimtControlesWeb.SaimtASPxTextBox
+
+    '''<summary>
+    '''Control imgCodBarras2.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents imgCodBarras2 As Global.System.Web.UI.WebControls.Image
+
+    '''<summary>
+    '''Control btnImprimir2.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents btnImprimir2 As Global.SaimtControlesWeb.SaimtASPxButton
+
+    '''<summary>
+    '''Control SaimtASPxLabel24.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents SaimtASPxLabel24 As Global.SaimtControlesWeb.SaimtASPxLabel
+
+    '''<summary>
+    '''Control txtNumPlaca3.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents txtNumPlaca3 As Global.SaimtControlesWeb.SaimtASPxTextBox
+
+    '''<summary>
+    '''Control SaimtASPxLabel27.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents SaimtASPxLabel27 As Global.SaimtControlesWeb.SaimtASPxLabel
+
+    '''<summary>
+    '''Control txtCodBarras3.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents txtCodBarras3 As Global.SaimtControlesWeb.SaimtASPxTextBox
+
+    '''<summary>
+    '''Control imgCodBarras3.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents imgCodBarras3 As Global.System.Web.UI.WebControls.Image
+
+    '''<summary>
+    '''Control btnImprimir3.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents btnImprimir3 As Global.SaimtControlesWeb.SaimtASPxButton
+
+    '''<summary>
+    '''Control SaimtASPxLabel11.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents SaimtASPxLabel11 As Global.SaimtControlesWeb.SaimtASPxLabel
+
+    '''<summary>
+    '''Control cboTarifa.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents cboTarifa As Global.SaimtControlesWeb.SaimtASPxComboBox
+
+    '''<summary>
+    '''Control SaimtASPxLabel22.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents SaimtASPxLabel22 As Global.SaimtControlesWeb.SaimtASPxLabel
+
+    '''<summary>
+    '''Control txtFechaRegistro.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents txtFechaRegistro As Global.SaimtControlesWeb.SaimtASPxTextBox
+
+    '''<summary>
+    '''Control SaimtASPxLabel4.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents SaimtASPxLabel4 As Global.SaimtControlesWeb.SaimtASPxLabel
+
+    '''<summary>
+    '''Control dedFechaInicio.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents dedFechaInicio As Global.SaimtControlesWeb.SaimtASPxDateEdit
+
+    '''<summary>
+    '''Control SaimtASPxLabel6.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents SaimtASPxLabel6 As Global.SaimtControlesWeb.SaimtASPxLabel
+
+    '''<summary>
+    '''Control dedFechaFin.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents dedFechaFin As Global.SaimtControlesWeb.SaimtASPxDateEdit
+
+    '''<summary>
+    '''Control SaimtASPxLabel8.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents SaimtASPxLabel8 As Global.SaimtControlesWeb.SaimtASPxLabel
+
+    '''<summary>
+    '''Control dtHInicio.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents dtHInicio As Global.SaimtControlesWeb.SaimtASPxDateTime
+
+    '''<summary>
+    '''Control SaimtASPxLabel10.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents SaimtASPxLabel10 As Global.SaimtControlesWeb.SaimtASPxLabel
+
+    '''<summary>
+    '''Control dtHFin.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents dtHFin As Global.SaimtControlesWeb.SaimtASPxDateTime
+
+    '''<summary>
+    '''Control SaimtASPxLabel9.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents SaimtASPxLabel9 As Global.SaimtControlesWeb.SaimtASPxLabel
+
+    '''<summary>
+    '''Control txtPrecio.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents txtPrecio As Global.SaimtControlesWeb.SaimtASPxTextBox
+
+    '''<summary>
+    '''Control SaimtASPxLabel16.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents SaimtASPxLabel16 As Global.SaimtControlesWeb.SaimtASPxLabel
+
+    '''<summary>
+    '''Control cboNivel.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents cboNivel As Global.SaimtControlesWeb.SaimtASPxComboBox
+
+    '''<summary>
+    '''Control SaimtASPxLabel19.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents SaimtASPxLabel19 As Global.SaimtControlesWeb.SaimtASPxLabel
+
+    '''<summary>
+    '''Control btnSelecEspacio.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents btnSelecEspacio As Global.SaimtControlesWeb.SaimtASPxButton
+
+    '''<summary>
+    '''Control SaimtASPxLabel17.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents SaimtASPxLabel17 As Global.SaimtControlesWeb.SaimtASPxLabel
+
+    '''<summary>
+    '''Control txtEspacioSelec.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents txtEspacioSelec As Global.SaimtControlesWeb.SaimtASPxTextBox
+
+    '''<summary>
+    '''Control SaimtASPxLabel21.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents SaimtASPxLabel21 As Global.SaimtControlesWeb.SaimtASPxLabel
+
+    '''<summary>
+    '''Control cboAcuerdoEstado.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents cboAcuerdoEstado As Global.SaimtControlesWeb.SaimtASPxComboBox
+
+    '''<summary>
+    '''Control btnNuevo.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents btnNuevo As Global.SaimtControlesWeb.SaimtASPxButton
+
+    '''<summary>
+    '''Control btnEditar.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents btnEditar As Global.SaimtControlesWeb.SaimtASPxButton
+
+    '''<summary>
+    '''Control btnLimpiar.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents btnLimpiar As Global.SaimtControlesWeb.SaimtASPxButton
+
+    '''<summary>
+    '''Control btnCancelar.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents btnCancelar As Global.SaimtControlesWeb.SaimtASPxButton
+
+    '''<summary>
+    '''Control btnGuardar.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents btnGuardar As Global.SaimtControlesWeb.SaimtASPxButton
+
+    '''<summary>
+    '''Control btnEliminar.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents btnEliminar As Global.SaimtControlesWeb.SaimtASPxButton
+End Class

@@ -1,0 +1,351 @@
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+Partial Class frmNuevaCarp
+    Inherits Presentacion.frmMantenimientos
+
+    'Form overrides dispose to clean up the component list.
+    <System.Diagnostics.DebuggerNonUserCode()> _
+    Protected Overrides Sub Dispose(ByVal disposing As Boolean)
+        If disposing AndAlso components IsNot Nothing Then
+            components.Dispose()
+        End If
+        MyBase.Dispose(disposing)
+    End Sub
+
+    'Required by the Windows Form Designer
+    Private components As System.ComponentModel.IContainer
+
+    'NOTE: The following procedure is required by the Windows Form Designer
+    'It can be modified using the Windows Form Designer.  
+    'Do not modify it using the code editor.
+    <System.Diagnostics.DebuggerStepThrough()> _
+    Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmNuevaCarp))
+        Me.LabelControl1 = New DevExpress.XtraEditors.LabelControl()
+        Me.LabelControl2 = New DevExpress.XtraEditors.LabelControl()
+        Me.BarManager1 = New DevExpress.XtraBars.BarManager(Me.components)
+        Me.Bar1 = New DevExpress.XtraBars.Bar()
+        Me.BarLargeButtonItem1 = New DevExpress.XtraBars.BarLargeButtonItem()
+        Me.BarLargeButtonItem2 = New DevExpress.XtraBars.BarLargeButtonItem()
+        Me.barDockControlTop = New DevExpress.XtraBars.BarDockControl()
+        Me.barDockControlBottom = New DevExpress.XtraBars.BarDockControl()
+        Me.barDockControlLeft = New DevExpress.XtraBars.BarDockControl()
+        Me.barDockControlRight = New DevExpress.XtraBars.BarDockControl()
+        Me.LabelControl3 = New DevExpress.XtraEditors.LabelControl()
+        Me.txtNivel = New DevExpress.XtraEditors.SpinEdit()
+        Me.LabelControl4 = New DevExpress.XtraEditors.LabelControl()
+        Me.MemoEdit1 = New DevExpress.XtraEditors.MemoEdit()
+        Me.LabelControl5 = New DevExpress.XtraEditors.LabelControl()
+        Me.txtCodigo = New DevExpress.XtraEditors.TextEdit()
+        Me.cboColor = New DevExpress.XtraEditors.ImageComboBoxEdit()
+        Me.IconosArchivo = New DevExpress.Utils.ImageCollection(Me.components)
+        Me.LabelControl6 = New DevExpress.XtraEditors.LabelControl()
+        Me.txtPadre = New DevExpress.XtraEditors.TextEdit()
+        Me.txtNombre = New DevExpress.XtraEditors.TextEdit()
+        CType(Me.pmconsultorpropagos, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.BarManager1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtNivel.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.MemoEdit1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtCodigo.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.cboColor.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.IconosArchivo, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtPadre.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtNombre.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SuspendLayout()
+        '
+        'rsbMensajeBarra
+        '
+        Me.rsbMensajeBarra.Location = New System.Drawing.Point(0, 247)
+        Me.rsbMensajeBarra.Size = New System.Drawing.Size(559, 27)
+        '
+        'LabelControl1
+        '
+        Me.LabelControl1.Location = New System.Drawing.Point(22, 75)
+        Me.LabelControl1.Name = "LabelControl1"
+        Me.LabelControl1.Size = New System.Drawing.Size(37, 13)
+        Me.LabelControl1.TabIndex = 0
+        Me.LabelControl1.Text = "Nombre"
+        '
+        'LabelControl2
+        '
+        Me.LabelControl2.Location = New System.Drawing.Point(11, 103)
+        Me.LabelControl2.Name = "LabelControl2"
+        Me.LabelControl2.Size = New System.Drawing.Size(48, 13)
+        Me.LabelControl2.TabIndex = 1
+        Me.LabelControl2.Text = "Dentro de"
+        '
+        'BarManager1
+        '
+        Me.BarManager1.Bars.AddRange(New DevExpress.XtraBars.Bar() {Me.Bar1})
+        Me.BarManager1.DockControls.Add(Me.barDockControlTop)
+        Me.BarManager1.DockControls.Add(Me.barDockControlBottom)
+        Me.BarManager1.DockControls.Add(Me.barDockControlLeft)
+        Me.BarManager1.DockControls.Add(Me.barDockControlRight)
+        Me.BarManager1.Form = Me
+        Me.BarManager1.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.BarLargeButtonItem1, Me.BarLargeButtonItem2})
+        Me.BarManager1.MaxItemId = 2
+        '
+        'Bar1
+        '
+        Me.Bar1.BarName = "Herramientas"
+        Me.Bar1.DockCol = 0
+        Me.Bar1.DockRow = 0
+        Me.Bar1.DockStyle = DevExpress.XtraBars.BarDockStyle.Top
+        Me.Bar1.LinksPersistInfo.AddRange(New DevExpress.XtraBars.LinkPersistInfo() {New DevExpress.XtraBars.LinkPersistInfo(Me.BarLargeButtonItem1), New DevExpress.XtraBars.LinkPersistInfo(Me.BarLargeButtonItem2)})
+        Me.Bar1.Text = "Herramientas"
+        '
+        'BarLargeButtonItem1
+        '
+        Me.BarLargeButtonItem1.Caption = "Guardar"
+        Me.BarLargeButtonItem1.Glyph = CType(resources.GetObject("BarLargeButtonItem1.Glyph"), System.Drawing.Image)
+        Me.BarLargeButtonItem1.Id = 0
+        Me.BarLargeButtonItem1.LargeGlyph = CType(resources.GetObject("BarLargeButtonItem1.LargeGlyph"), System.Drawing.Image)
+        Me.BarLargeButtonItem1.Name = "BarLargeButtonItem1"
+        '
+        'BarLargeButtonItem2
+        '
+        Me.BarLargeButtonItem2.Caption = "Editar"
+        Me.BarLargeButtonItem2.Glyph = CType(resources.GetObject("BarLargeButtonItem2.Glyph"), System.Drawing.Image)
+        Me.BarLargeButtonItem2.Id = 1
+        Me.BarLargeButtonItem2.LargeGlyph = CType(resources.GetObject("BarLargeButtonItem2.LargeGlyph"), System.Drawing.Image)
+        Me.BarLargeButtonItem2.Name = "BarLargeButtonItem2"
+        '
+        'barDockControlTop
+        '
+        Me.barDockControlTop.CausesValidation = False
+        Me.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top
+        Me.barDockControlTop.Location = New System.Drawing.Point(0, 0)
+        Me.barDockControlTop.Size = New System.Drawing.Size(559, 65)
+        '
+        'barDockControlBottom
+        '
+        Me.barDockControlBottom.CausesValidation = False
+        Me.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.barDockControlBottom.Location = New System.Drawing.Point(0, 274)
+        Me.barDockControlBottom.Size = New System.Drawing.Size(559, 0)
+        '
+        'barDockControlLeft
+        '
+        Me.barDockControlLeft.CausesValidation = False
+        Me.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left
+        Me.barDockControlLeft.Location = New System.Drawing.Point(0, 65)
+        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 209)
+        '
+        'barDockControlRight
+        '
+        Me.barDockControlRight.CausesValidation = False
+        Me.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right
+        Me.barDockControlRight.Location = New System.Drawing.Point(559, 65)
+        Me.barDockControlRight.Size = New System.Drawing.Size(0, 209)
+        '
+        'LabelControl3
+        '
+        Me.LabelControl3.Location = New System.Drawing.Point(36, 132)
+        Me.LabelControl3.Name = "LabelControl3"
+        Me.LabelControl3.Size = New System.Drawing.Size(23, 13)
+        Me.LabelControl3.TabIndex = 8
+        Me.LabelControl3.Text = "Nivel"
+        '
+        'txtNivel
+        '
+        Me.txtNivel.EditValue = New Decimal(New Integer() {0, 0, 0, 0})
+        Me.txtNivel.Location = New System.Drawing.Point(65, 129)
+        Me.txtNivel.MenuManager = Me.BarManager1
+        Me.txtNivel.Name = "txtNivel"
+        Me.txtNivel.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.txtNivel.Size = New System.Drawing.Size(100, 20)
+        Me.txtNivel.TabIndex = 9
+        '
+        'LabelControl4
+        '
+        Me.LabelControl4.Location = New System.Drawing.Point(15, 156)
+        Me.LabelControl4.Name = "LabelControl4"
+        Me.LabelControl4.Size = New System.Drawing.Size(44, 13)
+        Me.LabelControl4.TabIndex = 10
+        Me.LabelControl4.Text = "Resumen"
+        '
+        'MemoEdit1
+        '
+        Me.MemoEdit1.Location = New System.Drawing.Point(13, 171)
+        Me.MemoEdit1.MenuManager = Me.BarManager1
+        Me.MemoEdit1.Name = "MemoEdit1"
+        Me.MemoEdit1.Size = New System.Drawing.Size(533, 96)
+        Me.MemoEdit1.TabIndex = 11
+        Me.MemoEdit1.UseOptimizedRendering = True
+        '
+        'LabelControl5
+        '
+        Me.LabelControl5.Location = New System.Drawing.Point(361, 132)
+        Me.LabelControl5.Name = "LabelControl5"
+        Me.LabelControl5.Size = New System.Drawing.Size(50, 13)
+        Me.LabelControl5.TabIndex = 12
+        Me.LabelControl5.Text = "Cod. Info."
+        '
+        'txtCodigo
+        '
+        Me.txtCodigo.Location = New System.Drawing.Point(417, 129)
+        Me.txtCodigo.MenuManager = Me.BarManager1
+        Me.txtCodigo.Name = "txtCodigo"
+        Me.txtCodigo.Properties.ReadOnly = True
+        Me.txtCodigo.Size = New System.Drawing.Size(103, 20)
+        Me.txtCodigo.TabIndex = 13
+        '
+        'cboColor
+        '
+        Me.cboColor.Location = New System.Drawing.Point(210, 129)
+        Me.cboColor.MenuManager = Me.BarManager1
+        Me.cboColor.Name = "cboColor"
+        Me.cboColor.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.cboColor.Properties.HtmlImages = Me.IconosArchivo
+        Me.cboColor.Properties.LargeImages = Me.IconosArchivo
+        Me.cboColor.Properties.SmallImages = Me.IconosArchivo
+        Me.cboColor.Size = New System.Drawing.Size(125, 20)
+        Me.cboColor.TabIndex = 18
+        '
+        'IconosArchivo
+        '
+        Me.IconosArchivo.ImageStream = CType(resources.GetObject("IconosArchivo.ImageStream"), DevExpress.Utils.ImageCollectionStreamer)
+        Me.IconosArchivo.Images.SetKeyName(0, "10.ico")
+        Me.IconosArchivo.Images.SetKeyName(1, "11.ico")
+        Me.IconosArchivo.Images.SetKeyName(2, "12.ico")
+        Me.IconosArchivo.Images.SetKeyName(3, "13.ico")
+        Me.IconosArchivo.Images.SetKeyName(4, "20.ico")
+        Me.IconosArchivo.Images.SetKeyName(5, "21.ico")
+        Me.IconosArchivo.Images.SetKeyName(6, "22.ico")
+        Me.IconosArchivo.Images.SetKeyName(7, "30.ico")
+        Me.IconosArchivo.Images.SetKeyName(8, "31.ico")
+        Me.IconosArchivo.Images.SetKeyName(9, "32.ico")
+        Me.IconosArchivo.Images.SetKeyName(10, "40.ico")
+        Me.IconosArchivo.Images.SetKeyName(11, "41.ico")
+        Me.IconosArchivo.Images.SetKeyName(12, "42.ico")
+        Me.IconosArchivo.Images.SetKeyName(13, "50.ico")
+        Me.IconosArchivo.Images.SetKeyName(14, "51.ico")
+        Me.IconosArchivo.Images.SetKeyName(15, "52.ico")
+        Me.IconosArchivo.Images.SetKeyName(16, "53.ico")
+        Me.IconosArchivo.Images.SetKeyName(17, "60.ico")
+        Me.IconosArchivo.Images.SetKeyName(18, "61.ico")
+        Me.IconosArchivo.Images.SetKeyName(19, "62.ico")
+        Me.IconosArchivo.Images.SetKeyName(20, "70.ico")
+        Me.IconosArchivo.Images.SetKeyName(21, "71.ico")
+        Me.IconosArchivo.Images.SetKeyName(22, "72.ico")
+        Me.IconosArchivo.Images.SetKeyName(23, "73.ico")
+        Me.IconosArchivo.Images.SetKeyName(24, "80.ico")
+        Me.IconosArchivo.Images.SetKeyName(25, "81.ico")
+        Me.IconosArchivo.Images.SetKeyName(26, "82.ico")
+        Me.IconosArchivo.Images.SetKeyName(27, "90.ico")
+        Me.IconosArchivo.Images.SetKeyName(28, "91.ico")
+        Me.IconosArchivo.Images.SetKeyName(29, "92.ico")
+        Me.IconosArchivo.Images.SetKeyName(30, "93.ico")
+        Me.IconosArchivo.Images.SetKeyName(31, "100.ico")
+        Me.IconosArchivo.Images.SetKeyName(32, "101.ico")
+        Me.IconosArchivo.Images.SetKeyName(33, "102.ico")
+        Me.IconosArchivo.Images.SetKeyName(34, "110.ico")
+        Me.IconosArchivo.Images.SetKeyName(35, "111.ico")
+        Me.IconosArchivo.Images.SetKeyName(36, "112.ico")
+        Me.IconosArchivo.Images.SetKeyName(37, "113.ico")
+        Me.IconosArchivo.Images.SetKeyName(38, "120.ico")
+        Me.IconosArchivo.Images.SetKeyName(39, "121.ico")
+        Me.IconosArchivo.Images.SetKeyName(40, "122.ico")
+        Me.IconosArchivo.Images.SetKeyName(41, "130.png")
+        Me.IconosArchivo.Images.SetKeyName(42, "140.png")
+        '
+        'LabelControl6
+        '
+        Me.LabelControl6.Location = New System.Drawing.Point(179, 132)
+        Me.LabelControl6.Name = "LabelControl6"
+        Me.LabelControl6.Size = New System.Drawing.Size(25, 13)
+        Me.LabelControl6.TabIndex = 19
+        Me.LabelControl6.Text = "Color"
+        '
+        'txtPadre
+        '
+        Me.txtPadre.Location = New System.Drawing.Point(65, 99)
+        Me.txtPadre.MenuManager = Me.BarManager1
+        Me.txtPadre.Name = "txtPadre"
+        Me.txtPadre.Size = New System.Drawing.Size(479, 20)
+        Me.txtPadre.TabIndex = 24
+        '
+        'txtNombre
+        '
+        Me.txtNombre.Location = New System.Drawing.Point(65, 72)
+        Me.txtNombre.Name = "txtNombre"
+        Me.txtNombre.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.txtNombre.Size = New System.Drawing.Size(479, 20)
+        Me.txtNombre.TabIndex = 2
+        '
+        'frmNuevaCarp
+        '
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.ClientSize = New System.Drawing.Size(559, 274)
+        Me.Controls.Add(Me.txtPadre)
+        Me.Controls.Add(Me.LabelControl6)
+        Me.Controls.Add(Me.cboColor)
+        Me.Controls.Add(Me.txtCodigo)
+        Me.Controls.Add(Me.LabelControl5)
+        Me.Controls.Add(Me.MemoEdit1)
+        Me.Controls.Add(Me.LabelControl4)
+        Me.Controls.Add(Me.txtNivel)
+        Me.Controls.Add(Me.LabelControl3)
+        Me.Controls.Add(Me.txtNombre)
+        Me.Controls.Add(Me.LabelControl2)
+        Me.Controls.Add(Me.LabelControl1)
+        Me.Controls.Add(Me.barDockControlLeft)
+        Me.Controls.Add(Me.barDockControlRight)
+        Me.Controls.Add(Me.barDockControlBottom)
+        Me.Controls.Add(Me.barDockControlTop)
+        Me.LookAndFeel.SkinName = "Seven"
+        Me.Name = "frmNuevaCarp"
+        Me.Text = "frmNuevaCarp"
+        Me.Controls.SetChildIndex(Me.barDockControlTop, 0)
+        Me.Controls.SetChildIndex(Me.barDockControlBottom, 0)
+        Me.Controls.SetChildIndex(Me.barDockControlRight, 0)
+        Me.Controls.SetChildIndex(Me.barDockControlLeft, 0)
+        Me.Controls.SetChildIndex(Me.LabelControl1, 0)
+        Me.Controls.SetChildIndex(Me.LabelControl2, 0)
+        Me.Controls.SetChildIndex(Me.txtNombre, 0)
+        Me.Controls.SetChildIndex(Me.LabelControl3, 0)
+        Me.Controls.SetChildIndex(Me.txtNivel, 0)
+        Me.Controls.SetChildIndex(Me.LabelControl4, 0)
+        Me.Controls.SetChildIndex(Me.MemoEdit1, 0)
+        Me.Controls.SetChildIndex(Me.LabelControl5, 0)
+        Me.Controls.SetChildIndex(Me.txtCodigo, 0)
+        Me.Controls.SetChildIndex(Me.cboColor, 0)
+        Me.Controls.SetChildIndex(Me.LabelControl6, 0)
+        Me.Controls.SetChildIndex(Me.txtPadre, 0)
+        Me.Controls.SetChildIndex(Me.rsbMensajeBarra, 0)
+        CType(Me.pmconsultorpropagos, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.BarManager1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtNivel.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.MemoEdit1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtCodigo.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.cboColor.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.IconosArchivo, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtPadre.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtNombre.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ResumeLayout(False)
+        Me.PerformLayout()
+
+    End Sub
+    Friend WithEvents LabelControl1 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents LabelControl2 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents BarManager1 As DevExpress.XtraBars.BarManager
+    Friend WithEvents Bar1 As DevExpress.XtraBars.Bar
+    Friend WithEvents barDockControlTop As DevExpress.XtraBars.BarDockControl
+    Friend WithEvents barDockControlBottom As DevExpress.XtraBars.BarDockControl
+    Friend WithEvents barDockControlLeft As DevExpress.XtraBars.BarDockControl
+    Friend WithEvents barDockControlRight As DevExpress.XtraBars.BarDockControl
+    Friend WithEvents BarLargeButtonItem1 As DevExpress.XtraBars.BarLargeButtonItem
+    Friend WithEvents BarLargeButtonItem2 As DevExpress.XtraBars.BarLargeButtonItem
+    Friend WithEvents txtCodigo As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents LabelControl5 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents MemoEdit1 As DevExpress.XtraEditors.MemoEdit
+    Friend WithEvents LabelControl4 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents txtNivel As DevExpress.XtraEditors.SpinEdit
+    Friend WithEvents LabelControl3 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents cboColor As DevExpress.XtraEditors.ImageComboBoxEdit
+    Friend WithEvents LabelControl6 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents IconosArchivo As DevExpress.Utils.ImageCollection
+    Friend WithEvents txtPadre As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents txtNombre As DevExpress.XtraEditors.TextEdit
+End Class

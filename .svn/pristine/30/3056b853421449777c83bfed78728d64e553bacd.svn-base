@@ -1,0 +1,16 @@
+Public Class EECargoPersonal
+    Public Property CarPerId() As String
+    Public Property OContratoPersonal() As EEContratoPersonal
+    Public Property OTgTipoCargo() As EETablaGeneral
+    Public Property CarPerFechaIni() As DateTime?
+    Public Property CarPerFechaFin() As DateTime?
+    Public Property TgEstadoId() As Boolean?
+
+
+    Public Property Institucion() As String
+    Public Property CodInstitucion() As String
+    Public Property Area() As String
+    Public Property CodArea() As String
+    Public Property Cargo() As String
+    Public Property CodCargo() As String
+End Class

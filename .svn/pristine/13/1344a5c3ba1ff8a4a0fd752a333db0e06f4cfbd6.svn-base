@@ -1,0 +1,25 @@
+﻿Imports ReglasNegocio
+Imports SaimtControles
+Imports Entidades
+Imports DevExpress.XtraEditors.Controls
+Imports System.IO
+Imports Microsoft.Office.Core
+Imports Microsoft.Office.Interop
+
+Public Class frmAgrupacionDoc
+
+    Private Sub btnbuscarReg_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnbuscarReg.Click
+        Try
+            Dim fConsultaStd As New frmConsultorSTD
+            If fConsultaStd.ShowDialog() = Windows.Forms.DialogResult.OK Then
+                txtDocVinculado.Properties.Tag = fConsultaStd.VDocID
+                txtDocVinculado.Text = fConsultaStd.VDocNRegT
+                txtExpediente.Text = fConsultaStd.VDocNRegT.Substring(0, 5).Trim
+                '  txtAsunto.Text = fConsultaStd.V
+
+            End If
+        Catch ex As Exception
+            SaimtMessageBox.mostrarAlertaError(ex.Message)
+        End Try
+    End Sub
+End Class

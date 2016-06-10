@@ -1,0 +1,352 @@
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+Partial Class frmConsultarCertificacion
+    Inherits frmConsultas
+
+    'Form reemplaza a Dispose para limpiar la lista de componentes.
+    <System.Diagnostics.DebuggerNonUserCode()> _
+    Protected Overrides Sub Dispose(ByVal disposing As Boolean)
+        Try
+            If disposing AndAlso components IsNot Nothing Then
+                components.Dispose()
+            End If
+        Finally
+            MyBase.Dispose(disposing)
+        End Try
+    End Sub
+
+    'Requerido por el Diseñador de Windows Forms
+    Private components As System.ComponentModel.IContainer
+
+    'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
+    'Se puede modificar usando el Diseñador de Windows Forms.  
+    'No lo modifique con el editor de código.
+    <System.Diagnostics.DebuggerStepThrough()> _
+    Private Sub InitializeComponent()
+        Me.gcResultadosCertificacion = New SaimtControles.SaimtDataGrid()
+        Me.gvResultadosCertificacion = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.GridColumn1 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn3 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn4 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn7 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn6 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn5 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.SaimtButton1 = New SaimtControles.SaimtButton()
+        Me.SaimtLabel1 = New SaimtControles.SaimtLabel()
+        Me.txtBuscar = New SaimtControles.SaimtTextBox()
+        Me.cboBuscarPor = New SaimtControles.SaimtComboBox()
+        Me.SaimtLabel2 = New SaimtControles.SaimtLabel()
+        Me.btnBuscar = New SaimtControles.SaimtButton()
+        Me.GridColumn2 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.cboAnioCriterio = New SaimtControles.SaimtComboBoxLookUp()
+        Me.dgvResultadosGrupoPartidas = New SaimtControles.SaimtDataGrid()
+        Me.gvResultadosGrupoPartidas = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.GridColumn17 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn18 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn19 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn20 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn23 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.SaimtLabel3 = New SaimtControles.SaimtLabel()
+        Me.SaimtLabel4 = New SaimtControles.SaimtLabel()
+        CType(Me.pmconsultorpropagos, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.gcResultadosCertificacion, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.gvResultadosCertificacion, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtBuscar.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.cboBuscarPor.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.cboAnioCriterio.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgvResultadosGrupoPartidas, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.gvResultadosGrupoPartidas, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SuspendLayout()
+        '
+        'rsbMensajeBarra
+        '
+        Me.rsbMensajeBarra.Location = New System.Drawing.Point(0, 458)
+        Me.rsbMensajeBarra.Size = New System.Drawing.Size(711, 27)
+        '
+        'gcResultadosCertificacion
+        '
+        Me.gcResultadosCertificacion.Location = New System.Drawing.Point(12, 36)
+        Me.gcResultadosCertificacion.MainView = Me.gvResultadosCertificacion
+        Me.gcResultadosCertificacion.MenuManager = Me.RibbonControl
+        Me.gcResultadosCertificacion.Name = "gcResultadosCertificacion"
+        Me.gcResultadosCertificacion.Size = New System.Drawing.Size(680, 207)
+        Me.gcResultadosCertificacion.TabIndex = 2
+        Me.gcResultadosCertificacion.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.gvResultadosCertificacion})
+        '
+        'gvResultadosCertificacion
+        '
+        Me.gvResultadosCertificacion.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.GridColumn1, Me.GridColumn3, Me.GridColumn4, Me.GridColumn7, Me.GridColumn6, Me.GridColumn5})
+        Me.gvResultadosCertificacion.GridControl = Me.gcResultadosCertificacion
+        Me.gvResultadosCertificacion.OptionsView.GroupFooterShowMode = DevExpress.XtraGrid.Views.Grid.GroupFooterShowMode.VisibleAlways
+        Me.gvResultadosCertificacion.Name = "gvResultadosCertificacion"
+        Me.gvResultadosCertificacion.OptionsBehavior.Editable = False
+        Me.gvResultadosCertificacion.OptionsView.ColumnAutoWidth = False
+        Me.gvResultadosCertificacion.OptionsView.ShowGroupPanel = False
+        '
+        'GridColumn1
+        '
+        Me.GridColumn1.Caption = "cerId"
+        Me.GridColumn1.FieldName = "cerId"
+        Me.GridColumn1.Name = "GridColumn1"
+        Me.GridColumn1.Visible = True
+        Me.GridColumn1.VisibleIndex = 0
+        '
+        'GridColumn3
+        '
+        Me.GridColumn3.Caption = "Nro. Cert."
+        Me.GridColumn3.FieldName = "cerNro"
+        Me.GridColumn3.Name = "GridColumn3"
+        Me.GridColumn3.Visible = True
+        Me.GridColumn3.VisibleIndex = 1
+        '
+        'GridColumn4
+        '
+        Me.GridColumn4.Caption = "Fecha"
+        Me.GridColumn4.FieldName = "cerFecha"
+        Me.GridColumn4.Name = "GridColumn4"
+        Me.GridColumn4.Visible = True
+        Me.GridColumn4.VisibleIndex = 4
+        '
+        'GridColumn7
+        '
+        Me.GridColumn7.Caption = "Descripcion"
+        Me.GridColumn7.FieldName = "cerJustificacion"
+        Me.GridColumn7.Name = "GridColumn7"
+        Me.GridColumn7.Visible = True
+        Me.GridColumn7.VisibleIndex = 5
+        '
+        'GridColumn6
+        '
+        Me.GridColumn6.Caption = "Val. Quedan"
+        Me.GridColumn6.FieldName = "cerValQuedan"
+        Me.GridColumn6.Name = "GridColumn6"
+        Me.GridColumn6.Visible = True
+        Me.GridColumn6.VisibleIndex = 3
+        '
+        'GridColumn5
+        '
+        Me.GridColumn5.Caption = "Val. Total"
+        Me.GridColumn5.FieldName = "cerValTotal"
+        Me.GridColumn5.Name = "GridColumn5"
+        Me.GridColumn5.Visible = True
+        Me.GridColumn5.VisibleIndex = 2
+        '
+        'SaimtButton1
+        '
+        Me.SaimtButton1.Location = New System.Drawing.Point(314, 432)
+        Me.SaimtButton1.Name = "SaimtButton1"
+        Me.SaimtButton1.Size = New System.Drawing.Size(75, 23)
+        Me.SaimtButton1.TabIndex = 3
+        Me.SaimtButton1.Text = "Seleccionar"
+        '
+        'SaimtLabel1
+        '
+        Me.SaimtLabel1.Location = New System.Drawing.Point(12, 12)
+        Me.SaimtLabel1.Name = "SaimtLabel1"
+        Me.SaimtLabel1.Size = New System.Drawing.Size(51, 13)
+        Me.SaimtLabel1.TabIndex = 4
+        Me.SaimtLabel1.Text = "Buscar por"
+        '
+        'txtBuscar
+        '
+        Me.txtBuscar.Location = New System.Drawing.Point(69, 9)
+        Me.txtBuscar.MenuManager = Me.RibbonControl
+        Me.txtBuscar.Name = "txtBuscar"
+        Me.txtBuscar.Size = New System.Drawing.Size(239, 20)
+        Me.txtBuscar.TabIndex = 5
+        '
+        'cboBuscarPor
+        '
+        Me.cboBuscarPor.EditValue = "Busqueda por Partida"
+        Me.cboBuscarPor.Location = New System.Drawing.Point(442, 10)
+        Me.cboBuscarPor.MenuManager = Me.RibbonControl
+        Me.cboBuscarPor.Name = "cboBuscarPor"
+        Me.cboBuscarPor.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.cboBuscarPor.Properties.Items.AddRange(New Object() {"Nro Certificación", "Descripción Certificación"})
+        Me.cboBuscarPor.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
+        Me.cboBuscarPor.Size = New System.Drawing.Size(150, 20)
+        Me.cboBuscarPor.TabIndex = 6
+        '
+        'SaimtLabel2
+        '
+        Me.SaimtLabel2.Location = New System.Drawing.Point(358, 12)
+        Me.SaimtLabel2.Name = "SaimtLabel2"
+        Me.SaimtLabel2.Size = New System.Drawing.Size(70, 13)
+        Me.SaimtLabel2.TabIndex = 7
+        Me.SaimtLabel2.Text = "Tipo Busqueda"
+        '
+        'btnBuscar
+        '
+        Me.btnBuscar.Image = Global.Presentacion.My.Resources.Resources.buscar
+        Me.btnBuscar.Location = New System.Drawing.Point(314, 7)
+        Me.btnBuscar.Name = "btnBuscar"
+        Me.btnBuscar.Size = New System.Drawing.Size(27, 23)
+        Me.btnBuscar.TabIndex = 15
+        '
+        'GridColumn2
+        '
+        Me.GridColumn2.Caption = "Descripción Partida"
+        Me.GridColumn2.Name = "GridColumn2"
+        Me.GridColumn2.Visible = True
+        Me.GridColumn2.VisibleIndex = 1
+        '
+        'cboAnioCriterio
+        '
+        Me.cboAnioCriterio.Location = New System.Drawing.Point(598, 9)
+        Me.cboAnioCriterio.MenuManager = Me.RibbonControl
+        Me.cboAnioCriterio.Name = "cboAnioCriterio"
+        Me.cboAnioCriterio.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.cboAnioCriterio.Properties.NullText = ""
+        Me.cboAnioCriterio.Size = New System.Drawing.Size(94, 20)
+        Me.cboAnioCriterio.TabIndex = 20
+        Me.cboAnioCriterio.Tag = "NotClear"
+        '
+        'dgvResultadosGrupoPartidas
+        '
+        Me.dgvResultadosGrupoPartidas.Location = New System.Drawing.Point(12, 264)
+        Me.dgvResultadosGrupoPartidas.MainView = Me.gvResultadosGrupoPartidas
+        Me.dgvResultadosGrupoPartidas.MenuManager = Me.RibbonControl
+        Me.dgvResultadosGrupoPartidas.Name = "dgvResultadosGrupoPartidas"
+        Me.dgvResultadosGrupoPartidas.Size = New System.Drawing.Size(680, 165)
+        Me.dgvResultadosGrupoPartidas.TabIndex = 21
+        Me.dgvResultadosGrupoPartidas.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.gvResultadosGrupoPartidas})
+        '
+        'gvResultadosGrupoPartidas
+        '
+        Me.gvResultadosGrupoPartidas.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.GridColumn17, Me.GridColumn18, Me.GridColumn19, Me.GridColumn20, Me.GridColumn23})
+        Me.gvResultadosGrupoPartidas.CustomizationFormBounds = New System.Drawing.Rectangle(716, 476, 216, 178)
+        Me.gvResultadosGrupoPartidas.GridControl = Me.dgvResultadosGrupoPartidas
+        Me.gvResultadosGrupoPartidas.OptionsView.GroupFooterShowMode = DevExpress.XtraGrid.Views.Grid.GroupFooterShowMode.VisibleAlways
+        Me.gvResultadosGrupoPartidas.Name = "gvResultadosGrupoPartidas"
+        Me.gvResultadosGrupoPartidas.OptionsBehavior.ReadOnly = True
+        Me.gvResultadosGrupoPartidas.OptionsView.ColumnAutoWidth = False
+        Me.gvResultadosGrupoPartidas.OptionsView.ShowGroupPanel = False
+        '
+        'GridColumn17
+        '
+        Me.GridColumn17.Caption = "Fecha"
+        Me.GridColumn17.FieldName = "cerFecha"
+        Me.GridColumn17.Name = "GridColumn17"
+        Me.GridColumn17.Visible = True
+        Me.GridColumn17.VisibleIndex = 0
+        '
+        'GridColumn18
+        '
+        Me.GridColumn18.Caption = "Partida"
+        Me.GridColumn18.FieldName = "partId"
+        Me.GridColumn18.Name = "GridColumn18"
+        Me.GridColumn18.Visible = True
+        Me.GridColumn18.VisibleIndex = 1
+        '
+        'GridColumn19
+        '
+        Me.GridColumn19.Caption = "Val. Total"
+        Me.GridColumn19.FieldName = "cerGrupoParValImporte"
+        Me.GridColumn19.Name = "GridColumn19"
+        Me.GridColumn19.Visible = True
+        Me.GridColumn19.VisibleIndex = 3
+        '
+        'GridColumn20
+        '
+        Me.GridColumn20.Caption = "Val. Quedan"
+        Me.GridColumn20.FieldName = "cerGrupoParValQuedan"
+        Me.GridColumn20.Name = "GridColumn20"
+        Me.GridColumn20.Visible = True
+        Me.GridColumn20.VisibleIndex = 4
+        '
+        'GridColumn23
+        '
+        Me.GridColumn23.Caption = "Nombre Partida"
+        Me.GridColumn23.FieldName = "partNombre"
+        Me.GridColumn23.Name = "GridColumn23"
+        Me.GridColumn23.Visible = True
+        Me.GridColumn23.VisibleIndex = 2
+        '
+        'SaimtLabel3
+        '
+        Me.SaimtLabel3.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SaimtLabel3.Location = New System.Drawing.Point(13, 249)
+        Me.SaimtLabel3.Name = "SaimtLabel3"
+        Me.SaimtLabel3.Size = New System.Drawing.Size(101, 13)
+        Me.SaimtLabel3.TabIndex = 22
+        Me.SaimtLabel3.Text = "Grupo de Partidas"
+        '
+        'SaimtLabel4
+        '
+        Me.SaimtLabel4.Location = New System.Drawing.Point(120, 249)
+        Me.SaimtLabel4.Name = "SaimtLabel4"
+        Me.SaimtLabel4.Size = New System.Drawing.Size(86, 13)
+        Me.SaimtLabel4.TabIndex = 23
+        Me.SaimtLabel4.Text = "Grupo de Partidas"
+        '
+        'frmConsultarCertificacion
+        '
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.ButtonBuscar = Me.btnBuscar
+        Me.ButtonSeleccionar = Me.SaimtButton1
+        Me.ClientSize = New System.Drawing.Size(711, 485)
+        Me.Controls.Add(Me.SaimtLabel4)
+        Me.Controls.Add(Me.SaimtLabel3)
+        Me.Controls.Add(Me.dgvResultadosGrupoPartidas)
+        Me.Controls.Add(Me.cboAnioCriterio)
+        Me.Controls.Add(Me.btnBuscar)
+        Me.Controls.Add(Me.SaimtLabel2)
+        Me.Controls.Add(Me.gcResultadosCertificacion)
+        Me.Controls.Add(Me.SaimtButton1)
+        Me.Controls.Add(Me.cboBuscarPor)
+        Me.Controls.Add(Me.SaimtLabel1)
+        Me.Controls.Add(Me.txtBuscar)
+        Me.LookAndFeel.SkinName = "Seven"
+        Me.Name = "frmConsultarCertificacion"
+        Me.SaimtGrid = Me.gcResultadosCertificacion
+        Me.Text = "CONSULTAR CERTIFICACIÓN"
+        Me.Controls.SetChildIndex(Me.txtBuscar, 0)
+        Me.Controls.SetChildIndex(Me.SaimtLabel1, 0)
+        Me.Controls.SetChildIndex(Me.cboBuscarPor, 0)
+        Me.Controls.SetChildIndex(Me.SaimtButton1, 0)
+        Me.Controls.SetChildIndex(Me.gcResultadosCertificacion, 0)
+        Me.Controls.SetChildIndex(Me.rsbMensajeBarra, 0)
+        Me.Controls.SetChildIndex(Me.SaimtLabel2, 0)
+        Me.Controls.SetChildIndex(Me.btnBuscar, 0)
+        Me.Controls.SetChildIndex(Me.cboAnioCriterio, 0)
+        Me.Controls.SetChildIndex(Me.dgvResultadosGrupoPartidas, 0)
+        Me.Controls.SetChildIndex(Me.SaimtLabel3, 0)
+        Me.Controls.SetChildIndex(Me.SaimtLabel4, 0)
+        CType(Me.pmconsultorpropagos, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.gcResultadosCertificacion, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.gvResultadosCertificacion, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtBuscar.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.cboBuscarPor.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.cboAnioCriterio.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgvResultadosGrupoPartidas, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.gvResultadosGrupoPartidas, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ResumeLayout(False)
+        Me.PerformLayout()
+
+    End Sub
+    Friend WithEvents gcResultadosCertificacion As SaimtControles.SaimtDataGrid
+    Friend WithEvents gvResultadosCertificacion As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents SaimtButton1 As SaimtControles.SaimtButton
+    Friend WithEvents SaimtLabel1 As SaimtControles.SaimtLabel
+    Friend WithEvents txtBuscar As SaimtControles.SaimtTextBox
+    Friend WithEvents cboBuscarPor As SaimtControles.SaimtComboBox
+    Friend WithEvents SaimtLabel2 As SaimtControles.SaimtLabel
+    Friend WithEvents btnBuscar As SaimtControles.SaimtButton
+    Friend WithEvents GridColumn2 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn1 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn3 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn5 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn6 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents cboAnioCriterio As SaimtControles.SaimtComboBoxLookUp
+    Friend WithEvents dgvResultadosGrupoPartidas As SaimtControles.SaimtDataGrid
+    Friend WithEvents gvResultadosGrupoPartidas As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents GridColumn17 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn18 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn19 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn20 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn23 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn4 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn7 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents SaimtLabel3 As SaimtControles.SaimtLabel
+    Friend WithEvents SaimtLabel4 As SaimtControles.SaimtLabel
+End Class

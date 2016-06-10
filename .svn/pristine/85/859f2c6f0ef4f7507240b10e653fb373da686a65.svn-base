@@ -1,0 +1,5 @@
+﻿Imports DevExpress.XtraEditors
+
+Public Class SaimtButton
+    Inherits SimpleButton
+End Class

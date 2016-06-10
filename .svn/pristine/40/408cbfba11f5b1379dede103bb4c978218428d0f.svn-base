@@ -1,0 +1,134 @@
+﻿Imports SaimtControles
+Imports Entidades
+Imports ReglasNegocio
+
+Public Class frmInmueblesActualizaciones
+    Inherits frmConsultas
+
+#Region "Propiedades"
+    Public Property InmId() As String
+    Public Property InmDir() As String
+#End Region
+
+    Dim oTable As DataTable
+    'Dim ListaTemporalResultadosEliminados As List(Of String) = New List(Of String)()
+
+    Private Sub ConstruirTable()
+        oTable = New DataTable
+        oTable.Columns.Add("InmId", GetType(String))
+        oTable.Columns.Add("InmCodigo", GetType(String))
+        oTable.Columns.Add("InmUbicacion", GetType(String))
+        oTable.Columns.Add("InmUpdFechaReg", GetType(Date))
+        oTable.Columns.Add("UsuLogin", GetType(String))
+        oTable.Columns.Add("InmUpdId", GetType(String))
+        oTable.Columns.Add("InmUpdDetCampoText", GetType(String))
+        oTable.Columns.Add("InmUpdDetValorOld", GetType(String))
+        oTable.Columns.Add("InmUpdDetValorNew", GetType(String))
+        oTable.Columns.Add("InmUpdDetId", GetType(String))
+    End Sub
+
+    Private Sub frmConsultaInmueble_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        ConstruirTable()
+        dgvResultado.DataSource = oTable
+        cboCriterioFecha.mColumnas(SaimtComboBoxLookUp.Entidades.TablaGeneral)
+        cboCriterioFecha.Properties.DisplayMember = "TgNombre"
+        cboCriterioFecha.Properties.ValueMember = "TgCodigo"
+        cboCriterioFecha.Properties.DataSource = MantenimientosBL.Instancia.tablageneralListarXClsId(192)
+        cboCriterioFecha.ItemIndex = 0
+    End Sub
+
+    Protected Overrides Sub buscar()
+        Dim fInmueble As EEInmueble.EEInmLogs
+        Dim ListaInmueble As List(Of EEInmueble.EEInmLogs)
+   
+        Try
+            ListaInmueble = MantenimientosBL.Instancia.inmuebleUpdateListarxCriterios(GCriterioBuscado, GValorTextoBuscado)
+            oTable.Clear()
+            If ListaInmueble IsNot Nothing Then
+                For Each fInmueble In ListaInmueble
+
+                    oTable.LoadDataRow(New Object() {fInmueble.InmId, _
+                                                     fInmueble.InmCodigo, _
+                                                     fInmueble.InmUbicacion, _
+                    fInmueble.InmUpdFechaReg, _
+                    fInmueble._usuLogin, _
+                    fInmueble.InmUpdId, _
+                    fInmueble._InmUpdDetCampoText, _
+                    fInmueble._InmUpdDetValorOld, _
+                    fInmueble._InmUpdDetValorNew, _
+                    fInmueble.InmUpdDetId}, True)
+                    'IIf(fInmueble.OInmDireccion.TgViaAbrev = "", "", fInmueble.OInmDireccion.TgViaAbrev) + IIf(fInmueble.OInmDireccion.InmDirLocalizacion = "", "", " " & fInmueble.OInmDireccion.InmDirLocalizacion) + IIf(fInmueble.OInmDireccion.InmDirNro = "", "", " N° " & fInmueble.OInmDireccion.InmDirNro) + IIf(fInmueble.OInmDireccion.InmDirNroInt = "", "", " Int." & fInmueble.OInmDireccion.InmDirNroInt) + IIf(fInmueble.OInmDireccion.InmDirManz.ToString = "", "", " Mz." + fInmueble.OInmDireccion.InmDirManz) + IIf(fInmueble.OInmDireccion.InmDirLote.ToString = "", "", " Lt." + fInmueble.OInmDireccion.InmDirLote) + IIf(fInmueble.OInmDireccion.InmDirSubLote.ToString = "", "", " Sub Lote: " + fInmueble.OInmDireccion.InmDirSubLote) + IIf(fInmueble.OInmDireccion.InmDirFase.ToString = "", "", " Fase: " + fInmueble.OInmDireccion.InmDirFase) + IIf(fInmueble.OInmDireccion.InmDirEtapa.ToString = "", "", " Etapa: " + fInmueble.OInmDireccion.InmDirEtapa) + IIf(fInmueble.OInmDireccion.InmDirReferencia.ToString = "", "", " Referencia: " + fInmueble.OInmDireccion.InmDirReferencia), _
+                Next
+                Me.Encontrado = True
+            Else
+                Me.Encontrado = False
+            End If
+
+            MyBase.buscar()
+            Me.gvResultado.BestFitColumns()
+            lblResultados.Text = "Resultados de Búsqueda: " & Me.gvResultado.RowCount
+        Catch ex As Exception
+            SaimtMessageBox.mostrarAlertaError(ex.Message)
+        End Try
+    End Sub
+
+    Private Sub cboCriterioFecha_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cboCriterioFecha.EditValueChanged
+        If cboCriterioFecha.EditValue IsNot Nothing Then
+            Dim tipo As Integer = cboCriterioFecha.EditValue
+            Dim clsCriterio As Int32 = 0
+            If tipo = 1 Then
+                clsCriterio = 40
+            ElseIf tipo = 2 Then
+                clsCriterio = 190
+            Else
+                clsCriterio = 191
+            End If
+            cboCriterioFechaSub.mColumnas(SaimtComboBoxLookUp.Entidades.TablaGeneral)
+            cboCriterioFechaSub.Properties.DisplayMember = "TgNombre"
+            cboCriterioFechaSub.Properties.ValueMember = "TgCodigo"
+            cboCriterioFechaSub.Properties.DataSource = MantenimientosBL.Instancia.tablageneralListarXClsIdOrderbytgOrden(clsCriterio)
+            cboCriterioFechaSub.ItemIndex = 0
+        End If
+    End Sub
+
+    Private Sub btnexportar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnexportar.Click
+        Me.sfdexportar.Filter = "Archivo de Excel|*.xls"
+        If sfdexportar.ShowDialog = Windows.Forms.DialogResult.OK Then
+            Me.gvResultado.ExportToXls(Me.sfdexportar.FileName)
+        End If
+    End Sub
+
+    
+    Private Sub btnSeleccionar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSeleccionar.Click
+        If Me.gvResultado.DataRowCount <> 0 Then
+            Dim fmFichaAct As frmInmueblesFichaActualizacion = New frmInmueblesFichaActualizacion(gvResultado.GetFocusedRowCellValue("InmUpdId").ToString())
+            fmFichaAct.txtInmCodigo.Text = gvResultado.GetFocusedRowCellValue("InmCodigo").ToString()
+            fmFichaAct.txtInmCodigo.Tag = gvResultado.GetFocusedRowCellValue("InmId").ToString()
+            fmFichaAct.txtInmUbicacion.Text = gvResultado.GetFocusedRowCellValue("InmUbicacion").ToString()
+            fmFichaAct.txtFechaModificación.Text = gvResultado.GetFocusedRowCellValue("InmUpdFechaReg").ToString()
+            fmFichaAct.Show()
+        End If
+
+    End Sub
+
+    Private Sub btnQuitar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnQuitar.Click
+        If Me.gvResultado.DataRowCount <> 0 Then
+            If GEstadoNuevo = False Then
+                If Not String.IsNullOrEmpty(gvResultado.GetFocusedRowCellValue("InmUpdDetId").ToString()) Then
+                    If SaimtMessageBox.mostrarAlertaPreguntaYESNO("Estas seguro de querer Eliminar el Codigo de Actualización:" & gvResultado.GetFocusedRowCellValue("InmUpdId").ToString()) = True Then
+                        MantenimientosBL.Instancia.inmuebleUpdateEliminar(gvResultado.GetFocusedRowCellValue("InmUpdDetId").ToString())
+                        gvResultado.DeleteRow(gvResultado.GetRowHandle(0))
+                        ' btnBuscar.PerformClick()
+                    End If
+                End If
+            End If
+        Else
+            SaimtMessageBox.mostrarAlertaError("No Hay Ninguna Fila Seleccionada")
+        End If
+    End Sub
+
+    Private Sub btnBuscar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnBuscar.Click
+        GCriterioBuscado = cboCriterioFecha.EditValue
+        GValorTextoBuscado = cboCriterioFechaSub.EditValue
+    End Sub
+End Class

@@ -1,0 +1,400 @@
+﻿Imports Entidades
+Imports ReglasNegocio
+Imports SaimtControles
+Imports System.IO
+Imports System.Reflection
+Public Class frmGaleriaInmueble
+    Inherits frmGeneral
+
+#Region "Propiedades"
+    Public Property OInmuebleArchivos() As List(Of EEInmArchivos)
+#End Region
+
+    Dim dtTableImagenes As DataTable = New DataTable()
+    Dim dtTableArchivos As DataTable = New DataTable()
+    Dim dtTableVideos As DataTable = New DataTable()
+    Dim loImagenConver As ImageConver = New ImageConver()
+    Dim foxit As AxFOXITREADEROCXLib.AxFoxitReaderOCX = Nothing
+    'Dim visorPDF As AxAcroPDFLib.AxAcroPDF = Nothing
+    Dim visorAutoCAD As AxACCTRLLib.AxAcCtrl = Nothing
+
+    ''' <summary>
+    ''' True = Foxit, False = Adobe PDF
+    ''' </summary> 
+    ''' <remarks></remarks>
+    Dim lbTipoVisorPDF As Boolean? = Nothing
+
+#Region "Construir Table"
+    Private Sub ConstruirTableImagenes()
+        dtTableImagenes.Columns.Add("Id", GetType(String))
+        dtTableImagenes.Columns.Add("Foto", GetType(Byte()))
+        dtTableImagenes.Columns.Add("Nombre", GetType(String))
+        dtTableImagenes.Columns.Add("Descripcion", GetType(String))
+        dtTableImagenes.Columns.Add("Activo", GetType(Boolean))
+    End Sub
+
+    Private Sub ConstruirTableArchivos()
+        dtTableArchivos.Columns.Add("Id", GetType(String))
+        dtTableArchivos.Columns.Add("Archivo", GetType(Byte()))
+        dtTableArchivos.Columns.Add("Nombre", GetType(String))
+        dtTableArchivos.Columns.Add("Descripcion", GetType(String))
+        dtTableArchivos.Columns.Add("Extension", GetType(String))
+        dtTableArchivos.Columns.Add("Tipo", GetType(String))
+        dtTableArchivos.Columns.Add("VistaPrevia", GetType(String))
+        dtTableArchivos.Columns.Add("Acción", GetType(String))
+        dtTableArchivos.Columns.Add("Imprirmir", GetType(String))
+        dtTableArchivos.Columns.Add("Activo", GetType(Boolean))
+    End Sub
+
+    Private Sub ConstruirTableVideos()
+        dtTableVideos.Columns.Add("Id", GetType(String))
+        dtTableVideos.Columns.Add("Foto", GetType(Byte()))
+        dtTableVideos.Columns.Add("Nombre", GetType(String))
+        dtTableVideos.Columns.Add("Descripcion", GetType(String))
+        dtTableVideos.Columns.Add("Accion1", GetType(String))
+        dtTableVideos.Columns.Add("Accion2", GetType(String))
+        dtTableVideos.Columns.Add("Extension", GetType(String))
+        dtTableVideos.Columns.Add("Archivo", GetType(Byte()))
+        dtTableVideos.Columns.Add("Tipo", GetType(String))
+        dtTableVideos.Columns.Add("Activo", GetType(Boolean))
+    End Sub
+#End Region
+
+    Dim crmResource As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmGaleriaInmueble))
+    Private Sub frmGaleriaInmueble_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        fgvExcel.Visible = False
+        fgvExcel.Dock = DockStyle.Fill
+        recWord.Visible = False
+        recWord.Dock = DockStyle.Fill
+
+        Try
+            'visorPDF = New AxAcroPDFLib.AxAcroPDF()
+            visorPDF.Visible = False
+            visorPDF.Name = "visorPDF"
+            'visorPDF.OcxState = CType(crmResource.GetObject("visorPDF.OcxState"), System.Windows.Forms.AxHost.State)
+            visorPDF.Dock = DockStyle.Fill
+            SplitContainerControl4.Panel2.Controls.Add(visorPDF)
+
+            lbTipoVisorPDF = False
+        Catch
+            Try
+                foxit = New AxFOXITREADEROCXLib.AxFoxitReaderOCX()
+                foxit.Visible = False
+                foxit.Name = "foxit"
+                foxit.OcxState = CType(crmResource.GetObject("foxit.OcxState"), System.Windows.Forms.AxHost.State)
+                foxit.Dock = DockStyle.Fill
+                SplitContainerControl4.Panel2.Controls.Add(foxit)
+                'foxit.Visible = False
+                lbTipoVisorPDF = True
+            Catch
+                'SaimtMessageBox.mostrarAlertaAdvertencia("No se encontro un visor de PDF Instalado.")
+            End Try
+        End Try
+
+        Try
+            visorAutoCAD = New AxACCTRLLib.AxAcCtrl()
+            visorAutoCAD.Visible = True
+            visorAutoCAD.Enabled = True
+            visorAutoCAD.Name = "visorAutoCAD"
+            visorAutoCAD.OcxState = CType(crmResource.GetObject("visorAutoCAD.OcxState"), System.Windows.Forms.AxHost.State)
+            visorAutoCAD.Dock = DockStyle.Fill
+            SplitContainerControl4.Panel2.Controls.Add(visorAutoCAD)
+            visorAutoCAD.Visible = False
+        Catch
+            'SaimtMessageBox.mostrarAlertaAdvertencia("No se encontro un visor de AutoCAD Instalado")
+        End Try
+
+        ConstruirTableImagenes()
+        ConstruirTableArchivos()
+        ConstruirTableVideos()
+        dgvGaleriaImagenes.DataSource = dtTableImagenes
+        dgvArchivos.DataSource = dtTableArchivos
+        dgvMultimedia.DataSource = dtTableVideos
+
+        If OInmuebleArchivos IsNot Nothing Then
+            For Each fArchivos As EEInmArchivos In OInmuebleArchivos
+                Select Case fArchivos.TgTipoArchId
+                    Case "04"
+                        dtTableImagenes.LoadDataRow(New Object() {fArchivos.InmArchId, Nothing, _
+                        fArchivos.InmArchNombre, _
+                        fArchivos.InmArchDescripcion, fArchivos.InmArchActivo
+                        }, True)
+                        Exit Select
+                        'fArchivos.InmArch, _
+                    Case "05"
+                        dtTableVideos.LoadDataRow(New Object() {fArchivos.InmArchId, Nothing, _
+                        fArchivos.InmArchNombre, _
+                        fArchivos.InmArchDescripcion, _
+                        "Descargar", _
+                        "Vista Previa", _
+                        fArchivos.InmArchExt, _
+                       fArchivos.TgNombre, fArchivos.InmArchActivo
+                        }, True)
+                        Exit Select
+                        'fArchivos.InmArch, _
+                        ' loImagenConver.Image2Bytes(Me.imagenes128.Images(0)), _
+                    Case Else
+                        dtTableArchivos.LoadDataRow(New Object() {fArchivos.InmArchId, Nothing, _
+                            fArchivos.InmArchNombre, _
+                            fArchivos.InmArchDescripcion, _
+                            fArchivos.InmArchExt, _
+                            fArchivos.TgNombre, _
+                            "Vista Previa", _
+                            "Descargar", _
+                            "Imprimir", fArchivos.InmArchActivo
+                        }, True)
+                        Exit Select
+                        'fArchivos.InmArch, _
+                End Select
+            Next
+        End If
+        Me.gvArchivos.BestFitColumns()
+    End Sub
+
+    Private Sub dgvGaleriaImagenes_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles dgvGaleriaImagenes.Click
+        If Me.lvGaleriaImagenes.DataRowCount <> 0 Then
+            pbFotoInmueble.Image = loImagenConver.ZoomImageToImage(lvGaleriaImagenes.GetRowCellValue(Me.lvGaleriaImagenes.GetSelectedRows(0), "Foto"), CDec(Me.ZoomTrackBarControl1.Value) / 100)
+            Me.lblzoom.Text = Format(CDec(Me.ZoomTrackBarControl1.Value) / 100, "0%")
+        End If
+    End Sub
+
+    Private Sub RepositoryItemPictureEditFoto_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RepositoryItemPictureEditFoto.Click
+        dgvGaleriaImagenes_Click(sender, e)
+    End Sub
+
+    Private Sub rihTipoArchivoDescargar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles rihTipoArchivoDescargar.Click
+        If Me.gvArchivos.DataRowCount <> 0 Then
+            If IsDBNull(gvArchivos.GetRowCellValue(Me.gvArchivos.GetSelectedRows(0), "Archivo")) Then
+                Dim loInmArch As EEInmArchivos = MantenimientosBL.Instancia.inmuebleMostrarInmArchXInmArchId(gvArchivos.GetRowCellValue(gvArchivos.GetSelectedRows(0), "Id"))
+                If loInmArch IsNot Nothing Then
+                    gvArchivos.SetRowCellValue(gvArchivos.GetSelectedRows(0), "Archivo", loInmArch.InmArch)
+                End If
+            End If
+            sfddescargar.Filter = String.Format("{0}{1}(*{2})|*{2}", gvArchivos.GetRowCellValue(Me.gvArchivos.GetSelectedRows(0), "Tipo"), Space(1), gvArchivos.GetRowCellValue(Me.gvArchivos.GetSelectedRows(0), "Extension"))
+            If sfddescargar.ShowDialog = Windows.Forms.DialogResult.OK Then
+                Dim byA As Byte() = gvArchivos.GetRowCellValue(Me.gvArchivos.GetSelectedRows(0), "Archivo")
+                loImagenConver.ByteArrayToFile(sfddescargar.FileName, byA)
+            End If
+        End If
+    End Sub
+
+
+    Private Sub RepositoryItemHyperLinkEditVistaPrevia_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RepositoryItemHyperLinkEditVistaPrevia.Click
+        If Me.gvArchivos.DataRowCount <> 0 Then
+            If IsDBNull(gvArchivos.GetRowCellValue(Me.gvArchivos.GetSelectedRows(0), "Archivo")) Then
+                Dim loInmArch As EEInmArchivos = MantenimientosBL.Instancia.inmuebleMostrarInmArchXInmArchId(gvArchivos.GetRowCellValue(gvArchivos.GetSelectedRows(0), "Id"))
+                If loInmArch IsNot Nothing Then
+                    gvArchivos.SetRowCellValue(gvArchivos.GetSelectedRows(0), "Archivo", loInmArch.InmArch)
+                End If
+            End If
+            Dim byA As Byte() = gvArchivos.GetRowCellValue(Me.gvArchivos.GetSelectedRows(0), "Archivo")
+            Dim lsExtension As String = gvArchivos.GetRowCellValue(Me.gvArchivos.GetSelectedRows(0), "Extension")
+            loImagenConver.ByteArrayToFile(String.Format("{0}SaimtTemporal{1}", System.IO.Path.GetTempPath(), lsExtension), byA)
+
+            Dim lsArchivoTemporal As String = String.Format("{0}SaimtTemporal{1}", System.IO.Path.GetTempPath(), gvArchivos.GetRowCellValue(Me.gvArchivos.GetSelectedRows(0), "Extension"))
+
+            If lsExtension.Contains(".doc") Or lsExtension.Contains(".docx") Then
+                recWord.Visible = True
+                fgvExcel.Visible = False
+
+                If lbTipoVisorPDF IsNot Nothing Then
+                    If lbTipoVisorPDF = False Then
+                        visorPDF.Visible = False
+                    ElseIf lbTipoVisorPDF = True Then
+                        foxit.Visible = False
+                    End If
+                End If
+
+                recWord.LoadDocument(lsArchivoTemporal)
+            ElseIf lsExtension.Contains(".xls") Or lsExtension.Contains(".xlsx") Then
+                fgvExcel.Visible = True
+                recWord.Visible = False
+
+                If lbTipoVisorPDF IsNot Nothing Then
+                    If lbTipoVisorPDF = False Then
+                        visorPDF.Visible = False
+                    ElseIf lbTipoVisorPDF = True Then
+                        foxit.Visible = False
+                    End If
+                End If
+
+                fgvExcel.LoadDocument(lsArchivoTemporal)
+
+                'fgvExcel.AutoSizeCols()
+                'fgvExcel.AutoSizeRows()
+            ElseIf lsExtension.Contains(".pdf") Then
+                recWord.Visible = False
+                fgvExcel.Visible = False
+                visorAutoCAD.Visible = False
+
+                Try
+                    If lbTipoVisorPDF IsNot Nothing Then
+                        If lbTipoVisorPDF = False Then
+                            visorPDF.Visible = True
+                            visorPDF.LoadDocument(lsArchivoTemporal)
+                            SplitContainerControl4.SplitterPosition = SplitContainerControl4.SplitterPosition - 1
+                            SplitContainerControl4.SplitterPosition = SplitContainerControl4.SplitterPosition + 1
+                        ElseIf lbTipoVisorPDF = True Then
+                            foxit.Visible = True
+                            foxit.OpenFile(lsArchivoTemporal)
+                        End If
+                    End If
+                Catch
+                    Process.Start(lsArchivoTemporal)
+                End Try
+            ElseIf lsExtension.Contains(".dwg") Then
+                recWord.Visible = False
+                fgvExcel.Visible = False
+
+                If lbTipoVisorPDF IsNot Nothing Then
+                    If lbTipoVisorPDF = False Then
+                        visorPDF.Visible = False
+                    ElseIf lbTipoVisorPDF = True Then
+                        foxit.Visible = False
+                    End If
+                End If
+
+                Try
+                    visorAutoCAD.Visible = True
+                    visorAutoCAD.PutSourcePath(lsArchivoTemporal)
+                    visorAutoCAD.BringToFront()
+                Catch
+                    Process.Start(lsArchivoTemporal)
+                End Try
+            End If
+        End If
+    End Sub
+
+    Private Sub rihNombreVistaPreview_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles rihNombreVistaPreview.Click
+        If Me.gvArchivos.DataRowCount <> 0 Then
+            If IsDBNull(gvArchivos.GetRowCellValue(Me.gvArchivos.GetSelectedRows(0), "Archivo")) Then
+                Dim loInmArch As EEInmArchivos = MantenimientosBL.Instancia.inmuebleMostrarInmArchXInmArchId(gvArchivos.GetRowCellValue(gvArchivos.GetSelectedRows(0), "Id"))
+                If loInmArch IsNot Nothing Then
+                    gvArchivos.SetRowCellValue(gvArchivos.GetSelectedRows(0), "Archivo", loInmArch.InmArch)
+                End If
+            End If
+            Dim byA As Byte() = gvArchivos.GetRowCellValue(Me.gvArchivos.GetSelectedRows(0), "Archivo")
+            Dim lsExtension As String = gvArchivos.GetRowCellValue(Me.gvArchivos.GetSelectedRows(0), "Extension")
+            loImagenConver.ByteArrayToFile(String.Format("{0}SaimtTemporal{1}", System.IO.Path.GetTempPath(), lsExtension), byA)
+
+            Dim lsArchivoTemporal As String = String.Format("{0}SaimtTemporal{1}", System.IO.Path.GetTempPath(), gvArchivos.GetRowCellValue(Me.gvArchivos.GetSelectedRows(0), "Extension"))
+
+            If lsExtension.Contains(".doc") Or lsExtension.Contains(".docx") Then
+                recWord.Visible = True
+                fgvExcel.Visible = False
+
+                If lbTipoVisorPDF IsNot Nothing Then
+                    If lbTipoVisorPDF = False Then
+                        visorPDF.Visible = False
+                    ElseIf lbTipoVisorPDF = True Then
+                        foxit.Visible = False
+                    End If
+                End If
+
+                recWord.LoadDocument(lsArchivoTemporal)
+            ElseIf lsExtension.Contains(".xls") Or lsExtension.Contains(".xlsx") Then
+                fgvExcel.Visible = True
+                recWord.Visible = False
+
+                If lbTipoVisorPDF IsNot Nothing Then
+                    If lbTipoVisorPDF = False Then
+                        visorPDF.Visible = False
+                    ElseIf lbTipoVisorPDF = True Then
+                        foxit.Visible = False
+                    End If
+                End If
+
+                fgvExcel.LoadDocument(lsArchivoTemporal)
+                'fgvExcel.AutoSizeCols()
+                'fgvExcel.AutoSizeRows()
+            ElseIf lsExtension.Contains(".pdf") Then
+                recWord.Visible = False
+                fgvExcel.Visible = False
+                visorAutoCAD.Visible = False
+
+                Try
+                    If lbTipoVisorPDF IsNot Nothing Then
+                        If lbTipoVisorPDF = False Then
+                            visorPDF.Visible = True
+                            visorPDF.LoadDocument(lsArchivoTemporal)
+                            SplitContainerControl4.SplitterPosition = SplitContainerControl4.SplitterPosition - 1
+                            SplitContainerControl4.SplitterPosition = SplitContainerControl4.SplitterPosition + 1
+                        ElseIf lbTipoVisorPDF = True Then
+                            foxit.Visible = True
+                            foxit.OpenFile(lsArchivoTemporal)
+                        End If
+                    End If
+                Catch
+                    Process.Start(lsArchivoTemporal)
+                End Try
+            ElseIf lsExtension.Contains(".dwg") Then
+                recWord.Visible = False
+                fgvExcel.Visible = False
+
+                If lbTipoVisorPDF IsNot Nothing Then
+                    If lbTipoVisorPDF = False Then
+                        visorPDF.Visible = False
+                    ElseIf lbTipoVisorPDF = True Then
+                        foxit.Visible = False
+                    End If
+                End If
+
+                Try
+                    visorAutoCAD.Visible = True
+                    visorAutoCAD.PutSourcePath(lsArchivoTemporal)
+                    visorAutoCAD.BringToFront()
+                Catch
+                    Process.Start(lsArchivoTemporal)
+                End Try
+            End If
+        End If
+    End Sub
+
+    Private Sub rihdescargarvid_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles rihdescargarvid.Click
+        If Me.lvmultimedia.DataRowCount <> 0 Then
+            If IsDBNull(lvmultimedia.GetRowCellValue(Me.lvmultimedia.GetSelectedRows(0), "Archivo")) Then
+                Dim loInmArch As EEInmArchivos = MantenimientosBL.Instancia.inmuebleMostrarInmArchXInmArchId(lvmultimedia.GetRowCellValue(lvmultimedia.GetSelectedRows(0), "Id"))
+                If loInmArch IsNot Nothing Then
+                    lvmultimedia.SetRowCellValue(lvmultimedia.GetSelectedRows(0), "Archivo", loInmArch.InmArch)
+                End If
+            End If
+
+            sfddescargar.Filter = String.Format("{0}{1}(*{2})|*{2}", lvmultimedia.GetRowCellValue(Me.lvmultimedia.GetSelectedRows(0), "Tipo"), Space(1), lvmultimedia.GetRowCellValue(Me.lvmultimedia.GetSelectedRows(0), "Extension"))
+
+            If sfddescargar.ShowDialog = Windows.Forms.DialogResult.OK Then
+                Dim byA As Byte() = lvmultimedia.GetRowCellValue(Me.lvmultimedia.GetSelectedRows(0), "Archivo")
+                loImagenConver.ByteArrayToFile(sfddescargar.FileName, byA)
+            End If
+        End If
+    End Sub
+
+
+    Private Sub RepositoryItemHyperLinkEditImprimir_Click(sender As System.Object, e As System.EventArgs) Handles RepositoryItemHyperLinkEditImprimir.Click
+        If Me.gvArchivos.DataRowCount <> 0 Then
+            Dim byA As Byte() = gvArchivos.GetRowCellValue(Me.gvArchivos.GetSelectedRows(0), "Archivo")
+            Dim lsExtension As String = gvArchivos.GetRowCellValue(Me.gvArchivos.GetSelectedRows(0), "Extension")
+            loImagenConver.ByteArrayToFile(String.Format("{0}SaimtTemporal{1}", System.IO.Path.GetTempPath(), lsExtension), byA)
+            Dim lsArchivoTemporal As String = String.Format("{0}SaimtTemporal{1}", System.IO.Path.GetTempPath(), gvArchivos.GetRowCellValue(Me.gvArchivos.GetSelectedRows(0), "Extension"))
+            Process.Start(lsArchivoTemporal)
+        End If
+    End Sub
+
+    Private Sub ZoomTrackBarControl1_EditValueChanged(sender As System.Object, e As System.EventArgs) Handles ZoomTrackBarControl1.EditValueChanged
+        If Not pbFotoInmueble.Image Is Nothing Then
+            pbFotoInmueble.Image = loImagenConver.ZoomImageToImage(lvGaleriaImagenes.GetRowCellValue(Me.lvGaleriaImagenes.GetSelectedRows(0), "Foto"), CDec(Me.ZoomTrackBarControl1.Value) / 100)
+            Me.lblzoom.Text = Format(CDec(Me.ZoomTrackBarControl1.Value) / 100, "0%")
+        End If
+    End Sub
+
+    Private Sub BackstageViewTabItem2_ItemPressed(ByVal sender As System.Object, ByVal e As DevExpress.XtraBars.Ribbon.BackstageViewItemEventArgs) Handles BackstageViewTabItem2.ItemPressed
+        For Each fArchivos As DataRow In dtTableImagenes.Rows
+            If IsDBNull(fArchivos("Foto")) Then
+                Dim loInmArch As EEInmArchivos = MantenimientosBL.Instancia.inmuebleMostrarInmArchXInmArchId(fArchivos("Id"))
+                If loInmArch IsNot Nothing Then
+                    fArchivos("Foto") = loInmArch.InmArch
+                End If
+            End If
+        Next
+    End Sub
+
+End Class

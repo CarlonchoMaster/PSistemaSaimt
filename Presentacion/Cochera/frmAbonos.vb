@@ -1,0 +1,654 @@
+﻿Imports SaimtControles
+Imports ReglasNegocio
+Imports Entidades
+Imports Word = Microsoft.Office.Interop.Word
+Imports System.IO
+Public Class frmAbonos
+    Dim dtListadoPersona As DataTable = New DataTable
+    Dim dtListadoContratos As DataTable = New DataTable
+    Private PerDistrito As String = String.Empty
+    Private PerProvincia As String = String.Empty
+    Private PerDepartamento As String = String.Empty
+    Private abonReprogramar As Boolean = False
+
+    Private Sub ConstruirTableListadoPersona()
+        dtListadoPersona.Columns.Add("PerId", GetType(String))
+        dtListadoPersona.Columns.Add("Persona", GetType(String))
+        dtListadoPersona.Columns.Add("TgTipoDoc", GetType(String))
+        dtListadoPersona.Columns.Add("PerNDoc", GetType(String))
+    End Sub
+
+    Private Sub ConstruirTablaListadoContratos()
+        dtListadoContratos.Columns.Add("AbonId", GetType(String))
+        dtListadoContratos.Columns.Add("AbonFechaIni", GetType(Date))
+        dtListadoContratos.Columns.Add("AbonFechaFin", GetType(Date))
+        dtListadoContratos.Columns.Add("AbonImporte", GetType(Decimal))
+    End Sub
+
+#Region "Funciones Sobrescritas"
+    Protected Overrides Sub seleccionarListado()
+        Try
+            If Me.gvListadoContratos.DataRowCount <> 0 Then
+                Dim loContratoAbon As EEAbonoPEM = MantenimientosBL.Instancia.abonopemListarXAbonId(gvListadoContratos.GetRowCellValue(Me.gvListadoContratos.GetSelectedRows(0), "AbonId").ToString())
+                If loContratoAbon IsNot Nothing Then
+
+                    cboConceptoAbono.mColumnas(SaimtComboBoxLookUp.Entidades.Concepto)
+                    cboConceptoAbono.Properties.DisplayMember = "ConNombre"
+                    cboConceptoAbono.Properties.ValueMember = "ConId"
+                    cboConceptoAbono.Properties.DataSource = MantenimientosBL.Instancia.conceptoListarXAñoXTgGrupo(dtpFechaFin.DateTime.Year, "06")
+                    cboConceptoAbono.ItemIndex = -1
+
+                    txtPerId.EditValue = loContratoAbon.OPersona.PerId
+                    txtNombreRazon.EditValue = loContratoAbon.OPersona.Persona
+                    txtTipoDocumento.EditValue = loContratoAbon.OPersona.TgDocumento
+                    cboTipoPersona.EditValue = loContratoAbon.OPersona.TgTipoPersId
+                    PerDistrito = loContratoAbon.OPersona.PerDistrito
+                    PerProvincia = loContratoAbon.OPersona.PerProvincia
+                    PerDepartamento = loContratoAbon.OPersona.PerDepartamento
+                    txtDireccion.Text = loContratoAbon.OPersona.PerDireccion
+                    txtNroDocumento.Text = loContratoAbon.OPersona.PerNDoc
+                    'Falta Direccion
+                    txtNroContratoAbono.EditValue = loContratoAbon.AbonId
+                    cboTipoVehiculo.EditValue = loContratoAbon.OTgTipoVehiculo.TgCodigo
+
+                    dtpFechaInicio.EditValue = loContratoAbon.AbonFechaIni
+                    dtpFechaFin.EditValue = loContratoAbon.AbonFechaFin
+                    dtpHoraIngreso.Value = loContratoAbon.AbonHoraIni
+                    dtpHoraFin.Value = loContratoAbon.AbonHoraFin
+
+
+                    cboConceptoAbono.EditValue = loContratoAbon.OConcepto.ConId
+                    cboEstado.EditValue = loContratoAbon.OTgEstado.TgCodigo
+
+                    chkAplicaHora.Checked = loContratoAbon.abonAplicaHora
+                    txtPlaca1.EditValue = loContratoAbon.AbonNPlaca1
+                    txtPlaca2.EditValue = loContratoAbon.AbonNPlaca2
+                    txtPlaca3.EditValue = loContratoAbon.AbonNPlaca3
+                    txtPlaca1.Tag = loContratoAbon.AbonNPlaca1
+                    txtPlaca2.Tag = loContratoAbon.AbonNPlaca2
+                    txtPlaca3.Tag = loContratoAbon.AbonNPlaca3
+                    cboNivel.EditValue = loContratoAbon.OTgNivel.TgCodigo
+                    spnNroEspacio.EditValue = loContratoAbon.AbonNroEspacio
+                    txtNroMeses.EditValue = loContratoAbon.AbonNroMeses
+                    txtMontoPagar.EditValue = loContratoAbon.AbonImporte
+                End If
+
+                MyBase.seleccionarListado()
+                btnImprimir.Enabled = True
+                btnCancelarContrato.Enabled = True
+            End If
+
+
+
+        Catch ex As Exception
+            SaimtMessageBox.mostrarAlertaError(ex.Message)
+        End Try
+    End Sub
+
+    Protected Overrides Sub Buscar()
+        Try
+            MyBase.Buscar()
+        Catch ex As Exception
+            SaimtMessageBox.mostrarAlertaError(ex.Message)
+        End Try
+
+    End Sub
+
+    Protected Overrides Sub guardar()
+        Try
+
+            If Len(txtPerId.EditValue) = 0 Then
+                SaimtMessageBox.mostrarAlertaAdvertencia("Seleccione al abonado")
+                btnBuscarPersona.Focus()
+                Return
+            End If
+
+            If dtpFechaInicio.EditValue Is Nothing Then
+                SaimtMessageBox.mostrarAlertaAdvertencia("Selecciones Fecha Inicio")
+                Return
+            End If
+            If Len(txtPlaca1.Text) = 0 Then
+                SaimtMessageBox.mostrarAlertaAdvertencia("Ingrese la Placa del Abono")
+                txtPlaca1.Focus()
+                Return
+            End If
+
+            If dtpFechaInicio.EditValue Is Nothing Then
+                SaimtMessageBox.mostrarAlertaAdvertencia("Seleccione la fecha de Inicio del Contrato")
+                dtpFechaInicio.Focus()
+                Return
+            End If
+            If dtpFechaFin.EditValue Is Nothing Then
+                SaimtMessageBox.mostrarAlertaAdvertencia("Seleccione la fecha de Fin del Contrato")
+                dtpFechaFin.Focus()
+                Return
+            End If
+            If dtpFechaFin.EditValue < dtpFechaInicio.EditValue Then
+                SaimtMessageBox.mostrarAlertaAdvertencia("Seleccione la fecha de Fin correcta para el abono")
+                dtpFechaFin.Focus()
+                Return
+            End If
+
+            If cboConceptoAbono.EditValue Is Nothing Then
+                SaimtMessageBox.mostrarAlertaAdvertencia("Seleccione el Concepto")
+                cboConceptoAbono.Focus()
+                Return
+            End If
+
+            Dim VloAbonPEM As EEAbonoPEM
+            Dim NroCuotasNoPagadas As Integer
+
+            If GEstadoNuevo = True Or abonReprogramar = True Then
+                VloAbonPEM = MantenimientosBL.Instancia.abonopemMostrarAbonadoActivoPendienteXabonNPlacaXAbonDetFechaIni(txtPlaca1.Text, dtpFechaInicio.EditValue)
+                If VloAbonPEM IsNot Nothing Then
+                    SaimtMessageBox.mostrarAlertaAdvertencia(String.Format("La Placa " & txtPlaca1.Text & " Ya tiene un Contrato {0} Activo o Pendiente de Activacion entre las fechas de este contrato", VloAbonPEM.LoAbonadoDetalle.AbonDetId.Substring(2)))
+                    txtPlaca1.Focus()
+                    Return
+                End If
+                NroCuotasNoPagadas = MantenimientosBL.Instancia.abonoDetpemValidarNroCuotasNoPagadasXAbonPlaca(txtPlaca1.Text)
+                If NroCuotasNoPagadas > 0 Then
+                    SaimtMessageBox.mostrarAlertaAdvertencia(String.Format("La Placa {0} tiene cuotas {1}  deudas, no se puede realizar el contrato hasta que se cancele las anteriores", txtPlaca1.Text, NroCuotasNoPagadas))
+                    txtPlaca1.Focus()
+                    Return
+                End If
+            Else
+                If txtPlaca1.Tag <> txtPlaca1.Text Then
+                    VloAbonPEM = MantenimientosBL.Instancia.abonopemMostrarAbonadoActivoPendienteXabonNPlacaXAbonDetFechaIni(txtPlaca1.Text, dtpFechaInicio.EditValue)
+                    If VloAbonPEM IsNot Nothing Then
+                        SaimtMessageBox.mostrarAlertaAdvertencia(String.Format("La Placa " & txtPlaca1.Text & " Ya tiene un Contrato {0} Activo o Pendiente de Activacion entre las fechas de este contrato", VloAbonPEM.LoAbonadoDetalle.AbonDetId.Substring(2)))
+                        txtPlaca1.Focus()
+                        Return
+                    End If
+                    NroCuotasNoPagadas = MantenimientosBL.Instancia.abonoDetpemValidarNroCuotasNoPagadasXAbonPlaca(txtPlaca1.Text)
+                    If NroCuotasNoPagadas > 0 Then
+                        SaimtMessageBox.mostrarAlertaAdvertencia(String.Format("La Placa {0} tiene cuotas {1}  deudas, no se puede realizar el contrato hasta que se cancele las anteriores", txtPlaca1.Text, NroCuotasNoPagadas))
+                        txtPlaca1.Focus()
+                        Return
+                    End If
+                End If
+            End If
+
+            If GEstadoNuevo Or abonReprogramar = True Then
+                VloAbonPEM = MantenimientosBL.Instancia.abonopemMostrarAbonadoActivoPendienteXabonNPlacaXAbonDetFechaIni(txtPlaca2.Text, dtpFechaInicio.EditValue)
+                If VloAbonPEM IsNot Nothing Then
+                    SaimtMessageBox.mostrarAlertaAdvertencia(String.Format("La Placa " & txtPlaca2.Text & " Ya tiene un Contrato {0} Activo o Pendiente entre las fechas de este contrato", VloAbonPEM.LoAbonadoDetalle.AbonDetId.Substring(2)))
+                    txtPlaca2.Focus()
+                    Return
+                End If
+                NroCuotasNoPagadas = MantenimientosBL.Instancia.abonoDetpemValidarNroCuotasNoPagadasXAbonPlaca(txtPlaca2.Text)
+                If NroCuotasNoPagadas > 0 Then
+                    SaimtMessageBox.mostrarAlertaAdvertencia(String.Format("La Placa {0} tiene cuotas {1} deudas, no se puede realizar el contrato hasta que se cancele las anteriores", txtPlaca2.Text, NroCuotasNoPagadas))
+                    txtPlaca2.Focus()
+                    Return
+                End If
+            Else
+                If txtPlaca2.Tag <> txtPlaca2.Text Then
+                    VloAbonPEM = MantenimientosBL.Instancia.abonopemMostrarAbonadoActivoPendienteXabonNPlacaXAbonDetFechaIni(txtPlaca2.Text, dtpFechaInicio.EditValue)
+                    If VloAbonPEM IsNot Nothing Then
+                        SaimtMessageBox.mostrarAlertaAdvertencia(String.Format("La Placa " & txtPlaca2.Text & " Ya tiene un Contrato {0} Activo o Pendiente entre las fechas de este contrato", VloAbonPEM.LoAbonadoDetalle.AbonDetId.Substring(2)))
+                        txtPlaca2.Focus()
+                        Return
+                    End If
+                    NroCuotasNoPagadas = MantenimientosBL.Instancia.abonoDetpemValidarNroCuotasNoPagadasXAbonPlaca(txtPlaca2.Text)
+                    If NroCuotasNoPagadas > 0 Then
+                        SaimtMessageBox.mostrarAlertaAdvertencia(String.Format("La Placa {0} tiene cuotas {1}  deudas, no se puede realizar el contrato hasta que se cancele las anteriores", txtPlaca2.Text, NroCuotasNoPagadas))
+                        txtPlaca2.Focus()
+                        Return
+                    End If
+                End If
+            End If
+
+            If GEstadoNuevo Or abonReprogramar = True Then
+                VloAbonPEM = MantenimientosBL.Instancia.abonopemMostrarAbonadoActivoPendienteXabonNPlacaXAbonDetFechaIni(txtPlaca3.Text, dtpFechaInicio.EditValue)
+                If VloAbonPEM IsNot Nothing Then
+                    SaimtMessageBox.mostrarAlertaAdvertencia(String.Format("La Placa " & txtPlaca3.Text & " Ya tiene un Contrato {0} Activo o Pendiente entre las fechas de este contrato", VloAbonPEM.LoAbonadoDetalle.AbonDetId.Substring(2)))
+                    txtPlaca3.Focus()
+                    Return
+                End If
+                NroCuotasNoPagadas = MantenimientosBL.Instancia.abonoDetpemValidarNroCuotasNoPagadasXAbonPlaca(txtPlaca3.Text)
+                If NroCuotasNoPagadas > 0 Then
+                    SaimtMessageBox.mostrarAlertaAdvertencia(String.Format("La Placa {0} tiene cuotas {1}  deudas, no se puede realizar el contrato hasta que se cancele las anteriores", txtPlaca3.Text, NroCuotasNoPagadas))
+                    txtPlaca3.Focus()
+                    Return
+                End If
+            Else
+                If txtPlaca3.Tag <> txtPlaca3.Text Then
+                    VloAbonPEM = MantenimientosBL.Instancia.abonopemMostrarAbonadoActivoPendienteXabonNPlacaXAbonDetFechaIni(txtPlaca3.Text, dtpFechaInicio.EditValue)
+                    If VloAbonPEM IsNot Nothing Then
+                        SaimtMessageBox.mostrarAlertaAdvertencia(String.Format("La Placa " & txtPlaca3.Text & " Ya tiene un Contrato {0} Activo o Pendiente entre las fechas de este contrato", VloAbonPEM.LoAbonadoDetalle.AbonDetId.Substring(2)))
+                        txtPlaca3.Focus()
+                        Return
+                    End If
+                    NroCuotasNoPagadas = MantenimientosBL.Instancia.abonoDetpemValidarNroCuotasNoPagadasXAbonPlaca(txtPlaca3.Text)
+                    If NroCuotasNoPagadas > 0 Then
+                        SaimtMessageBox.mostrarAlertaAdvertencia(String.Format("La Placa {0} tiene cuotas {1}  deudas, no se puede realizar el contrato hasta que se cancele las anteriores", txtPlaca3.Text, NroCuotasNoPagadas))
+                        txtPlaca3.Focus()
+                        Return
+                    End If
+                End If
+            End If
+            ' Validacion diario abonado
+            Dim loDiario As EEDiarioPEM = MantenimientosBL.Instancia.diariopemMostrarDatosIngresoXdiaNPlaca(txtPlaca1.Text)
+            If loDiario IsNot Nothing Then
+                SaimtMessageBox.mostrarAlertaAdvertencia(String.Format("La Placa {0} tiene ingreso como diario del día {1}, extorne el diario o efectue la salida", txtPlaca1.Text, loDiario.DiaFechaIng))
+                Return
+            End If
+            loDiario = Nothing
+            loDiario = MantenimientosBL.Instancia.diariopemMostrarDatosIngresoXdiaNPlaca(txtPlaca2.Text)
+            If loDiario IsNot Nothing Then
+                SaimtMessageBox.mostrarAlertaAdvertencia(String.Format("La Placa {0} tiene ingreso como diario del día {1}, extorne el diario o efectue la salida", txtPlaca2.Text, loDiario.DiaFechaIng))
+                Return
+            End If
+            loDiario = Nothing
+            loDiario = MantenimientosBL.Instancia.diariopemMostrarDatosIngresoXdiaNPlaca(txtPlaca3.Text)
+            If loDiario IsNot Nothing Then
+                SaimtMessageBox.mostrarAlertaAdvertencia(String.Format("La Placa {0} tiene ingreso como diario del día {1}, extorne el diario o efectue la salida", txtPlaca3.Text, loDiario.DiaFechaIng))
+                Return
+            End If
+
+            Dim loAbonoPEM As EEAbonoPEM = New EEAbonoPEM()
+            loAbonoPEM.AbonFechaIni = dtpFechaInicio.EditValue
+            loAbonoPEM.AbonFechaFin = dtpFechaFin.EditValue
+
+            If chkAplicaHora.Checked = True Then
+                loAbonoPEM.AbonHoraIni = dtpHoraIngreso.Value
+                loAbonoPEM.AbonHoraFin = dtpHoraFin.Value
+            End If
+            loAbonoPEM.abonAplicaHora = chkAplicaHora.Checked
+            loAbonoPEM.AbonImporte = txtMontoPagar.Text
+            loAbonoPEM.AbonNPlaca1 = txtPlaca1.Text
+            loAbonoPEM.AbonNPlaca2 = txtPlaca2.Text
+            loAbonoPEM.AbonNPlaca3 = txtPlaca3.Text
+            loAbonoPEM.OPersona = New EEPersona()
+            loAbonoPEM.OPersona.PerId = txtPerId.Text
+            loAbonoPEM.PerRegistra = EEComun._PerId
+            loAbonoPEM.OConcepto = New EEConceptos()
+            loAbonoPEM.OConcepto.ConId = cboConceptoAbono.EditValue
+            loAbonoPEM.OTgEstado = New EETablaGeneral()
+            loAbonoPEM.OTgEstado.TgCodigo = "01"
+            loAbonoPEM.OTgNivel = New EETablaGeneral()
+            loAbonoPEM.OTgNivel.TgCodigo = cboNivel.EditValue
+            loAbonoPEM.OTgTipoVehiculo = New EETablaGeneral()
+            loAbonoPEM.OTgTipoVehiculo.TgCodigo = cboTipoVehiculo.EditValue
+            loAbonoPEM.AbonNroMeses = txtNroMeses.Text
+            loAbonoPEM.AbonNroEspacio = Convert.ToInt32(spnNroEspacio.EditValue)
+            loAbonoPEM.abonReprogramar = abonReprogramar
+
+            If GEstadoNuevo Then
+                MantenimientosBL.Instancia.abonopemGuardar(loAbonoPEM)
+            Else
+                loAbonoPEM.AbonId = txtNroContratoAbono.EditValue
+                MantenimientosBL.Instancia.abonopemActualizar(loAbonoPEM)
+            End If
+            MyBase.guardar()
+            abonReprogramar = False
+            btnNuevo.Enabled = True
+        Catch ex As Exception
+            SaimtMessageBox.mostrarAlertaError(ex.Message)
+        End Try
+    End Sub
+
+    Protected Overrides Sub eliminar()
+        Try
+            MyBase.eliminar()
+        Catch ex As Exception
+            SaimtMessageBox.mostrarAlertaError(ex.Message)
+        End Try
+    End Sub
+
+    Protected Overrides Sub nuevo()
+        MyBase.nuevo()
+        hodControlesTotal(grbDatosPersona.Controls, False)
+        btnBuscarPersona.Enabled = True
+        txtNroContratoAbono.Properties.ReadOnly = True
+        '30 abril
+        txtMontoPagar.Properties.ReadOnly = True
+        txtNroMeses.Text = String.Empty
+        txtNroContratoAbono.Text = MantenimientosBL.Instancia.AbonoPEMGeneraCodigo()
+        cboEstado.EditValue = "01"
+        cboEstado.Properties.ReadOnly = True
+        cboConceptoAbono.ItemIndex = 0
+    End Sub
+
+    Protected Overrides Sub Editar()
+        MyBase.editar()
+        hodControlesTotal(grbDatosPersona.Controls, False)
+        hodControlesTotal(SaimtGroupBox2.Controls, False)
+        If MantenimientosBL.Instancia.abonoPEMMostrarPuedeEditar(txtNroContratoAbono.EditValue) = True Then
+            cboConceptoAbono.Properties.ReadOnly = False
+            dtpFechaInicio.Properties.ReadOnly = False
+            dtpFechaFin.Properties.ReadOnly = False
+            dtpHoraIngreso.Enabled = True
+            dtpHoraFin.Enabled = True
+            cboNivel.Properties.ReadOnly = False
+            spnNroEspacio.Properties.ReadOnly = False
+            chkAplicaHora.Properties.ReadOnly = False
+            chkConsiderarEspacio.Properties.ReadOnly = False
+            abonReprogramar = True
+        Else
+            abonReprogramar = False
+        End If
+        txtPlaca1.Properties.ReadOnly = False
+        txtPlaca2.Properties.ReadOnly = False
+        txtPlaca3.Properties.ReadOnly = False
+    End Sub
+
+    Protected Overrides Sub cancelar()
+        MyBase.cancelar()
+        Me.btnNuevo.Enabled = True
+    End Sub
+#End Region
+
+    Private Sub frmAbonos_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Me.PuedeBuscar = True
+        Me.PuedeCrear = True
+        Me.PuedeEditar = True
+        Me.PuedeImprimir = True
+        Me.PuedeExportar = True
+        cboTipoPersona.mColumnas(SaimtComboBoxLookUp.Entidades.TablaGeneral)
+        cboTipoPersona.Properties.DisplayMember = "TgNombre"
+        cboTipoPersona.Properties.ValueMember = "TgCodigo"
+        cboTipoPersona.Properties.DataSource = MantenimientosBL.Instancia.tablageneralListarXClsId(6)
+        cboTipoPersona.ItemIndex = -1
+
+        cboTipoVehiculo.mColumnas(SaimtComboBoxLookUp.Entidades.TablaGeneral)
+        cboTipoVehiculo.Properties.DisplayMember = "TgNombre"
+        cboTipoVehiculo.Properties.ValueMember = "TgCodigo"
+        cboTipoVehiculo.Properties.DataSource = MantenimientosBL.Instancia.tablageneralListarXClsId(103)
+        cboTipoVehiculo.ItemIndex = -1
+
+        cboNivel.mColumnas(SaimtComboBoxLookUp.Entidades.TablaGeneral)
+        cboNivel.Properties.DisplayMember = "TgNombre"
+        cboNivel.Properties.ValueMember = "TgCodigo"
+        cboNivel.Properties.DataSource = MantenimientosBL.Instancia.tablageneralListarXClsId(102)
+        cboNivel.ItemIndex = -1
+
+
+        cboEstado.mColumnas(SaimtComboBoxLookUp.Entidades.TablaGeneral)
+        cboEstado.Properties.DisplayMember = "TgNombre"
+        cboEstado.Properties.ValueMember = "TgCodigo"
+        cboEstado.Properties.DataSource = MantenimientosBL.Instancia.tablageneralListarXClsId(162)
+        cboEstado.ItemIndex = -1
+
+        ConstruirTableListadoPersona()
+        dgvListadoPersona.DataSource = dtListadoPersona
+        ConstruirTablaListadoContratos()
+        dgvListadoContratos.DataSource = dtListadoContratos
+    End Sub
+
+    Private Sub btnBuscarPersona_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnBuscarPersona.Click
+        Using fmConsultaPersona As frmConsultaPersonaGeneral = New frmConsultaPersonaGeneral(3)
+            If fmConsultaPersona.ShowDialog() = DialogResult.OK Then
+                cboTipoPersona.EditValue = fmConsultaPersona.PerTipo
+                txtNombreRazon.Text = fmConsultaPersona.PerNombre
+                txtDireccion.Text = fmConsultaPersona.PerDireccion
+                txtTipoDocumento.Text = fmConsultaPersona.PerTipoDoc
+                txtNroDocumento.Text = fmConsultaPersona.perNdoc
+                txtObsPer.Text = fmConsultaPersona.PerObs
+                txtPerId.Text = fmConsultaPersona.PerId
+                '
+                PerDistrito = fmConsultaPersona.perDistrito
+                PerProvincia = fmConsultaPersona.perProvincia
+                PerDepartamento = fmConsultaPersona.perDepartamento
+                Me.txtNombreRazon.Tag = fmConsultaPersona.OContacto
+            End If
+        End Using
+    End Sub
+
+    Private Sub cboConceptoAbono_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cboConceptoAbono.EditValueChanged
+        If dtpFechaInicio.EditValue IsNot Nothing AndAlso dtpFechaFin.EditValue IsNot Nothing Then
+            txtNroMeses.Text = DateDiff(DateInterval.Month, dtpFechaInicio.EditValue, dtpFechaFin.EditValue)
+        End If
+        txtMontoPagar.Text = MantenimientosBL.Instancia.conceptoMostrarImporte_XConId(cboConceptoAbono.EditValue) '* Val(txtNroMeses.Text)
+    End Sub
+
+    Private Sub cboTipoVehiculo_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cboTipoVehiculo.EditValueChanged
+        cboConceptoAbono.mColumnas(SaimtComboBoxLookUp.Entidades.Concepto)
+        cboConceptoAbono.Properties.DisplayMember = "ConNombre"
+        cboConceptoAbono.Properties.ValueMember = "ConId"
+        cboConceptoAbono.Properties.DataSource = MantenimientosBL.Instancia.conceptoListarAbono_XTgSubGrupoId(cboTipoVehiculo.EditValue)
+        cboConceptoAbono.ItemIndex = -1
+    End Sub
+
+    Private Sub dtpFechaFin_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles dtpFechaFin.EditValueChanged
+        If dtpFechaInicio.EditValue Is Nothing Then
+            SaimtMessageBox.mostrarAlertaAdvertencia("Seleccione Fecha Inicio")
+            dtpFechaFin.EditValue = Nothing
+            dtpFechaInicio.Focus()
+            Exit Sub
+        End If
+        If dtpFechaInicio.EditValue IsNot Nothing AndAlso dtpFechaFin.EditValue IsNot Nothing Then
+            txtNroMeses.Text = DateDiff(DateInterval.Month, dtpFechaInicio.EditValue, dtpFechaFin.EditValue)
+        End If
+    End Sub
+
+    Private Sub chkConsiderarEspacio_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles chkConsiderarEspacio.CheckedChanged
+        If chkConsiderarEspacio.Checked = False Then
+            spnNroEspacio.Properties.MinValue = 0
+            spnNroEspacio.EditValue = 0
+            spnNroEspacio.Properties.ReadOnly = True
+        Else
+            spnNroEspacio.Properties.MinValue = 101
+            spnNroEspacio.EditValue = 101
+            spnNroEspacio.Properties.ReadOnly = False
+        End If
+    End Sub
+
+
+
+    Private Sub txtBuscar_KeyDown(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txtBuscarPersonaPor.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            If PuedeBuscar Then
+                Try
+                    dtListadoPersona.Clear()
+                    Dim ListaPersona As List(Of EEPersona) = MantenimientosBL.Instancia.personaListarCriterioAbonados(cboBuscarPersonaPor.SelectedIndex, txtBuscarPersonaPor.Text, cboBuscarPersonaPor1.EditValue)
+                    If ListaPersona IsNot Nothing Then
+                        For Each fPersona As EEPersona In ListaPersona
+                            dtListadoPersona.LoadDataRow(New Object() {fPersona.PerId,
+                                                                       fPersona.Persona,
+                                                                       fPersona.TgTipoDoc,
+                                                                       fPersona.PerNDoc
+                                           }, True)
+                        Next
+                        gvListadoPersona.BestFitColumns()
+                        gvListadoPersona.SelectRow(0)
+                        gvListadoPersona_CustomRowCellEditForEditing(Nothing, Nothing)
+                    End If
+                Catch ex As Exception
+                    SaimtMessageBox.mostrarAlertaError(ex.Message)
+                End Try
+            Else
+                mostrarMensajeBarra(GMensajePermiso)
+            End If
+        End If
+    End Sub
+    Private Sub gvListadoPersona_CustomRowCellEditForEditing(ByVal sender As System.Object, ByVal e As DevExpress.XtraGrid.Views.Grid.CustomRowCellEditEventArgs)
+        Try
+            Dim lsPerId As String = gvListadoPersona.GetRowCellValue(Me.gvListadoPersona.GetSelectedRows(0), "PerId").ToString()
+            txtBuscarContratoPor.Text = lsPerId
+            dtListadoContratos.Clear()
+            cboBuscarContratoPor.SelectedIndex = 0
+            Dim ListaContrato As List(Of EEAbonoPEM) = MantenimientosBL.Instancia.abonopemListarCriterios(cboBuscarContratoPor.SelectedIndex, lsPerId)
+            For Each fContrato As EEAbonoPEM In ListaContrato
+                dtListadoContratos.LoadDataRow(New Object() {fContrato.AbonId,
+                                                            fContrato.AbonFechaIni,
+                                                            fContrato.AbonFechaFin,
+                                                            fContrato.AbonImporte
+                               }, True)
+            Next
+            gvListadoContratos.BestFitColumns()
+            gvListadoContratos.SelectRow(0)
+            dgvListado_Click(Nothing, Nothing)
+        Catch ex As Exception
+            SaimtMessageBox.mostrarAlertaError(ex.Message)
+        End Try
+    End Sub
+
+    Private Sub gvListadoContratos_CustomRowCellEditForEditing(ByVal sender As System.Object, ByVal e As DevExpress.XtraGrid.Views.Grid.CustomRowCellEditEventArgs) Handles gvListadoContratos.CustomRowCellEditForEditing
+
+    End Sub
+
+    Private Sub txtNroMeses_EditValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txtNroMeses.EditValueChanged
+        If Val(txtNroMeses.Text) > 0 And cboConceptoAbono.EditValue IsNot Nothing Then
+            txtMontoPagar.Text = MantenimientosBL.Instancia.conceptoMostrarImporte_XConId(cboConceptoAbono.EditValue) '* Val(txtNroMeses.Text)
+        End If
+    End Sub
+
+    Private Sub cboBuscarPersonaPor_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cboBuscarPersonaPor.SelectedIndexChanged
+        If cboBuscarPersonaPor.SelectedIndex = 1 Then
+            cboBuscarPersonaPor1.mColumnas(SaimtComboBoxLookUp.Entidades.TablaGeneral)
+            cboBuscarPersonaPor1.Properties.DisplayMember = "TgNombre"
+            cboBuscarPersonaPor1.Properties.ValueMember = "TgCodigo"
+            cboBuscarPersonaPor1.Properties.DataSource = MantenimientosBL.Instancia.tablageneralListarXClsId(4)
+            cboBuscarPersonaPor1.ItemIndex = 0
+            cboBuscarPersonaPor1.Properties.ReadOnly = False
+        Else
+            cboBuscarPersonaPor1.ItemIndex = -1
+            cboBuscarPersonaPor1.Properties.ReadOnly = True
+        End If
+    End Sub
+
+    Private Sub txtBuscarContratoPor_KeyDown(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txtBuscarContratoPor.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            ListadoContratos()
+        End If
+
+    End Sub
+
+    Private Sub ListadoContratos()
+        Try
+            dtListadoContratos.Clear()
+            Dim ListaContrato As List(Of EEAbonoPEM) = MantenimientosBL.Instancia.abonopemListarCriterios(cboBuscarContratoPor.SelectedIndex, txtBuscarContratoPor.Text)
+            If ListaContrato IsNot Nothing Then
+                For Each fContrato As EEAbonoPEM In ListaContrato
+                    dtListadoContratos.LoadDataRow(New Object() {fContrato.AbonId,
+                                                                fContrato.AbonFechaIni,
+                                                                fContrato.AbonFechaFin,
+                                                                fContrato.AbonImporte
+                                   }, True)
+                Next
+                gvListadoContratos.BestFitColumns()
+                gvListadoContratos.SelectRow(0)
+                dgvListado_Click(Nothing, Nothing)
+            End If
+
+        Catch ex As Exception
+            SaimtMessageBox.mostrarAlertaError(ex.Message)
+        End Try
+    End Sub
+
+    Private Sub Print()
+        Dim oWordN As Word.Application
+        Dim oDocN As Word._Document = Nothing
+        Dim loContratoDatosAnt As List(Of EEContratoInm) = Nothing
+        Try
+            Application.DoEvents()
+            oWordN = CreateObject("Word.Application")
+            Application.DoEvents()
+            If File.Exists(My.Application.Info.DirectoryPath & "\RptContratoCochera.doc") = True Then
+                oDocN = oWordN.Documents.Open(My.Application.Info.DirectoryPath & "\RptContratoCochera.doc", Nothing, False)
+            Else
+                oDocN = oWordN.Documents.Open(EEComun.RutaReportes & "\RptContratoCochera.doc", Nothing, False)
+            End If
+
+            Application.DoEvents()
+
+            'oDocN.Sections(1).Headers(Word.WdHeaderFooterIndex.wdHeaderFooterPrimary).LinkToPrevious = False
+            'oDocN.Sections(1).Headers(Word.WdHeaderFooterIndex.wdHeaderFooterPrimary).Range.Text = "CONTRATO N° " & GIdRegistroActual & " - SAIMT - DECOIN"
+            'oDocN.Sections(1).Headers(Word.WdHeaderFooterIndex.wdHeaderFooterPrimary).Range.Paragraphs.Alignment = Word.WdParagraphAlignment.wdAlignParagraphRight
+            Dim wRng As Word.Range
+            wRng = oDocN.Content
+            ' If cboTipoPersona.EditValue = "N" Then
+            wRng.Find.Execute(FindText:="[ABONADO]", ReplaceWith:=IIf(txtNombreRazon.Text.Length = 0, "[ABONADO]", txtNombreRazon.Text), Replace:=Word.WdReplace.wdReplaceAll)
+            'Else
+            'wRng.Find.Execute(FindText:="[ABONADO]", ReplaceWith:=IIf(txtNombreRazon.Text.Length = 0, "[ABONADO]", txtNombreRazon.Text), Replace:=Word.WdReplace.wdReplaceAll)
+            'End If
+            wRng = oDocN.Content
+            wRng.Find.Execute(FindText:="[DOMICILIO]", ReplaceWith:=txtDireccion.Text, Replace:=Word.WdReplace.wdReplaceAll)
+            wRng = oDocN.Content
+            wRng.Find.Execute(FindText:="[DISTRITO]", ReplaceWith:=IIf(PerDistrito.Length = 0, "[DISTRITO]", StrConv(PerDistrito, VbStrConv.ProperCase)), Replace:=Word.WdReplace.wdReplaceAll)
+            wRng = oDocN.Content
+            wRng.Find.Execute(FindText:="[PROVINCIA]", ReplaceWith:=IIf(PerProvincia.Length = 0, "[PROVINCIA]", StrConv(PerProvincia, VbStrConv.ProperCase)), Replace:=Word.WdReplace.wdReplaceAll)
+            wRng = oDocN.Content
+            wRng.Find.Execute(FindText:="[DEPARTAMENTO]", ReplaceWith:=IIf(PerDepartamento.Length = 0, "[DEPARTAMENTO]", StrConv(PerDepartamento, VbStrConv.ProperCase)), Replace:=Word.WdReplace.wdReplaceAll)
+            wRng = oDocN.Content
+            wRng.Find.Execute(FindText:="[TIPODOC]", ReplaceWith:=IIf(cboTipoPersona.EditValue = "N", "DNI Nº [DocumentoDNI]", String.Format("RUC Nº [DocumentoRUC], debidamente representada por Don/Doña {0}", Me.txtNombreRazon.Tag)))
+            wRng = oDocN.Content
+            wRng.Find.Execute(FindText:="[DocumentoDNI]", ReplaceWith:=txtNroDocumento.Text, Replace:=Word.WdReplace.wdReplaceAll)
+            wRng = oDocN.Content
+            wRng.Find.Execute(FindText:="[DocumentoRUC]", ReplaceWith:=txtNroDocumento.Text, Replace:=Word.WdReplace.wdReplaceAll)
+            wRng = oDocN.Content
+            wRng.Find.Execute(FindText:="[PLACA]", ReplaceWith:=txtPlaca1.Text, Replace:=Word.WdReplace.wdReplaceAll)
+            wRng = oDocN.Content
+            wRng.Find.Execute(FindText:="[NROESPACIO]", ReplaceWith:=spnNroEspacio.Text, Replace:=Word.WdReplace.wdReplaceAll)
+            wRng = oDocN.Content
+            wRng.Find.Execute(FindText:="[NIVEL]", ReplaceWith:=cboNivel.EditValue, Replace:=Word.WdReplace.wdReplaceAll)
+            wRng = oDocN.Content
+            wRng.Find.Execute(FindText:="[MESLETRAS]", ReplaceWith:=EEComun.MesesLetras(txtNroMeses.EditValue).ToUpper, Replace:=Word.WdReplace.wdReplaceAll)
+            wRng = oDocN.Content
+            wRng.Find.Execute(FindText:="[FECHAINICIO]", ReplaceWith:=dtpFechaInicio.EditValue, Replace:=Word.WdReplace.wdReplaceAll)
+            wRng = oDocN.Content
+            wRng.Find.Execute(FindText:="[FECHATERMINO]", ReplaceWith:=dtpFechaFin.EditValue, Replace:=Word.WdReplace.wdReplaceAll)
+            wRng = oDocN.Content
+            wRng.Find.Execute(FindText:="[FECHAINICIO]", ReplaceWith:=IIf(dtpFechaInicio.Text.Length = 0, "[FECHAINICIO]", String.Format("{0} de {1} del {2}", Format(dtpFechaInicio.DateTime, "dd"), StrConv(Format(dtpFechaInicio.DateTime, "MMMM"), VbStrConv.ProperCase), Format(dtpFechaInicio.DateTime, "yyyy"))), Replace:=Word.WdReplace.wdReplaceAll)
+            wRng = oDocN.Content
+            wRng.Find.Execute(FindText:="[FECHATERMINO]", ReplaceWith:=IIf(dtpFechaFin.Text.Length = 0, "[FECHATERMINO]", String.Format("{0} de {1} del {2}", Format(dtpFechaFin.DateTime, "dd"), StrConv(Format(dtpFechaFin.DateTime, "MMMM"), VbStrConv.ProperCase), Format(dtpFechaFin.DateTime, "yyyy"))), Replace:=Word.WdReplace.wdReplaceAll)
+            wRng = oDocN.Content
+            'Dim total As Decimal = txtMontoPagar.EditValue * IIf(Val(txtNroMeses.Text) = 0, 1, Val(txtNroMeses.Text))
+            wRng.Find.Execute(FindText:="[MONTOMENSUAL]", ReplaceWith:=txtMontoPagar.EditValue, Replace:=Word.WdReplace.wdReplaceAll)
+            wRng = oDocN.Content
+            wRng.Find.Execute(FindText:="[MONTOLETRAS]", ReplaceWith:=EEComun.MonedaLetras(txtMontoPagar.EditValue), Replace:=Word.WdReplace.wdReplaceAll)
+            wRng = oDocN.Content
+            wRng.Find.Execute(FindText:="[FECHASUSCRIPCION]", ReplaceWith:=String.Format("{0}, {1} de {2} del {3}", StrConv(Format(Date.Now, "dddd"), VbStrConv.ProperCase), Format(Date.Now, "dd"), StrConv(Format(Date.Now, "MMMM"), VbStrConv.ProperCase), Format(Date.Now, "yyyy")), Replace:=Word.WdReplace.wdReplaceAll)
+            oDocN.Sections(1).Footers(1).PageNumbers.Add(PageNumberAlignment:=Word.WdPageNumberAlignment.wdAlignPageNumberRight, FirstPage:=True)
+            If fbdExportar.ShowDialog = Windows.Forms.DialogResult.OK Then
+                oWordN.ActiveDocument.SaveAs2(fbdExportar.SelectedPath & "\ContratoAbono_" & Trim(txtNombreRazon.Text))
+                oWordN.ActiveDocument.Close()
+                bsiMensaje.Caption = "El archivo se guardo correctamente en la ruta seleccionada"
+            End If
+            oWordN.Application.Visible = True
+            oWordN.ShowMe()
+
+        Catch ex As Exception
+            SaimtMessageBox.mostrarAlertaError(ex.Message)
+        End Try
+    End Sub
+    Private Sub btnImprimir_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnImprimir.Click
+        My.Computer.Clipboard.Clear()
+        Print()
+        My.Computer.Clipboard.Clear()
+    End Sub
+
+    Private Sub btnCancelarContrato_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnCancelarContrato.Click
+        Dim fmContratoCancelacion As frmExtornarContrato = New frmExtornarContrato()
+        fmContratoCancelacion.txtNroContrato.Text = txtNroContratoAbono.EditValue
+        'fmContratoCancelacion.txtObsContrato.Text = txtObsCon.Text
+        If fmContratoCancelacion.ShowDialog() Then
+
+        End If
+    End Sub
+
+
+    Private Sub chkAplicaHora_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles chkAplicaHora.CheckedChanged
+        dtpHoraIngreso.Enabled = chkAplicaHora.Checked
+        dtpHoraFin.Enabled = chkAplicaHora.Checked
+    End Sub
+
+    Private Sub gvListadoPersona_CustomRowCellEditForEditing_1(ByVal sender As System.Object, ByVal e As DevExpress.XtraGrid.Views.Grid.CustomRowCellEditEventArgs) Handles gvListadoPersona.CustomRowCellEditForEditing
+
+    End Sub
+
+    Private Sub gvListadoPersona_FocusedRowChanged(ByVal sender As System.Object, ByVal e As DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs) Handles gvListadoPersona.FocusedRowChanged
+        If gvListadoPersona.DataRowCount <> 0 Then
+            txtBuscarContratoPor.Text = gvListadoPersona.GetRowCellValue(Me.gvListadoPersona.GetSelectedRows(0), "PerId").ToString()
+            ListadoContratos()
+        End If
+    End Sub
+
+    Private Sub gvListadoContratos_FocusedRowChanged(ByVal sender As System.Object, ByVal e As DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs) Handles gvListadoContratos.FocusedRowChanged
+        seleccionarListado()
+    End Sub
+
+
+   
+End Class

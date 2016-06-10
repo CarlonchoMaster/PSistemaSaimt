@@ -1,0 +1,453 @@
+﻿Imports ReglasNegocio
+Imports Entidades
+Imports SaimtControlesWeb
+Imports System.Text.RegularExpressions
+Public Class frmPersona
+    Inherits System.Web.UI.Page
+    Private Shared dtTablaContacto As DataTable = New DataTable
+    Dim funciones As New MantenimientoWeb
+    Private Shared vNuevoEditar As Boolean
+#Region "Construir Table Contacto"
+    Private Sub ConstruirTableContacto()
+        dtTablaContacto.Columns.Add("ContactoId", GetType(String))
+        dtTablaContacto.Columns.Add("Contacto", GetType(String))
+        dtTablaContacto.Columns.Add("Descripcion", GetType(String))
+    End Sub
+#End Region
+    Enum TipoContactos
+        EMail = 2
+        Web = 3
+    End Enum
+    Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        Try
+            If Not Page.IsPostBack Then
+
+
+                dtTablaContacto.Columns.Clear()
+                ConstruirTableContacto()
+                dgvDatosAdicionales.DataSource = dtTablaContacto
+                dgvDatosAdicionales.DataBind()
+
+                cboTipoPersona.DataSource = MantenimientosBL.Instancia.tablageneralListarXClsId(6)
+                cboTipoPersona.TextField = "TgNombre"
+                cboTipoPersona.ValueField = "TgCodigo"
+                cboTipoPersona.SelectedIndex = 0
+                cboTipoPersona.DataBind()
+
+                cboDepartamento.DataSource = MantenimientosBL.Instancia.ubigeoListarDepartamentoALL()
+                cboDepartamento.TextField = "UbgNombre"
+                cboDepartamento.ValueField = "UbgDep"
+                cboDepartamento.SelectedIndex = 0
+                cboDepartamento.DataBind()
+
+                cboTipoDocumento.DataSource = MantenimientosBL.Instancia.tablageneralListarXClsId(4)
+                cboTipoDocumento.TextField = "TgNombre"
+                cboTipoDocumento.ValueField = "TgCodigo"
+                cboTipoDocumento.SelectedIndex = 0
+                cboTipoDocumento.DataBind()
+
+                cbTipoContacto.DataSource = MantenimientosBL.Instancia.tablageneralListarXClsId(15)
+                cbTipoContacto.TextField = "TgNombre"
+                cbTipoContacto.ValueField = "TgCodigo"
+                cbTipoContacto.SelectedIndex = 0
+                cbTipoContacto.DataBind()
+                rblBuscar.SelectedIndex = 2
+                funciones.ActivarBoton(rpDatos.Controls, MantenimientoWeb.Botones.Load)
+            End If
+
+
+        Catch ex As Exception
+            MensajeScript(ex.Message)
+        End Try
+    End Sub
+
+    Public Sub MensajeScript(ByVal asMensaje)
+        Dim sbMensaje As StringBuilder = New StringBuilder()
+        sbMensaje.Append("<script type='text/javascript'>")
+        sbMensaje.AppendFormat("alert('{0}');", asMensaje)
+        sbMensaje.Append("</script>")
+        ClientScript.RegisterClientScriptBlock(Me.GetType(), "Mensaje", sbMensaje.ToString())
+    End Sub
+
+    'Protected Sub cboTipoDocumento_Callback(sender As Object, e As EventArgs) Handles cboTipoDocumento.Callback
+    '    If cboTipoDocumento.Text.Equals("0") Then
+    '        txtNroDocumento.ReadOnly = True
+    '        txtNroDocumento.Text = String.Empty
+    '    Else
+    '        txtNroDocumento.ReadOnly = False
+    '    End If
+    'End Sub
+    Sub cargarProvincia(ByVal lsUbgDep As String)
+        Session("keycboDepartamento") = lsUbgDep
+        cboProvincia.TextField = "UbgNombre"
+        cboProvincia.ValueField = "UbgProv"
+        cboProvincia.DataSource = MantenimientosBL.Instancia.ubigeoListarProvinciaXUbgDep(lsUbgDep)
+        cboProvincia.SelectedIndex = 0
+        cboProvincia.DataBind()
+
+    End Sub
+
+    Sub cargarDistrito(ByVal lsUbgDep As String, ByVal lsUbgPro As String)
+        cboDistrito.TextField = "UbgNombre"
+        cboDistrito.ValueField = "UbgProv"
+        cboDistrito.DataSource = MantenimientosBL.Instancia.ubigeoListarDistritoXUbgDepXUbgProv(lsUbgDep, lsUbgPro)
+        cboDistrito.SelectedIndex = 0
+        cboDistrito.DataBind()
+    End Sub
+    Protected Sub cboProvincia_Callback(ByVal sender As Object, ByVal e As DevExpress.Web.CallbackEventArgsBase) Handles cboProvincia.Callback
+        cargarProvincia(e.Parameter)
+    End Sub
+
+    Protected Sub cboDistrito_Callback(ByVal sender As Object, ByVal e As DevExpress.Web.CallbackEventArgsBase) Handles cboDistrito.Callback
+        cargarDistrito(Session("keycboDepartamento"), cboProvincia.Value)
+    End Sub
+    'Protected Sub cbTipoContacto_Callback(ByVal sender As Object, ByVal e As DevExpress.Web.CallbackEventArgsBase) Handles cbTipoContacto.Callback
+    '    Session("keycboTipoContacto") = e.Parameter
+    'End Sub
+
+    'Protected Sub btnAgregar_Click(sender As Object, e As EventArgs) Handles btnAgregar.Click
+    '    Try
+
+    '        For Each fTablaGeneral As DataRow In dtTablaContacto.Rows
+    '            If (fTablaGeneral("ContactoId") = Session("keycboTipoContacto")) Then
+    '                MensajeScript("Ya se encuentra Agregado " & cbTipoContacto.Text)
+    '                Return
+
+    '            End If
+    '        Next
+
+    '        dtTablaContacto.Rows.Add(Session("keycboTipoContacto"), _
+    '                                  cbTipoContacto.Text, _
+    '                                  txtDescripcion.Text)
+
+    '        dgvDatosAdicionales.DataSource = dtTablaContacto
+    '        dgvDatosAdicionales.DataBind()
+    '    Catch ex As Exception
+
+    '    End Try
+
+
+    'End Sub
+
+
+
+    Protected Sub btnGuardar_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnGuardar.Click
+        'VALIDACIONES
+
+        If String.IsNullOrEmpty(cboTipoPersona.Value) Then
+            MensajeScript("Seleccione un Tipo de Persona")
+            cboTipoPersona.Focus()
+            Return
+        End If
+
+        If String.IsNullOrEmpty(cboTipoDocumento.Value) Then
+            MensajeScript("Seleccione un Tipo de Documento")
+            cboTipoDocumento.Focus()
+            Return
+        End If
+
+        If String.IsNullOrEmpty(cboDepartamento.Value) Then
+            MensajeScript("Seleccione un Departamento")
+            cboDepartamento.Focus()
+            Return
+        End If
+
+        If String.IsNullOrEmpty(cboProvincia.Value) Then
+            MensajeScript("Seleccione una Provincia")
+            cboProvincia.Focus()
+            Return
+        End If
+        If String.IsNullOrEmpty(cboDistrito.Value) Then
+            MensajeScript("Seleccione un Distrito")
+            cboDistrito.Focus()
+            Return
+        End If
+
+        If String.IsNullOrEmpty(txtCodigo.Text) Then
+            MensajeScript("El Codigo es Obligatorio")
+            txtCodigo.Focus()
+            Return
+        End If
+
+        If String.IsNullOrEmpty(txtNroDocumento.Text) Then
+            MensajeScript("En Numero de Dodumento es Obligatorio")
+            txtNroDocumento.Focus()
+            Return
+        End If
+        If cboTipoPersona.Value = "J" Then
+
+            If String.IsNullOrEmpty(txtNombreRazon.Text) Then
+                MensajeScript("El Nombre o Razon Social es Obligatorio")
+                txtNombreRazon.Focus()
+                Return
+            End If
+        Else
+            If String.IsNullOrEmpty(txtApePaterno.Text) Then
+                MensajeScript("El Apellido Paterno es Obligatorio")
+                txtCodigo.Focus()
+                Return
+            End If
+
+            If String.IsNullOrEmpty(txtApeMaterno.Text) Then
+                MensajeScript("El Apellido Materno es Obligatorio")
+                txtCodigo.Focus()
+                Return
+            End If
+        End If
+
+        ' Fin Validacion
+
+        Try
+            Dim loPersonaPEM As EEPersona = New EEPersona()
+            Dim loUbigeo As EEUbigeo = New EEUbigeo()
+            loUbigeo.UbgDep = cboDepartamento.Value
+
+            loUbigeo.UbgDist = cboDistrito.Value
+            loUbigeo.UbgProv = cboProvincia.Value
+
+
+            loPersonaPEM.PerActivo = chkActivo.Checked
+            loPersonaPEM.PerDireccion = txtDireccion.Text
+            loPersonaPEM.OUbigeo = loUbigeo
+            loPersonaPEM.TgTipoPersId = cboTipoPersona.Value
+            loPersonaPEM.TgTipoDoc = cboTipoDocumento.Value
+            loPersonaPEM.PerNDoc = txtNroDocumento.Text
+
+            If cboTipoPersona.Value = "N" Then
+                loPersonaPEM.PerApeMaterno = txtApeMaterno.Text
+                loPersonaPEM.PerApePaterno = txtApePaterno.Text
+                loPersonaPEM.PerNombres = txtNombreRazon.Text
+            ElseIf cboTipoPersona.Value = "J" Then
+                loPersonaPEM.PerRazonSocial = txtNombreRazon.Text
+            End If
+
+            For Each fTablaContacto As DataRow In dtTablaContacto.Rows
+                Dim loContacto As EEPersona.EEContacto = New EEPersona.EEContacto()
+                Dim loTablaGeneral As EETablaGeneral = New EETablaGeneral()
+                loTablaGeneral.TgCodigo = fTablaContacto("ContactoId")
+                loContacto.ContDescripcion = fTablaContacto("Descripcion")
+                loContacto.OTablaGeneral = loTablaGeneral
+
+                loPersonaPEM.ListaContacto.Add(loContacto)
+            Next
+
+            If vNuevoEditar = True Then
+                If MantenimientosBL.Instancia.personaValidarHomonimia(loPersonaPEM) Then
+                    MensajeScript("El Nombre de la Persona ya Existe. Desea Guardar de Todos Modos")
+                    MantenimientosBL.Instancia.personaGuardar(loPersonaPEM)
+                End If
+
+                MantenimientosBL.Instancia.personaGuardar(loPersonaPEM)
+            Else
+                loPersonaPEM.PerId = txtCodigo.Text
+                MantenimientosBL.Instancia.personaActualizar(loPersonaPEM)
+            End If
+            funciones.ActivarBoton(rpDatos.Controls, MantenimientoWeb.Botones.Guardar)
+            'Response.Redirect(Request.RawUrl)
+        Catch ex As Exception
+            MensajeScript(ex.Message)
+        End Try
+
+    End Sub
+
+    Protected Sub btnNuevo_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnNuevo.Click
+        Try
+            funciones.ActivarBoton(rpDatos.Controls, MantenimientoWeb.Botones.Nuevo)
+            txtCodigo.Text = MantenimientosBL.Instancia.personaGeneraCodigo
+            txtCodigo.ReadOnly = True
+            vNuevoEditar = True
+        Catch ex As Exception
+            MensajeScript(ex.Message)
+        End Try
+    End Sub
+
+    Protected Sub btnAgregar_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnAgregar.Click
+        Try
+            Dim SoloNumeros As String = "0123456789#*"
+            Dim SoloLetras As String = "abcdefghijklmñopqrstuvwyzáéíóú "
+            Dim key As String
+            Select Case cbTipoContacto.Value
+                Case 1, 4, 5, 6, 7, 8, 9
+                    For i = 0 To txtDescripcion.Text.Length - 1
+                        key = txtDescripcion.Text.Substring(i, 1)
+                        If InStr(SoloNumeros, key) = 0 Then
+                            MensajeScript("ESCRIBE NUMEROS")
+                            Return
+                        End If
+                    Next
+                Case TipoContactos.EMail
+                    Dim pattern As String = "^[a-zA-Z][\w\.-]*[a-zA-Z0-9]@[a-zA-Z0-9][\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]$"
+                    Dim emailAddressMatch As Match = Regex.Match(txtDescripcion.Text, pattern)
+                    If emailAddressMatch.Success = False Then
+                        MensajeScript("ESCRIBE LETRAS")
+                        Return
+                    End If
+                Case TipoContactos.Web
+
+                    Dim web As String = "^[a-zA-Z][\w\.-]*[a-zA-Z]\.[a-zA-Z0-9][\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]$"
+                    Dim emailAddressMatch As Match = Regex.Match(txtDescripcion.Text, web)
+                    If emailAddressMatch.Success = False Then
+                        MensajeScript("ESCRIBE LETRAS")
+                        Return
+                    End If
+                Case 10, 11, 12, 13, 14
+                    For i = 0 To txtDescripcion.Text.Length - 1
+                        key = txtDescripcion.Text.Substring(i, 1)
+                        If InStr(SoloLetras, key) = 0 Then
+                            MensajeScript("ESCRIBE LETRAS")
+                            Return
+                        End If
+                    Next
+            End Select
+
+            For Each fTablaGeneral As DataRow In dtTablaContacto.Rows
+                If (fTablaGeneral("ContactoId") = cbTipoContacto.Value) Then
+                    MensajeScript("Ya se encuentra Agregado " & cbTipoContacto.Text)
+                    Return
+
+                End If
+            Next
+            'Session("keycboTipoContacto"), _
+            ' dtTablaContacto.Rows.Add(cbTipoContacto.Value, cbTipoContacto.Text, txtDescripcion.Text)
+            dtTablaContacto.LoadDataRow(New Object() {cbTipoContacto.Value, cbTipoContacto.Text, txtDescripcion.Text}, True)
+
+            dgvDatosAdicionales.DataSource = dtTablaContacto
+            dgvDatosAdicionales.DataBind()
+
+
+
+        Catch ex As Exception
+            MensajeScript(ex.Message)
+        End Try
+    End Sub
+
+    Protected Sub btnSaimtBuscar_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnSaimtBuscar.Click
+        Dim TipoCriterio As Integer = rblBuscar.Value
+        Dim Criterio As String = txtBuscarSaimt.Text
+
+        Select Case rblBuscar.Value
+            Case 16
+                TipoCriterio = 1
+                Criterio = "6" & txtBuscarSaimt.Text
+            Case 11
+                TipoCriterio = 1
+                Criterio = "1" & txtBuscarSaimt.Text
+        End Select
+        Dim ListaPersonas As List(Of EEPersona) = MantenimientosBL.Instancia.personaListarCriterio(TipoCriterio, Criterio)
+        If ListaPersonas IsNot Nothing Then
+            LstListado.DataSource = ListaPersonas
+            LstListado.ValueField = "PerId"
+            LstListado.TextField = "Persona"
+            LstListado.DataBind()
+        Else
+            LstListado.Items.Clear()
+            LstListado.DataSource = Nothing
+        End If
+    End Sub
+
+    Protected Sub LstListado_SelectedIndexChanged(ByVal sender As Object, ByVal e As EventArgs) Handles LstListado.SelectedIndexChanged
+        Try
+            If LstListado.SelectedItem IsNot Nothing Then
+
+                funciones.ActivarBoton(rpDatos.Controls, MantenimientoWeb.Botones.ListBoxListado)
+
+                Dim loPersona As EEPersona = MantenimientosBL.Instancia.personaListarXPerId(LstListado.Value)
+                'MantenimientosBL.Instancia.listarPersona_PerId(LstListado.Value)
+                txtCodigo.Text = loPersona.PerId
+                cboTipoPersona.Value = loPersona.TgTipoPersId
+                cboTipoDocumento.Value = loPersona.TgTipoDoc
+                txtNroDocumento.Text = loPersona.PerNDoc
+
+                If loPersona.TgTipoPersId = "N" Then
+                    txtNombreRazon.Text = loPersona.PerNombres
+                    txtApeMaterno.Text = loPersona.PerApeMaterno
+                    txtApePaterno.Text = loPersona.PerApePaterno
+                Else
+                    txtNombreRazon.Text = loPersona.PerRazonSocial
+                    txtApeMaterno.Text = String.Empty
+                    txtApePaterno.Text = String.Empty
+                End If
+
+                txtDireccion.Text = loPersona.PerDireccion
+                cboDepartamento.Value = loPersona.OUbigeo.UbgDep
+                cargarProvincia(loPersona.OUbigeo.UbgDep)
+                cboProvincia.Value = loPersona.OUbigeo.UbgProv
+                cargarDistrito(loPersona.OUbigeo.UbgDep, loPersona.OUbigeo.UbgProv)
+                cboDistrito.Value = loPersona.OUbigeo.UbgDist
+                chkActivo.Checked = loPersona.PerActivo
+
+
+                dtTablaContacto.Rows.Clear()
+
+                For Each fContacto As EEPersona.EEContacto In loPersona.ListaContacto
+                    dtTablaContacto.LoadDataRow(New Object() {fContacto.OTablaGeneral.TgCodigo, fContacto.OTablaGeneral.TgNombre, fContacto.ContDescripcion}, True)
+                Next
+                dgvDatosAdicionales.DataSource = dtTablaContacto
+                dgvDatosAdicionales.DataBind()
+            End If
+        Catch ex As Exception
+            MensajeScript(ex.Message)
+        End Try
+    End Sub
+
+    Protected Sub btnEditar_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnEditar.Click
+        funciones.ActivarBoton(rpDatos.Controls, MantenimientoWeb.Botones.Editar)
+        vNuevoEditar = False
+    End Sub
+
+    Protected Sub btnEliminar_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnEliminar.Click
+        LstListado.SelectedIndex = -1
+        Try
+            MantenimientosBL.Instancia.personaEliminar(txtCodigo.Text)
+
+            'Dim sbMensajeExito As StringBuilder = New StringBuilder()
+            'sbMensajeExito.Append("<script type='text/javascript'>")
+            'sbMensajeExito.AppendFormat("alert('{0}');", "Las Recaudaciones Se Eliminaron con Exito")
+            'sbMensajeExito.Append("</script>")
+            'ClientScript.RegisterClientScriptBlock(Me.GetType(), "Mensaje", sbMensajeExito.ToString())
+
+            funciones.ActivarBoton(rpDatos.Controls, MantenimientoWeb.Botones.Eliminar)
+        Catch ex As Exception
+            MensajeScript(ex.Message)
+        End Try
+    End Sub
+
+    Protected Sub btnQuitar_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnQuitar.Click
+        Try
+
+            If Me.dgvDatosAdicionales.VisibleRowCount <> 0 Then
+                dtTablaContacto.Rows.RemoveAt(Me.dgvDatosAdicionales.FocusedRowIndex)
+            Else
+                MensajeScript("No Hay Ninguna Fila Seleccionada")
+            End If
+
+            dgvDatosAdicionales.DataSource = dtTablaContacto
+            dgvDatosAdicionales.DataBind()
+
+
+
+        Catch ex As Exception
+            MensajeScript(ex.Message)
+        End Try
+    End Sub
+
+    Protected Sub btnCancelar_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnCancelar.Click
+        LstListado.SelectedIndex = -1
+        funciones.ActivarBoton(rpDatos.Controls, MantenimientoWeb.Botones.CancelarNuevo)
+    End Sub
+
+    Protected Sub btnLimpiar_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnLimpiar.Click
+        LstListado.SelectedIndex = -1
+        funciones.ActivarBoton(rpDatos.Controls, MantenimientoWeb.Botones.Nuevo)
+    End Sub
+
+    Protected Sub dgvDatosAdicionales_RowDeleting(ByVal sender As Object, ByVal e As DevExpress.Web.Data.ASPxDataDeletingEventArgs) Handles dgvDatosAdicionales.RowDeleting
+      
+    End Sub
+
+    Protected Sub dgvDatosAdicionales_RowDeleted(ByVal sender As Object, ByVal e As DevExpress.Web.Data.ASPxDataDeletedEventArgs) Handles dgvDatosAdicionales.RowDeleted
+      
+    End Sub
+
+ 
+End Class

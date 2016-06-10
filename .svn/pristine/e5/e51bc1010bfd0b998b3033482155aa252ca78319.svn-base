@@ -1,0 +1,2840 @@
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+Partial Class RptResumido
+    Inherits Presentacion.frmConsultas
+
+    'Form overrides dispose to clean up the component list.
+    <System.Diagnostics.DebuggerNonUserCode()> _
+    Protected Overrides Sub Dispose(ByVal disposing As Boolean)
+        If disposing AndAlso components IsNot Nothing Then
+            components.Dispose()
+        End If
+        MyBase.Dispose(disposing)
+    End Sub
+
+    'Required by the Windows Form Designer
+    Private components As System.ComponentModel.IContainer
+
+    'NOTE: The following procedure is required by the Windows Form Designer
+    'It can be modified using the Windows Form Designer.  
+    'Do not modify it using the code editor.
+    <System.Diagnostics.DebuggerStepThrough()> _
+    Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(RptResumido))
+        Dim StyleFormatCondition1 As DevExpress.XtraGrid.StyleFormatCondition = New DevExpress.XtraGrid.StyleFormatCondition()
+        Dim StyleFormatCondition2 As DevExpress.XtraGrid.StyleFormatCondition = New DevExpress.XtraGrid.StyleFormatCondition()
+        Dim StyleFormatCondition3 As DevExpress.XtraGrid.StyleFormatCondition = New DevExpress.XtraGrid.StyleFormatCondition()
+        Dim StyleFormatCondition4 As DevExpress.XtraGrid.StyleFormatCondition = New DevExpress.XtraGrid.StyleFormatCondition()
+        Dim StyleFormatCondition5 As DevExpress.XtraGrid.StyleFormatCondition = New DevExpress.XtraGrid.StyleFormatCondition()
+        Dim StyleFormatCondition6 As DevExpress.XtraGrid.StyleFormatCondition = New DevExpress.XtraGrid.StyleFormatCondition()
+        Dim StyleFormatCondition7 As DevExpress.XtraGrid.StyleFormatCondition = New DevExpress.XtraGrid.StyleFormatCondition()
+        Dim StyleFormatCondition8 As DevExpress.XtraGrid.StyleFormatCondition = New DevExpress.XtraGrid.StyleFormatCondition()
+        Dim StyleFormatCondition9 As DevExpress.XtraGrid.StyleFormatCondition = New DevExpress.XtraGrid.StyleFormatCondition()
+        Me.gcIndicador = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn52 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.RepositoryItemMemoExEdit1 = New DevExpress.XtraEditors.Repository.RepositoryItemMemoExEdit()
+        Me.BarManager2 = New DevExpress.XtraBars.BarManager(Me.components)
+        Me.Bar1 = New DevExpress.XtraBars.Bar()
+        Me.BarButtonItem1 = New DevExpress.XtraBars.BarButtonItem()
+        Me.BarButtonItem2 = New DevExpress.XtraBars.BarButtonItem()
+        Me.BarSubItem1 = New DevExpress.XtraBars.BarSubItem()
+        Me.BarButtonItem4 = New DevExpress.XtraBars.BarButtonItem()
+        Me.BarButtonItem5 = New DevExpress.XtraBars.BarButtonItem()
+        Me.BarButtonItem6 = New DevExpress.XtraBars.BarButtonItem()
+        Me.BarDockControl1 = New DevExpress.XtraBars.BarDockControl()
+        Me.BarDockControl2 = New DevExpress.XtraBars.BarDockControl()
+        Me.BarDockControl3 = New DevExpress.XtraBars.BarDockControl()
+        Me.BarDockControl4 = New DevExpress.XtraBars.BarDockControl()
+        Me.BarButtonItem3 = New DevExpress.XtraBars.BarButtonItem()
+        Me.XtraTabControl1 = New DevExpress.XtraTab.XtraTabControl()
+        Me.XtraTabPage1 = New DevExpress.XtraTab.XtraTabPage()
+        Me.SaimtGroupBox1 = New SaimtControles.SaimtGroupBox()
+        Me.CExp_lblDireccion = New SaimtControles.SaimtTextBox()
+        Me.SaimtLabel6 = New SaimtControles.SaimtLabel()
+        Me.SaimtButton2 = New SaimtControles.SaimtButton()
+        Me.CExp_txtDocumento = New SaimtControles.SaimtTextBox()
+        Me.CExp_lblDocumento = New SaimtControles.SaimtLabel()
+        Me.CExp_lblInteresado = New SaimtControles.SaimtTextBox()
+        Me.SaimtLabel4 = New SaimtControles.SaimtLabel()
+        Me.CExp_lblFechaIngreso = New SaimtControles.SaimtTextBox()
+        Me.SaimtLabel3 = New SaimtControles.SaimtLabel()
+        Me.SaimtGroupBox5 = New SaimtControles.SaimtGroupBox()
+        Me.SaimtLabel11 = New SaimtControles.SaimtLabel()
+        Me.CExp_dgvResultadoGen = New SaimtControles.SaimtDataGrid()
+        Me.CExp_gvResultadoGen = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.GridColumn60 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn65 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn66 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn67 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn68 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn69 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.SaimtLabel17 = New SaimtControles.SaimtLabel()
+        Me.CExp_lblObservacion = New SaimtControles.SaimtTextBoxMultiline()
+        Me.SaimtGroupBox3 = New SaimtControles.SaimtGroupBox()
+        Me.CExp_lblResultadoDet = New SaimtControles.SaimtLabel()
+        Me.CExp_dgvResultadoDet = New SaimtControles.SaimtDataGrid()
+        Me.CExp_gvResultadoDet = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.GridColumn1 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn2 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn3 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn4 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn5 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn6 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn7 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn46 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GroupControl1 = New DevExpress.XtraEditors.GroupControl()
+        Me.CExp_cboDependencia = New SaimtControles.SaimtComboBox()
+        Me.CExp_lblDependencia = New DevExpress.XtraEditors.CheckEdit()
+        Me.CExp_btnConsultar = New SaimtControles.SaimtButton()
+        Me.CExp_cboAño = New SaimtControles.SaimtComboBoxLookUp()
+        Me.CExp_txtNroExpediente = New DevExpress.XtraEditors.TextEdit()
+        Me.CExp_lblNroExpediente = New DevExpress.XtraEditors.LabelControl()
+        Me.CExp_lblcboAño = New DevExpress.XtraEditors.CheckEdit()
+        Me.SaimtGroupBox2 = New SaimtControles.SaimtGroupBox()
+        Me.CExp_lblResultados = New SaimtControles.SaimtLabel()
+        Me.CExp_dgvResultado = New SaimtControles.SaimtDataGrid()
+        Me.CExp_gvResultado = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.GridColumn47 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn8 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn9 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn10 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn11 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn12 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn13 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn42 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn44 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn45 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.RepositoryItemHyperLinkEdit1 = New DevExpress.XtraEditors.Repository.RepositoryItemHyperLinkEdit()
+        Me.XtraTabPage2 = New DevExpress.XtraTab.XtraTabPage()
+        Me.SaimtButton3 = New SaimtControles.SaimtButton()
+        Me.SaimtGroupBox4 = New SaimtControles.SaimtGroupBox()
+        Me.CBus_lblResultados = New SaimtControles.SaimtLabel()
+        Me.CBus_dgvResultado = New SaimtControles.SaimtDataGrid()
+        Me.CBus_gvResultado = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.GridColumn14 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn15 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn16 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn48 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn17 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn18 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn19 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn20 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn21 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GroupControl2 = New DevExpress.XtraEditors.GroupControl()
+        Me.CBus_cboCampo = New SaimtControles.SaimtComboBoxLookUp()
+        Me.CBus_cboCriterio = New SaimtControles.SaimtTextBox()
+        Me.CBus_dtFechaFin = New SaimtControles.SaimtDateTimePicker()
+        Me.CBus_dtFechaInicio = New SaimtControles.SaimtDateTimePicker()
+        Me.CBus_lbldtFechaFin = New SaimtControles.SaimtLabel()
+        Me.CBus_lbldtFechaInicio = New SaimtControles.SaimtLabel()
+        Me.CBus_Buscar = New SaimtControles.SaimtButton()
+        Me.CBus_lblcboCriterio = New SaimtControles.SaimtLabel()
+        Me.CBus_lblcboCampo = New SaimtControles.SaimtLabel()
+        Me.XtraTabPage3 = New DevExpress.XtraTab.XtraTabPage()
+        Me.CExpDep_lblResultado = New SaimtControles.SaimtLabel()
+        Me.SaimtButton7 = New SaimtControles.SaimtButton()
+        Me.SaimtLabel26 = New SaimtControles.SaimtLabel()
+        Me.CExpDep_dgvResultado = New SaimtControles.SaimtDataGrid()
+        Me.CExpDep_gvResultado = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.GridColumn49 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn22 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn30 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn23 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn24 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn25 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn26 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn32 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn27 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn28 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn29 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn31 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.RepositoryItemMemoExEdit2 = New DevExpress.XtraEditors.Repository.RepositoryItemMemoExEdit()
+        Me.ImageCollection1 = New DevExpress.Utils.ImageCollection(Me.components)
+        Me.SaimtLabel27 = New SaimtControles.SaimtLabel()
+        Me.GroupControl3 = New DevExpress.XtraEditors.GroupControl()
+        Me.SaimtTabs1 = New SaimtControles.SaimtTabs()
+        Me.XtraTabPage4 = New DevExpress.XtraTab.XtraTabPage()
+        Me.CExpDep_cboResultado = New SaimtControles.SaimtComboBox()
+        Me.SaimtLabel18 = New SaimtControles.SaimtLabel()
+        Me.CExpDep_Observacion = New SaimtControles.SaimtTextBoxMultiline()
+        Me.CExpDep_lblResultados = New SaimtControles.SaimtLabel()
+        Me.Dep_BtnBuscar = New SaimtControles.SaimtButton()
+        Me.CExpDep_lblFechaFinal = New SaimtControles.SaimtLabel()
+        Me.CExpDep_lblFechaInicio = New SaimtControles.SaimtLabel()
+        Me.CExpDep_FechaFin = New SaimtControles.SaimtDateTimePicker()
+        Me.CExpDep_cboArea = New SaimtControles.SaimtComboBoxLookUp()
+        Me.CExpDep_cboDependencia = New SaimtControles.SaimtComboBoxLookUp()
+        Me.CExpDep_lblCboArea = New SaimtControles.SaimtLabel()
+        Me.CExpDep_lblDependencia = New SaimtControles.SaimtLabel()
+        Me.CExpDep_FechaInicio = New SaimtControles.SaimtDateTimePicker()
+        Me.CExpDep_Eleccion = New SaimtControles.SaimtRadioGroup()
+        Me.SaimtLabel24 = New SaimtControles.SaimtLabel()
+        Me.SaimtLabel23 = New SaimtControles.SaimtLabel()
+        Me.SaimtLabel25 = New SaimtControles.SaimtLabel()
+        Me.SaimtLabel22 = New SaimtControles.SaimtLabel()
+        Me.XtraTabPage6 = New DevExpress.XtraTab.XtraTabPage()
+        Me.CExpInt_lblResultado = New SaimtControles.SaimtLabel()
+        Me.SaimtLabel2 = New SaimtControles.SaimtLabel()
+        Me.SaimtLabel5 = New SaimtControles.SaimtLabel()
+        Me.SaimtLabel7 = New SaimtControles.SaimtLabel()
+        Me.SaimtLabel8 = New SaimtControles.SaimtLabel()
+        Me.SaimtLabel9 = New SaimtControles.SaimtLabel()
+        Me.SaimtLabel10 = New SaimtControles.SaimtLabel()
+        Me.CExpInt_dgvResultado = New SaimtControles.SaimtDataGrid()
+        Me.CExpInt_gvResultado = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.GridColumn33 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn34 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn35 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn36 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn37 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn38 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn39 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn40 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn41 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn43 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn50 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn51 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.RepositoryItemMemoExEdit3 = New DevExpress.XtraEditors.Repository.RepositoryItemMemoExEdit()
+        Me.GroupControl4 = New DevExpress.XtraEditors.GroupControl()
+        Me.CExpInt_FechaFin = New SaimtControles.SaimtDateTimePicker()
+        Me.CExpInt_FechaInicio = New SaimtControles.SaimtDateTimePicker()
+        Me.SaimtButton6 = New SaimtControles.SaimtButton()
+        Me.CExpInt_Buscar = New SaimtControles.SaimtButton()
+        Me.CExpInt_lblFechaFin = New SaimtControles.SaimtLabel()
+        Me.CExpInt_lblFechaInicio = New SaimtControles.SaimtLabel()
+        Me.CExpInt_AsuOrInt = New SaimtControles.SaimtTextBox()
+        Me.CExpInt_lblEleccion = New SaimtControles.SaimtLabel()
+        Me.CExpInt_Procedimiento = New SaimtControles.SaimtComboBoxLookUp()
+        Me.CExpInt_Eleccion = New SaimtControles.SaimtRadioGroup()
+        Me.XtraTabPage5 = New DevExpress.XtraTab.XtraTabPage()
+        Me.CExpSG_lblResultado = New SaimtControles.SaimtLabel()
+        Me.CExpSG_dgvResultado = New SaimtControles.SaimtDataGrid()
+        Me.CExpSG_gvResultado = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.GridColumn53 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn54 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn55 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn56 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn57 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn58 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn59 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn61 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn62 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn63 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn64 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.RepositoryItemMemoExEdit4 = New DevExpress.XtraEditors.Repository.RepositoryItemMemoExEdit()
+        Me.GroupControl5 = New DevExpress.XtraEditors.GroupControl()
+        Me.CexpSG_Estado = New SaimtControles.SaimtComboBoxLookUp()
+        Me.SaimtLabel19 = New SaimtControles.SaimtLabel()
+        Me.SaimtTextBox3 = New SaimtControles.SaimtTextBox()
+        Me.SaimtTextBox2 = New SaimtControles.SaimtTextBox()
+        Me.SaimtTextBox1 = New SaimtControles.SaimtTextBox()
+        Me.SaimtLabel16 = New SaimtControles.SaimtLabel()
+        Me.SaimtLabel15 = New SaimtControles.SaimtLabel()
+        Me.SaimtLabel14 = New SaimtControles.SaimtLabel()
+        Me.CexpSG_FechaFin = New SaimtControles.SaimtDateTimePicker()
+        Me.CexpSG_FechaInicio = New SaimtControles.SaimtDateTimePicker()
+        Me.SaimtButton1 = New SaimtControles.SaimtButton()
+        Me.CexpSG_Consultar = New SaimtControles.SaimtButton()
+        Me.CexpSG_lblFechaFin = New SaimtControles.SaimtLabel()
+        Me.CexpSG_lblFechaInicio = New SaimtControles.SaimtLabel()
+        Me.SaimtLabel13 = New SaimtControles.SaimtLabel()
+        Me.sfdexportar = New System.Windows.Forms.SaveFileDialog()
+        CType(Me.pmconsultorpropagos, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.RepositoryItemMemoExEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.BarManager2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.XtraTabControl1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.XtraTabControl1.SuspendLayout()
+        Me.XtraTabPage1.SuspendLayout()
+        CType(Me.SaimtGroupBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SaimtGroupBox1.SuspendLayout()
+        CType(Me.CExp_lblDireccion.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CExp_txtDocumento.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CExp_lblInteresado.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CExp_lblFechaIngreso.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.SaimtGroupBox5, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SaimtGroupBox5.SuspendLayout()
+        CType(Me.CExp_dgvResultadoGen, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CExp_gvResultadoGen, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CExp_lblObservacion.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.SaimtGroupBox3, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SaimtGroupBox3.SuspendLayout()
+        CType(Me.CExp_dgvResultadoDet, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CExp_gvResultadoDet, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.GroupControl1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupControl1.SuspendLayout()
+        CType(Me.CExp_cboDependencia.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CExp_lblDependencia.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CExp_cboAño.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CExp_txtNroExpediente.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CExp_lblcboAño.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.SaimtGroupBox2, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SaimtGroupBox2.SuspendLayout()
+        CType(Me.CExp_dgvResultado, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CExp_gvResultado, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.RepositoryItemHyperLinkEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.XtraTabPage2.SuspendLayout()
+        CType(Me.SaimtGroupBox4, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SaimtGroupBox4.SuspendLayout()
+        CType(Me.CBus_dgvResultado, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CBus_gvResultado, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.GroupControl2, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupControl2.SuspendLayout()
+        CType(Me.CBus_cboCampo.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CBus_cboCriterio.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CBus_dtFechaFin.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CBus_dtFechaFin.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CBus_dtFechaInicio.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CBus_dtFechaInicio.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.XtraTabPage3.SuspendLayout()
+        CType(Me.CExpDep_dgvResultado, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CExpDep_gvResultado, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.RepositoryItemMemoExEdit2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ImageCollection1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.GroupControl3, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupControl3.SuspendLayout()
+        CType(Me.SaimtTabs1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SaimtTabs1.SuspendLayout()
+        Me.XtraTabPage4.SuspendLayout()
+        CType(Me.CExpDep_cboResultado.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CExpDep_Observacion.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CExpDep_FechaFin.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CExpDep_FechaFin.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CExpDep_cboArea.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CExpDep_cboDependencia.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CExpDep_FechaInicio.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CExpDep_FechaInicio.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CExpDep_Eleccion.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.XtraTabPage6.SuspendLayout()
+        CType(Me.CExpInt_dgvResultado, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CExpInt_gvResultado, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.RepositoryItemMemoExEdit3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.GroupControl4, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupControl4.SuspendLayout()
+        CType(Me.CExpInt_FechaFin.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CExpInt_FechaFin.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CExpInt_FechaInicio.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CExpInt_FechaInicio.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CExpInt_AsuOrInt.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CExpInt_Procedimiento.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CExpInt_Eleccion.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.XtraTabPage5.SuspendLayout()
+        CType(Me.CExpSG_dgvResultado, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CExpSG_gvResultado, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.RepositoryItemMemoExEdit4, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.GroupControl5, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupControl5.SuspendLayout()
+        CType(Me.CexpSG_Estado.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.SaimtTextBox3.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.SaimtTextBox2.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.SaimtTextBox1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CexpSG_FechaFin.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CexpSG_FechaFin.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CexpSG_FechaInicio.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CexpSG_FechaInicio.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SuspendLayout()
+        '
+        'rsbMensajeBarra
+        '
+        Me.rsbMensajeBarra.Location = New System.Drawing.Point(0, 671)
+        Me.rsbMensajeBarra.Size = New System.Drawing.Size(1049, 27)
+        '
+        'gcIndicador
+        '
+        Me.gcIndicador.Caption = "GridColumn50"
+        Me.gcIndicador.FieldName = "indicador"
+        Me.gcIndicador.Name = "gcIndicador"
+        '
+        'GridColumn52
+        '
+        Me.GridColumn52.Caption = "GridColumn50"
+        Me.GridColumn52.FieldName = "indicador"
+        Me.GridColumn52.Name = "GridColumn52"
+        '
+        'RepositoryItemMemoExEdit1
+        '
+        Me.RepositoryItemMemoExEdit1.AutoHeight = False
+        Me.RepositoryItemMemoExEdit1.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.RepositoryItemMemoExEdit1.Name = "RepositoryItemMemoExEdit1"
+        '
+        'BarManager2
+        '
+        Me.BarManager2.Bars.AddRange(New DevExpress.XtraBars.Bar() {Me.Bar1})
+        Me.BarManager2.DockControls.Add(Me.BarDockControl1)
+        Me.BarManager2.DockControls.Add(Me.BarDockControl2)
+        Me.BarManager2.DockControls.Add(Me.BarDockControl3)
+        Me.BarManager2.DockControls.Add(Me.BarDockControl4)
+        Me.BarManager2.Form = Me
+        Me.BarManager2.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.BarButtonItem1, Me.BarButtonItem2, Me.BarSubItem1, Me.BarButtonItem3, Me.BarButtonItem4, Me.BarButtonItem5, Me.BarButtonItem6})
+        Me.BarManager2.MaxItemId = 10
+        '
+        'Bar1
+        '
+        Me.Bar1.BarName = "Tools"
+        Me.Bar1.DockCol = 0
+        Me.Bar1.DockRow = 0
+        Me.Bar1.DockStyle = DevExpress.XtraBars.BarDockStyle.Top
+        Me.Bar1.LinksPersistInfo.AddRange(New DevExpress.XtraBars.LinkPersistInfo() {New DevExpress.XtraBars.LinkPersistInfo(Me.BarButtonItem1), New DevExpress.XtraBars.LinkPersistInfo(Me.BarButtonItem2), New DevExpress.XtraBars.LinkPersistInfo(Me.BarSubItem1)})
+        Me.Bar1.Text = "Tools"
+        '
+        'BarButtonItem1
+        '
+        Me.BarButtonItem1.Caption = "Consultar"
+        Me.BarButtonItem1.Id = 0
+        Me.BarButtonItem1.Name = "BarButtonItem1"
+        '
+        'BarButtonItem2
+        '
+        Me.BarButtonItem2.Caption = "Buscar"
+        Me.BarButtonItem2.Id = 1
+        Me.BarButtonItem2.Name = "BarButtonItem2"
+        '
+        'BarSubItem1
+        '
+        Me.BarSubItem1.Caption = "Reportes"
+        Me.BarSubItem1.Id = 3
+        Me.BarSubItem1.LinksPersistInfo.AddRange(New DevExpress.XtraBars.LinkPersistInfo() {New DevExpress.XtraBars.LinkPersistInfo(Me.BarButtonItem4), New DevExpress.XtraBars.LinkPersistInfo(Me.BarButtonItem5), New DevExpress.XtraBars.LinkPersistInfo(Me.BarButtonItem6)})
+        Me.BarSubItem1.Name = "BarSubItem1"
+        '
+        'BarButtonItem4
+        '
+        Me.BarButtonItem4.Caption = "Expedientes por Dependencia"
+        Me.BarButtonItem4.Id = 5
+        Me.BarButtonItem4.Name = "BarButtonItem4"
+        '
+        'BarButtonItem5
+        '
+        Me.BarButtonItem5.Caption = "Expedientes Ingresados por Interesados"
+        Me.BarButtonItem5.Id = 6
+        Me.BarButtonItem5.Name = "BarButtonItem5"
+        '
+        'BarButtonItem6
+        '
+        Me.BarButtonItem6.Caption = "Proveidos para Secretaria General"
+        Me.BarButtonItem6.Id = 9
+        Me.BarButtonItem6.Name = "BarButtonItem6"
+        '
+        'BarDockControl1
+        '
+        Me.BarDockControl1.CausesValidation = False
+        Me.BarDockControl1.Dock = System.Windows.Forms.DockStyle.Top
+        Me.BarDockControl1.Location = New System.Drawing.Point(0, 0)
+        Me.BarDockControl1.Size = New System.Drawing.Size(1049, 29)
+        '
+        'BarDockControl2
+        '
+        Me.BarDockControl2.CausesValidation = False
+        Me.BarDockControl2.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.BarDockControl2.Location = New System.Drawing.Point(0, 698)
+        Me.BarDockControl2.Size = New System.Drawing.Size(1049, 0)
+        '
+        'BarDockControl3
+        '
+        Me.BarDockControl3.CausesValidation = False
+        Me.BarDockControl3.Dock = System.Windows.Forms.DockStyle.Left
+        Me.BarDockControl3.Location = New System.Drawing.Point(0, 29)
+        Me.BarDockControl3.Size = New System.Drawing.Size(0, 669)
+        '
+        'BarDockControl4
+        '
+        Me.BarDockControl4.CausesValidation = False
+        Me.BarDockControl4.Dock = System.Windows.Forms.DockStyle.Right
+        Me.BarDockControl4.Location = New System.Drawing.Point(1049, 29)
+        Me.BarDockControl4.Size = New System.Drawing.Size(0, 669)
+        '
+        'BarButtonItem3
+        '
+        Me.BarButtonItem3.Caption = "Fiscalización de Expedientes"
+        Me.BarButtonItem3.Id = 4
+        Me.BarButtonItem3.Name = "BarButtonItem3"
+        '
+        'XtraTabControl1
+        '
+        Me.XtraTabControl1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.XtraTabControl1.Location = New System.Drawing.Point(0, 29)
+        Me.XtraTabControl1.Name = "XtraTabControl1"
+        Me.XtraTabControl1.SelectedTabPage = Me.XtraTabPage1
+        Me.XtraTabControl1.Size = New System.Drawing.Size(1049, 669)
+        Me.XtraTabControl1.TabIndex = 10
+        Me.XtraTabControl1.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.XtraTabPage1, Me.XtraTabPage2, Me.XtraTabPage3, Me.XtraTabPage6, Me.XtraTabPage5})
+        '
+        'XtraTabPage1
+        '
+        Me.XtraTabPage1.Controls.Add(Me.SaimtGroupBox1)
+        Me.XtraTabPage1.Controls.Add(Me.SaimtGroupBox5)
+        Me.XtraTabPage1.Controls.Add(Me.SaimtLabel17)
+        Me.XtraTabPage1.Controls.Add(Me.CExp_lblObservacion)
+        Me.XtraTabPage1.Controls.Add(Me.SaimtGroupBox3)
+        Me.XtraTabPage1.Controls.Add(Me.GroupControl1)
+        Me.XtraTabPage1.Controls.Add(Me.SaimtGroupBox2)
+        Me.XtraTabPage1.Name = "XtraTabPage1"
+        Me.XtraTabPage1.Size = New System.Drawing.Size(1043, 641)
+        Me.XtraTabPage1.Text = "Consultar"
+        '
+        'SaimtGroupBox1
+        '
+        Me.SaimtGroupBox1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.SaimtGroupBox1.Controls.Add(Me.CExp_lblDireccion)
+        Me.SaimtGroupBox1.Controls.Add(Me.SaimtLabel6)
+        Me.SaimtGroupBox1.Controls.Add(Me.SaimtButton2)
+        Me.SaimtGroupBox1.Controls.Add(Me.CExp_txtDocumento)
+        Me.SaimtGroupBox1.Controls.Add(Me.CExp_lblDocumento)
+        Me.SaimtGroupBox1.Controls.Add(Me.CExp_lblInteresado)
+        Me.SaimtGroupBox1.Controls.Add(Me.SaimtLabel4)
+        Me.SaimtGroupBox1.Controls.Add(Me.CExp_lblFechaIngreso)
+        Me.SaimtGroupBox1.Controls.Add(Me.SaimtLabel3)
+        Me.SaimtGroupBox1.Location = New System.Drawing.Point(491, 80)
+        Me.SaimtGroupBox1.Name = "SaimtGroupBox1"
+        Me.SaimtGroupBox1.Size = New System.Drawing.Size(545, 118)
+        Me.SaimtGroupBox1.TabIndex = 1
+        Me.SaimtGroupBox1.Text = "Datos Generales"
+        '
+        'CExp_lblDireccion
+        '
+        Me.CExp_lblDireccion.Location = New System.Drawing.Point(65, 83)
+        Me.CExp_lblDireccion.MenuManager = Me.RibbonControl
+        Me.CExp_lblDireccion.Name = "CExp_lblDireccion"
+        Me.CExp_lblDireccion.Properties.Appearance.BackColor = System.Drawing.Color.LemonChiffon
+        Me.CExp_lblDireccion.Properties.Appearance.Options.UseBackColor = True
+        Me.CExp_lblDireccion.Properties.ReadOnly = True
+        Me.CExp_lblDireccion.Size = New System.Drawing.Size(433, 20)
+        Me.CExp_lblDireccion.TabIndex = 7
+        '
+        'SaimtLabel6
+        '
+        Me.SaimtLabel6.Location = New System.Drawing.Point(14, 86)
+        Me.SaimtLabel6.Name = "SaimtLabel6"
+        Me.SaimtLabel6.Size = New System.Drawing.Size(43, 13)
+        Me.SaimtLabel6.TabIndex = 6
+        Me.SaimtLabel6.Text = "Dirección"
+        '
+        'SaimtButton2
+        '
+        Me.SaimtButton2.Image = CType(resources.GetObject("SaimtButton2.Image"), System.Drawing.Image)
+        Me.SaimtButton2.Location = New System.Drawing.Point(502, 56)
+        Me.SaimtButton2.Name = "SaimtButton2"
+        Me.SaimtButton2.Size = New System.Drawing.Size(38, 35)
+        Me.SaimtButton2.TabIndex = 0
+        '
+        'CExp_txtDocumento
+        '
+        Me.CExp_txtDocumento.Location = New System.Drawing.Point(343, 33)
+        Me.CExp_txtDocumento.MenuManager = Me.RibbonControl
+        Me.CExp_txtDocumento.Name = "CExp_txtDocumento"
+        Me.CExp_txtDocumento.Properties.Appearance.BackColor = System.Drawing.Color.LemonChiffon
+        Me.CExp_txtDocumento.Properties.Appearance.Options.UseBackColor = True
+        Me.CExp_txtDocumento.Properties.ReadOnly = True
+        Me.CExp_txtDocumento.Size = New System.Drawing.Size(153, 20)
+        Me.CExp_txtDocumento.TabIndex = 5
+        '
+        'CExp_lblDocumento
+        '
+        Me.CExp_lblDocumento.Location = New System.Drawing.Point(278, 36)
+        Me.CExp_lblDocumento.Name = "CExp_lblDocumento"
+        Me.CExp_lblDocumento.Size = New System.Drawing.Size(54, 13)
+        Me.CExp_lblDocumento.TabIndex = 4
+        Me.CExp_lblDocumento.Text = "Documento"
+        '
+        'CExp_lblInteresado
+        '
+        Me.CExp_lblInteresado.Location = New System.Drawing.Point(65, 59)
+        Me.CExp_lblInteresado.MenuManager = Me.RibbonControl
+        Me.CExp_lblInteresado.Name = "CExp_lblInteresado"
+        Me.CExp_lblInteresado.Properties.Appearance.BackColor = System.Drawing.Color.LemonChiffon
+        Me.CExp_lblInteresado.Properties.Appearance.Options.UseBackColor = True
+        Me.CExp_lblInteresado.Properties.ReadOnly = True
+        Me.CExp_lblInteresado.Size = New System.Drawing.Size(433, 20)
+        Me.CExp_lblInteresado.TabIndex = 3
+        '
+        'SaimtLabel4
+        '
+        Me.SaimtLabel4.Location = New System.Drawing.Point(4, 63)
+        Me.SaimtLabel4.Name = "SaimtLabel4"
+        Me.SaimtLabel4.Size = New System.Drawing.Size(53, 13)
+        Me.SaimtLabel4.TabIndex = 2
+        Me.SaimtLabel4.Text = "Interesado"
+        '
+        'CExp_lblFechaIngreso
+        '
+        Me.CExp_lblFechaIngreso.Location = New System.Drawing.Point(102, 33)
+        Me.CExp_lblFechaIngreso.MenuManager = Me.RibbonControl
+        Me.CExp_lblFechaIngreso.Name = "CExp_lblFechaIngreso"
+        Me.CExp_lblFechaIngreso.Properties.Appearance.BackColor = System.Drawing.Color.LemonChiffon
+        Me.CExp_lblFechaIngreso.Properties.Appearance.Options.UseBackColor = True
+        Me.CExp_lblFechaIngreso.Properties.ReadOnly = True
+        Me.CExp_lblFechaIngreso.Size = New System.Drawing.Size(100, 20)
+        Me.CExp_lblFechaIngreso.TabIndex = 1
+        '
+        'SaimtLabel3
+        '
+        Me.SaimtLabel3.Location = New System.Drawing.Point(12, 36)
+        Me.SaimtLabel3.Name = "SaimtLabel3"
+        Me.SaimtLabel3.Size = New System.Drawing.Size(84, 13)
+        Me.SaimtLabel3.TabIndex = 0
+        Me.SaimtLabel3.Text = "Fecha de Ingreso"
+        '
+        'SaimtGroupBox5
+        '
+        Me.SaimtGroupBox5.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.SaimtGroupBox5.Controls.Add(Me.SaimtLabel11)
+        Me.SaimtGroupBox5.Controls.Add(Me.CExp_dgvResultadoGen)
+        Me.SaimtGroupBox5.Location = New System.Drawing.Point(9, 80)
+        Me.SaimtGroupBox5.Name = "SaimtGroupBox5"
+        Me.SaimtGroupBox5.Size = New System.Drawing.Size(474, 118)
+        Me.SaimtGroupBox5.TabIndex = 6
+        Me.SaimtGroupBox5.Text = "Datos Generales"
+        '
+        'SaimtLabel11
+        '
+        Me.SaimtLabel11.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SaimtLabel11.Location = New System.Drawing.Point(14, 33)
+        Me.SaimtLabel11.Name = "SaimtLabel11"
+        Me.SaimtLabel11.Size = New System.Drawing.Size(0, 13)
+        Me.SaimtLabel11.TabIndex = 2
+        '
+        'CExp_dgvResultadoGen
+        '
+        Me.CExp_dgvResultadoGen.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.CExp_dgvResultadoGen.Location = New System.Drawing.Point(2, 21)
+        Me.CExp_dgvResultadoGen.MainView = Me.CExp_gvResultadoGen
+        Me.CExp_dgvResultadoGen.MenuManager = Me.RibbonControl
+        Me.CExp_dgvResultadoGen.Name = "CExp_dgvResultadoGen"
+        Me.CExp_dgvResultadoGen.Size = New System.Drawing.Size(470, 95)
+        Me.CExp_dgvResultadoGen.TabIndex = 1
+        Me.CExp_dgvResultadoGen.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.CExp_gvResultadoGen})
+        '
+        'CExp_gvResultadoGen
+        '
+        Me.CExp_gvResultadoGen.Appearance.SelectedRow.BackColor = System.Drawing.SystemColors.GradientActiveCaption
+        Me.CExp_gvResultadoGen.Appearance.SelectedRow.Options.UseBackColor = True
+        Me.CExp_gvResultadoGen.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.GridColumn60, Me.GridColumn65, Me.GridColumn66, Me.GridColumn67, Me.GridColumn68, Me.GridColumn69})
+        Me.CExp_gvResultadoGen.GridControl = Me.CExp_dgvResultadoGen
+        Me.CExp_gvResultadoGen.Name = "CExp_gvResultadoGen"
+        Me.CExp_gvResultadoGen.OptionsView.ShowGroupPanel = False
+        '
+        'GridColumn60
+        '
+        Me.GridColumn60.Caption = "Nro Reg"
+        Me.GridColumn60.FieldName = "docNReg"
+        Me.GridColumn60.Name = "GridColumn60"
+        Me.GridColumn60.Visible = True
+        Me.GridColumn60.VisibleIndex = 0
+        '
+        'GridColumn65
+        '
+        Me.GridColumn65.Caption = "FechaIng"
+        Me.GridColumn65.FieldName = "docFechaIng"
+        Me.GridColumn65.Name = "GridColumn65"
+        Me.GridColumn65.Visible = True
+        Me.GridColumn65.VisibleIndex = 1
+        '
+        'GridColumn66
+        '
+        Me.GridColumn66.Caption = "Nombres"
+        Me.GridColumn66.FieldName = "perNombre"
+        Me.GridColumn66.Name = "GridColumn66"
+        Me.GridColumn66.Visible = True
+        Me.GridColumn66.VisibleIndex = 2
+        '
+        'GridColumn67
+        '
+        Me.GridColumn67.Caption = "Nro Documento"
+        Me.GridColumn67.FieldName = "perDoc"
+        Me.GridColumn67.Name = "GridColumn67"
+        Me.GridColumn67.Visible = True
+        Me.GridColumn67.VisibleIndex = 3
+        '
+        'GridColumn68
+        '
+        Me.GridColumn68.Caption = "Direccion"
+        Me.GridColumn68.FieldName = "perDireccion"
+        Me.GridColumn68.Name = "GridColumn68"
+        Me.GridColumn68.Visible = True
+        Me.GridColumn68.VisibleIndex = 4
+        '
+        'GridColumn69
+        '
+        Me.GridColumn69.Caption = "Comentario"
+        Me.GridColumn69.FieldName = "docComentario"
+        Me.GridColumn69.Name = "GridColumn69"
+        Me.GridColumn69.Visible = True
+        Me.GridColumn69.VisibleIndex = 5
+        '
+        'SaimtLabel17
+        '
+        Me.SaimtLabel17.Location = New System.Drawing.Point(13, 568)
+        Me.SaimtLabel17.Name = "SaimtLabel17"
+        Me.SaimtLabel17.Size = New System.Drawing.Size(71, 13)
+        Me.SaimtLabel17.TabIndex = 5
+        Me.SaimtLabel17.Text = "Observaciones"
+        '
+        'CExp_lblObservacion
+        '
+        Me.CExp_lblObservacion.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.CExp_lblObservacion.Location = New System.Drawing.Point(9, 584)
+        Me.CExp_lblObservacion.MenuManager = Me.RibbonControl
+        Me.CExp_lblObservacion.Name = "CExp_lblObservacion"
+        Me.CExp_lblObservacion.Size = New System.Drawing.Size(1027, 31)
+        Me.CExp_lblObservacion.TabIndex = 4
+        Me.CExp_lblObservacion.UseOptimizedRendering = True
+        '
+        'SaimtGroupBox3
+        '
+        Me.SaimtGroupBox3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.SaimtGroupBox3.Controls.Add(Me.CExp_lblResultadoDet)
+        Me.SaimtGroupBox3.Controls.Add(Me.CExp_dgvResultadoDet)
+        Me.SaimtGroupBox3.Location = New System.Drawing.Point(9, 356)
+        Me.SaimtGroupBox3.Name = "SaimtGroupBox3"
+        Me.SaimtGroupBox3.Size = New System.Drawing.Size(1027, 209)
+        Me.SaimtGroupBox3.TabIndex = 3
+        Me.SaimtGroupBox3.Text = "Movimientos del Expediente"
+        '
+        'CExp_lblResultadoDet
+        '
+        Me.CExp_lblResultadoDet.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CExp_lblResultadoDet.Location = New System.Drawing.Point(335, 3)
+        Me.CExp_lblResultadoDet.Name = "CExp_lblResultadoDet"
+        Me.CExp_lblResultadoDet.Size = New System.Drawing.Size(0, 13)
+        Me.CExp_lblResultadoDet.TabIndex = 3
+        '
+        'CExp_dgvResultadoDet
+        '
+        Me.CExp_dgvResultadoDet.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.CExp_dgvResultadoDet.Location = New System.Drawing.Point(2, 21)
+        Me.CExp_dgvResultadoDet.MainView = Me.CExp_gvResultadoDet
+        Me.CExp_dgvResultadoDet.MenuManager = Me.RibbonControl
+        Me.CExp_dgvResultadoDet.Name = "CExp_dgvResultadoDet"
+        Me.CExp_dgvResultadoDet.Size = New System.Drawing.Size(1023, 186)
+        Me.CExp_dgvResultadoDet.TabIndex = 1
+        Me.CExp_dgvResultadoDet.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.CExp_gvResultadoDet})
+        '
+        'CExp_gvResultadoDet
+        '
+        Me.CExp_gvResultadoDet.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.GridColumn1, Me.GridColumn2, Me.GridColumn3, Me.GridColumn4, Me.GridColumn5, Me.GridColumn6, Me.GridColumn7, Me.GridColumn46})
+        Me.CExp_gvResultadoDet.GridControl = Me.CExp_dgvResultadoDet
+        Me.CExp_gvResultadoDet.Name = "CExp_gvResultadoDet"
+        Me.CExp_gvResultadoDet.OptionsView.ShowGroupPanel = False
+        '
+        'GridColumn1
+        '
+        Me.GridColumn1.Caption = "Fecha Recibido"
+        Me.GridColumn1.FieldName = "movFechaRec"
+        Me.GridColumn1.Name = "GridColumn1"
+        Me.GridColumn1.Visible = True
+        Me.GridColumn1.VisibleIndex = 1
+        '
+        'GridColumn2
+        '
+        Me.GridColumn2.Caption = "Remitente"
+        Me.GridColumn2.FieldName = "persona"
+        Me.GridColumn2.Name = "GridColumn2"
+        Me.GridColumn2.Visible = True
+        Me.GridColumn2.VisibleIndex = 2
+        '
+        'GridColumn3
+        '
+        Me.GridColumn3.Caption = "Cargo Remitente"
+        Me.GridColumn3.FieldName = "dependencia"
+        Me.GridColumn3.Name = "GridColumn3"
+        Me.GridColumn3.Visible = True
+        Me.GridColumn3.VisibleIndex = 3
+        '
+        'GridColumn4
+        '
+        Me.GridColumn4.Caption = "Estado"
+        Me.GridColumn4.FieldName = "resultado"
+        Me.GridColumn4.Name = "GridColumn4"
+        Me.GridColumn4.Visible = True
+        Me.GridColumn4.VisibleIndex = 4
+        '
+        'GridColumn5
+        '
+        Me.GridColumn5.Caption = "Fecha Contestado"
+        Me.GridColumn5.FieldName = "movFechaEnv"
+        Me.GridColumn5.Name = "GridColumn5"
+        Me.GridColumn5.Visible = True
+        Me.GridColumn5.VisibleIndex = 5
+        '
+        'GridColumn6
+        '
+        Me.GridColumn6.Caption = "Destinatario"
+        Me.GridColumn6.FieldName = "personaPara"
+        Me.GridColumn6.Name = "GridColumn6"
+        Me.GridColumn6.Visible = True
+        Me.GridColumn6.VisibleIndex = 6
+        '
+        'GridColumn7
+        '
+        Me.GridColumn7.Caption = "Cargo Destinatario"
+        Me.GridColumn7.FieldName = "dependenciaPara"
+        Me.GridColumn7.Name = "GridColumn7"
+        Me.GridColumn7.Visible = True
+        Me.GridColumn7.VisibleIndex = 7
+        '
+        'GridColumn46
+        '
+        Me.GridColumn46.Caption = "Item"
+        Me.GridColumn46.FieldName = "item"
+        Me.GridColumn46.Name = "GridColumn46"
+        Me.GridColumn46.Visible = True
+        Me.GridColumn46.VisibleIndex = 0
+        '
+        'GroupControl1
+        '
+        Me.GroupControl1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupControl1.AppearanceCaption.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupControl1.AppearanceCaption.ForeColor = System.Drawing.Color.DarkBlue
+        Me.GroupControl1.AppearanceCaption.Options.UseFont = True
+        Me.GroupControl1.AppearanceCaption.Options.UseForeColor = True
+        Me.GroupControl1.Controls.Add(Me.CExp_cboDependencia)
+        Me.GroupControl1.Controls.Add(Me.CExp_lblDependencia)
+        Me.GroupControl1.Controls.Add(Me.CExp_btnConsultar)
+        Me.GroupControl1.Controls.Add(Me.CExp_cboAño)
+        Me.GroupControl1.Controls.Add(Me.CExp_txtNroExpediente)
+        Me.GroupControl1.Controls.Add(Me.CExp_lblNroExpediente)
+        Me.GroupControl1.Controls.Add(Me.CExp_lblcboAño)
+        Me.GroupControl1.Location = New System.Drawing.Point(9, 9)
+        Me.GroupControl1.Name = "GroupControl1"
+        Me.GroupControl1.Size = New System.Drawing.Size(1027, 65)
+        Me.GroupControl1.TabIndex = 0
+        Me.GroupControl1.Text = "Modulo de Consultas Expedientes"
+        '
+        'CExp_cboDependencia
+        '
+        Me.CExp_cboDependencia.Location = New System.Drawing.Point(622, 33)
+        Me.CExp_cboDependencia.MenuManager = Me.RibbonControl
+        Me.CExp_cboDependencia.Name = "CExp_cboDependencia"
+        Me.CExp_cboDependencia.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.CExp_cboDependencia.Properties.Items.AddRange(New Object() {"SAIMT", "MPT"})
+        Me.CExp_cboDependencia.Size = New System.Drawing.Size(95, 20)
+        Me.CExp_cboDependencia.TabIndex = 7
+        '
+        'CExp_lblDependencia
+        '
+        Me.CExp_lblDependencia.Location = New System.Drawing.Point(528, 33)
+        Me.CExp_lblDependencia.MenuManager = Me.RibbonControl
+        Me.CExp_lblDependencia.Name = "CExp_lblDependencia"
+        Me.CExp_lblDependencia.Properties.Caption = "Expediente de "
+        Me.CExp_lblDependencia.Size = New System.Drawing.Size(107, 19)
+        Me.CExp_lblDependencia.TabIndex = 9
+        '
+        'CExp_btnConsultar
+        '
+        Me.CExp_btnConsultar.Location = New System.Drawing.Point(721, 27)
+        Me.CExp_btnConsultar.Name = "CExp_btnConsultar"
+        Me.CExp_btnConsultar.Size = New System.Drawing.Size(75, 31)
+        Me.CExp_btnConsultar.TabIndex = 6
+        Me.CExp_btnConsultar.Text = "Consultar"
+        '
+        'CExp_cboAño
+        '
+        Me.CExp_cboAño.Location = New System.Drawing.Point(452, 33)
+        Me.CExp_cboAño.MenuManager = Me.RibbonControl
+        Me.CExp_cboAño.Name = "CExp_cboAño"
+        Me.CExp_cboAño.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.CExp_cboAño.Properties.NullText = ""
+        Me.CExp_cboAño.Size = New System.Drawing.Size(71, 20)
+        Me.CExp_cboAño.TabIndex = 2
+        '
+        'CExp_txtNroExpediente
+        '
+        Me.CExp_txtNroExpediente.Location = New System.Drawing.Point(84, 32)
+        Me.CExp_txtNroExpediente.MenuManager = Me.RibbonControl
+        Me.CExp_txtNroExpediente.Name = "CExp_txtNroExpediente"
+        Me.CExp_txtNroExpediente.Size = New System.Drawing.Size(317, 20)
+        Me.CExp_txtNroExpediente.TabIndex = 1
+        '
+        'CExp_lblNroExpediente
+        '
+        Me.CExp_lblNroExpediente.Location = New System.Drawing.Point(10, 35)
+        Me.CExp_lblNroExpediente.Name = "CExp_lblNroExpediente"
+        Me.CExp_lblNroExpediente.Size = New System.Drawing.Size(69, 13)
+        Me.CExp_lblNroExpediente.TabIndex = 0
+        Me.CExp_lblNroExpediente.Text = "N° Expediente"
+        '
+        'CExp_lblcboAño
+        '
+        Me.CExp_lblcboAño.Location = New System.Drawing.Point(407, 33)
+        Me.CExp_lblcboAño.MenuManager = Me.RibbonControl
+        Me.CExp_lblcboAño.Name = "CExp_lblcboAño"
+        Me.CExp_lblcboAño.Properties.Caption = "Año"
+        Me.CExp_lblcboAño.Size = New System.Drawing.Size(48, 19)
+        Me.CExp_lblcboAño.TabIndex = 8
+        '
+        'SaimtGroupBox2
+        '
+        Me.SaimtGroupBox2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.SaimtGroupBox2.Controls.Add(Me.CExp_lblResultados)
+        Me.SaimtGroupBox2.Controls.Add(Me.CExp_dgvResultado)
+        Me.SaimtGroupBox2.Location = New System.Drawing.Point(9, 202)
+        Me.SaimtGroupBox2.Name = "SaimtGroupBox2"
+        Me.SaimtGroupBox2.Size = New System.Drawing.Size(1027, 149)
+        Me.SaimtGroupBox2.TabIndex = 2
+        Me.SaimtGroupBox2.Text = "Detalle de Expedientes"
+        '
+        'CExp_lblResultados
+        '
+        Me.CExp_lblResultados.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CExp_lblResultados.Location = New System.Drawing.Point(353, 2)
+        Me.CExp_lblResultados.Name = "CExp_lblResultados"
+        Me.CExp_lblResultados.Size = New System.Drawing.Size(0, 13)
+        Me.CExp_lblResultados.TabIndex = 2
+        '
+        'CExp_dgvResultado
+        '
+        Me.CExp_dgvResultado.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.CExp_dgvResultado.Location = New System.Drawing.Point(2, 21)
+        Me.CExp_dgvResultado.MainView = Me.CExp_gvResultado
+        Me.CExp_dgvResultado.MenuManager = Me.RibbonControl
+        Me.CExp_dgvResultado.Name = "CExp_dgvResultado"
+        Me.CExp_dgvResultado.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemHyperLinkEdit1})
+        Me.CExp_dgvResultado.Size = New System.Drawing.Size(1023, 126)
+        Me.CExp_dgvResultado.TabIndex = 1
+        Me.CExp_dgvResultado.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.CExp_gvResultado})
+        '
+        'CExp_gvResultado
+        '
+        Me.CExp_gvResultado.Appearance.SelectedRow.BackColor = System.Drawing.SystemColors.GradientActiveCaption
+        Me.CExp_gvResultado.Appearance.SelectedRow.Options.UseBackColor = True
+        Me.CExp_gvResultado.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.GridColumn47, Me.GridColumn8, Me.GridColumn9, Me.GridColumn10, Me.GridColumn11, Me.GridColumn12, Me.GridColumn13, Me.GridColumn42, Me.GridColumn44, Me.GridColumn45})
+        Me.CExp_gvResultado.GridControl = Me.CExp_dgvResultado
+        Me.CExp_gvResultado.Name = "CExp_gvResultado"
+        Me.CExp_gvResultado.OptionsView.ShowGroupPanel = False
+        '
+        'GridColumn47
+        '
+        Me.GridColumn47.Caption = "docId"
+        Me.GridColumn47.FieldName = "docId"
+        Me.GridColumn47.Name = "GridColumn47"
+        '
+        'GridColumn8
+        '
+        Me.GridColumn8.Caption = "Nro. Registro"
+        Me.GridColumn8.FieldName = "nroReg"
+        Me.GridColumn8.Name = "GridColumn8"
+        Me.GridColumn8.Visible = True
+        Me.GridColumn8.VisibleIndex = 0
+        '
+        'GridColumn9
+        '
+        Me.GridColumn9.Caption = "Procedimiento"
+        Me.GridColumn9.FieldName = "procedimiento"
+        Me.GridColumn9.Name = "GridColumn9"
+        Me.GridColumn9.Visible = True
+        Me.GridColumn9.VisibleIndex = 2
+        '
+        'GridColumn10
+        '
+        Me.GridColumn10.Caption = "Parte"
+        Me.GridColumn10.FieldName = "parte"
+        Me.GridColumn10.Name = "GridColumn10"
+        Me.GridColumn10.Visible = True
+        Me.GridColumn10.VisibleIndex = 1
+        '
+        'GridColumn11
+        '
+        Me.GridColumn11.Caption = "Folio"
+        Me.GridColumn11.FieldName = "folio"
+        Me.GridColumn11.Name = "GridColumn11"
+        Me.GridColumn11.Visible = True
+        Me.GridColumn11.VisibleIndex = 3
+        '
+        'GridColumn12
+        '
+        Me.GridColumn12.Caption = "Fecha"
+        Me.GridColumn12.FieldName = "fecha"
+        Me.GridColumn12.Name = "GridColumn12"
+        Me.GridColumn12.Visible = True
+        Me.GridColumn12.VisibleIndex = 4
+        '
+        'GridColumn13
+        '
+        Me.GridColumn13.Caption = "Dependencia"
+        Me.GridColumn13.FieldName = "dependencia"
+        Me.GridColumn13.Name = "GridColumn13"
+        Me.GridColumn13.Visible = True
+        Me.GridColumn13.VisibleIndex = 5
+        '
+        'GridColumn42
+        '
+        Me.GridColumn42.Caption = "Interesado"
+        Me.GridColumn42.FieldName = "interesado"
+        Me.GridColumn42.Name = "GridColumn42"
+        Me.GridColumn42.Visible = True
+        Me.GridColumn42.VisibleIndex = 6
+        '
+        'GridColumn44
+        '
+        Me.GridColumn44.Caption = "Derivado"
+        Me.GridColumn44.FieldName = "derivado"
+        Me.GridColumn44.Name = "GridColumn44"
+        Me.GridColumn44.Visible = True
+        Me.GridColumn44.VisibleIndex = 7
+        '
+        'GridColumn45
+        '
+        Me.GridColumn45.Caption = "Fecha Derivado"
+        Me.GridColumn45.FieldName = "fechaderivado"
+        Me.GridColumn45.Name = "GridColumn45"
+        Me.GridColumn45.Visible = True
+        Me.GridColumn45.VisibleIndex = 8
+        '
+        'RepositoryItemHyperLinkEdit1
+        '
+        Me.RepositoryItemHyperLinkEdit1.AutoHeight = False
+        Me.RepositoryItemHyperLinkEdit1.Caption = "Seleccione"
+        Me.RepositoryItemHyperLinkEdit1.Name = "RepositoryItemHyperLinkEdit1"
+        '
+        'XtraTabPage2
+        '
+        Me.XtraTabPage2.Controls.Add(Me.SaimtButton3)
+        Me.XtraTabPage2.Controls.Add(Me.SaimtGroupBox4)
+        Me.XtraTabPage2.Controls.Add(Me.GroupControl2)
+        Me.XtraTabPage2.Name = "XtraTabPage2"
+        Me.XtraTabPage2.Size = New System.Drawing.Size(1043, 641)
+        Me.XtraTabPage2.Text = "Buscar"
+        '
+        'SaimtButton3
+        '
+        Me.SaimtButton3.Image = CType(resources.GetObject("SaimtButton3.Image"), System.Drawing.Image)
+        Me.SaimtButton3.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter
+        Me.SaimtButton3.Location = New System.Drawing.Point(976, 77)
+        Me.SaimtButton3.Name = "SaimtButton3"
+        Me.SaimtButton3.Size = New System.Drawing.Size(55, 36)
+        Me.SaimtButton3.TabIndex = 21
+        '
+        'SaimtGroupBox4
+        '
+        Me.SaimtGroupBox4.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.SaimtGroupBox4.Controls.Add(Me.CBus_lblResultados)
+        Me.SaimtGroupBox4.Controls.Add(Me.CBus_dgvResultado)
+        Me.SaimtGroupBox4.Location = New System.Drawing.Point(9, 118)
+        Me.SaimtGroupBox4.Name = "SaimtGroupBox4"
+        Me.SaimtGroupBox4.Size = New System.Drawing.Size(1027, 492)
+        Me.SaimtGroupBox4.TabIndex = 3
+        Me.SaimtGroupBox4.Text = "Lista de Expedientes"
+        '
+        'CBus_lblResultados
+        '
+        Me.CBus_lblResultados.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CBus_lblResultados.Location = New System.Drawing.Point(403, 4)
+        Me.CBus_lblResultados.Name = "CBus_lblResultados"
+        Me.CBus_lblResultados.Size = New System.Drawing.Size(0, 13)
+        Me.CBus_lblResultados.TabIndex = 2
+        '
+        'CBus_dgvResultado
+        '
+        Me.CBus_dgvResultado.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.CBus_dgvResultado.Location = New System.Drawing.Point(2, 21)
+        Me.CBus_dgvResultado.MainView = Me.CBus_gvResultado
+        Me.CBus_dgvResultado.MenuManager = Me.RibbonControl
+        Me.CBus_dgvResultado.Name = "CBus_dgvResultado"
+        Me.CBus_dgvResultado.Size = New System.Drawing.Size(1023, 469)
+        Me.CBus_dgvResultado.TabIndex = 1
+        Me.CBus_dgvResultado.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.CBus_gvResultado})
+        '
+        'CBus_gvResultado
+        '
+        Me.CBus_gvResultado.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.GridColumn14, Me.GridColumn15, Me.GridColumn16, Me.GridColumn48, Me.GridColumn17, Me.GridColumn18, Me.GridColumn19, Me.GridColumn20, Me.GridColumn21})
+        Me.CBus_gvResultado.GridControl = Me.CBus_dgvResultado
+        Me.CBus_gvResultado.Name = "CBus_gvResultado"
+        Me.CBus_gvResultado.OptionsView.ShowGroupPanel = False
+        '
+        'GridColumn14
+        '
+        Me.GridColumn14.Caption = "docId"
+        Me.GridColumn14.FieldName = "docId"
+        Me.GridColumn14.Name = "GridColumn14"
+        '
+        'GridColumn15
+        '
+        Me.GridColumn15.Caption = "Nro. Expediente"
+        Me.GridColumn15.FieldName = "expediente"
+        Me.GridColumn15.Name = "GridColumn15"
+        Me.GridColumn15.Visible = True
+        Me.GridColumn15.VisibleIndex = 0
+        '
+        'GridColumn16
+        '
+        Me.GridColumn16.Caption = "Expediente MPT"
+        Me.GridColumn16.FieldName = "expedienteMpt"
+        Me.GridColumn16.Name = "GridColumn16"
+        Me.GridColumn16.Visible = True
+        Me.GridColumn16.VisibleIndex = 1
+        '
+        'GridColumn48
+        '
+        Me.GridColumn48.Caption = "Fecha Expediente"
+        Me.GridColumn48.FieldName = "fechaExp"
+        Me.GridColumn48.Name = "GridColumn48"
+        Me.GridColumn48.Visible = True
+        Me.GridColumn48.VisibleIndex = 2
+        '
+        'GridColumn17
+        '
+        Me.GridColumn17.Caption = "Procedimiento"
+        Me.GridColumn17.FieldName = "procedimiento"
+        Me.GridColumn17.Name = "GridColumn17"
+        Me.GridColumn17.Visible = True
+        Me.GridColumn17.VisibleIndex = 3
+        '
+        'GridColumn18
+        '
+        Me.GridColumn18.Caption = "Interesado"
+        Me.GridColumn18.FieldName = "interesado"
+        Me.GridColumn18.Name = "GridColumn18"
+        Me.GridColumn18.Visible = True
+        Me.GridColumn18.VisibleIndex = 4
+        '
+        'GridColumn19
+        '
+        Me.GridColumn19.Caption = "Dependencia"
+        Me.GridColumn19.FieldName = "dependencia"
+        Me.GridColumn19.Name = "GridColumn19"
+        Me.GridColumn19.Visible = True
+        Me.GridColumn19.VisibleIndex = 5
+        '
+        'GridColumn20
+        '
+        Me.GridColumn20.Caption = "Área"
+        Me.GridColumn20.FieldName = "area"
+        Me.GridColumn20.Name = "GridColumn20"
+        Me.GridColumn20.Visible = True
+        Me.GridColumn20.VisibleIndex = 6
+        '
+        'GridColumn21
+        '
+        Me.GridColumn21.Caption = "Observación"
+        Me.GridColumn21.ColumnEdit = Me.RepositoryItemMemoExEdit1
+        Me.GridColumn21.FieldName = "observacion"
+        Me.GridColumn21.Name = "GridColumn21"
+        Me.GridColumn21.Visible = True
+        Me.GridColumn21.VisibleIndex = 7
+        '
+        'GroupControl2
+        '
+        Me.GroupControl2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupControl2.AppearanceCaption.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupControl2.AppearanceCaption.ForeColor = System.Drawing.Color.DarkBlue
+        Me.GroupControl2.AppearanceCaption.Options.UseFont = True
+        Me.GroupControl2.AppearanceCaption.Options.UseForeColor = True
+        Me.GroupControl2.Controls.Add(Me.CBus_cboCampo)
+        Me.GroupControl2.Controls.Add(Me.CBus_cboCriterio)
+        Me.GroupControl2.Controls.Add(Me.CBus_dtFechaFin)
+        Me.GroupControl2.Controls.Add(Me.CBus_dtFechaInicio)
+        Me.GroupControl2.Controls.Add(Me.CBus_lbldtFechaFin)
+        Me.GroupControl2.Controls.Add(Me.CBus_lbldtFechaInicio)
+        Me.GroupControl2.Controls.Add(Me.CBus_Buscar)
+        Me.GroupControl2.Controls.Add(Me.CBus_lblcboCriterio)
+        Me.GroupControl2.Controls.Add(Me.CBus_lblcboCampo)
+        Me.GroupControl2.Location = New System.Drawing.Point(9, 9)
+        Me.GroupControl2.Name = "GroupControl2"
+        Me.GroupControl2.Size = New System.Drawing.Size(1027, 65)
+        Me.GroupControl2.TabIndex = 1
+        Me.GroupControl2.Text = "Modulo de Busquedas"
+        '
+        'CBus_cboCampo
+        '
+        Me.CBus_cboCampo.Location = New System.Drawing.Point(403, 32)
+        Me.CBus_cboCampo.MenuManager = Me.RibbonControl
+        Me.CBus_cboCampo.Name = "CBus_cboCampo"
+        Me.CBus_cboCampo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.CBus_cboCampo.Properties.NullText = ""
+        Me.CBus_cboCampo.Size = New System.Drawing.Size(303, 20)
+        Me.CBus_cboCampo.TabIndex = 13
+        '
+        'CBus_cboCriterio
+        '
+        Me.CBus_cboCriterio.Location = New System.Drawing.Point(765, 32)
+        Me.CBus_cboCriterio.MenuManager = Me.RibbonControl
+        Me.CBus_cboCriterio.Name = "CBus_cboCriterio"
+        Me.CBus_cboCriterio.Size = New System.Drawing.Size(168, 20)
+        Me.CBus_cboCriterio.TabIndex = 12
+        '
+        'CBus_dtFechaFin
+        '
+        Me.CBus_dtFechaFin.EditValue = Nothing
+        Me.CBus_dtFechaFin.Location = New System.Drawing.Point(245, 32)
+        Me.CBus_dtFechaFin.MenuManager = Me.RibbonControl
+        Me.CBus_dtFechaFin.Name = "CBus_dtFechaFin"
+        Me.CBus_dtFechaFin.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.CBus_dtFechaFin.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton()})
+        Me.CBus_dtFechaFin.Size = New System.Drawing.Size(100, 20)
+        Me.CBus_dtFechaFin.TabIndex = 10
+        '
+        'CBus_dtFechaInicio
+        '
+        Me.CBus_dtFechaInicio.EditValue = Nothing
+        Me.CBus_dtFechaInicio.Location = New System.Drawing.Point(70, 32)
+        Me.CBus_dtFechaInicio.MenuManager = Me.RibbonControl
+        Me.CBus_dtFechaInicio.Name = "CBus_dtFechaInicio"
+        Me.CBus_dtFechaInicio.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.CBus_dtFechaInicio.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton()})
+        Me.CBus_dtFechaInicio.Size = New System.Drawing.Size(100, 20)
+        Me.CBus_dtFechaInicio.TabIndex = 9
+        '
+        'CBus_lbldtFechaFin
+        '
+        Me.CBus_lbldtFechaFin.Location = New System.Drawing.Point(187, 35)
+        Me.CBus_lbldtFechaFin.Name = "CBus_lbldtFechaFin"
+        Me.CBus_lbldtFechaFin.Size = New System.Drawing.Size(54, 13)
+        Me.CBus_lbldtFechaFin.TabIndex = 8
+        Me.CBus_lbldtFechaFin.Text = "Fecha Final"
+        '
+        'CBus_lbldtFechaInicio
+        '
+        Me.CBus_lbldtFechaInicio.Location = New System.Drawing.Point(9, 35)
+        Me.CBus_lbldtFechaInicio.Name = "CBus_lbldtFechaInicio"
+        Me.CBus_lbldtFechaInicio.Size = New System.Drawing.Size(57, 13)
+        Me.CBus_lbldtFechaInicio.TabIndex = 7
+        Me.CBus_lbldtFechaInicio.Text = "Fecha Inicio"
+        '
+        'CBus_Buscar
+        '
+        Me.CBus_Buscar.Location = New System.Drawing.Point(944, 27)
+        Me.CBus_Buscar.Name = "CBus_Buscar"
+        Me.CBus_Buscar.Size = New System.Drawing.Size(75, 31)
+        Me.CBus_Buscar.TabIndex = 6
+        Me.CBus_Buscar.Text = "Consultar"
+        '
+        'CBus_lblcboCriterio
+        '
+        Me.CBus_lblcboCriterio.Location = New System.Drawing.Point(725, 35)
+        Me.CBus_lblcboCriterio.Name = "CBus_lblcboCriterio"
+        Me.CBus_lblcboCriterio.Size = New System.Drawing.Size(35, 13)
+        Me.CBus_lblcboCriterio.TabIndex = 4
+        Me.CBus_lblcboCriterio.Text = "Criterio"
+        '
+        'CBus_lblcboCampo
+        '
+        Me.CBus_lblcboCampo.Location = New System.Drawing.Point(364, 35)
+        Me.CBus_lblcboCampo.Name = "CBus_lblcboCampo"
+        Me.CBus_lblcboCampo.Size = New System.Drawing.Size(33, 13)
+        Me.CBus_lblcboCampo.TabIndex = 3
+        Me.CBus_lblcboCampo.Text = "Campo"
+        '
+        'XtraTabPage3
+        '
+        Me.XtraTabPage3.Controls.Add(Me.CExpDep_lblResultado)
+        Me.XtraTabPage3.Controls.Add(Me.SaimtButton7)
+        Me.XtraTabPage3.Controls.Add(Me.SaimtLabel26)
+        Me.XtraTabPage3.Controls.Add(Me.CExpDep_dgvResultado)
+        Me.XtraTabPage3.Controls.Add(Me.SaimtLabel27)
+        Me.XtraTabPage3.Controls.Add(Me.GroupControl3)
+        Me.XtraTabPage3.Controls.Add(Me.SaimtLabel24)
+        Me.XtraTabPage3.Controls.Add(Me.SaimtLabel23)
+        Me.XtraTabPage3.Controls.Add(Me.SaimtLabel25)
+        Me.XtraTabPage3.Controls.Add(Me.SaimtLabel22)
+        Me.XtraTabPage3.Name = "XtraTabPage3"
+        Me.XtraTabPage3.Size = New System.Drawing.Size(1043, 641)
+        Me.XtraTabPage3.Text = "Expedientes por Dependencia"
+        '
+        'CExpDep_lblResultado
+        '
+        Me.CExpDep_lblResultado.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CExpDep_lblResultado.Location = New System.Drawing.Point(458, 217)
+        Me.CExpDep_lblResultado.Name = "CExpDep_lblResultado"
+        Me.CExpDep_lblResultado.Size = New System.Drawing.Size(3, 13)
+        Me.CExpDep_lblResultado.TabIndex = 21
+        Me.CExpDep_lblResultado.Text = " "
+        '
+        'SaimtButton7
+        '
+        Me.SaimtButton7.Image = CType(resources.GetObject("SaimtButton7.Image"), System.Drawing.Image)
+        Me.SaimtButton7.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter
+        Me.SaimtButton7.Location = New System.Drawing.Point(994, 213)
+        Me.SaimtButton7.Name = "SaimtButton7"
+        Me.SaimtButton7.Size = New System.Drawing.Size(39, 29)
+        Me.SaimtButton7.TabIndex = 20
+        '
+        'SaimtLabel26
+        '
+        Me.SaimtLabel26.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.SaimtLabel26.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
+        Me.SaimtLabel26.Location = New System.Drawing.Point(274, 226)
+        Me.SaimtLabel26.Name = "SaimtLabel26"
+        Me.SaimtLabel26.Size = New System.Drawing.Size(33, 17)
+        Me.SaimtLabel26.TabIndex = 19
+        '
+        'CExpDep_dgvResultado
+        '
+        Me.CExpDep_dgvResultado.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.CExpDep_dgvResultado.Location = New System.Drawing.Point(9, 244)
+        Me.CExpDep_dgvResultado.MainView = Me.CExpDep_gvResultado
+        Me.CExpDep_dgvResultado.MenuManager = Me.RibbonControl
+        Me.CExpDep_dgvResultado.Name = "CExpDep_dgvResultado"
+        Me.CExpDep_dgvResultado.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemMemoExEdit2})
+        Me.CExpDep_dgvResultado.Size = New System.Drawing.Size(1025, 371)
+        Me.CExpDep_dgvResultado.TabIndex = 3
+        Me.CExpDep_dgvResultado.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.CExpDep_gvResultado})
+        '
+        'CExpDep_gvResultado
+        '
+        Me.CExpDep_gvResultado.Appearance.ColumnFilterButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(221, Byte), Integer), CType(CType(236, Byte), Integer), CType(CType(254, Byte), Integer))
+        Me.CExpDep_gvResultado.Appearance.ColumnFilterButton.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(132, Byte), Integer), CType(CType(171, Byte), Integer), CType(CType(228, Byte), Integer))
+        Me.CExpDep_gvResultado.Appearance.ColumnFilterButton.BorderColor = System.Drawing.Color.FromArgb(CType(CType(221, Byte), Integer), CType(CType(236, Byte), Integer), CType(CType(254, Byte), Integer))
+        Me.CExpDep_gvResultado.Appearance.ColumnFilterButton.ForeColor = System.Drawing.Color.Black
+        Me.CExpDep_gvResultado.Appearance.ColumnFilterButton.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical
+        Me.CExpDep_gvResultado.Appearance.ColumnFilterButton.Options.UseBackColor = True
+        Me.CExpDep_gvResultado.Appearance.ColumnFilterButton.Options.UseBorderColor = True
+        Me.CExpDep_gvResultado.Appearance.ColumnFilterButton.Options.UseForeColor = True
+        Me.CExpDep_gvResultado.Appearance.ColumnFilterButtonActive.BackColor = System.Drawing.Color.FromArgb(CType(CType(247, Byte), Integer), CType(CType(251, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.CExpDep_gvResultado.Appearance.ColumnFilterButtonActive.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(154, Byte), Integer), CType(CType(190, Byte), Integer), CType(CType(243, Byte), Integer))
+        Me.CExpDep_gvResultado.Appearance.ColumnFilterButtonActive.BorderColor = System.Drawing.Color.FromArgb(CType(CType(247, Byte), Integer), CType(CType(251, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.CExpDep_gvResultado.Appearance.ColumnFilterButtonActive.ForeColor = System.Drawing.Color.Black
+        Me.CExpDep_gvResultado.Appearance.ColumnFilterButtonActive.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical
+        Me.CExpDep_gvResultado.Appearance.ColumnFilterButtonActive.Options.UseBackColor = True
+        Me.CExpDep_gvResultado.Appearance.ColumnFilterButtonActive.Options.UseBorderColor = True
+        Me.CExpDep_gvResultado.Appearance.ColumnFilterButtonActive.Options.UseForeColor = True
+        Me.CExpDep_gvResultado.Appearance.Empty.BackColor = System.Drawing.Color.White
+        Me.CExpDep_gvResultado.Appearance.Empty.Options.UseBackColor = True
+        Me.CExpDep_gvResultado.Appearance.EvenRow.BackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(254, Byte), Integer))
+        Me.CExpDep_gvResultado.Appearance.EvenRow.ForeColor = System.Drawing.Color.Black
+        Me.CExpDep_gvResultado.Appearance.EvenRow.Options.UseBackColor = True
+        Me.CExpDep_gvResultado.Appearance.EvenRow.Options.UseForeColor = True
+        Me.CExpDep_gvResultado.Appearance.FilterCloseButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(221, Byte), Integer), CType(CType(236, Byte), Integer), CType(CType(254, Byte), Integer))
+        Me.CExpDep_gvResultado.Appearance.FilterCloseButton.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(132, Byte), Integer), CType(CType(171, Byte), Integer), CType(CType(228, Byte), Integer))
+        Me.CExpDep_gvResultado.Appearance.FilterCloseButton.BorderColor = System.Drawing.Color.FromArgb(CType(CType(221, Byte), Integer), CType(CType(236, Byte), Integer), CType(CType(254, Byte), Integer))
+        Me.CExpDep_gvResultado.Appearance.FilterCloseButton.ForeColor = System.Drawing.Color.Black
+        Me.CExpDep_gvResultado.Appearance.FilterCloseButton.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical
+        Me.CExpDep_gvResultado.Appearance.FilterCloseButton.Options.UseBackColor = True
+        Me.CExpDep_gvResultado.Appearance.FilterCloseButton.Options.UseBorderColor = True
+        Me.CExpDep_gvResultado.Appearance.FilterCloseButton.Options.UseForeColor = True
+        Me.CExpDep_gvResultado.Appearance.FilterPanel.BackColor = System.Drawing.Color.FromArgb(CType(CType(62, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(185, Byte), Integer))
+        Me.CExpDep_gvResultado.Appearance.FilterPanel.ForeColor = System.Drawing.Color.White
+        Me.CExpDep_gvResultado.Appearance.FilterPanel.Options.UseBackColor = True
+        Me.CExpDep_gvResultado.Appearance.FilterPanel.Options.UseForeColor = True
+        Me.CExpDep_gvResultado.Appearance.FixedLine.BackColor = System.Drawing.Color.FromArgb(CType(CType(59, Byte), Integer), CType(CType(97, Byte), Integer), CType(CType(156, Byte), Integer))
+        Me.CExpDep_gvResultado.Appearance.FixedLine.Options.UseBackColor = True
+        Me.CExpDep_gvResultado.Appearance.FocusedCell.BackColor = System.Drawing.Color.White
+        Me.CExpDep_gvResultado.Appearance.FocusedCell.ForeColor = System.Drawing.Color.Black
+        Me.CExpDep_gvResultado.Appearance.FocusedCell.Options.UseBackColor = True
+        Me.CExpDep_gvResultado.Appearance.FocusedCell.Options.UseForeColor = True
+        Me.CExpDep_gvResultado.Appearance.FocusedRow.BackColor = System.Drawing.Color.FromArgb(CType(CType(49, Byte), Integer), CType(CType(106, Byte), Integer), CType(CType(197, Byte), Integer))
+        Me.CExpDep_gvResultado.Appearance.FocusedRow.ForeColor = System.Drawing.Color.White
+        Me.CExpDep_gvResultado.Appearance.FocusedRow.Options.UseBackColor = True
+        Me.CExpDep_gvResultado.Appearance.FocusedRow.Options.UseForeColor = True
+        Me.CExpDep_gvResultado.Appearance.FooterPanel.BackColor = System.Drawing.Color.FromArgb(CType(CType(221, Byte), Integer), CType(CType(236, Byte), Integer), CType(CType(254, Byte), Integer))
+        Me.CExpDep_gvResultado.Appearance.FooterPanel.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(132, Byte), Integer), CType(CType(171, Byte), Integer), CType(CType(228, Byte), Integer))
+        Me.CExpDep_gvResultado.Appearance.FooterPanel.BorderColor = System.Drawing.Color.FromArgb(CType(CType(221, Byte), Integer), CType(CType(236, Byte), Integer), CType(CType(254, Byte), Integer))
+        Me.CExpDep_gvResultado.Appearance.FooterPanel.ForeColor = System.Drawing.Color.Black
+        Me.CExpDep_gvResultado.Appearance.FooterPanel.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical
+        Me.CExpDep_gvResultado.Appearance.FooterPanel.Options.UseBackColor = True
+        Me.CExpDep_gvResultado.Appearance.FooterPanel.Options.UseBorderColor = True
+        Me.CExpDep_gvResultado.Appearance.FooterPanel.Options.UseForeColor = True
+        Me.CExpDep_gvResultado.Appearance.GroupButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(193, Byte), Integer), CType(CType(216, Byte), Integer), CType(CType(247, Byte), Integer))
+        Me.CExpDep_gvResultado.Appearance.GroupButton.BorderColor = System.Drawing.Color.FromArgb(CType(CType(193, Byte), Integer), CType(CType(216, Byte), Integer), CType(CType(247, Byte), Integer))
+        Me.CExpDep_gvResultado.Appearance.GroupButton.ForeColor = System.Drawing.Color.Black
+        Me.CExpDep_gvResultado.Appearance.GroupButton.Options.UseBackColor = True
+        Me.CExpDep_gvResultado.Appearance.GroupButton.Options.UseBorderColor = True
+        Me.CExpDep_gvResultado.Appearance.GroupButton.Options.UseForeColor = True
+        Me.CExpDep_gvResultado.Appearance.GroupFooter.BackColor = System.Drawing.Color.FromArgb(CType(CType(193, Byte), Integer), CType(CType(216, Byte), Integer), CType(CType(247, Byte), Integer))
+        Me.CExpDep_gvResultado.Appearance.GroupFooter.BorderColor = System.Drawing.Color.FromArgb(CType(CType(193, Byte), Integer), CType(CType(216, Byte), Integer), CType(CType(247, Byte), Integer))
+        Me.CExpDep_gvResultado.Appearance.GroupFooter.ForeColor = System.Drawing.Color.Black
+        Me.CExpDep_gvResultado.Appearance.GroupFooter.Options.UseBackColor = True
+        Me.CExpDep_gvResultado.Appearance.GroupFooter.Options.UseBorderColor = True
+        Me.CExpDep_gvResultado.Appearance.GroupFooter.Options.UseForeColor = True
+        Me.CExpDep_gvResultado.Appearance.GroupPanel.BackColor = System.Drawing.Color.FromArgb(CType(CType(62, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(185, Byte), Integer))
+        Me.CExpDep_gvResultado.Appearance.GroupPanel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(221, Byte), Integer), CType(CType(236, Byte), Integer), CType(CType(254, Byte), Integer))
+        Me.CExpDep_gvResultado.Appearance.GroupPanel.Options.UseBackColor = True
+        Me.CExpDep_gvResultado.Appearance.GroupPanel.Options.UseForeColor = True
+        Me.CExpDep_gvResultado.Appearance.GroupRow.BackColor = System.Drawing.Color.FromArgb(CType(CType(193, Byte), Integer), CType(CType(216, Byte), Integer), CType(CType(247, Byte), Integer))
+        Me.CExpDep_gvResultado.Appearance.GroupRow.BorderColor = System.Drawing.Color.FromArgb(CType(CType(193, Byte), Integer), CType(CType(216, Byte), Integer), CType(CType(247, Byte), Integer))
+        Me.CExpDep_gvResultado.Appearance.GroupRow.Font = New System.Drawing.Font("Tahoma", 8.0!, System.Drawing.FontStyle.Bold)
+        Me.CExpDep_gvResultado.Appearance.GroupRow.ForeColor = System.Drawing.Color.Black
+        Me.CExpDep_gvResultado.Appearance.GroupRow.Options.UseBackColor = True
+        Me.CExpDep_gvResultado.Appearance.GroupRow.Options.UseBorderColor = True
+        Me.CExpDep_gvResultado.Appearance.GroupRow.Options.UseFont = True
+        Me.CExpDep_gvResultado.Appearance.GroupRow.Options.UseForeColor = True
+        Me.CExpDep_gvResultado.Appearance.HeaderPanel.BackColor = System.Drawing.Color.FromArgb(CType(CType(221, Byte), Integer), CType(CType(236, Byte), Integer), CType(CType(254, Byte), Integer))
+        Me.CExpDep_gvResultado.Appearance.HeaderPanel.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(132, Byte), Integer), CType(CType(171, Byte), Integer), CType(CType(228, Byte), Integer))
+        Me.CExpDep_gvResultado.Appearance.HeaderPanel.BorderColor = System.Drawing.Color.FromArgb(CType(CType(221, Byte), Integer), CType(CType(236, Byte), Integer), CType(CType(254, Byte), Integer))
+        Me.CExpDep_gvResultado.Appearance.HeaderPanel.ForeColor = System.Drawing.Color.Black
+        Me.CExpDep_gvResultado.Appearance.HeaderPanel.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical
+        Me.CExpDep_gvResultado.Appearance.HeaderPanel.Options.UseBackColor = True
+        Me.CExpDep_gvResultado.Appearance.HeaderPanel.Options.UseBorderColor = True
+        Me.CExpDep_gvResultado.Appearance.HeaderPanel.Options.UseForeColor = True
+        Me.CExpDep_gvResultado.Appearance.HideSelectionRow.BackColor = System.Drawing.Color.FromArgb(CType(CType(106, Byte), Integer), CType(CType(153, Byte), Integer), CType(CType(228, Byte), Integer))
+        Me.CExpDep_gvResultado.Appearance.HideSelectionRow.ForeColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(251, Byte), Integer))
+        Me.CExpDep_gvResultado.Appearance.HideSelectionRow.Options.UseBackColor = True
+        Me.CExpDep_gvResultado.Appearance.HideSelectionRow.Options.UseForeColor = True
+        Me.CExpDep_gvResultado.Appearance.HorzLine.BackColor = System.Drawing.Color.FromArgb(CType(CType(99, Byte), Integer), CType(CType(127, Byte), Integer), CType(CType(196, Byte), Integer))
+        Me.CExpDep_gvResultado.Appearance.HorzLine.Options.UseBackColor = True
+        Me.CExpDep_gvResultado.Appearance.OddRow.BackColor = System.Drawing.Color.White
+        Me.CExpDep_gvResultado.Appearance.OddRow.ForeColor = System.Drawing.Color.Black
+        Me.CExpDep_gvResultado.Appearance.OddRow.Options.UseBackColor = True
+        Me.CExpDep_gvResultado.Appearance.OddRow.Options.UseForeColor = True
+        Me.CExpDep_gvResultado.Appearance.Preview.BackColor = System.Drawing.Color.FromArgb(CType(CType(249, Byte), Integer), CType(CType(252, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.CExpDep_gvResultado.Appearance.Preview.ForeColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(129, Byte), Integer), CType(CType(185, Byte), Integer))
+        Me.CExpDep_gvResultado.Appearance.Preview.Options.UseBackColor = True
+        Me.CExpDep_gvResultado.Appearance.Preview.Options.UseForeColor = True
+        Me.CExpDep_gvResultado.Appearance.Row.BackColor = System.Drawing.Color.White
+        Me.CExpDep_gvResultado.Appearance.Row.ForeColor = System.Drawing.Color.Black
+        Me.CExpDep_gvResultado.Appearance.Row.Options.UseBackColor = True
+        Me.CExpDep_gvResultado.Appearance.Row.Options.UseForeColor = True
+        Me.CExpDep_gvResultado.Appearance.RowSeparator.BackColor = System.Drawing.Color.White
+        Me.CExpDep_gvResultado.Appearance.RowSeparator.Options.UseBackColor = True
+        Me.CExpDep_gvResultado.Appearance.SelectedRow.BackColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(126, Byte), Integer), CType(CType(217, Byte), Integer))
+        Me.CExpDep_gvResultado.Appearance.SelectedRow.ForeColor = System.Drawing.Color.White
+        Me.CExpDep_gvResultado.Appearance.SelectedRow.Options.UseBackColor = True
+        Me.CExpDep_gvResultado.Appearance.SelectedRow.Options.UseForeColor = True
+        Me.CExpDep_gvResultado.Appearance.VertLine.BackColor = System.Drawing.Color.FromArgb(CType(CType(99, Byte), Integer), CType(CType(127, Byte), Integer), CType(CType(196, Byte), Integer))
+        Me.CExpDep_gvResultado.Appearance.VertLine.Options.UseBackColor = True
+        Me.CExpDep_gvResultado.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.GridColumn49, Me.GridColumn22, Me.GridColumn30, Me.GridColumn23, Me.GridColumn24, Me.GridColumn25, Me.GridColumn26, Me.GridColumn32, Me.GridColumn27, Me.GridColumn28, Me.GridColumn29, Me.GridColumn31, Me.gcIndicador})
+        StyleFormatCondition1.Appearance.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer), CType(CType(0, Byte), Integer))
+        StyleFormatCondition1.Appearance.Options.UseForeColor = True
+        StyleFormatCondition1.ApplyToRow = True
+        StyleFormatCondition1.Column = Me.gcIndicador
+        StyleFormatCondition1.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal
+        StyleFormatCondition1.Value1 = "0"
+        StyleFormatCondition2.Appearance.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(184, Byte), Integer), CType(CType(29, Byte), Integer))
+        StyleFormatCondition2.Appearance.Options.UseForeColor = True
+        StyleFormatCondition2.ApplyToRow = True
+        StyleFormatCondition2.Column = Me.gcIndicador
+        StyleFormatCondition2.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal
+        StyleFormatCondition2.Value1 = "1"
+        StyleFormatCondition3.Appearance.ForeColor = System.Drawing.Color.FromArgb(CType(CType(102, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        StyleFormatCondition3.Appearance.Options.UseForeColor = True
+        StyleFormatCondition3.ApplyToRow = True
+        StyleFormatCondition3.Column = Me.gcIndicador
+        StyleFormatCondition3.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal
+        StyleFormatCondition3.Value1 = "2"
+        Me.CExpDep_gvResultado.FormatConditions.AddRange(New DevExpress.XtraGrid.StyleFormatCondition() {StyleFormatCondition1, StyleFormatCondition2, StyleFormatCondition3})
+        Me.CExpDep_gvResultado.GridControl = Me.CExpDep_dgvResultado
+        Me.CExpDep_gvResultado.Images = Me.ImageCollection1
+        Me.CExpDep_gvResultado.Name = "CExpDep_gvResultado"
+        Me.CExpDep_gvResultado.OptionsView.ColumnAutoWidth = False
+        Me.CExpDep_gvResultado.OptionsView.EnableAppearanceEvenRow = True
+        Me.CExpDep_gvResultado.OptionsView.EnableAppearanceOddRow = True
+        Me.CExpDep_gvResultado.OptionsView.ShowGroupPanel = False
+        '
+        'GridColumn49
+        '
+        Me.GridColumn49.Caption = "GridColumn49"
+        Me.GridColumn49.FieldName = "docId"
+        Me.GridColumn49.Name = "GridColumn49"
+        '
+        'GridColumn22
+        '
+        Me.GridColumn22.Caption = "Expediente"
+        Me.GridColumn22.FieldName = "expediente"
+        Me.GridColumn22.Name = "GridColumn22"
+        Me.GridColumn22.Visible = True
+        Me.GridColumn22.VisibleIndex = 0
+        '
+        'GridColumn30
+        '
+        Me.GridColumn30.Caption = "Expediente MPT"
+        Me.GridColumn30.FieldName = "expedienteMpt"
+        Me.GridColumn30.Name = "GridColumn30"
+        Me.GridColumn30.Visible = True
+        Me.GridColumn30.VisibleIndex = 1
+        '
+        'GridColumn23
+        '
+        Me.GridColumn23.Caption = "Creación"
+        Me.GridColumn23.FieldName = "fechaExp"
+        Me.GridColumn23.Name = "GridColumn23"
+        Me.GridColumn23.Visible = True
+        Me.GridColumn23.VisibleIndex = 2
+        '
+        'GridColumn24
+        '
+        Me.GridColumn24.Caption = "Procedimiento"
+        Me.GridColumn24.FieldName = "procedimiento"
+        Me.GridColumn24.Name = "GridColumn24"
+        Me.GridColumn24.Visible = True
+        Me.GridColumn24.VisibleIndex = 3
+        '
+        'GridColumn25
+        '
+        Me.GridColumn25.Caption = "Tipo Documento"
+        Me.GridColumn25.FieldName = "tipodoc"
+        Me.GridColumn25.Name = "GridColumn25"
+        Me.GridColumn25.Visible = True
+        Me.GridColumn25.VisibleIndex = 4
+        '
+        'GridColumn26
+        '
+        Me.GridColumn26.Caption = "Estado"
+        Me.GridColumn26.FieldName = "estado"
+        Me.GridColumn26.Name = "GridColumn26"
+        Me.GridColumn26.Visible = True
+        Me.GridColumn26.VisibleIndex = 5
+        '
+        'GridColumn32
+        '
+        Me.GridColumn32.Caption = "Resuelto(Dias)"
+        Me.GridColumn32.FieldName = "dias"
+        Me.GridColumn32.Name = "GridColumn32"
+        Me.GridColumn32.Visible = True
+        Me.GridColumn32.VisibleIndex = 6
+        '
+        'GridColumn27
+        '
+        Me.GridColumn27.Caption = "Interesado"
+        Me.GridColumn27.FieldName = "interesado"
+        Me.GridColumn27.Name = "GridColumn27"
+        Me.GridColumn27.Visible = True
+        Me.GridColumn27.VisibleIndex = 7
+        '
+        'GridColumn28
+        '
+        Me.GridColumn28.Caption = "Dependencia"
+        Me.GridColumn28.FieldName = "dependencia"
+        Me.GridColumn28.Name = "GridColumn28"
+        Me.GridColumn28.Visible = True
+        Me.GridColumn28.VisibleIndex = 8
+        '
+        'GridColumn29
+        '
+        Me.GridColumn29.Caption = "Área"
+        Me.GridColumn29.FieldName = "area"
+        Me.GridColumn29.Name = "GridColumn29"
+        Me.GridColumn29.Visible = True
+        Me.GridColumn29.VisibleIndex = 9
+        '
+        'GridColumn31
+        '
+        Me.GridColumn31.Caption = "Observación"
+        Me.GridColumn31.ColumnEdit = Me.RepositoryItemMemoExEdit2
+        Me.GridColumn31.FieldName = "observacion"
+        Me.GridColumn31.Name = "GridColumn31"
+        Me.GridColumn31.Visible = True
+        Me.GridColumn31.VisibleIndex = 10
+        '
+        'RepositoryItemMemoExEdit2
+        '
+        Me.RepositoryItemMemoExEdit2.AutoHeight = False
+        Me.RepositoryItemMemoExEdit2.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.RepositoryItemMemoExEdit2.Name = "RepositoryItemMemoExEdit2"
+        Me.RepositoryItemMemoExEdit2.ShowIcon = False
+        '
+        'ImageCollection1
+        '
+        Me.ImageCollection1.ImageStream = CType(resources.GetObject("ImageCollection1.ImageStream"), DevExpress.Utils.ImageCollectionStreamer)
+        Me.ImageCollection1.Images.SetKeyName(0, "RibbonUserDesigner_HtmlRefresh.png")
+        '
+        'SaimtLabel27
+        '
+        Me.SaimtLabel27.Location = New System.Drawing.Point(227, 228)
+        Me.SaimtLabel27.Name = "SaimtLabel27"
+        Me.SaimtLabel27.Size = New System.Drawing.Size(44, 13)
+        Me.SaimtLabel27.TabIndex = 18
+        Me.SaimtLabel27.Text = "A Tiempo"
+        '
+        'GroupControl3
+        '
+        Me.GroupControl3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupControl3.AppearanceCaption.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupControl3.AppearanceCaption.ForeColor = System.Drawing.Color.DarkBlue
+        Me.GroupControl3.AppearanceCaption.Options.UseFont = True
+        Me.GroupControl3.AppearanceCaption.Options.UseForeColor = True
+        Me.GroupControl3.Controls.Add(Me.SaimtTabs1)
+        Me.GroupControl3.Location = New System.Drawing.Point(9, 9)
+        Me.GroupControl3.Name = "GroupControl3"
+        Me.GroupControl3.Size = New System.Drawing.Size(1025, 202)
+        Me.GroupControl3.TabIndex = 2
+        Me.GroupControl3.Text = "Expediente por Dependencias"
+        '
+        'SaimtTabs1
+        '
+        Me.SaimtTabs1.Location = New System.Drawing.Point(6, 27)
+        Me.SaimtTabs1.Name = "SaimtTabs1"
+        Me.SaimtTabs1.SelectedTabPage = Me.XtraTabPage4
+        Me.SaimtTabs1.Size = New System.Drawing.Size(1015, 170)
+        Me.SaimtTabs1.TabIndex = 0
+        Me.SaimtTabs1.TabPages.AddRange(New DevExpress.XtraTab.XtraTabPage() {Me.XtraTabPage4})
+        '
+        'XtraTabPage4
+        '
+        Me.XtraTabPage4.Controls.Add(Me.CExpDep_cboResultado)
+        Me.XtraTabPage4.Controls.Add(Me.SaimtLabel18)
+        Me.XtraTabPage4.Controls.Add(Me.CExpDep_Observacion)
+        Me.XtraTabPage4.Controls.Add(Me.CExpDep_lblResultados)
+        Me.XtraTabPage4.Controls.Add(Me.Dep_BtnBuscar)
+        Me.XtraTabPage4.Controls.Add(Me.CExpDep_lblFechaFinal)
+        Me.XtraTabPage4.Controls.Add(Me.CExpDep_lblFechaInicio)
+        Me.XtraTabPage4.Controls.Add(Me.CExpDep_FechaFin)
+        Me.XtraTabPage4.Controls.Add(Me.CExpDep_cboArea)
+        Me.XtraTabPage4.Controls.Add(Me.CExpDep_cboDependencia)
+        Me.XtraTabPage4.Controls.Add(Me.CExpDep_lblCboArea)
+        Me.XtraTabPage4.Controls.Add(Me.CExpDep_lblDependencia)
+        Me.XtraTabPage4.Controls.Add(Me.CExpDep_FechaInicio)
+        Me.XtraTabPage4.Controls.Add(Me.CExpDep_Eleccion)
+        Me.XtraTabPage4.Name = "XtraTabPage4"
+        Me.XtraTabPage4.Size = New System.Drawing.Size(1009, 142)
+        Me.XtraTabPage4.Text = "Detalle de Expedientes por Dependencia"
+        '
+        'CExpDep_cboResultado
+        '
+        Me.CExpDep_cboResultado.Location = New System.Drawing.Point(69, 90)
+        Me.CExpDep_cboResultado.MenuManager = Me.RibbonControl
+        Me.CExpDep_cboResultado.Name = "CExpDep_cboResultado"
+        Me.CExpDep_cboResultado.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.CExpDep_cboResultado.Properties.Items.AddRange(New Object() {"Todos", "Pasados"})
+        Me.CExpDep_cboResultado.Size = New System.Drawing.Size(100, 20)
+        Me.CExpDep_cboResultado.TabIndex = 14
+        '
+        'SaimtLabel18
+        '
+        Me.SaimtLabel18.Location = New System.Drawing.Point(208, 80)
+        Me.SaimtLabel18.Name = "SaimtLabel18"
+        Me.SaimtLabel18.Size = New System.Drawing.Size(60, 13)
+        Me.SaimtLabel18.TabIndex = 13
+        Me.SaimtLabel18.Text = "Observación"
+        '
+        'CExpDep_Observacion
+        '
+        Me.CExpDep_Observacion.Location = New System.Drawing.Point(274, 77)
+        Me.CExpDep_Observacion.MenuManager = Me.RibbonControl
+        Me.CExpDep_Observacion.Name = "CExpDep_Observacion"
+        Me.CExpDep_Observacion.Size = New System.Drawing.Size(644, 60)
+        Me.CExpDep_Observacion.TabIndex = 12
+        Me.CExpDep_Observacion.UseOptimizedRendering = True
+        '
+        'CExpDep_lblResultados
+        '
+        Me.CExpDep_lblResultados.Location = New System.Drawing.Point(14, 93)
+        Me.CExpDep_lblResultados.Name = "CExpDep_lblResultados"
+        Me.CExpDep_lblResultados.Size = New System.Drawing.Size(48, 13)
+        Me.CExpDep_lblResultados.TabIndex = 10
+        Me.CExpDep_lblResultados.Text = "Resultado"
+        '
+        'Dep_BtnBuscar
+        '
+        Me.Dep_BtnBuscar.Location = New System.Drawing.Point(925, 76)
+        Me.Dep_BtnBuscar.Name = "Dep_BtnBuscar"
+        Me.Dep_BtnBuscar.Size = New System.Drawing.Size(75, 35)
+        Me.Dep_BtnBuscar.TabIndex = 9
+        Me.Dep_BtnBuscar.Text = "Ver Reporte"
+        '
+        'CExpDep_lblFechaFinal
+        '
+        Me.CExpDep_lblFechaFinal.Location = New System.Drawing.Point(804, 23)
+        Me.CExpDep_lblFechaFinal.Name = "CExpDep_lblFechaFinal"
+        Me.CExpDep_lblFechaFinal.Size = New System.Drawing.Size(54, 13)
+        Me.CExpDep_lblFechaFinal.TabIndex = 8
+        Me.CExpDep_lblFechaFinal.Text = "Fecha Final"
+        '
+        'CExpDep_lblFechaInicio
+        '
+        Me.CExpDep_lblFechaInicio.Location = New System.Drawing.Point(631, 23)
+        Me.CExpDep_lblFechaInicio.Name = "CExpDep_lblFechaInicio"
+        Me.CExpDep_lblFechaInicio.Size = New System.Drawing.Size(57, 13)
+        Me.CExpDep_lblFechaInicio.TabIndex = 7
+        Me.CExpDep_lblFechaInicio.Text = "Fecha Inicio"
+        '
+        'CExpDep_FechaFin
+        '
+        Me.CExpDep_FechaFin.EditValue = Nothing
+        Me.CExpDep_FechaFin.Location = New System.Drawing.Point(864, 20)
+        Me.CExpDep_FechaFin.MenuManager = Me.RibbonControl
+        Me.CExpDep_FechaFin.Name = "CExpDep_FechaFin"
+        Me.CExpDep_FechaFin.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.CExpDep_FechaFin.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton()})
+        Me.CExpDep_FechaFin.Size = New System.Drawing.Size(100, 20)
+        Me.CExpDep_FechaFin.TabIndex = 6
+        '
+        'CExpDep_cboArea
+        '
+        Me.CExpDep_cboArea.Location = New System.Drawing.Point(234, 50)
+        Me.CExpDep_cboArea.MenuManager = Me.RibbonControl
+        Me.CExpDep_cboArea.Name = "CExpDep_cboArea"
+        Me.CExpDep_cboArea.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.CExpDep_cboArea.Properties.NullText = ""
+        Me.CExpDep_cboArea.Size = New System.Drawing.Size(383, 20)
+        Me.CExpDep_cboArea.TabIndex = 5
+        '
+        'CExpDep_cboDependencia
+        '
+        Me.CExpDep_cboDependencia.Location = New System.Drawing.Point(234, 20)
+        Me.CExpDep_cboDependencia.MenuManager = Me.RibbonControl
+        Me.CExpDep_cboDependencia.Name = "CExpDep_cboDependencia"
+        Me.CExpDep_cboDependencia.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.CExpDep_cboDependencia.Properties.NullText = ""
+        Me.CExpDep_cboDependencia.Size = New System.Drawing.Size(383, 20)
+        Me.CExpDep_cboDependencia.TabIndex = 4
+        '
+        'CExpDep_lblCboArea
+        '
+        Me.CExpDep_lblCboArea.Location = New System.Drawing.Point(205, 53)
+        Me.CExpDep_lblCboArea.Name = "CExpDep_lblCboArea"
+        Me.CExpDep_lblCboArea.Size = New System.Drawing.Size(23, 13)
+        Me.CExpDep_lblCboArea.TabIndex = 3
+        Me.CExpDep_lblCboArea.Text = "Área"
+        '
+        'CExpDep_lblDependencia
+        '
+        Me.CExpDep_lblDependencia.Location = New System.Drawing.Point(163, 23)
+        Me.CExpDep_lblDependencia.Name = "CExpDep_lblDependencia"
+        Me.CExpDep_lblDependencia.Size = New System.Drawing.Size(65, 13)
+        Me.CExpDep_lblDependencia.TabIndex = 2
+        Me.CExpDep_lblDependencia.Text = "Dependencia "
+        '
+        'CExpDep_FechaInicio
+        '
+        Me.CExpDep_FechaInicio.EditValue = Nothing
+        Me.CExpDep_FechaInicio.Location = New System.Drawing.Point(695, 20)
+        Me.CExpDep_FechaInicio.MenuManager = Me.RibbonControl
+        Me.CExpDep_FechaInicio.Name = "CExpDep_FechaInicio"
+        Me.CExpDep_FechaInicio.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.CExpDep_FechaInicio.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton()})
+        Me.CExpDep_FechaInicio.Size = New System.Drawing.Size(100, 20)
+        Me.CExpDep_FechaInicio.TabIndex = 1
+        '
+        'CExpDep_Eleccion
+        '
+        Me.CExpDep_Eleccion.Location = New System.Drawing.Point(14, 12)
+        Me.CExpDep_Eleccion.MenuManager = Me.RibbonControl
+        Me.CExpDep_Eleccion.Name = "CExpDep_Eleccion"
+        Me.CExpDep_Eleccion.Properties.Items.AddRange(New DevExpress.XtraEditors.Controls.RadioGroupItem() {New DevExpress.XtraEditors.Controls.RadioGroupItem(Nothing, "Dependencia"), New DevExpress.XtraEditors.Controls.RadioGroupItem(Nothing, "Dependencia y Área")})
+        Me.CExpDep_Eleccion.Size = New System.Drawing.Size(135, 58)
+        Me.CExpDep_Eleccion.TabIndex = 0
+        '
+        'SaimtLabel24
+        '
+        Me.SaimtLabel24.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(184, Byte), Integer), CType(CType(29, Byte), Integer))
+        Me.SaimtLabel24.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
+        Me.SaimtLabel24.Location = New System.Drawing.Point(174, 224)
+        Me.SaimtLabel24.Name = "SaimtLabel24"
+        Me.SaimtLabel24.Size = New System.Drawing.Size(33, 17)
+        Me.SaimtLabel24.TabIndex = 17
+        '
+        'SaimtLabel23
+        '
+        Me.SaimtLabel23.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(102, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.SaimtLabel23.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
+        Me.SaimtLabel23.Location = New System.Drawing.Point(54, 224)
+        Me.SaimtLabel23.Name = "SaimtLabel23"
+        Me.SaimtLabel23.Size = New System.Drawing.Size(33, 17)
+        Me.SaimtLabel23.TabIndex = 15
+        '
+        'SaimtLabel25
+        '
+        Me.SaimtLabel25.Location = New System.Drawing.Point(111, 228)
+        Me.SaimtLabel25.Name = "SaimtLabel25"
+        Me.SaimtLabel25.Size = New System.Drawing.Size(60, 13)
+        Me.SaimtLabel25.TabIndex = 16
+        Me.SaimtLabel25.Text = "Por Culminar"
+        '
+        'SaimtLabel22
+        '
+        Me.SaimtLabel22.Location = New System.Drawing.Point(11, 228)
+        Me.SaimtLabel22.Name = "SaimtLabel22"
+        Me.SaimtLabel22.Size = New System.Drawing.Size(40, 13)
+        Me.SaimtLabel22.TabIndex = 14
+        Me.SaimtLabel22.Text = "Pasados"
+        '
+        'XtraTabPage6
+        '
+        Me.XtraTabPage6.Controls.Add(Me.CExpInt_lblResultado)
+        Me.XtraTabPage6.Controls.Add(Me.SaimtLabel2)
+        Me.XtraTabPage6.Controls.Add(Me.SaimtLabel5)
+        Me.XtraTabPage6.Controls.Add(Me.SaimtLabel7)
+        Me.XtraTabPage6.Controls.Add(Me.SaimtLabel8)
+        Me.XtraTabPage6.Controls.Add(Me.SaimtLabel9)
+        Me.XtraTabPage6.Controls.Add(Me.SaimtLabel10)
+        Me.XtraTabPage6.Controls.Add(Me.CExpInt_dgvResultado)
+        Me.XtraTabPage6.Controls.Add(Me.GroupControl4)
+        Me.XtraTabPage6.Name = "XtraTabPage6"
+        Me.XtraTabPage6.Size = New System.Drawing.Size(1043, 641)
+        Me.XtraTabPage6.Text = "Expedientes Ingresados por Interesados"
+        '
+        'CExpInt_lblResultado
+        '
+        Me.CExpInt_lblResultado.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CExpInt_lblResultado.Location = New System.Drawing.Point(485, 146)
+        Me.CExpInt_lblResultado.Name = "CExpInt_lblResultado"
+        Me.CExpInt_lblResultado.Size = New System.Drawing.Size(0, 13)
+        Me.CExpInt_lblResultado.TabIndex = 26
+        '
+        'SaimtLabel2
+        '
+        Me.SaimtLabel2.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.SaimtLabel2.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
+        Me.SaimtLabel2.Location = New System.Drawing.Point(279, 146)
+        Me.SaimtLabel2.Name = "SaimtLabel2"
+        Me.SaimtLabel2.Size = New System.Drawing.Size(33, 17)
+        Me.SaimtLabel2.TabIndex = 25
+        '
+        'SaimtLabel5
+        '
+        Me.SaimtLabel5.Location = New System.Drawing.Point(232, 148)
+        Me.SaimtLabel5.Name = "SaimtLabel5"
+        Me.SaimtLabel5.Size = New System.Drawing.Size(44, 13)
+        Me.SaimtLabel5.TabIndex = 24
+        Me.SaimtLabel5.Text = "A Tiempo"
+        '
+        'SaimtLabel7
+        '
+        Me.SaimtLabel7.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(184, Byte), Integer), CType(CType(29, Byte), Integer))
+        Me.SaimtLabel7.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
+        Me.SaimtLabel7.Location = New System.Drawing.Point(179, 144)
+        Me.SaimtLabel7.Name = "SaimtLabel7"
+        Me.SaimtLabel7.Size = New System.Drawing.Size(33, 17)
+        Me.SaimtLabel7.TabIndex = 23
+        '
+        'SaimtLabel8
+        '
+        Me.SaimtLabel8.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(102, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.SaimtLabel8.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None
+        Me.SaimtLabel8.Location = New System.Drawing.Point(59, 144)
+        Me.SaimtLabel8.Name = "SaimtLabel8"
+        Me.SaimtLabel8.Size = New System.Drawing.Size(33, 17)
+        Me.SaimtLabel8.TabIndex = 21
+        '
+        'SaimtLabel9
+        '
+        Me.SaimtLabel9.Location = New System.Drawing.Point(116, 148)
+        Me.SaimtLabel9.Name = "SaimtLabel9"
+        Me.SaimtLabel9.Size = New System.Drawing.Size(60, 13)
+        Me.SaimtLabel9.TabIndex = 22
+        Me.SaimtLabel9.Text = "Por Culminar"
+        '
+        'SaimtLabel10
+        '
+        Me.SaimtLabel10.Location = New System.Drawing.Point(16, 148)
+        Me.SaimtLabel10.Name = "SaimtLabel10"
+        Me.SaimtLabel10.Size = New System.Drawing.Size(40, 13)
+        Me.SaimtLabel10.TabIndex = 20
+        Me.SaimtLabel10.Text = "Pasados"
+        '
+        'CExpInt_dgvResultado
+        '
+        Me.CExpInt_dgvResultado.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.CExpInt_dgvResultado.Location = New System.Drawing.Point(9, 167)
+        Me.CExpInt_dgvResultado.MainView = Me.CExpInt_gvResultado
+        Me.CExpInt_dgvResultado.MenuManager = Me.RibbonControl
+        Me.CExpInt_dgvResultado.Name = "CExpInt_dgvResultado"
+        Me.CExpInt_dgvResultado.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemMemoExEdit3})
+        Me.CExpInt_dgvResultado.Size = New System.Drawing.Size(1025, 448)
+        Me.CExpInt_dgvResultado.TabIndex = 4
+        Me.CExpInt_dgvResultado.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.CExpInt_gvResultado})
+        '
+        'CExpInt_gvResultado
+        '
+        Me.CExpInt_gvResultado.Appearance.ColumnFilterButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(221, Byte), Integer), CType(CType(236, Byte), Integer), CType(CType(254, Byte), Integer))
+        Me.CExpInt_gvResultado.Appearance.ColumnFilterButton.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(132, Byte), Integer), CType(CType(171, Byte), Integer), CType(CType(228, Byte), Integer))
+        Me.CExpInt_gvResultado.Appearance.ColumnFilterButton.BorderColor = System.Drawing.Color.FromArgb(CType(CType(221, Byte), Integer), CType(CType(236, Byte), Integer), CType(CType(254, Byte), Integer))
+        Me.CExpInt_gvResultado.Appearance.ColumnFilterButton.ForeColor = System.Drawing.Color.Black
+        Me.CExpInt_gvResultado.Appearance.ColumnFilterButton.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical
+        Me.CExpInt_gvResultado.Appearance.ColumnFilterButton.Options.UseBackColor = True
+        Me.CExpInt_gvResultado.Appearance.ColumnFilterButton.Options.UseBorderColor = True
+        Me.CExpInt_gvResultado.Appearance.ColumnFilterButton.Options.UseForeColor = True
+        Me.CExpInt_gvResultado.Appearance.ColumnFilterButtonActive.BackColor = System.Drawing.Color.FromArgb(CType(CType(247, Byte), Integer), CType(CType(251, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.CExpInt_gvResultado.Appearance.ColumnFilterButtonActive.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(154, Byte), Integer), CType(CType(190, Byte), Integer), CType(CType(243, Byte), Integer))
+        Me.CExpInt_gvResultado.Appearance.ColumnFilterButtonActive.BorderColor = System.Drawing.Color.FromArgb(CType(CType(247, Byte), Integer), CType(CType(251, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.CExpInt_gvResultado.Appearance.ColumnFilterButtonActive.ForeColor = System.Drawing.Color.Black
+        Me.CExpInt_gvResultado.Appearance.ColumnFilterButtonActive.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical
+        Me.CExpInt_gvResultado.Appearance.ColumnFilterButtonActive.Options.UseBackColor = True
+        Me.CExpInt_gvResultado.Appearance.ColumnFilterButtonActive.Options.UseBorderColor = True
+        Me.CExpInt_gvResultado.Appearance.ColumnFilterButtonActive.Options.UseForeColor = True
+        Me.CExpInt_gvResultado.Appearance.Empty.BackColor = System.Drawing.Color.White
+        Me.CExpInt_gvResultado.Appearance.Empty.Options.UseBackColor = True
+        Me.CExpInt_gvResultado.Appearance.EvenRow.BackColor = System.Drawing.Color.FromArgb(CType(CType(231, Byte), Integer), CType(CType(242, Byte), Integer), CType(CType(254, Byte), Integer))
+        Me.CExpInt_gvResultado.Appearance.EvenRow.ForeColor = System.Drawing.Color.Black
+        Me.CExpInt_gvResultado.Appearance.EvenRow.Options.UseBackColor = True
+        Me.CExpInt_gvResultado.Appearance.EvenRow.Options.UseForeColor = True
+        Me.CExpInt_gvResultado.Appearance.FilterCloseButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(221, Byte), Integer), CType(CType(236, Byte), Integer), CType(CType(254, Byte), Integer))
+        Me.CExpInt_gvResultado.Appearance.FilterCloseButton.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(132, Byte), Integer), CType(CType(171, Byte), Integer), CType(CType(228, Byte), Integer))
+        Me.CExpInt_gvResultado.Appearance.FilterCloseButton.BorderColor = System.Drawing.Color.FromArgb(CType(CType(221, Byte), Integer), CType(CType(236, Byte), Integer), CType(CType(254, Byte), Integer))
+        Me.CExpInt_gvResultado.Appearance.FilterCloseButton.ForeColor = System.Drawing.Color.Black
+        Me.CExpInt_gvResultado.Appearance.FilterCloseButton.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical
+        Me.CExpInt_gvResultado.Appearance.FilterCloseButton.Options.UseBackColor = True
+        Me.CExpInt_gvResultado.Appearance.FilterCloseButton.Options.UseBorderColor = True
+        Me.CExpInt_gvResultado.Appearance.FilterCloseButton.Options.UseForeColor = True
+        Me.CExpInt_gvResultado.Appearance.FilterPanel.BackColor = System.Drawing.Color.FromArgb(CType(CType(62, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(185, Byte), Integer))
+        Me.CExpInt_gvResultado.Appearance.FilterPanel.ForeColor = System.Drawing.Color.White
+        Me.CExpInt_gvResultado.Appearance.FilterPanel.Options.UseBackColor = True
+        Me.CExpInt_gvResultado.Appearance.FilterPanel.Options.UseForeColor = True
+        Me.CExpInt_gvResultado.Appearance.FixedLine.BackColor = System.Drawing.Color.FromArgb(CType(CType(59, Byte), Integer), CType(CType(97, Byte), Integer), CType(CType(156, Byte), Integer))
+        Me.CExpInt_gvResultado.Appearance.FixedLine.Options.UseBackColor = True
+        Me.CExpInt_gvResultado.Appearance.FocusedCell.BackColor = System.Drawing.Color.White
+        Me.CExpInt_gvResultado.Appearance.FocusedCell.ForeColor = System.Drawing.Color.Black
+        Me.CExpInt_gvResultado.Appearance.FocusedCell.Options.UseBackColor = True
+        Me.CExpInt_gvResultado.Appearance.FocusedCell.Options.UseForeColor = True
+        Me.CExpInt_gvResultado.Appearance.FocusedRow.BackColor = System.Drawing.Color.FromArgb(CType(CType(49, Byte), Integer), CType(CType(106, Byte), Integer), CType(CType(197, Byte), Integer))
+        Me.CExpInt_gvResultado.Appearance.FocusedRow.ForeColor = System.Drawing.Color.White
+        Me.CExpInt_gvResultado.Appearance.FocusedRow.Options.UseBackColor = True
+        Me.CExpInt_gvResultado.Appearance.FocusedRow.Options.UseForeColor = True
+        Me.CExpInt_gvResultado.Appearance.FooterPanel.BackColor = System.Drawing.Color.FromArgb(CType(CType(221, Byte), Integer), CType(CType(236, Byte), Integer), CType(CType(254, Byte), Integer))
+        Me.CExpInt_gvResultado.Appearance.FooterPanel.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(132, Byte), Integer), CType(CType(171, Byte), Integer), CType(CType(228, Byte), Integer))
+        Me.CExpInt_gvResultado.Appearance.FooterPanel.BorderColor = System.Drawing.Color.FromArgb(CType(CType(221, Byte), Integer), CType(CType(236, Byte), Integer), CType(CType(254, Byte), Integer))
+        Me.CExpInt_gvResultado.Appearance.FooterPanel.ForeColor = System.Drawing.Color.Black
+        Me.CExpInt_gvResultado.Appearance.FooterPanel.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical
+        Me.CExpInt_gvResultado.Appearance.FooterPanel.Options.UseBackColor = True
+        Me.CExpInt_gvResultado.Appearance.FooterPanel.Options.UseBorderColor = True
+        Me.CExpInt_gvResultado.Appearance.FooterPanel.Options.UseForeColor = True
+        Me.CExpInt_gvResultado.Appearance.GroupButton.BackColor = System.Drawing.Color.FromArgb(CType(CType(193, Byte), Integer), CType(CType(216, Byte), Integer), CType(CType(247, Byte), Integer))
+        Me.CExpInt_gvResultado.Appearance.GroupButton.BorderColor = System.Drawing.Color.FromArgb(CType(CType(193, Byte), Integer), CType(CType(216, Byte), Integer), CType(CType(247, Byte), Integer))
+        Me.CExpInt_gvResultado.Appearance.GroupButton.ForeColor = System.Drawing.Color.Black
+        Me.CExpInt_gvResultado.Appearance.GroupButton.Options.UseBackColor = True
+        Me.CExpInt_gvResultado.Appearance.GroupButton.Options.UseBorderColor = True
+        Me.CExpInt_gvResultado.Appearance.GroupButton.Options.UseForeColor = True
+        Me.CExpInt_gvResultado.Appearance.GroupFooter.BackColor = System.Drawing.Color.FromArgb(CType(CType(193, Byte), Integer), CType(CType(216, Byte), Integer), CType(CType(247, Byte), Integer))
+        Me.CExpInt_gvResultado.Appearance.GroupFooter.BorderColor = System.Drawing.Color.FromArgb(CType(CType(193, Byte), Integer), CType(CType(216, Byte), Integer), CType(CType(247, Byte), Integer))
+        Me.CExpInt_gvResultado.Appearance.GroupFooter.ForeColor = System.Drawing.Color.Black
+        Me.CExpInt_gvResultado.Appearance.GroupFooter.Options.UseBackColor = True
+        Me.CExpInt_gvResultado.Appearance.GroupFooter.Options.UseBorderColor = True
+        Me.CExpInt_gvResultado.Appearance.GroupFooter.Options.UseForeColor = True
+        Me.CExpInt_gvResultado.Appearance.GroupPanel.BackColor = System.Drawing.Color.FromArgb(CType(CType(62, Byte), Integer), CType(CType(109, Byte), Integer), CType(CType(185, Byte), Integer))
+        Me.CExpInt_gvResultado.Appearance.GroupPanel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(221, Byte), Integer), CType(CType(236, Byte), Integer), CType(CType(254, Byte), Integer))
+        Me.CExpInt_gvResultado.Appearance.GroupPanel.Options.UseBackColor = True
+        Me.CExpInt_gvResultado.Appearance.GroupPanel.Options.UseForeColor = True
+        Me.CExpInt_gvResultado.Appearance.GroupRow.BackColor = System.Drawing.Color.FromArgb(CType(CType(193, Byte), Integer), CType(CType(216, Byte), Integer), CType(CType(247, Byte), Integer))
+        Me.CExpInt_gvResultado.Appearance.GroupRow.BorderColor = System.Drawing.Color.FromArgb(CType(CType(193, Byte), Integer), CType(CType(216, Byte), Integer), CType(CType(247, Byte), Integer))
+        Me.CExpInt_gvResultado.Appearance.GroupRow.Font = New System.Drawing.Font("Tahoma", 8.0!, System.Drawing.FontStyle.Bold)
+        Me.CExpInt_gvResultado.Appearance.GroupRow.ForeColor = System.Drawing.Color.Black
+        Me.CExpInt_gvResultado.Appearance.GroupRow.Options.UseBackColor = True
+        Me.CExpInt_gvResultado.Appearance.GroupRow.Options.UseBorderColor = True
+        Me.CExpInt_gvResultado.Appearance.GroupRow.Options.UseFont = True
+        Me.CExpInt_gvResultado.Appearance.GroupRow.Options.UseForeColor = True
+        Me.CExpInt_gvResultado.Appearance.HeaderPanel.BackColor = System.Drawing.Color.FromArgb(CType(CType(221, Byte), Integer), CType(CType(236, Byte), Integer), CType(CType(254, Byte), Integer))
+        Me.CExpInt_gvResultado.Appearance.HeaderPanel.BackColor2 = System.Drawing.Color.FromArgb(CType(CType(132, Byte), Integer), CType(CType(171, Byte), Integer), CType(CType(228, Byte), Integer))
+        Me.CExpInt_gvResultado.Appearance.HeaderPanel.BorderColor = System.Drawing.Color.FromArgb(CType(CType(221, Byte), Integer), CType(CType(236, Byte), Integer), CType(CType(254, Byte), Integer))
+        Me.CExpInt_gvResultado.Appearance.HeaderPanel.ForeColor = System.Drawing.Color.Black
+        Me.CExpInt_gvResultado.Appearance.HeaderPanel.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical
+        Me.CExpInt_gvResultado.Appearance.HeaderPanel.Options.UseBackColor = True
+        Me.CExpInt_gvResultado.Appearance.HeaderPanel.Options.UseBorderColor = True
+        Me.CExpInt_gvResultado.Appearance.HeaderPanel.Options.UseForeColor = True
+        Me.CExpInt_gvResultado.Appearance.HideSelectionRow.BackColor = System.Drawing.Color.FromArgb(CType(CType(106, Byte), Integer), CType(CType(153, Byte), Integer), CType(CType(228, Byte), Integer))
+        Me.CExpInt_gvResultado.Appearance.HideSelectionRow.ForeColor = System.Drawing.Color.FromArgb(CType(CType(208, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(251, Byte), Integer))
+        Me.CExpInt_gvResultado.Appearance.HideSelectionRow.Options.UseBackColor = True
+        Me.CExpInt_gvResultado.Appearance.HideSelectionRow.Options.UseForeColor = True
+        Me.CExpInt_gvResultado.Appearance.HorzLine.BackColor = System.Drawing.Color.FromArgb(CType(CType(99, Byte), Integer), CType(CType(127, Byte), Integer), CType(CType(196, Byte), Integer))
+        Me.CExpInt_gvResultado.Appearance.HorzLine.Options.UseBackColor = True
+        Me.CExpInt_gvResultado.Appearance.OddRow.BackColor = System.Drawing.Color.White
+        Me.CExpInt_gvResultado.Appearance.OddRow.ForeColor = System.Drawing.Color.Black
+        Me.CExpInt_gvResultado.Appearance.OddRow.Options.UseBackColor = True
+        Me.CExpInt_gvResultado.Appearance.OddRow.Options.UseForeColor = True
+        Me.CExpInt_gvResultado.Appearance.Preview.BackColor = System.Drawing.Color.FromArgb(CType(CType(249, Byte), Integer), CType(CType(252, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.CExpInt_gvResultado.Appearance.Preview.ForeColor = System.Drawing.Color.FromArgb(CType(CType(88, Byte), Integer), CType(CType(129, Byte), Integer), CType(CType(185, Byte), Integer))
+        Me.CExpInt_gvResultado.Appearance.Preview.Options.UseBackColor = True
+        Me.CExpInt_gvResultado.Appearance.Preview.Options.UseForeColor = True
+        Me.CExpInt_gvResultado.Appearance.Row.BackColor = System.Drawing.Color.White
+        Me.CExpInt_gvResultado.Appearance.Row.ForeColor = System.Drawing.Color.Black
+        Me.CExpInt_gvResultado.Appearance.Row.Options.UseBackColor = True
+        Me.CExpInt_gvResultado.Appearance.Row.Options.UseForeColor = True
+        Me.CExpInt_gvResultado.Appearance.RowSeparator.BackColor = System.Drawing.Color.White
+        Me.CExpInt_gvResultado.Appearance.RowSeparator.Options.UseBackColor = True
+        Me.CExpInt_gvResultado.Appearance.SelectedRow.BackColor = System.Drawing.Color.FromArgb(CType(CType(69, Byte), Integer), CType(CType(126, Byte), Integer), CType(CType(217, Byte), Integer))
+        Me.CExpInt_gvResultado.Appearance.SelectedRow.ForeColor = System.Drawing.Color.White
+        Me.CExpInt_gvResultado.Appearance.SelectedRow.Options.UseBackColor = True
+        Me.CExpInt_gvResultado.Appearance.SelectedRow.Options.UseForeColor = True
+        Me.CExpInt_gvResultado.Appearance.VertLine.BackColor = System.Drawing.Color.FromArgb(CType(CType(99, Byte), Integer), CType(CType(127, Byte), Integer), CType(CType(196, Byte), Integer))
+        Me.CExpInt_gvResultado.Appearance.VertLine.Options.UseBackColor = True
+        Me.CExpInt_gvResultado.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.GridColumn33, Me.GridColumn34, Me.GridColumn35, Me.GridColumn36, Me.GridColumn37, Me.GridColumn38, Me.GridColumn39, Me.GridColumn40, Me.GridColumn41, Me.GridColumn43, Me.GridColumn50, Me.GridColumn51, Me.GridColumn52})
+        StyleFormatCondition4.Appearance.ForeColor = System.Drawing.Color.Green
+        StyleFormatCondition4.Appearance.Options.UseForeColor = True
+        StyleFormatCondition4.ApplyToRow = True
+        StyleFormatCondition4.Column = Me.GridColumn52
+        StyleFormatCondition4.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal
+        StyleFormatCondition4.Value1 = "0"
+        StyleFormatCondition5.Appearance.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(184, Byte), Integer), CType(CType(29, Byte), Integer))
+        StyleFormatCondition5.Appearance.Options.UseForeColor = True
+        StyleFormatCondition5.ApplyToRow = True
+        StyleFormatCondition5.Column = Me.GridColumn52
+        StyleFormatCondition5.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal
+        StyleFormatCondition5.Value1 = "1"
+        StyleFormatCondition6.Appearance.ForeColor = System.Drawing.Color.FromArgb(CType(CType(102, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        StyleFormatCondition6.Appearance.Options.UseForeColor = True
+        StyleFormatCondition6.ApplyToRow = True
+        StyleFormatCondition6.Column = Me.GridColumn52
+        StyleFormatCondition6.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal
+        StyleFormatCondition6.Value1 = "2"
+        Me.CExpInt_gvResultado.FormatConditions.AddRange(New DevExpress.XtraGrid.StyleFormatCondition() {StyleFormatCondition4, StyleFormatCondition5, StyleFormatCondition6})
+        Me.CExpInt_gvResultado.GridControl = Me.CExpInt_dgvResultado
+        Me.CExpInt_gvResultado.Images = Me.ImageCollection1
+        Me.CExpInt_gvResultado.Name = "CExpInt_gvResultado"
+        Me.CExpInt_gvResultado.OptionsView.ColumnAutoWidth = False
+        Me.CExpInt_gvResultado.OptionsView.EnableAppearanceEvenRow = True
+        Me.CExpInt_gvResultado.OptionsView.EnableAppearanceOddRow = True
+        Me.CExpInt_gvResultado.OptionsView.ShowGroupPanel = False
+        '
+        'GridColumn33
+        '
+        Me.GridColumn33.Caption = "GridColumn49"
+        Me.GridColumn33.FieldName = "docId"
+        Me.GridColumn33.Name = "GridColumn33"
+        '
+        'GridColumn34
+        '
+        Me.GridColumn34.Caption = "Expediente"
+        Me.GridColumn34.FieldName = "expediente"
+        Me.GridColumn34.Name = "GridColumn34"
+        Me.GridColumn34.Visible = True
+        Me.GridColumn34.VisibleIndex = 0
+        '
+        'GridColumn35
+        '
+        Me.GridColumn35.Caption = "Expediente MPT"
+        Me.GridColumn35.FieldName = "expedienteMpt"
+        Me.GridColumn35.Name = "GridColumn35"
+        Me.GridColumn35.Visible = True
+        Me.GridColumn35.VisibleIndex = 1
+        '
+        'GridColumn36
+        '
+        Me.GridColumn36.Caption = "Creación"
+        Me.GridColumn36.FieldName = "fechaExp"
+        Me.GridColumn36.Name = "GridColumn36"
+        Me.GridColumn36.Visible = True
+        Me.GridColumn36.VisibleIndex = 2
+        '
+        'GridColumn37
+        '
+        Me.GridColumn37.Caption = "Procedimiento"
+        Me.GridColumn37.FieldName = "procedimiento"
+        Me.GridColumn37.Name = "GridColumn37"
+        Me.GridColumn37.Visible = True
+        Me.GridColumn37.VisibleIndex = 3
+        '
+        'GridColumn38
+        '
+        Me.GridColumn38.Caption = "Tipo Documento"
+        Me.GridColumn38.FieldName = "tipodoc"
+        Me.GridColumn38.Name = "GridColumn38"
+        Me.GridColumn38.Visible = True
+        Me.GridColumn38.VisibleIndex = 4
+        '
+        'GridColumn39
+        '
+        Me.GridColumn39.Caption = "Estado"
+        Me.GridColumn39.FieldName = "estado"
+        Me.GridColumn39.Name = "GridColumn39"
+        Me.GridColumn39.Visible = True
+        Me.GridColumn39.VisibleIndex = 5
+        '
+        'GridColumn40
+        '
+        Me.GridColumn40.Caption = "Resuelto(Dias)"
+        Me.GridColumn40.FieldName = "dias"
+        Me.GridColumn40.Name = "GridColumn40"
+        Me.GridColumn40.Visible = True
+        Me.GridColumn40.VisibleIndex = 6
+        '
+        'GridColumn41
+        '
+        Me.GridColumn41.Caption = "Interesado"
+        Me.GridColumn41.FieldName = "interesado"
+        Me.GridColumn41.Name = "GridColumn41"
+        Me.GridColumn41.Visible = True
+        Me.GridColumn41.VisibleIndex = 7
+        '
+        'GridColumn43
+        '
+        Me.GridColumn43.Caption = "Dependencia"
+        Me.GridColumn43.FieldName = "dependencia"
+        Me.GridColumn43.Name = "GridColumn43"
+        Me.GridColumn43.Visible = True
+        Me.GridColumn43.VisibleIndex = 8
+        '
+        'GridColumn50
+        '
+        Me.GridColumn50.Caption = "Área"
+        Me.GridColumn50.FieldName = "area"
+        Me.GridColumn50.Name = "GridColumn50"
+        Me.GridColumn50.Visible = True
+        Me.GridColumn50.VisibleIndex = 9
+        '
+        'GridColumn51
+        '
+        Me.GridColumn51.Caption = "Observación"
+        Me.GridColumn51.ColumnEdit = Me.RepositoryItemMemoExEdit3
+        Me.GridColumn51.FieldName = "observacion"
+        Me.GridColumn51.Name = "GridColumn51"
+        Me.GridColumn51.Visible = True
+        Me.GridColumn51.VisibleIndex = 10
+        '
+        'RepositoryItemMemoExEdit3
+        '
+        Me.RepositoryItemMemoExEdit3.AutoHeight = False
+        Me.RepositoryItemMemoExEdit3.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.RepositoryItemMemoExEdit3.Name = "RepositoryItemMemoExEdit3"
+        Me.RepositoryItemMemoExEdit3.ShowIcon = False
+        '
+        'GroupControl4
+        '
+        Me.GroupControl4.AppearanceCaption.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupControl4.AppearanceCaption.ForeColor = System.Drawing.Color.DarkBlue
+        Me.GroupControl4.AppearanceCaption.Options.UseFont = True
+        Me.GroupControl4.AppearanceCaption.Options.UseForeColor = True
+        Me.GroupControl4.Controls.Add(Me.CExpInt_FechaFin)
+        Me.GroupControl4.Controls.Add(Me.CExpInt_FechaInicio)
+        Me.GroupControl4.Controls.Add(Me.SaimtButton6)
+        Me.GroupControl4.Controls.Add(Me.CExpInt_Buscar)
+        Me.GroupControl4.Controls.Add(Me.CExpInt_lblFechaFin)
+        Me.GroupControl4.Controls.Add(Me.CExpInt_lblFechaInicio)
+        Me.GroupControl4.Controls.Add(Me.CExpInt_AsuOrInt)
+        Me.GroupControl4.Controls.Add(Me.CExpInt_lblEleccion)
+        Me.GroupControl4.Controls.Add(Me.CExpInt_Procedimiento)
+        Me.GroupControl4.Controls.Add(Me.CExpInt_Eleccion)
+        Me.GroupControl4.Location = New System.Drawing.Point(9, 11)
+        Me.GroupControl4.Name = "GroupControl4"
+        Me.GroupControl4.Size = New System.Drawing.Size(1025, 117)
+        Me.GroupControl4.TabIndex = 3
+        Me.GroupControl4.Text = "Expediente por Interesado"
+        '
+        'CExpInt_FechaFin
+        '
+        Me.CExpInt_FechaFin.EditValue = Nothing
+        Me.CExpInt_FechaFin.Location = New System.Drawing.Point(448, 73)
+        Me.CExpInt_FechaFin.MenuManager = Me.RibbonControl
+        Me.CExpInt_FechaFin.Name = "CExpInt_FechaFin"
+        Me.CExpInt_FechaFin.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.CExpInt_FechaFin.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton()})
+        Me.CExpInt_FechaFin.Size = New System.Drawing.Size(100, 20)
+        Me.CExpInt_FechaFin.TabIndex = 11
+        '
+        'CExpInt_FechaInicio
+        '
+        Me.CExpInt_FechaInicio.EditValue = Nothing
+        Me.CExpInt_FechaInicio.Location = New System.Drawing.Point(255, 73)
+        Me.CExpInt_FechaInicio.MenuManager = Me.RibbonControl
+        Me.CExpInt_FechaInicio.Name = "CExpInt_FechaInicio"
+        Me.CExpInt_FechaInicio.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.CExpInt_FechaInicio.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton()})
+        Me.CExpInt_FechaInicio.Size = New System.Drawing.Size(100, 20)
+        Me.CExpInt_FechaInicio.TabIndex = 10
+        '
+        'SaimtButton6
+        '
+        Me.SaimtButton6.Image = CType(resources.GetObject("SaimtButton6.Image"), System.Drawing.Image)
+        Me.SaimtButton6.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter
+        Me.SaimtButton6.Location = New System.Drawing.Point(659, 37)
+        Me.SaimtButton6.Name = "SaimtButton6"
+        Me.SaimtButton6.Size = New System.Drawing.Size(54, 56)
+        Me.SaimtButton6.TabIndex = 9
+        '
+        'CExpInt_Buscar
+        '
+        Me.CExpInt_Buscar.Location = New System.Drawing.Point(564, 74)
+        Me.CExpInt_Buscar.Name = "CExpInt_Buscar"
+        Me.CExpInt_Buscar.Size = New System.Drawing.Size(69, 26)
+        Me.CExpInt_Buscar.TabIndex = 8
+        Me.CExpInt_Buscar.Text = "Listar"
+        '
+        'CExpInt_lblFechaFin
+        '
+        Me.CExpInt_lblFechaFin.Location = New System.Drawing.Point(379, 76)
+        Me.CExpInt_lblFechaFin.Name = "CExpInt_lblFechaFin"
+        Me.CExpInt_lblFechaFin.Size = New System.Drawing.Size(54, 13)
+        Me.CExpInt_lblFechaFin.TabIndex = 5
+        Me.CExpInt_lblFechaFin.Text = "Fecha Final"
+        '
+        'CExpInt_lblFechaInicio
+        '
+        Me.CExpInt_lblFechaInicio.Location = New System.Drawing.Point(190, 76)
+        Me.CExpInt_lblFechaInicio.Name = "CExpInt_lblFechaInicio"
+        Me.CExpInt_lblFechaInicio.Size = New System.Drawing.Size(59, 13)
+        Me.CExpInt_lblFechaInicio.TabIndex = 4
+        Me.CExpInt_lblFechaInicio.Text = "Fecha Inicial"
+        '
+        'CExpInt_AsuOrInt
+        '
+        Me.CExpInt_AsuOrInt.Location = New System.Drawing.Point(188, 48)
+        Me.CExpInt_AsuOrInt.MenuManager = Me.RibbonControl
+        Me.CExpInt_AsuOrInt.Name = "CExpInt_AsuOrInt"
+        Me.CExpInt_AsuOrInt.Size = New System.Drawing.Size(426, 20)
+        Me.CExpInt_AsuOrInt.TabIndex = 3
+        '
+        'CExpInt_lblEleccion
+        '
+        Me.CExpInt_lblEleccion.Location = New System.Drawing.Point(188, 33)
+        Me.CExpInt_lblEleccion.Name = "CExpInt_lblEleccion"
+        Me.CExpInt_lblEleccion.Size = New System.Drawing.Size(0, 13)
+        Me.CExpInt_lblEleccion.TabIndex = 2
+        '
+        'CExpInt_Procedimiento
+        '
+        Me.CExpInt_Procedimiento.Location = New System.Drawing.Point(187, 48)
+        Me.CExpInt_Procedimiento.MenuManager = Me.RibbonControl
+        Me.CExpInt_Procedimiento.Name = "CExpInt_Procedimiento"
+        Me.CExpInt_Procedimiento.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.CExpInt_Procedimiento.Properties.NullText = ""
+        Me.CExpInt_Procedimiento.Size = New System.Drawing.Size(446, 20)
+        Me.CExpInt_Procedimiento.TabIndex = 1
+        '
+        'CExpInt_Eleccion
+        '
+        Me.CExpInt_Eleccion.Location = New System.Drawing.Point(10, 31)
+        Me.CExpInt_Eleccion.MenuManager = Me.RibbonControl
+        Me.CExpInt_Eleccion.Name = "CExpInt_Eleccion"
+        Me.CExpInt_Eleccion.Properties.Items.AddRange(New DevExpress.XtraEditors.Controls.RadioGroupItem() {New DevExpress.XtraEditors.Controls.RadioGroupItem(Nothing, "Asunto"), New DevExpress.XtraEditors.Controls.RadioGroupItem(Nothing, "Procedimiento"), New DevExpress.XtraEditors.Controls.RadioGroupItem(Nothing, "Interesado")})
+        Me.CExpInt_Eleccion.Size = New System.Drawing.Size(170, 69)
+        Me.CExpInt_Eleccion.TabIndex = 0
+        '
+        'XtraTabPage5
+        '
+        Me.XtraTabPage5.Controls.Add(Me.CExpSG_lblResultado)
+        Me.XtraTabPage5.Controls.Add(Me.CExpSG_dgvResultado)
+        Me.XtraTabPage5.Controls.Add(Me.GroupControl5)
+        Me.XtraTabPage5.Name = "XtraTabPage5"
+        Me.XtraTabPage5.Size = New System.Drawing.Size(1043, 641)
+        Me.XtraTabPage5.Text = "Proveidos para Secretaria General"
+        '
+        'CExpSG_lblResultado
+        '
+        Me.CExpSG_lblResultado.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CExpSG_lblResultado.Location = New System.Drawing.Point(11, 135)
+        Me.CExpSG_lblResultado.Name = "CExpSG_lblResultado"
+        Me.CExpSG_lblResultado.Size = New System.Drawing.Size(144, 13)
+        Me.CExpSG_lblResultado.TabIndex = 6
+        Me.CExpSG_lblResultado.Text = "Resultados de Búsquedas"
+        '
+        'CExpSG_dgvResultado
+        '
+        Me.CExpSG_dgvResultado.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.CExpSG_dgvResultado.Location = New System.Drawing.Point(9, 156)
+        Me.CExpSG_dgvResultado.MainView = Me.CExpSG_gvResultado
+        Me.CExpSG_dgvResultado.MenuManager = Me.RibbonControl
+        Me.CExpSG_dgvResultado.Name = "CExpSG_dgvResultado"
+        Me.CExpSG_dgvResultado.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemMemoExEdit4})
+        Me.CExpSG_dgvResultado.Size = New System.Drawing.Size(1025, 459)
+        Me.CExpSG_dgvResultado.TabIndex = 5
+        Me.CExpSG_dgvResultado.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.CExpSG_gvResultado})
+        '
+        'CExpSG_gvResultado
+        '
+        Me.CExpSG_gvResultado.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.GridColumn53, Me.GridColumn54, Me.GridColumn55, Me.GridColumn56, Me.GridColumn57, Me.GridColumn58, Me.GridColumn59, Me.GridColumn61, Me.GridColumn62, Me.GridColumn63, Me.GridColumn64})
+        StyleFormatCondition7.Appearance.ForeColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(102, Byte), Integer), CType(CType(0, Byte), Integer))
+        StyleFormatCondition7.Appearance.Options.UseForeColor = True
+        StyleFormatCondition7.ApplyToRow = True
+        StyleFormatCondition7.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal
+        StyleFormatCondition7.Value1 = "0"
+        StyleFormatCondition8.Appearance.ForeColor = System.Drawing.Color.FromArgb(CType(CType(236, Byte), Integer), CType(CType(184, Byte), Integer), CType(CType(29, Byte), Integer))
+        StyleFormatCondition8.Appearance.Options.UseForeColor = True
+        StyleFormatCondition8.ApplyToRow = True
+        StyleFormatCondition8.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal
+        StyleFormatCondition8.Value1 = "1"
+        StyleFormatCondition9.Appearance.ForeColor = System.Drawing.Color.FromArgb(CType(CType(102, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        StyleFormatCondition9.Appearance.Options.UseForeColor = True
+        StyleFormatCondition9.ApplyToRow = True
+        StyleFormatCondition9.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal
+        StyleFormatCondition9.Value1 = "2"
+        Me.CExpSG_gvResultado.FormatConditions.AddRange(New DevExpress.XtraGrid.StyleFormatCondition() {StyleFormatCondition7, StyleFormatCondition8, StyleFormatCondition9})
+        Me.CExpSG_gvResultado.GridControl = Me.CExpSG_dgvResultado
+        Me.CExpSG_gvResultado.Images = Me.ImageCollection1
+        Me.CExpSG_gvResultado.Name = "CExpSG_gvResultado"
+        Me.CExpSG_gvResultado.OptionsView.ColumnAutoWidth = False
+        Me.CExpSG_gvResultado.OptionsView.ShowGroupPanel = False
+        '
+        'GridColumn53
+        '
+        Me.GridColumn53.Caption = "GridColumn49"
+        Me.GridColumn53.FieldName = "docId"
+        Me.GridColumn53.Name = "GridColumn53"
+        '
+        'GridColumn54
+        '
+        Me.GridColumn54.Caption = "Expediente"
+        Me.GridColumn54.FieldName = "expediente"
+        Me.GridColumn54.Name = "GridColumn54"
+        Me.GridColumn54.Visible = True
+        Me.GridColumn54.VisibleIndex = 0
+        '
+        'GridColumn55
+        '
+        Me.GridColumn55.Caption = "Expediente MPT"
+        Me.GridColumn55.FieldName = "expedienteMpt"
+        Me.GridColumn55.Name = "GridColumn55"
+        Me.GridColumn55.Visible = True
+        Me.GridColumn55.VisibleIndex = 1
+        '
+        'GridColumn56
+        '
+        Me.GridColumn56.Caption = "Creación"
+        Me.GridColumn56.FieldName = "fechaExp"
+        Me.GridColumn56.Name = "GridColumn56"
+        Me.GridColumn56.Visible = True
+        Me.GridColumn56.VisibleIndex = 2
+        '
+        'GridColumn57
+        '
+        Me.GridColumn57.Caption = "Procedimiento"
+        Me.GridColumn57.FieldName = "procedimiento"
+        Me.GridColumn57.Name = "GridColumn57"
+        Me.GridColumn57.Visible = True
+        Me.GridColumn57.VisibleIndex = 3
+        '
+        'GridColumn58
+        '
+        Me.GridColumn58.Caption = "Tipo Documento"
+        Me.GridColumn58.FieldName = "tipodoc"
+        Me.GridColumn58.Name = "GridColumn58"
+        Me.GridColumn58.Visible = True
+        Me.GridColumn58.VisibleIndex = 4
+        '
+        'GridColumn59
+        '
+        Me.GridColumn59.Caption = "Estado"
+        Me.GridColumn59.FieldName = "estado"
+        Me.GridColumn59.Name = "GridColumn59"
+        Me.GridColumn59.Visible = True
+        Me.GridColumn59.VisibleIndex = 5
+        '
+        'GridColumn61
+        '
+        Me.GridColumn61.Caption = "Interesado"
+        Me.GridColumn61.FieldName = "interesado"
+        Me.GridColumn61.Name = "GridColumn61"
+        Me.GridColumn61.Visible = True
+        Me.GridColumn61.VisibleIndex = 6
+        '
+        'GridColumn62
+        '
+        Me.GridColumn62.Caption = "Dependencia"
+        Me.GridColumn62.FieldName = "dependencia"
+        Me.GridColumn62.Name = "GridColumn62"
+        Me.GridColumn62.Visible = True
+        Me.GridColumn62.VisibleIndex = 7
+        '
+        'GridColumn63
+        '
+        Me.GridColumn63.Caption = "Área"
+        Me.GridColumn63.FieldName = "area"
+        Me.GridColumn63.Name = "GridColumn63"
+        Me.GridColumn63.Visible = True
+        Me.GridColumn63.VisibleIndex = 8
+        '
+        'GridColumn64
+        '
+        Me.GridColumn64.Caption = "Observación"
+        Me.GridColumn64.ColumnEdit = Me.RepositoryItemMemoExEdit4
+        Me.GridColumn64.FieldName = "observacion"
+        Me.GridColumn64.Name = "GridColumn64"
+        Me.GridColumn64.Visible = True
+        Me.GridColumn64.VisibleIndex = 9
+        '
+        'RepositoryItemMemoExEdit4
+        '
+        Me.RepositoryItemMemoExEdit4.AutoHeight = False
+        Me.RepositoryItemMemoExEdit4.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.RepositoryItemMemoExEdit4.Name = "RepositoryItemMemoExEdit4"
+        Me.RepositoryItemMemoExEdit4.ShowIcon = False
+        '
+        'GroupControl5
+        '
+        Me.GroupControl5.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupControl5.AppearanceCaption.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupControl5.AppearanceCaption.ForeColor = System.Drawing.Color.DarkBlue
+        Me.GroupControl5.AppearanceCaption.Options.UseFont = True
+        Me.GroupControl5.AppearanceCaption.Options.UseForeColor = True
+        Me.GroupControl5.Controls.Add(Me.CexpSG_Estado)
+        Me.GroupControl5.Controls.Add(Me.SaimtLabel19)
+        Me.GroupControl5.Controls.Add(Me.SaimtTextBox3)
+        Me.GroupControl5.Controls.Add(Me.SaimtTextBox2)
+        Me.GroupControl5.Controls.Add(Me.SaimtTextBox1)
+        Me.GroupControl5.Controls.Add(Me.SaimtLabel16)
+        Me.GroupControl5.Controls.Add(Me.SaimtLabel15)
+        Me.GroupControl5.Controls.Add(Me.SaimtLabel14)
+        Me.GroupControl5.Controls.Add(Me.CexpSG_FechaFin)
+        Me.GroupControl5.Controls.Add(Me.CexpSG_FechaInicio)
+        Me.GroupControl5.Controls.Add(Me.SaimtButton1)
+        Me.GroupControl5.Controls.Add(Me.CexpSG_Consultar)
+        Me.GroupControl5.Controls.Add(Me.CexpSG_lblFechaFin)
+        Me.GroupControl5.Controls.Add(Me.CexpSG_lblFechaInicio)
+        Me.GroupControl5.Controls.Add(Me.SaimtLabel13)
+        Me.GroupControl5.Location = New System.Drawing.Point(9, 10)
+        Me.GroupControl5.Name = "GroupControl5"
+        Me.GroupControl5.Size = New System.Drawing.Size(1025, 115)
+        Me.GroupControl5.TabIndex = 4
+        Me.GroupControl5.Text = "Proveidos para Secretaria General"
+        '
+        'CexpSG_Estado
+        '
+        Me.CexpSG_Estado.Location = New System.Drawing.Point(710, 56)
+        Me.CexpSG_Estado.MenuManager = Me.RibbonControl
+        Me.CexpSG_Estado.Name = "CexpSG_Estado"
+        Me.CexpSG_Estado.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.CexpSG_Estado.Properties.NullText = ""
+        Me.CexpSG_Estado.Size = New System.Drawing.Size(120, 20)
+        Me.CexpSG_Estado.TabIndex = 19
+        '
+        'SaimtLabel19
+        '
+        Me.SaimtLabel19.Location = New System.Drawing.Point(671, 59)
+        Me.SaimtLabel19.Name = "SaimtLabel19"
+        Me.SaimtLabel19.Size = New System.Drawing.Size(33, 13)
+        Me.SaimtLabel19.TabIndex = 18
+        Me.SaimtLabel19.Text = "Estado"
+        '
+        'SaimtTextBox3
+        '
+        Me.SaimtTextBox3.EditValue = "SECRETARIO GENERAL"
+        Me.SaimtTextBox3.Location = New System.Drawing.Point(81, 82)
+        Me.SaimtTextBox3.MenuManager = Me.RibbonControl
+        Me.SaimtTextBox3.Name = "SaimtTextBox3"
+        Me.SaimtTextBox3.Properties.ReadOnly = True
+        Me.SaimtTextBox3.Size = New System.Drawing.Size(381, 20)
+        Me.SaimtTextBox3.TabIndex = 17
+        Me.SaimtTextBox3.Tag = "01"
+        '
+        'SaimtTextBox2
+        '
+        Me.SaimtTextBox2.EditValue = "SECRETARIA GENERAL"
+        Me.SaimtTextBox2.Location = New System.Drawing.Point(81, 56)
+        Me.SaimtTextBox2.MenuManager = Me.RibbonControl
+        Me.SaimtTextBox2.Name = "SaimtTextBox2"
+        Me.SaimtTextBox2.Properties.ReadOnly = True
+        Me.SaimtTextBox2.Size = New System.Drawing.Size(381, 20)
+        Me.SaimtTextBox2.TabIndex = 16
+        Me.SaimtTextBox2.Tag = "017"
+        '
+        'SaimtTextBox1
+        '
+        Me.SaimtTextBox1.EditValue = "SERVICIO DE ADMINISTRACIÓN DE INMUEBLES MUNICIPALES DE TRUJILLO"
+        Me.SaimtTextBox1.Location = New System.Drawing.Point(81, 30)
+        Me.SaimtTextBox1.MenuManager = Me.RibbonControl
+        Me.SaimtTextBox1.Name = "SaimtTextBox1"
+        Me.SaimtTextBox1.Properties.ReadOnly = True
+        Me.SaimtTextBox1.Size = New System.Drawing.Size(381, 20)
+        Me.SaimtTextBox1.TabIndex = 15
+        Me.SaimtTextBox1.Tag = "0001"
+        '
+        'SaimtLabel16
+        '
+        Me.SaimtLabel16.Location = New System.Drawing.Point(46, 84)
+        Me.SaimtLabel16.Name = "SaimtLabel16"
+        Me.SaimtLabel16.Size = New System.Drawing.Size(29, 13)
+        Me.SaimtLabel16.TabIndex = 14
+        Me.SaimtLabel16.Text = "Cargo"
+        '
+        'SaimtLabel15
+        '
+        Me.SaimtLabel15.Location = New System.Drawing.Point(52, 59)
+        Me.SaimtLabel15.Name = "SaimtLabel15"
+        Me.SaimtLabel15.Size = New System.Drawing.Size(23, 13)
+        Me.SaimtLabel15.TabIndex = 13
+        Me.SaimtLabel15.Text = "Area"
+        '
+        'SaimtLabel14
+        '
+        Me.SaimtLabel14.Location = New System.Drawing.Point(13, 33)
+        Me.SaimtLabel14.Name = "SaimtLabel14"
+        Me.SaimtLabel14.Size = New System.Drawing.Size(62, 13)
+        Me.SaimtLabel14.TabIndex = 12
+        Me.SaimtLabel14.Text = "Dependencia"
+        '
+        'CexpSG_FechaFin
+        '
+        Me.CexpSG_FechaFin.EditValue = Nothing
+        Me.CexpSG_FechaFin.Location = New System.Drawing.Point(730, 30)
+        Me.CexpSG_FechaFin.MenuManager = Me.RibbonControl
+        Me.CexpSG_FechaFin.Name = "CexpSG_FechaFin"
+        Me.CexpSG_FechaFin.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.CexpSG_FechaFin.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton()})
+        Me.CexpSG_FechaFin.Size = New System.Drawing.Size(100, 20)
+        Me.CexpSG_FechaFin.TabIndex = 11
+        '
+        'CexpSG_FechaInicio
+        '
+        Me.CexpSG_FechaInicio.EditValue = Nothing
+        Me.CexpSG_FechaInicio.Location = New System.Drawing.Point(548, 30)
+        Me.CexpSG_FechaInicio.MenuManager = Me.RibbonControl
+        Me.CexpSG_FechaInicio.Name = "CexpSG_FechaInicio"
+        Me.CexpSG_FechaInicio.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.CexpSG_FechaInicio.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton()})
+        Me.CexpSG_FechaInicio.Size = New System.Drawing.Size(100, 20)
+        Me.CexpSG_FechaInicio.TabIndex = 10
+        '
+        'SaimtButton1
+        '
+        Me.SaimtButton1.Image = CType(resources.GetObject("SaimtButton1.Image"), System.Drawing.Image)
+        Me.SaimtButton1.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter
+        Me.SaimtButton1.Location = New System.Drawing.Point(959, 42)
+        Me.SaimtButton1.Name = "SaimtButton1"
+        Me.SaimtButton1.Size = New System.Drawing.Size(54, 56)
+        Me.SaimtButton1.TabIndex = 9
+        '
+        'CexpSG_Consultar
+        '
+        Me.CexpSG_Consultar.Location = New System.Drawing.Point(842, 28)
+        Me.CexpSG_Consultar.Name = "CexpSG_Consultar"
+        Me.CexpSG_Consultar.Size = New System.Drawing.Size(102, 26)
+        Me.CexpSG_Consultar.TabIndex = 8
+        Me.CexpSG_Consultar.Text = "Consultar"
+        '
+        'CexpSG_lblFechaFin
+        '
+        Me.CexpSG_lblFechaFin.Location = New System.Drawing.Point(671, 33)
+        Me.CexpSG_lblFechaFin.Name = "CexpSG_lblFechaFin"
+        Me.CexpSG_lblFechaFin.Size = New System.Drawing.Size(54, 13)
+        Me.CexpSG_lblFechaFin.TabIndex = 5
+        Me.CexpSG_lblFechaFin.Text = "Fecha Final"
+        '
+        'CexpSG_lblFechaInicio
+        '
+        Me.CexpSG_lblFechaInicio.Location = New System.Drawing.Point(483, 33)
+        Me.CexpSG_lblFechaInicio.Name = "CexpSG_lblFechaInicio"
+        Me.CexpSG_lblFechaInicio.Size = New System.Drawing.Size(59, 13)
+        Me.CexpSG_lblFechaInicio.TabIndex = 4
+        Me.CexpSG_lblFechaInicio.Text = "Fecha Inicial"
+        '
+        'SaimtLabel13
+        '
+        Me.SaimtLabel13.Location = New System.Drawing.Point(188, 33)
+        Me.SaimtLabel13.Name = "SaimtLabel13"
+        Me.SaimtLabel13.Size = New System.Drawing.Size(0, 13)
+        Me.SaimtLabel13.TabIndex = 2
+        '
+        'RptResumido
+        '
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.ClientSize = New System.Drawing.Size(1049, 698)
+        Me.Controls.Add(Me.XtraTabControl1)
+        Me.Controls.Add(Me.BarDockControl3)
+        Me.Controls.Add(Me.BarDockControl4)
+        Me.Controls.Add(Me.BarDockControl2)
+        Me.Controls.Add(Me.BarDockControl1)
+        Me.LookAndFeel.SkinName = "Seven"
+        Me.MaximizeBox = True
+        Me.Name = "RptResumido"
+        Me.Text = "RptResumido"
+        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
+        Me.Controls.SetChildIndex(Me.BarDockControl1, 0)
+        Me.Controls.SetChildIndex(Me.BarDockControl2, 0)
+        Me.Controls.SetChildIndex(Me.BarDockControl4, 0)
+        Me.Controls.SetChildIndex(Me.BarDockControl3, 0)
+        Me.Controls.SetChildIndex(Me.XtraTabControl1, 0)
+        Me.Controls.SetChildIndex(Me.rsbMensajeBarra, 0)
+        CType(Me.pmconsultorpropagos, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.RepositoryItemMemoExEdit1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.BarManager2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.XtraTabControl1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.XtraTabControl1.ResumeLayout(False)
+        Me.XtraTabPage1.ResumeLayout(False)
+        Me.XtraTabPage1.PerformLayout()
+        CType(Me.SaimtGroupBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.SaimtGroupBox1.ResumeLayout(False)
+        Me.SaimtGroupBox1.PerformLayout()
+        CType(Me.CExp_lblDireccion.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CExp_txtDocumento.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CExp_lblInteresado.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CExp_lblFechaIngreso.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.SaimtGroupBox5, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.SaimtGroupBox5.ResumeLayout(False)
+        Me.SaimtGroupBox5.PerformLayout()
+        CType(Me.CExp_dgvResultadoGen, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CExp_gvResultadoGen, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CExp_lblObservacion.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.SaimtGroupBox3, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.SaimtGroupBox3.ResumeLayout(False)
+        Me.SaimtGroupBox3.PerformLayout()
+        CType(Me.CExp_dgvResultadoDet, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CExp_gvResultadoDet, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.GroupControl1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupControl1.ResumeLayout(False)
+        Me.GroupControl1.PerformLayout()
+        CType(Me.CExp_cboDependencia.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CExp_lblDependencia.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CExp_cboAño.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CExp_txtNroExpediente.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CExp_lblcboAño.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.SaimtGroupBox2, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.SaimtGroupBox2.ResumeLayout(False)
+        Me.SaimtGroupBox2.PerformLayout()
+        CType(Me.CExp_dgvResultado, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CExp_gvResultado, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.RepositoryItemHyperLinkEdit1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.XtraTabPage2.ResumeLayout(False)
+        CType(Me.SaimtGroupBox4, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.SaimtGroupBox4.ResumeLayout(False)
+        Me.SaimtGroupBox4.PerformLayout()
+        CType(Me.CBus_dgvResultado, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CBus_gvResultado, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.GroupControl2, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupControl2.ResumeLayout(False)
+        Me.GroupControl2.PerformLayout()
+        CType(Me.CBus_cboCampo.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CBus_cboCriterio.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CBus_dtFechaFin.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CBus_dtFechaFin.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CBus_dtFechaInicio.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CBus_dtFechaInicio.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.XtraTabPage3.ResumeLayout(False)
+        Me.XtraTabPage3.PerformLayout()
+        CType(Me.CExpDep_dgvResultado, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CExpDep_gvResultado, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.RepositoryItemMemoExEdit2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ImageCollection1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.GroupControl3, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupControl3.ResumeLayout(False)
+        CType(Me.SaimtTabs1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.SaimtTabs1.ResumeLayout(False)
+        Me.XtraTabPage4.ResumeLayout(False)
+        Me.XtraTabPage4.PerformLayout()
+        CType(Me.CExpDep_cboResultado.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CExpDep_Observacion.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CExpDep_FechaFin.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CExpDep_FechaFin.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CExpDep_cboArea.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CExpDep_cboDependencia.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CExpDep_FechaInicio.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CExpDep_FechaInicio.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CExpDep_Eleccion.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.XtraTabPage6.ResumeLayout(False)
+        Me.XtraTabPage6.PerformLayout()
+        CType(Me.CExpInt_dgvResultado, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CExpInt_gvResultado, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.RepositoryItemMemoExEdit3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.GroupControl4, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupControl4.ResumeLayout(False)
+        Me.GroupControl4.PerformLayout()
+        CType(Me.CExpInt_FechaFin.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CExpInt_FechaFin.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CExpInt_FechaInicio.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CExpInt_FechaInicio.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CExpInt_AsuOrInt.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CExpInt_Procedimiento.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CExpInt_Eleccion.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.XtraTabPage5.ResumeLayout(False)
+        Me.XtraTabPage5.PerformLayout()
+        CType(Me.CExpSG_dgvResultado, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CExpSG_gvResultado, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.RepositoryItemMemoExEdit4, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.GroupControl5, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupControl5.ResumeLayout(False)
+        Me.GroupControl5.PerformLayout()
+        CType(Me.CexpSG_Estado.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.SaimtTextBox3.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.SaimtTextBox2.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.SaimtTextBox1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CexpSG_FechaFin.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CexpSG_FechaFin.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CexpSG_FechaInicio.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CexpSG_FechaInicio.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ResumeLayout(False)
+
+    End Sub
+    Friend WithEvents BarDockControl3 As DevExpress.XtraBars.BarDockControl
+    Friend WithEvents BarDockControl4 As DevExpress.XtraBars.BarDockControl
+    Friend WithEvents BarDockControl2 As DevExpress.XtraBars.BarDockControl
+    Friend WithEvents BarDockControl1 As DevExpress.XtraBars.BarDockControl
+    Friend WithEvents BarManager2 As DevExpress.XtraBars.BarManager
+    Friend WithEvents Bar1 As DevExpress.XtraBars.Bar
+    Friend WithEvents BarButtonItem1 As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents BarButtonItem2 As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents BarSubItem1 As DevExpress.XtraBars.BarSubItem
+    Friend WithEvents BarButtonItem3 As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents BarButtonItem4 As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents BarButtonItem5 As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents XtraTabControl1 As DevExpress.XtraTab.XtraTabControl
+    Friend WithEvents XtraTabPage1 As DevExpress.XtraTab.XtraTabPage
+    Friend WithEvents SaimtGroupBox3 As SaimtControles.SaimtGroupBox
+    Friend WithEvents CExp_dgvResultadoDet As SaimtControles.SaimtDataGrid
+    Friend WithEvents CExp_gvResultadoDet As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents GridColumn1 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn2 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn3 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn4 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn5 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn6 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn7 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents SaimtGroupBox2 As SaimtControles.SaimtGroupBox
+    Friend WithEvents CExp_dgvResultado As SaimtControles.SaimtDataGrid
+    Friend WithEvents CExp_gvResultado As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents SaimtButton2 As SaimtControles.SaimtButton
+    Friend WithEvents SaimtGroupBox1 As SaimtControles.SaimtGroupBox
+    Friend WithEvents CExp_lblDireccion As SaimtControles.SaimtTextBox
+    Friend WithEvents SaimtLabel6 As SaimtControles.SaimtLabel
+    Friend WithEvents CExp_txtDocumento As SaimtControles.SaimtTextBox
+    Friend WithEvents CExp_lblDocumento As SaimtControles.SaimtLabel
+    Friend WithEvents CExp_lblInteresado As SaimtControles.SaimtTextBox
+    Friend WithEvents SaimtLabel4 As SaimtControles.SaimtLabel
+    Friend WithEvents CExp_lblFechaIngreso As SaimtControles.SaimtTextBox
+    Friend WithEvents SaimtLabel3 As SaimtControles.SaimtLabel
+    Friend WithEvents GroupControl1 As DevExpress.XtraEditors.GroupControl
+    Friend WithEvents CExp_btnConsultar As SaimtControles.SaimtButton
+    Friend WithEvents CExp_cboAño As SaimtControles.SaimtComboBoxLookUp
+    Friend WithEvents CExp_txtNroExpediente As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents CExp_lblNroExpediente As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents XtraTabPage2 As DevExpress.XtraTab.XtraTabPage
+    Friend WithEvents GridColumn8 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn9 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn10 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn11 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn12 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn13 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents ImageCollection1 As DevExpress.Utils.ImageCollection
+    Friend WithEvents GroupControl2 As DevExpress.XtraEditors.GroupControl
+    Friend WithEvents CBus_dtFechaFin As SaimtControles.SaimtDateTimePicker
+    Friend WithEvents CBus_dtFechaInicio As SaimtControles.SaimtDateTimePicker
+    Friend WithEvents CBus_lbldtFechaFin As SaimtControles.SaimtLabel
+    Friend WithEvents CBus_lbldtFechaInicio As SaimtControles.SaimtLabel
+    Friend WithEvents CBus_Buscar As SaimtControles.SaimtButton
+    Friend WithEvents CBus_lblcboCriterio As SaimtControles.SaimtLabel
+    Friend WithEvents CBus_lblcboCampo As SaimtControles.SaimtLabel
+    Friend WithEvents CBus_cboCriterio As SaimtControles.SaimtTextBox
+    Friend WithEvents SaimtGroupBox4 As SaimtControles.SaimtGroupBox
+    Friend WithEvents CBus_dgvResultado As SaimtControles.SaimtDataGrid
+    Friend WithEvents CBus_gvResultado As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents GridColumn15 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn16 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn17 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn18 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn19 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn20 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn21 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents XtraTabPage3 As DevExpress.XtraTab.XtraTabPage
+    Friend WithEvents GroupControl3 As DevExpress.XtraEditors.GroupControl
+    Friend WithEvents CExpDep_dgvResultado As SaimtControles.SaimtDataGrid
+    Friend WithEvents CExpDep_gvResultado As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents GridColumn22 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn23 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn24 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn25 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn26 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn27 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn28 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn29 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn30 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn31 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents RepositoryItemMemoExEdit2 As DevExpress.XtraEditors.Repository.RepositoryItemMemoExEdit
+    Friend WithEvents SaimtTabs1 As SaimtControles.SaimtTabs
+    Friend WithEvents XtraTabPage4 As DevExpress.XtraTab.XtraTabPage
+    Friend WithEvents CExpDep_lblResultados As SaimtControles.SaimtLabel
+    Friend WithEvents Dep_BtnBuscar As SaimtControles.SaimtButton
+    Friend WithEvents CExpDep_lblFechaFinal As SaimtControles.SaimtLabel
+    Friend WithEvents CExpDep_lblFechaInicio As SaimtControles.SaimtLabel
+    Friend WithEvents CExpDep_FechaFin As SaimtControles.SaimtDateTimePicker
+    Friend WithEvents CExpDep_cboArea As SaimtControles.SaimtComboBoxLookUp
+    Friend WithEvents CExpDep_cboDependencia As SaimtControles.SaimtComboBoxLookUp
+    Friend WithEvents CExpDep_lblCboArea As SaimtControles.SaimtLabel
+    Friend WithEvents CExpDep_lblDependencia As SaimtControles.SaimtLabel
+    Friend WithEvents CExpDep_FechaInicio As SaimtControles.SaimtDateTimePicker
+    Friend WithEvents CExpDep_Eleccion As SaimtControles.SaimtRadioGroup
+    Friend WithEvents XtraTabPage6 As DevExpress.XtraTab.XtraTabPage
+    Friend WithEvents SaimtLabel17 As SaimtControles.SaimtLabel
+    Friend WithEvents CExp_lblObservacion As SaimtControles.SaimtTextBoxMultiline
+    Friend WithEvents GridColumn32 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents SaimtLabel18 As SaimtControles.SaimtLabel
+    Friend WithEvents CExpDep_Observacion As SaimtControles.SaimtTextBoxMultiline
+    Friend WithEvents GroupControl4 As DevExpress.XtraEditors.GroupControl
+    Friend WithEvents CExpInt_Eleccion As SaimtControles.SaimtRadioGroup
+    Friend WithEvents SaimtButton6 As SaimtControles.SaimtButton
+    Friend WithEvents CExpInt_Buscar As SaimtControles.SaimtButton
+    Friend WithEvents CExpInt_lblFechaFin As SaimtControles.SaimtLabel
+    Friend WithEvents CExpInt_lblFechaInicio As SaimtControles.SaimtLabel
+    Friend WithEvents CExpInt_AsuOrInt As SaimtControles.SaimtTextBox
+    Friend WithEvents CExpInt_lblEleccion As SaimtControles.SaimtLabel
+    Friend WithEvents CExpInt_Procedimiento As SaimtControles.SaimtComboBoxLookUp
+    Friend WithEvents GridColumn42 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn44 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn45 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn46 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents RepositoryItemHyperLinkEdit1 As DevExpress.XtraEditors.Repository.RepositoryItemHyperLinkEdit
+    Friend WithEvents SaimtLabel26 As SaimtControles.SaimtLabel
+    Friend WithEvents SaimtLabel27 As SaimtControles.SaimtLabel
+    Friend WithEvents SaimtLabel24 As SaimtControles.SaimtLabel
+    Friend WithEvents SaimtLabel23 As SaimtControles.SaimtLabel
+    Friend WithEvents SaimtLabel25 As SaimtControles.SaimtLabel
+    Friend WithEvents SaimtLabel22 As SaimtControles.SaimtLabel
+    Friend WithEvents SaimtButton7 As SaimtControles.SaimtButton
+    Friend WithEvents CExp_cboDependencia As SaimtControles.SaimtComboBox
+    Friend WithEvents CExp_lblResultados As SaimtControles.SaimtLabel
+    Friend WithEvents GridColumn47 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents SaimtLabel1 As SaimtControles.SaimtLabel
+    Friend WithEvents CExp_lblResultadoDet As SaimtControles.SaimtLabel
+    Friend WithEvents CBus_cboCampo As SaimtControles.SaimtComboBoxLookUp
+    Friend WithEvents CBus_lblResultados As SaimtControles.SaimtLabel
+    Friend WithEvents GridColumn14 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn48 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents RepositoryItemMemoExEdit1 As DevExpress.XtraEditors.Repository.RepositoryItemMemoExEdit
+    Friend WithEvents CExpDep_cboResultado As SaimtControles.SaimtComboBox
+    Friend WithEvents GridColumn49 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents CExpDep_lblResultado As SaimtControles.SaimtLabel
+    Friend WithEvents gcIndicador As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents SaimtLabel2 As SaimtControles.SaimtLabel
+    Friend WithEvents SaimtLabel5 As SaimtControles.SaimtLabel
+    Friend WithEvents SaimtLabel7 As SaimtControles.SaimtLabel
+    Friend WithEvents SaimtLabel8 As SaimtControles.SaimtLabel
+    Friend WithEvents SaimtLabel9 As SaimtControles.SaimtLabel
+    Friend WithEvents SaimtLabel10 As SaimtControles.SaimtLabel
+    Friend WithEvents CExpInt_dgvResultado As SaimtControles.SaimtDataGrid
+    Friend WithEvents CExpInt_gvResultado As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents GridColumn33 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn34 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn35 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn36 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn37 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn38 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn39 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn40 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn41 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn43 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn50 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn51 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents RepositoryItemMemoExEdit3 As DevExpress.XtraEditors.Repository.RepositoryItemMemoExEdit
+    Friend WithEvents GridColumn52 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents CExpInt_lblResultado As SaimtControles.SaimtLabel
+    Friend WithEvents CExpInt_FechaFin As SaimtControles.SaimtDateTimePicker
+    Friend WithEvents CExpInt_FechaInicio As SaimtControles.SaimtDateTimePicker
+    Friend WithEvents BarButtonItem6 As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents XtraTabPage5 As DevExpress.XtraTab.XtraTabPage
+    Friend WithEvents CExpSG_lblResultado As SaimtControles.SaimtLabel
+    Friend WithEvents CExpSG_dgvResultado As SaimtControles.SaimtDataGrid
+    Friend WithEvents CExpSG_gvResultado As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents GridColumn53 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn54 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn55 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn56 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn57 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn58 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn59 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn61 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn62 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn63 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn64 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents RepositoryItemMemoExEdit4 As DevExpress.XtraEditors.Repository.RepositoryItemMemoExEdit
+    Friend WithEvents GroupControl5 As DevExpress.XtraEditors.GroupControl
+    Friend WithEvents CexpSG_Estado As SaimtControles.SaimtComboBoxLookUp
+    Friend WithEvents SaimtLabel19 As SaimtControles.SaimtLabel
+    Friend WithEvents SaimtTextBox3 As SaimtControles.SaimtTextBox
+    Friend WithEvents SaimtTextBox2 As SaimtControles.SaimtTextBox
+    Friend WithEvents SaimtTextBox1 As SaimtControles.SaimtTextBox
+    Friend WithEvents SaimtLabel16 As SaimtControles.SaimtLabel
+    Friend WithEvents SaimtLabel15 As SaimtControles.SaimtLabel
+    Friend WithEvents SaimtLabel14 As SaimtControles.SaimtLabel
+    Friend WithEvents CexpSG_FechaFin As SaimtControles.SaimtDateTimePicker
+    Friend WithEvents CexpSG_FechaInicio As SaimtControles.SaimtDateTimePicker
+    Friend WithEvents SaimtButton1 As SaimtControles.SaimtButton
+    Friend WithEvents CexpSG_Consultar As SaimtControles.SaimtButton
+    Friend WithEvents CexpSG_lblFechaFin As SaimtControles.SaimtLabel
+    Friend WithEvents CexpSG_lblFechaInicio As SaimtControles.SaimtLabel
+    Friend WithEvents SaimtLabel13 As SaimtControles.SaimtLabel
+    Friend WithEvents sfdexportar As System.Windows.Forms.SaveFileDialog
+    Friend WithEvents SaimtButton3 As SaimtControles.SaimtButton
+    Friend WithEvents CExp_lblDependencia As DevExpress.XtraEditors.CheckEdit
+    Friend WithEvents CExp_lblcboAño As DevExpress.XtraEditors.CheckEdit
+    Friend WithEvents SaimtGroupBox5 As SaimtControles.SaimtGroupBox
+    Friend WithEvents SaimtLabel11 As SaimtControles.SaimtLabel
+    Friend WithEvents CExp_dgvResultadoGen As SaimtControles.SaimtDataGrid
+    Friend WithEvents CExp_gvResultadoGen As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents GridColumn60 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn65 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn66 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn67 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn68 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn69 As DevExpress.XtraGrid.Columns.GridColumn
+End Class

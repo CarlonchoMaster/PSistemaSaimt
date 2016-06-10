@@ -1,0 +1,35 @@
+﻿Imports Entidades
+Imports ReglasNegocio
+Imports System.IO
+Imports SaimtControles
+
+Public Class frmVisorDocWord
+
+    Dim rutaFile As String = String.Empty
+    Dim loImagenConver As ImageConver = New ImageConver()
+    Dim MovId As String = String.Empty
+    Public Sub New(Optional ByVal ruta As String = "", Optional ByVal _movId As String = "")
+        ' Llamada necesaria para el diseñador.
+        InitializeComponent()
+        ' Agregue cualquier inicialización después de la llamada a InitializeComponent().
+        rutaFile = ruta
+        MovId = _movId
+    End Sub
+
+    Private Sub frmVisorDocWord_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+
+        If MovId <> "" Then
+            Dim loMovimientoSTD As EEMovimientoSTD
+            loMovimientoSTD = MantenimientosBL.Instancia.movimientoSTDMostrarMovArchXMovId(MovId)
+            If loMovimientoSTD IsNot Nothing Then
+                Dim byA As Byte() = loMovimientoSTD.MovArch
+                loImagenConver.ByteArrayToFile(String.Format("{0}SaimtTemporal{1}", System.IO.Path.GetTempPath(), ".doc"), byA)
+                rutaFile = String.Format("{0}SaimtTemporal{1}", System.IO.Path.GetTempPath(), ".doc")
+            End If
+        End If
+
+        If rutaFile <> "" Then
+            RichEditControl1.LoadDocument(rutaFile)
+        End If
+    End Sub
+End Class

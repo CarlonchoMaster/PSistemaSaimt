@@ -1,0 +1,343 @@
+Imports Entidades
+Imports Microsoft.Practices.EnterpriseLibrary.Data
+Imports System.Data.Common
+
+Public Class RecaudacionDAS
+    Public Shared Function ListarRecaudacionXAño(ByVal loTipoCriterio As Short, Optional ByVal año As Short = Nothing, Optional recFecPago As Date = Nothing) As List(Of EERecaudacion)
+        Dim loRecaudacion As EERecaudacion = Nothing
+        Dim loConcepto As EEConceptos = Nothing
+        Dim loCentroProd As EETablaGeneral = Nothing
+        Dim loBancos As EETablaGeneral = Nothing
+        Dim loGrupo As EETablaGeneral = Nothing
+        Dim loRecaudadora As EETablaGeneral = Nothing
+        Dim listaRecaudacion As List(Of EERecaudacion) = Nothing
+        Try
+            Dim dr As IDataReader = Nothing
+            Dim db As Database = DatabaseFactory.CreateDatabase()
+            Dim cmd As DbCommand = db.GetStoredProcCommand("Pivotear_Recaudacion")
+            If año <> Nothing Then
+                db.AddInParameter(cmd, "año", DbType.Int16, año)
+            End If
+            If recFecPago <> Nothing Then
+                db.AddInParameter(cmd, "recFecPago", DbType.DateTime, recFecPago)
+            End If
+            db.AddInParameter(cmd, "tipoCriterio", DbType.Int16, loTipoCriterio)
+            dr = db.ExecuteReader(cmd)
+            While dr.Read()
+                If listaRecaudacion Is Nothing Then
+                    listaRecaudacion = New List(Of EERecaudacion)
+                End If
+                loRecaudacion = New EERecaudacion
+                loRecaudacion.RecFecPago = CDate(dr("recFecPago"))
+                loRecaudacion.RecNroOrden = dr("recNroOrden").ToString.Trim
+                loRecaudacion.RecNro = dr("recNro").ToString.Trim
+                loRecaudacion.PerNroDoc = dr("perNroDoc").ToString.Trim
+                loRecaudacion.PerNombre = dr("perNombre").ToString.Trim
+                loRecaudacion.RecMonto = CDec(dr("recMonto"))
+                loRecaudacion.ConPorcentaje = CDec(dr("conPorcentaje"))
+                loRecaudacion.RecTotalIng = CDec(dr("recTotalIng"))
+                loRecaudacion.recIngMuni = CDec(dr("recIngMuni"))
+                loRecaudacion.RecVComision = CDec(dr("recVComision"))
+                loRecaudacion.RecComision = CDec(dr("recComision"))
+                loRecaudacion.RecNeto = CDec(dr("recNeto"))
+                loRecaudacion.RecAño = dr("Año").ToString.Trim
+                loRecaudacion.RecMesId = dr("Mes_Id").ToString.Trim
+                loRecaudacion.RecMesNombre = dr("Mes").ToString.Trim
+                loConcepto = New EEConceptos
+                loConcepto.ConId = dr("conId").ToString.Trim
+                loConcepto.PartId = dr("partId").ToString.Trim
+                loConcepto.ConNombre = dr("conNombre").ToString.Trim
+                loConcepto.PcontCuenC = dr("pcontCuenC").ToString.Trim
+                loConcepto.PcontCuenA = dr("pcontCuenA").ToString.Trim
+                loConcepto.ConCodConMPT = dr("conCodConMPT").ToString.Trim
+                loConcepto.ConCodPresMPT = dr("conCodPresMPT").ToString.Trim
+                loRecaudacion.OConcepto = loConcepto
+                loCentroProd = New EETablaGeneral
+                loCentroProd.TgNombre = dr("CentroProd").ToString.Trim
+                loRecaudacion.OTCentroProduccion = loCentroProd
+                loBancos = New EETablaGeneral
+                loBancos.TgCodigo = dr("tgCueBanId").ToString.Trim
+                loRecaudacion.OTBancos = loBancos
+                loGrupo = New EETablaGeneral()
+                If dr("Grupo") Is DBNull.Value Then
+                    loGrupo.TgNombre = String.Empty
+                Else
+                    loGrupo.TgNombre = dr("Grupo").ToString.Trim
+                End If
+                loRecaudacion.OTGrupo = loGrupo
+                loRecaudadora = New EETablaGeneral
+                loRecaudadora.TgNombre = dr("Recaudadora").ToString.Trim
+                loRecaudacion.OTRecaudadora = loRecaudadora
+                listaRecaudacion.Add(loRecaudacion)
+            End While
+            dr.Close()
+        Catch ex As Exception
+            Throw New Exception("ListarRecaudacionXAño => " + ex.Message, ex)
+        End Try
+        Return listaRecaudacion
+
+    End Function
+
+    Public Shared Function GenerarRecIdByFechaPago(ByVal recFecPago As Date) As Integer
+        Dim RecId As Integer = 0
+        Try
+            ' Dim dr As IDataReader = Nothing
+            Dim db As Database = DatabaseFactory.CreateDatabase()
+            Dim cmd As DbCommand = db.GetStoredProcCommand("Genera_RecId_Recaudacion_by_recFecPago")
+            db.AddInParameter(cmd, "recFecPago", DbType.Date, recFecPago)
+            RecId = db.ExecuteScalar(cmd)
+            '  dr.Close()
+        Catch ex As Exception
+            Throw New Exception("Generar Codigo Recaudacion ID by FechaPago => " + ex.Message, ex)
+        End Try
+        Return RecId
+    End Function
+
+    Public Shared Function ListarAñosRecaudacion() As List(Of EERecaudacion)
+        Dim loRecaudacion As EERecaudacion = Nothing
+        Dim ListaAñosRecaudacion As List(Of EERecaudacion) = Nothing
+        Try
+            Dim dr As IDataReader = Nothing
+            Dim db As Database = DatabaseFactory.CreateDatabase()
+            Dim cmd As DbCommand = db.GetSqlStringCommand("select [AñosRecaudacion] from [vAñosRecaudacion] order by [AñosRecaudacion] desc")
+            dr = db.ExecuteReader(cmd)
+            While dr.Read()
+                If ListaAñosRecaudacion Is Nothing Then
+                    ListaAñosRecaudacion = New List(Of EERecaudacion)
+                End If
+                loRecaudacion = New EERecaudacion
+                loRecaudacion.RecAño = CInt(dr("AñosRecaudacion"))
+                ListaAñosRecaudacion.Add(loRecaudacion)
+            End While
+            dr.Close()
+        Catch ex As Exception
+            Throw New Exception("ListarAñosRecaudacion => " + ex.Message, ex)
+        End Try
+        Return ListaAñosRecaudacion
+    End Function
+
+    Public Shared Function listarALLxrecFecPago_tgRecaudadorId(ByVal RecFechaPag As Date, ByVal tgRecaudadorId As String) As List(Of EERecaudacion)
+        Dim ListaRecaudacion As List(Of EERecaudacion) = Nothing
+        Dim loRecaudacion As EERecaudacion = Nothing
+        Dim dr As IDataReader = Nothing
+        Try
+            Dim db As Database = DatabaseFactory.CreateDatabase(EEConexiones.CN_BDSaimt_General)
+            Dim cmd As DbCommand = db.GetStoredProcCommand("Listar_RecaudacionALLxrecFecPago_tgRecaudadorId_pa")
+            db.AddInParameter(cmd, "recFecPago", DbType.Date, RecFechaPag)
+            db.AddInParameter(cmd, "tgRecaudadorId", DbType.String, tgRecaudadorId)
+            dr = db.ExecuteReader(cmd)
+            While dr.Read()
+                If ListaRecaudacion Is Nothing Then
+                    ListaRecaudacion = New List(Of EERecaudacion)()
+                End If
+                loRecaudacion = New EERecaudacion()
+                loRecaudacion.RecId = CInt(dr("recId"))
+                loRecaudacion.RecFecPago = CDate(dr("recFecPago"))
+                loRecaudacion.RecNroOrden = dr("recNroOrden").ToString()
+                loRecaudacion.ConId = dr("conId").ToString()
+                loRecaudacion.ConNombre = dr("concepto").ToString()
+                ' loRecaudacion.RecNro = dr("recNro").ToString()
+                If dr("tgNombreTipoDoc") Is DBNull.Value Then
+                    loRecaudacion.TgNombreTipoDoc = String.Empty
+                Else
+                    loRecaudacion.TgNombreTipoDoc = dr("tgNombreTipoDoc").ToString()
+                End If
+                If dr("tgTipoDoc") Is DBNull.Value Then
+                    loRecaudacion.TgTipoDoc = String.Empty
+                Else
+                    loRecaudacion.TgTipoDoc = dr("tgTipoDoc").ToString()
+                End If
+                If dr("perNroDoc") Is DBNull.Value Then
+                    loRecaudacion.PerNroDoc = String.Empty
+                Else
+                    loRecaudacion.PerNroDoc = dr("perNroDoc").ToString()
+                End If
+                loRecaudacion.PerNombre = dr("perNombre").ToString()
+                loRecaudacion.RecMonto = CDec(dr("recMonto"))
+                loRecaudacion.ConPorcentaje = CDec(dr("conPorcentaje"))
+                loRecaudacion.RecTotalIng = CDec(dr("recTotalIng"))
+                loRecaudacion.RecVComision = CDec(dr("recVComision"))
+                loRecaudacion.RecComision = CDec(dr("recComision"))
+                loRecaudacion.RecNeto = CDec(dr("recNeto"))
+                loRecaudacion.RecFechaReg = CDate(dr("recFechaReg"))
+                If dr("usuId") Is DBNull.Value Then
+                    loRecaudacion.UsuId = 0
+                Else
+                    loRecaudacion.UsuId = CInt(dr("usuId"))
+                End If
+                'loRecaudacion.RecContrato = dr("recContrato").ToString()
+                loRecaudacion.TgNombreRecaudador = dr("tgNombreRecaudador").ToString()
+                loRecaudacion.TgRecaudadorId = dr("tgRecaudadorId").ToString()
+                If dr("recFecLiquidacion") Is DBNull.Value Then
+                    loRecaudacion.RecFechaLiquidacion = CDate("12:00:00 a.m.")
+                Else
+                    loRecaudacion.RecFechaLiquidacion = CDate(dr("recFecLiquidacion"))
+                End If
+                ListaRecaudacion.Add(loRecaudacion)
+            End While
+            dr.Close()
+        Catch ex As Exception
+            Throw New Exception("Listar Recaudacion x Fecha Pago => " + ex.Message, ex)
+        End Try
+        Return ListaRecaudacion
+    End Function
+
+    Public Shared Function MostrarxRecFecPago_recId(ByVal RecFechaPag As Date, ByVal recId As String) As EERecaudacion
+        Dim loRecaudacion As EERecaudacion = Nothing
+        Dim dr As IDataReader = Nothing
+        Try
+            Dim db As Database = DatabaseFactory.CreateDatabase(EEConexiones.CN_BDSaimt_General)
+            Dim cmd As DbCommand = db.GetStoredProcCommand("Mostrar_RecaudacionxRecFecPago_recId_pa")
+            db.AddInParameter(cmd, "recFecPago", DbType.Date, RecFechaPag)
+            db.AddInParameter(cmd, "recId", DbType.String, recId)
+            dr = db.ExecuteReader(cmd)
+            If dr.Read() Then
+
+
+                loRecaudacion = New EERecaudacion()
+                loRecaudacion.RecId = CInt(dr("recId"))
+                loRecaudacion.RecFecPago = CDate(dr("recFecPago"))
+                loRecaudacion.RecNroOrden = dr("recNroOrden").ToString()
+                loRecaudacion.ConId = dr("conId").ToString()
+                loRecaudacion.ConNombre = dr("concepto").ToString()
+                ' loRecaudacion.RecNro = dr("recNro").ToString()
+                If dr("tgNombreTipoDoc") Is DBNull.Value Then
+                    loRecaudacion.TgNombreTipoDoc = String.Empty
+                Else
+                    loRecaudacion.TgNombreTipoDoc = dr("tgNombreTipoDoc").ToString()
+                End If
+                If dr("tgTipoDoc") Is DBNull.Value Then
+                    loRecaudacion.TgTipoDoc = String.Empty
+                Else
+                    loRecaudacion.TgTipoDoc = dr("tgTipoDoc").ToString()
+                End If
+                If dr("perNroDoc") Is DBNull.Value Then
+                    loRecaudacion.PerNroDoc = String.Empty
+                Else
+                    loRecaudacion.PerNroDoc = dr("perNroDoc").ToString()
+                End If
+                loRecaudacion.PerNombre = dr("perNombre").ToString()
+                loRecaudacion.RecMonto = CDec(dr("recMonto"))
+                loRecaudacion.ConPorcentaje = CDec(dr("conPorcentaje"))
+                loRecaudacion.RecTotalIng = CDec(dr("recTotalIng"))
+                loRecaudacion.RecVComision = CDec(dr("recVComision"))
+                loRecaudacion.RecComision = CDec(dr("recComision"))
+                loRecaudacion.RecNeto = CDec(dr("recNeto"))
+                loRecaudacion.RecFechaReg = CDate(dr("recFechaReg"))
+                If dr("usuId") Is DBNull.Value Then
+                    loRecaudacion.UsuId = 0
+                Else
+                    loRecaudacion.UsuId = CInt(dr("usuId"))
+                End If
+                'loRecaudacion.RecContrato = dr("recContrato").ToString()
+                loRecaudacion.TgNombreRecaudador = dr("tgNombreRecaudador").ToString()
+                loRecaudacion.TgRecaudadorId = dr("tgRecaudadorId").ToString()
+                If dr("recFecLiquidacion") Is DBNull.Value Then
+                    loRecaudacion.RecFechaLiquidacion = CDate("12:00:00 a.m.")
+                Else
+                    loRecaudacion.RecFechaLiquidacion = CDate(dr("recFecLiquidacion"))
+                End If
+            End If
+            dr.Close()
+        Catch ex As Exception
+            Throw New Exception("Listar Recaudacion x Fecha Pago => " + ex.Message, ex)
+        End Try
+        Return loRecaudacion
+    End Function
+
+#Region "WEB"
+    Public Shared Function listarXFecPago_XRecaudadora_WEB(ByVal adFechaPago As Date, ByVal asRecaudadorId As String) As List(Of EERecaudacion)
+        Dim ListaRecaudacion As List(Of EERecaudacion) = Nothing
+        Dim loRecaudacion As EERecaudacion = Nothing
+        Dim dr As IDataReader = Nothing
+        Try
+            Dim db As Database = DatabaseFactory.CreateDatabase(EEConexiones.CN_BDSaimt_General)
+            Dim cmd As DbCommand = db.GetStoredProcCommand("Listar_Recaudacion_XFecPago_XTgRecaudadorId_WEB_pa")
+            db.AddInParameter(cmd, "recFecPago", DbType.Date, adFechaPago)
+            db.AddInParameter(cmd, "tgRecaudadorId", DbType.String, asRecaudadorId)
+            dr = db.ExecuteReader(cmd)
+            While dr.Read()
+                If ListaRecaudacion Is Nothing Then
+                    ListaRecaudacion = New List(Of EERecaudacion)()
+                End If
+                loRecaudacion = New EERecaudacion()
+                loRecaudacion.RecId = dr("recId").ToString()
+                loRecaudacion.RecFecPago = dr("recFecPago").ToString()
+                loRecaudacion.RecNroOrden = dr("recNroOrden").ToString()
+                loRecaudacion.ConId = dr("ConId").ToString()
+                loRecaudacion.ConNombre = dr("ConNombre").ToString()
+                loRecaudacion.RecNro = dr("RecNro").ToString()
+                loRecaudacion.TgNombreTipoDoc = dr("tgNombreTipoDocumento").ToString()
+                loRecaudacion.PerNroDoc = dr("perNroDoc").ToString()
+                loRecaudacion.PerNombre = dr("perNombre").ToString()
+                loRecaudacion.RecMonto = dr("recMonto").ToString()
+                loRecaudacion.ConPorcentaje = dr("conPorcentaje").ToString()
+                loRecaudacion.RecTotalIng = dr("recTotalIng").ToString()
+                loRecaudacion.RecVComision = dr("recVComision").ToString()
+                loRecaudacion.RecComision = dr("recComision").ToString()
+                loRecaudacion.RecNeto = dr("recNeto").ToString()
+                loRecaudacion.RecFechaReg = dr("recFechaReg").ToString()
+                If Not IsDBNull(dr("usuId")) Then
+                    loRecaudacion.UsuId = Convert.ToInt32(dr("usuId").ToString())
+                End If
+                If Not IsDBNull(dr("recFecLiquidacion")) Then
+                    loRecaudacion.RecFechaLiquidacion = Convert.ToDateTime(dr("recFecLiquidacion").ToString())
+                End If
+                loRecaudacion.TgNombreRecaudador = dr("TgNombreRecaudador").ToString()
+                loRecaudacion.TgRecaudadorId = dr("TgRecaudadorId").ToString()
+
+                ListaRecaudacion.Add(loRecaudacion)
+            End While
+        Catch ex As Exception
+            Throw New Exception("Listar Recaudacion X Fecha Pago y Recaudadora WEB => " + ex.Message, ex)
+        End Try
+        Return ListaRecaudacion
+    End Function
+
+    Public Shared Function mostrarDetalleRecaudacionXRecId_XFecPago_XRecaudadora_WEB(ByVal aiRecId As Int32, ByVal adFechaPago As Date, ByVal asRecaudadorId As String) As List(Of EERecaudacion.EERecaudacionDet)
+        Dim ListaRecaudacionDetalle As List(Of EERecaudacion.EERecaudacionDet) = Nothing
+        Dim loRecaudacionDetalle As EERecaudacion.EERecaudacionDet = Nothing
+        Dim dr As IDataReader = Nothing
+        Try
+            Dim db As Database = DatabaseFactory.CreateDatabase(EEConexiones.CN_BDSaimt_General)
+            Dim cmd As DbCommand = db.GetStoredProcCommand("Mostrar_RecaudacionDet_XRecId_XRecFecPago_XTgRecaudadorId_WEB_pa")
+            db.AddInParameter(cmd, "recid", DbType.Int32, aiRecId)
+            db.AddInParameter(cmd, "recFecPago", DbType.Date, adFechaPago)
+            db.AddInParameter(cmd, "tgRecaudadorId", DbType.String, asRecaudadorId)
+            dr = db.ExecuteReader(cmd)
+            While (dr.Read())
+                If ListaRecaudacionDetalle Is Nothing Then
+                    ListaRecaudacionDetalle = New List(Of EERecaudacion.EERecaudacionDet)()
+                End If
+
+                loRecaudacionDetalle = New EERecaudacion.EERecaudacionDet()
+
+                loRecaudacionDetalle.RecId = Convert.ToInt32(dr("RecId").ToString())
+                If Not IsDBNull(dr("RecFecPago")) Then
+                    loRecaudacionDetalle.RecFecPago = Convert.ToDateTime(dr("RecFecPago").ToString())
+                End If
+
+                loRecaudacionDetalle.TgRecaudadorId = dr("TgRecaudadorId").ToString()
+                loRecaudacionDetalle.ConId = dr("ConId").ToString()
+                loRecaudacionDetalle.ConNombre = dr("ConNombre").ToString()
+                loRecaudacionDetalle.RecDMonto = Convert.ToDecimal(dr("RecDMonto").ToString())
+                loRecaudacionDetalle.ConPorcentaje = Convert.ToDecimal(dr("ConPorcentaje").ToString())
+                loRecaudacionDetalle.RecDTotalIng = Convert.ToDecimal(dr("RecDTotalIng").ToString())
+                If Not IsDBNull(dr("recDFechaLiquidacion")) Then
+                    loRecaudacionDetalle.RecDFechaLiquidacion = Convert.ToDateTime(dr("recDFechaLiquidacion").ToString())
+                End If
+                ListaRecaudacionDetalle.Add(loRecaudacionDetalle)
+            End While
+        Catch ex As Exception
+            Throw New Exception("Listar Recaudacion Detalle X RecId X Fecha Pago y Recaudadora WEB => " + ex.Message, ex)
+        End Try
+        Return ListaRecaudacionDetalle
+    End Function
+
+#End Region
+
+End Class
+
+
+
+

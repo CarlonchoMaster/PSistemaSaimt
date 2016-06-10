@@ -1,0 +1,269 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+Presentacion
+</name>
+</assembly>
+<members>
+<member name="M:Presentacion.frmUsuarios.mLlenarTabs">
+	<summary>
+ Llena el Control Tab con todas las pestañas del formulario principal
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Presentacion.frmUsuarios.mLimpiarCheckBoxes">
+	<summary>
+ LIMPIA LAS VISTAS COMO EL GRUPO DE PERMISOS
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Presentacion.frmPopup.Botones.Nuevo">
+	<sumary>
+Boton Nuevo
+</sumary>
+</member><member name="F:Presentacion.frmPopup.Botones.Guardar">
+	<sumary>
+Boton Guardar
+</sumary>
+</member><member name="T:Presentacion.frmPopup.Botones">
+	<summary>
+ Tipo de botones.
+ </summary>
+</member><member name="F:Presentacion.frmPopup.enabledGA">
+	<summary>
+ Para Indicar Despues del Guardado o Actualizar 
+ el enabled de los controles
+ </summary>
+</member><member name="F:Presentacion.frmProgramacionPagos.ListaTemporalProPagosDetalleNuevos">
+	<summary>
+ LISTA TEMPORAL PARA USAR CUANDO SE VA CREAR DETALLE CUOTAS DE LA PROGRAMACION DE PAGOS
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Presentacion.frmProgramacionPagos.ListaTemporalProPagosDetalleEditar">
+	<summary>
+ LISTA TEMPORAL PARA USAR CUANDO SE VA EDITAR EL DETALLE CUOTAS DE LA PROGRAMCION DE PAGOS
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Presentacion.frmConsultaPersonaGeneral.#ctor(System.Int16)">
+	<summary>
+ ABRE LA CONSULTA SEGUN EL TIPO PERSONA
+ </summary>
+	<param name="aiTipoPersona">1=PERSONA NATURAL, 2=PERSONA JURIDICA, 3=AMBOS</param>
+	<remarks></remarks>
+</member><member name="F:Presentacion.frmMantenimientos.Botones.Nuevo">
+	<sumary>
+Boton Nuevo
+</sumary>
+</member><member name="F:Presentacion.frmMantenimientos.Botones.Editar">
+	<sumary>
+Boton Editar
+</sumary>
+</member><member name="F:Presentacion.frmMantenimientos.Botones.Guardar">
+	<sumary>
+Boton Guardar
+</sumary>
+</member><member name="F:Presentacion.frmMantenimientos.Botones.Eliminar">
+	<sumary>
+Boton Eliminar
+</sumary>
+</member><member name="F:Presentacion.frmMantenimientos.Botones.CancelarNuevo">
+	<sumary>
+Boton Cancelar Nuevo
+</sumary>
+</member><member name="F:Presentacion.frmMantenimientos.Botones.CancelarEditar">
+	<summary>
+ Boton Cancelar Editar
+ </summary>
+</member><member name="F:Presentacion.frmMantenimientos.Botones.CancelarData">
+	<summary>
+ Boton Cancelar Data
+ </summary>
+</member><member name="F:Presentacion.frmMantenimientos.Botones.ListBoxListado">
+	<sumary>
+ListBox Listado
+</sumary>
+</member><member name="T:Presentacion.frmMantenimientos.Botones">
+	<summary>
+ Tipo de botones.
+ </summary>
+</member><member name="F:Presentacion.frmMantenimientos.fmCancelacionData">
+	<summary>
+ Mantenimientos =&gt; Asignar Formulario de Cancelacion
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Presentacion.frmMantenimientos.enabledGA">
+	<summary>
+ Para Indicar Despues del Guardado o Actualizar 
+ el enabled de los controles
+ </summary>
+</member><member name="F:Presentacion.frmPersona.lbMarcaDatosAdicionales">
+	<summary>
+ False = No Busca Datos Adicionales , True = Si
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Presentacion.frmProPagMant.lbCargaDatosImportados">
+	<summary>
+ Para Hacer que el Evento al Seleccionar Fecha Se Ejecute despues de Load
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Presentacion.frmGaleriaContrato.lbTipoVisorPDF">
+	<summary>
+ True = Foxit, False = Adobe PDF
+ </summary>
+	<remarks></remarks>
+</member><member name="P:Presentacion.frmConsultaProgramacionPagos.Persona">
+	<summary>
+ Para Usarlo Cundo Se Selecciona una Fila en el Visor de Inmueble
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Presentacion.frmGeneral.GValorTextoBuscado">
+	<summary>
+ Almacena el Valor del Texto Buscado
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Presentacion.frmGeneral.GCriterioBuscado">
+	<summary>
+ Almacena el Valor del Criterio Buscado
+ </summary>
+	<remarks></remarks>
+</member><member name="P:Presentacion.frmGeneral.GIndiceSeleccionado">
+	<summary>
+ Almacena el Indice Seleccionado del Listado
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:Presentacion.frmGeneral.GEstadoNuevo">
+	<summary>
+ Indica True = Guardar , False = Actualizar
+ </summary>
+	<value></value>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:Presentacion.frmGeneral.mGSetearTool(System.Windows.Forms.Control,System.String,System.String)">
+	<summary>
+ Agregar Tooltip a Botones
+ </summary>
+	<param name="oButton">Button</param>
+	<param name="asTitle">Titulo del Tooltip</param>
+	<param name="asMensaje">Descripcion del Tooltip</param>
+</member><member name="M:Presentacion.frmGeneral.hodControlesTotal(System.Windows.Forms.Control.ControlCollection,System.Boolean)">
+	<summary>
+ Habilita o Deshabilita los Controles del Formulario Cargado
+ </summary>
+	<param name="aControles">Controles</param>
+	<param name="blnEstado">True = Desbloqueado, False = Bloqueado</param>
+	<remarks></remarks>
+</member><member name="M:Presentacion.frmGeneral.mGVerificarNull(System.Object)">
+	<summary>
+ RETORNA VALOR NULL SI ES QUE EL OBJECT ES NULL
+ </summary>
+	<param name="loValor">Valor a Verificar</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:Presentacion.frmGeneral.GLimpiarControlesTotal(System.Windows.Forms.Control.ControlCollection)">
+	<summary>
+ Para se usado cuando se herada directo de frmGeneral
+ </summary>
+	<param name="Controles">Coleccion de Controles</param>
+	<remarks></remarks>
+</member><member name="M:Presentacion.frmGeneral.mGExceptionObligatorio(System.String)">
+	<summary>
+ Mostrar Exception Obligatoria
+ </summary>
+	<param name="lsCampo">Nombre Campo</param>
+	<remarks></remarks>
+</member><member name="P:Presentacion.My.Resources.Resources.ResourceManager">
+	<summary>
+  Devuelve la instancia de ResourceManager almacenada en caché utilizada por esta clase.
+</summary>
+</member><member name="P:Presentacion.My.Resources.Resources.Culture">
+	<summary>
+  Reemplaza la propiedad CurrentUICulture del subproceso actual para todas las
+  búsquedas de recursos mediante esta clase de recurso con establecimiento inflexible de tipos.
+</summary>
+</member><member name="T:Presentacion.My.Resources.Resources">
+	<summary>
+  Clase de recurso con establecimiento inflexible de tipos, para buscar cadenas traducidas, etc.
+</summary>
+</member><member name="F:Presentacion.frmGaleriaInmueble.lbTipoVisorPDF">
+	<summary>
+ True = Foxit, False = Adobe PDF
+ </summary>
+	<remarks></remarks>
+</member><member name="M:Presentacion.frmLogin.mObtenerMAC">
+	<summary>
+ Obtener la MAC de la PC
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:Presentacion.frmLogin.mObtenerLocalIP">
+	<summary>
+ Obtener la IP de la PC
+ </summary>
+</member><member name="F:Presentacion.frmConsultarMora.lbCalcularMora">
+	<summary>
+ PARA SABER SI YA HIZO CLIC EN CALCULAR MORA Y ASI PODER MOSTRAR
+ EL CONCEPTO MORA EN EL DETALLE
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Presentacion.frmGaleriaDocumentos.lbTipoVisorPDF">
+	<summary>
+ True = Foxit, False = Adobe PDF
+ </summary>
+	<remarks></remarks>
+</member><member name="F:Presentacion.Info_Reniec.Resul.Ok">
+	<summary>
+ Se encontro la persona
+ </summary>
+</member><member name="F:Presentacion.Info_Reniec.Resul.NoResul">
+	<summary>
+ No se encontro la persona
+ </summary>
+</member><member name="F:Presentacion.Info_Reniec.Resul.ErrorCapcha">
+	<summary>
+ la imagen capcha no es valida
+ </summary>
+</member><member name="F:Presentacion.Info_Reniec.Resul.Error">
+	<summary>
+ Error no especificado
+ </summary>
+</member><member name="P:Presentacion.Info_Reniec.GetCapcha">
+	<summary>
+ Devuelve la imagen para el reto capcha
+ </summary>
+</member><member name="P:Presentacion.Info_Reniec.Nombres">
+	<summary>
+ Si no Hubo error en la lectura de datos devuelve los nombres 
+ de la persona caso contrario devuelve ""
+ </summary>
+</member><member name="P:Presentacion.Info_Reniec.ApePaterno">
+	<summary>
+ Si no Hubo error en la lectura de datos devuelve el Apellido Paterno
+ de la persona caso contrario devuelve ""
+ </summary>
+</member><member name="P:Presentacion.Info_Reniec.ApeMaterno">
+	<summary>
+ Si no Hubo error en la lectura de datos devuelve el Apellido Materno
+ de la persona caso contrario devuelve ""
+</summary>
+</member><member name="P:Presentacion.Info_Reniec.GetResul">
+	<summary>
+ Devuelve el resultado de la busqueda de DNI
+ </summary>
+</member><member name="M:Presentacion.Info_Reniec.ReadCapcha">
+	<summary>
+ Carga la imagen Capcha
+ </summary>
+</member><member name="M:Presentacion.Info_Reniec.GetInfo(System.String,System.String)">
+	<summary>
+ Inicia la carga de los datos de la persona 
+ </summary>
+	<param name="numDni"></param>
+	<param name="ImgCapcha"></param>
+</member>
+</members>
+</doc>

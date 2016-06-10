@@ -1,0 +1,214 @@
+﻿Imports ReglasNegocio
+Imports Entidades
+Imports SaimtControlesWeb
+Public Class frmBusquedaXRubro
+    Inherits System.Web.UI.Page
+    Dim oTable As DataTable = New DataTable()
+    Dim oTableGRubros As DataTable = New DataTable()
+    Dim oTableRubros As DataTable = New DataTable()
+    Dim encontrado As Boolean
+    Public Property InmId() As String
+    Public Property SQlString() As String
+    Private Sub ConstruirTable()
+        oTable.Columns.Add("inmId", GetType(String))
+        oTable.Columns.Add("inmUbicacion", GetType(String))
+        oTable.Columns.Add("Detalle", GetType(String))
+        oTable.Columns.Add("Ficha", GetType(String))
+    End Sub
+    Private Sub ConstruirTableRubros()
+        oTableRubros.Columns.Add("TgCodigo", GetType(String))
+        oTableRubros.Columns.Add("TgNombre", GetType(String))
+    End Sub
+    Private Sub ConstruirTableGRubros()
+        oTableGRubros.Columns.Add("TgCodigo", GetType(String))
+        oTableGRubros.Columns.Add("TgNombre", GetType(String))
+    End Sub
+    Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        If Not Page.IsPostBack Then
+            ConstruirTableRubros()
+            ConstruirTableGRubros()
+            Dim loTablaGeneral As List(Of EETablaGeneral) = MantenimientosBL.Instancia.tablageneralListarXClsIdOrderbytgOrden(32)
+            If loTablaGeneral IsNot Nothing Then
+                oTableGRubros.LoadDataRow(New Object() {0, "Todos los Rubros"}, True)
+                For Each frow In loTablaGeneral
+                    oTableGRubros.LoadDataRow(New Object() {frow.TgCodigo, frow.TgNombre}, True)
+                Next
+                cboRubroGrupos.TextField = "TgNombre"
+                cboRubroGrupos.ValueField = "TgCodigo"
+                cboRubroGrupos.DataSource = oTableGRubros
+                cboRubroGrupos.DataBind()
+            End If
+            cboDepartamento.TextField = "UbgNombre"
+            cboDepartamento.ValueField = "UbgDep"
+            cboDepartamento.DataSource = MantenimientosBL.Instancia.ubigeoListarDepartamentoALL()
+            cboDepartamento.DataBind()
+            'cboDepartamento.ReadOnly = True
+            cboSubDistritos.TextField = "TgNombre"
+            cboSubDistritos.ValueField = "TgCodigo"
+            cboSubDistritos.DataSource = MantenimientosBL.Instancia.tablageneralListarXClsId2(172) ' Tipo Urbanizaciones
+            cboSubDistritos.DataBind()
+            cboSubDistritos.SelectedIndex = 0
+            cboLocalizacion.TextField = "TgNombre"
+            cboLocalizacion.ValueField = "TgCodigo"
+            cboLocalizacion.DataSource = MantenimientosBL.Instancia.tablageneralListarXClsId2(1) ' Localizacion
+            cboLocalizacion.DataBind()
+            cboLocalizacion.SelectedIndex = 0
+            cboTipoNro.TextField = "TgNombre"
+            cboTipoNro.ValueField = "TgCodigo"
+            cboTipoNro.DataSource = MantenimientosBL.Instancia.tablageneralListarXClsId2(169) ' Tipo Nro
+            cboTipoNro.DataBind()
+            cboTipoNro.SelectedIndex = 0
+            cboTipoSubNro.TextField = "TgNombre"
+            cboTipoSubNro.ValueField = "TgCodigo"
+            cboTipoSubNro.DataSource = MantenimientosBL.Instancia.tablageneralListarXClsId2(170) ' Tipo Sub Nro
+            cboTipoSubNro.DataBind()
+            cboTipoSubNro.SelectedIndex = 0
+            rbtipodireccion.SelectedIndex = 0
+            ConstruirTable()
+            cboLocalizacion.Value = "00"
+            cboTipoNro.Value = "00"
+            cboTipoSubNro.Value = "00"
+            cboSubDistritos.Value = "00"
+        End If
+    End Sub
+
+    Protected Sub btnBuscar_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click
+        Dim ListaInmueble As List(Of EEInmueble) = Nothing
+        Dim loInmueble As New EEInmueble
+        Dim criterio As String = Nothing
+        criterio = 0 & rbtipodireccion.Value
+        If cboLocalizacion.Value <> "00" And txtUbicacion.Value = "" Then
+            MensajeBox("Ingrese un valor para " & cboLocalizacion.Text)
+            txtUbicacion.Focus()
+            Return
+        End If
+        If cboTipoNro.Value <> "00" And txtNroUbicacion.Value = "" Then
+            MensajeBox("Ingrese un valor en el para " & cboTipoNro.Text)
+            txtNroUbicacion.Focus()
+            Return
+        End If
+        If cboTipoSubNro.Value <> "00" And txtSubNro.Value = "" Then
+            MensajeBox("Ingrese un valor en el para " & cboTipoSubNro.Text)
+            txtSubNro.Focus()
+            Return
+        End If
+        loInmueble.TgRubroId = IIf(cboRubro.Value = 0, Nothing, cboRubro.Value)
+        loInmueble.TgRubroGrupoId = IIf(cboRubroGrupos.Value = 0, Nothing, cboRubroGrupos.Value)
+        loInmueble.TgInmEstado = "01"
+        loInmueble.OInmDireccion = New EEInmDireccion
+        loInmueble.OInmDireccion.TgLocalizacionId = IIf(cboLocalizacion.Value = "00", Nothing, cboLocalizacion.Value)
+        loInmueble.OInmDireccion.InmDirLocalizacion = IIf(txtUbicacion.Text.Trim = "", Nothing, txtUbicacion.Text.Trim)
+        loInmueble.OInmDireccion.InmDirAdicional = IIf(txtdireccionAdicional.Text.Trim = "", Nothing, txtdireccionAdicional.Text.Trim)
+        loInmueble.OInmDireccion.TgNroId = IIf(cboTipoNro.Value = "00", Nothing, cboTipoNro.Value)
+        loInmueble.OInmDireccion.InmDirNro = IIf(txtNroUbicacion.Text.Trim = "", Nothing, txtNroUbicacion.Text.Trim)
+        loInmueble.OInmDireccion.TgSubNroId = IIf(cboTipoSubNro.Value = "00", Nothing, cboTipoSubNro.Value)
+        loInmueble.OInmDireccion.InmDirSubNro = IIf(txtSubNro.Text.Trim = "", Nothing, txtSubNro.Text.Trim)
+        loInmueble.OInmDireccion.InmDirSubDistritos = IIf(IIf(txtsubdistritoscbo.Visible = True, txtsubdistritoscbo.Value, txtsubdistritoText.Text) = "", Nothing, IIf(txtsubdistritoscbo.Visible = True, txtsubdistritoscbo.Value, txtsubdistritoText.Value))
+        loInmueble.OInmDireccion.TgSubDistritosId = IIf(cboSubDistritos.Value = "00", Nothing, cboSubDistritos.Value)
+        loInmueble.OInmDireccion.InmDirEtapa = IIf(txtEtapa.Text.Trim = "", Nothing, txtEtapa.Text.Trim)
+        loInmueble.OInmDireccion.InmDirFase = IIf(txtFase.Text.Trim = "", Nothing, txtFase.Text.Trim)
+        loInmueble.OInmDireccion.InmDirBarrio = IIf(txtBarrio.Text.Trim = "", Nothing, txtBarrio.Text.Trim)
+        loInmueble.OInmDireccion.InmDirSector = IIf(txtSector.Text.Trim = "", Nothing, txtSector.Text.Trim)
+        loInmueble.OInmDireccion.UbgId = cboDepartamento.Value & cboProvincia.Value & cboDistrito.Value
+        ListaInmueble = MantenimientosBL.Instancia.inmuebleListarConsultaCriterios(criterio, loInmueble)
+        Try
+            oTable.Clear()
+            If ListaInmueble IsNot Nothing Then
+                For Each fInmueble As EEInmueble In ListaInmueble
+                    oTable.LoadDataRow(New Object() {
+                    fInmueble.InmId, _
+                    fInmueble.InmUbicacion & " - " & fInmueble.InmDenominacion, _
+                    "Detalle", "Ficha"}, True)
+                Next
+                Me.encontrado = True
+            Else
+                Me.Encontrado = False
+            End If
+
+            If encontrado = False Then
+                MensajeBox("No se encontro resultados")
+            End If
+            gvResultado.DataSource = oTable
+            gvResultado.Visible = True
+            gvResultado.DataBind()
+            lblResultados.Text = oTable.Rows.Count & " Resultados de Busquedas"
+        Catch ex As Exception
+            MensajeBox(ex.Message)
+        End Try
+    End Sub
+
+
+    Private Sub cboProvincia_Callback(sender As Object, e As DevExpress.Web.ASPxClasses.CallbackEventArgsBase) Handles cboProvincia.Callback
+        cargarProvincia(e.Parameter)
+    End Sub
+
+
+    Public Sub cargarProvincia(ByVal lsUbgDep As String)
+        Session("clavecboDepartamento") = lsUbgDep
+        cboProvincia.TextField = "UbgNombre"
+        cboProvincia.ValueField = "UbgProv"
+        cboProvincia.DataSource = MantenimientosBL.Instancia.ubigeoListarProvinciaXUbgDep(lsUbgDep)
+        cboProvincia.SelectedIndex = 0
+        cboProvincia.DataBind()
+    End Sub
+
+    Public Sub cargarDistrito(ByVal lsUbgDep As String, ByVal lsUbgPro As String)
+        cboDistrito.TextField = "UbgNombre"
+        cboDistrito.ValueField = "UbgDist"
+        cboDistrito.DataSource = MantenimientosBL.Instancia.ubigeoListarDistritoXUbgDepXUbgProv(lsUbgDep, lsUbgPro)
+        cboDistrito.SelectedIndex = 0
+        cboDistrito.DataBind()
+    End Sub
+
+    Public Sub MensajeBox(ByVal ex As String)
+        Dim sbMensaje As StringBuilder = New StringBuilder()
+        sbMensaje.Append("<script type='text/javascript'>")
+        sbMensaje.AppendFormat("alert('{0}');", ex)
+        sbMensaje.Append("</script>")
+        ClientScript.RegisterClientScriptBlock(Me.GetType(), "Mensaje", sbMensaje.ToString())
+    End Sub
+
+    Protected Sub cboRubroGrupos_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboRubroGrupos.SelectedIndexChanged
+        Dim lsTgcodigo As String = cboRubroGrupos.Value
+        Dim loTablaGeneral As List(Of EETablaGeneral) = MantenimientosBL.Instancia.tablageneralListar_XClsId_XTgExtra(33, lsTgcodigo)
+        oTableRubros.Clear()
+        If loTablaGeneral IsNot Nothing Then
+            oTableRubros.LoadDataRow(New Object() {0, "Todos los Rubros " & cboRubroGrupos.Text}, True)
+            For Each frow In loTablaGeneral
+                oTableRubros.LoadDataRow(New Object() {frow.TgCodigo, frow.TgNombre}, True)
+            Next
+            cboRubro.TextField = "TgNombre"
+            cboRubro.ValueField = "TgCodigo"
+            cboRubro.DataSource = oTableRubros
+            cboRubro.DataBind()
+            cboRubro.SelectedIndex = 0
+        End If
+    End Sub
+
+
+    Protected Sub cboDistrito_Callback(sender As Object, e As DevExpress.Web.ASPxClasses.CallbackEventArgsBase) Handles cboDistrito.Callback
+        cargarDistrito(Session("clavecboDepartamento"), cboProvincia.Value)
+    End Sub
+
+    
+    Protected Sub txtsubdistritoscbo_Callback(sender As Object, e As DevExpress.Web.ASPxClasses.CallbackEventArgsBase) Handles txtsubdistritoscbo.Callback
+        cargarsubdistritoscbo(cboDistrito.Value, e.Parameter)
+    End Sub
+    Public Sub cargarsubdistritoscbo(ByVal lsUbgDist As String, ByVal lsUbgSubDist As String)
+        If cboSubDistritos.Value IsNot Nothing Then
+            txtsubdistritoscbo.TextField = "TgNombre"
+            txtsubdistritoscbo.ValueField = "TgCodigo"
+            txtsubdistritoscbo.DataSource = MantenimientosBL.Instancia.tablageneralListarXClsId_Opcion_tgCodigo_tgAbrev_tgExtra_pa(171, Nothing, lsUbgDist, lsUbgSubDist)
+            txtsubdistritoscbo.DataBind()
+            If txtsubdistritoscbo.DataSource IsNot Nothing Then
+                txtsubdistritoscbo.Visible = True
+                txtsubdistritoText.Visible = False
+
+            Else
+                txtsubdistritoscbo.Visible = False
+                txtsubdistritoText.Visible = True
+            End If
+
+        End If
+    End Sub
+End Class

@@ -1,0 +1,48 @@
+﻿Imports Entidades
+Imports ReglasNegocio
+Imports SaimtControles
+Public Class frmNuevaCarp
+    Inherits frmMantenimientos
+    Dim level As Int16 = 0
+    Dim namePadre As String = String.Empty
+    Dim _opcion As String = String.Empty
+    Sub New(ByVal nivel As Int16, ByVal NodoPadre As String, ByVal opcion As String)
+
+        level = nivel
+        namePadre = NodoPadre
+        _opcion = opcion
+        ' Llamada necesaria para el diseñador.
+        InitializeComponent()
+        ' Agregue cualquier inicialización después de la llamada a InitializeComponent().
+
+    End Sub
+
+    Protected Overrides Sub nuevo()
+        txtNivel.Properties.ReadOnly = True
+        txtPadre.Properties.ReadOnly = True
+        txtCodigo.Properties.ReadOnly = True
+        MyBase.nuevo()
+    End Sub
+
+    Protected Overridable Sub guardar()
+        'Dim loJerarquia As eeje
+
+
+        MyBase.guardar()
+    End Sub
+
+    Private Sub frmNuevaCarp_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        'cboColor.mColumnas(SaimtComboBoxLookUp.Entidades.TablaGeneral)
+        'cboColor.DisplayMember = "TgNombre"
+        'cboColor.Properties.ValueMember = "TgCodigo"
+        'cboColor.Properties.DataSource = MantenimientosBL.Instancia.tablageneralListarXClsId2(203) ' Localizacion
+        'cboColor.ItemIndex = 0
+        cboColor.Properties.Items.Add(IconosArchivo)
+        Select Case _opcion
+            Case "new"
+                nuevo()
+            Case "update"
+                editar()
+        End Select
+    End Sub
+End Class

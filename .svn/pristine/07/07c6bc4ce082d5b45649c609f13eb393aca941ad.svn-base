@@ -1,0 +1,19 @@
+﻿
+Public Class EEProcedimientos
+
+    Public Property ProcdId() As String
+    Public Property ProcdNombre() As String
+    Public Property ProcdDescripcion() As String
+    Public Property ProcdMaxDia() As Int32
+    Public Property ProcId() As String
+    Public Property ProcNombre() As String
+    Public Property SubProcId() As String
+    Public Property SubProcNombre() As String
+    Public Property TgArea() As String
+    Public Property TgAreaId() As String
+    Public Property ProcdActivo() As Boolean
+    Public Property TgCargo() As String
+    Public Property TgCargoId() As String
+    Public Property Orden() As String
+
+End Class

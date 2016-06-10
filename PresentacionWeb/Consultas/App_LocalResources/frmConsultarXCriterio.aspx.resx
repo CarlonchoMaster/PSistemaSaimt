@@ -1,0 +1,758 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="btnBuscarInmueblesResource1.Image.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="btnBuscarInmueblesResource1.Image.DescriptionUrl" xml:space="preserve">
+    <value />
+  </data>
+  <data name="btnBuscarInmueblesResource1.Image.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="btnBuscarInmueblesResource1.Text" xml:space="preserve">
+    <value>Buscar</value>
+  </data>
+  <data name="btnBuscarInmueblesResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cboDepartamentoResource1.ButtonEditEllipsisImage.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cboDepartamentoResource1.ButtonEditEllipsisImage.DescriptionUrl" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cboDepartamentoResource1.ButtonEditEllipsisImage.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cboDepartamentoResource1.DisplayFormatString" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cboDepartamentoResource1.DropDownButton.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cboDepartamentoResource1.DropDownButton.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cboDepartamentoResource1.ItemImage.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cboDepartamentoResource1.ItemImage.DescriptionUrl" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cboDepartamentoResource1.ItemImage.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cboDepartamentoResource1.LoadingPanelImage.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cboDepartamentoResource1.LoadingPanelImage.DescriptionUrl" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cboDepartamentoResource1.LoadingPanelImage.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cboDepartamentoResource1.LoadingPanelText" xml:space="preserve">
+    <value>Loading&amp;hellip;</value>
+  </data>
+  <data name="cboDepartamentoResource1.TextFormatString" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cboDepartamentoResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cboDepartamentoResource1.ValidationSettings.ErrorText" xml:space="preserve">
+    <value>Invalid value</value>
+  </data>
+  <data name="cboDistritoResource1.ButtonEditEllipsisImage.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cboDistritoResource1.ButtonEditEllipsisImage.DescriptionUrl" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cboDistritoResource1.ButtonEditEllipsisImage.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cboDistritoResource1.DisplayFormatString" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cboDistritoResource1.DropDownButton.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cboDistritoResource1.DropDownButton.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cboDistritoResource1.ItemImage.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cboDistritoResource1.ItemImage.DescriptionUrl" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cboDistritoResource1.ItemImage.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cboDistritoResource1.LoadingPanelImage.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cboDistritoResource1.LoadingPanelImage.DescriptionUrl" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cboDistritoResource1.LoadingPanelImage.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cboDistritoResource1.LoadingPanelText" xml:space="preserve">
+    <value>Loading&amp;hellip;</value>
+  </data>
+  <data name="cboDistritoResource1.TextFormatString" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cboDistritoResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cboDistritoResource1.ValidationSettings.ErrorText" xml:space="preserve">
+    <value>Invalid value</value>
+  </data>
+  <data name="cboLocalizacionResource1.ButtonEditEllipsisImage.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cboLocalizacionResource1.ButtonEditEllipsisImage.DescriptionUrl" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cboLocalizacionResource1.ButtonEditEllipsisImage.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cboLocalizacionResource1.DisplayFormatString" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cboLocalizacionResource1.DropDownButton.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cboLocalizacionResource1.DropDownButton.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cboLocalizacionResource1.ItemImage.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cboLocalizacionResource1.ItemImage.DescriptionUrl" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cboLocalizacionResource1.ItemImage.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cboLocalizacionResource1.LoadingPanelImage.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cboLocalizacionResource1.LoadingPanelImage.DescriptionUrl" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cboLocalizacionResource1.LoadingPanelImage.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cboLocalizacionResource1.LoadingPanelText" xml:space="preserve">
+    <value>Loading&amp;hellip;</value>
+  </data>
+  <data name="cboLocalizacionResource1.TextFormatString" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cboLocalizacionResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cboLocalizacionResource1.ValidationSettings.ErrorText" xml:space="preserve">
+    <value>Invalid value</value>
+  </data>
+  <data name="cboProvinciaResource1.ButtonEditEllipsisImage.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cboProvinciaResource1.ButtonEditEllipsisImage.DescriptionUrl" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cboProvinciaResource1.ButtonEditEllipsisImage.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cboProvinciaResource1.DisplayFormatString" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cboProvinciaResource1.DropDownButton.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cboProvinciaResource1.DropDownButton.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cboProvinciaResource1.ItemImage.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cboProvinciaResource1.ItemImage.DescriptionUrl" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cboProvinciaResource1.ItemImage.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cboProvinciaResource1.LoadingPanelImage.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cboProvinciaResource1.LoadingPanelImage.DescriptionUrl" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cboProvinciaResource1.LoadingPanelImage.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cboProvinciaResource1.LoadingPanelText" xml:space="preserve">
+    <value>Loading&amp;hellip;</value>
+  </data>
+  <data name="cboProvinciaResource1.TextFormatString" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cboProvinciaResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cboProvinciaResource1.ValidationSettings.ErrorText" xml:space="preserve">
+    <value>Invalid value</value>
+  </data>
+  <data name="cboSubDistritosResource1.ButtonEditEllipsisImage.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cboSubDistritosResource1.ButtonEditEllipsisImage.DescriptionUrl" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cboSubDistritosResource1.ButtonEditEllipsisImage.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cboSubDistritosResource1.DisplayFormatString" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cboSubDistritosResource1.DropDownButton.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cboSubDistritosResource1.DropDownButton.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cboSubDistritosResource1.ItemImage.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cboSubDistritosResource1.ItemImage.DescriptionUrl" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cboSubDistritosResource1.ItemImage.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cboSubDistritosResource1.LoadingPanelImage.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cboSubDistritosResource1.LoadingPanelImage.DescriptionUrl" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cboSubDistritosResource1.LoadingPanelImage.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cboSubDistritosResource1.LoadingPanelText" xml:space="preserve">
+    <value>Loading&amp;hellip;</value>
+  </data>
+  <data name="cboSubDistritosResource1.TextFormatString" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cboSubDistritosResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cboSubDistritosResource1.ValidationSettings.ErrorText" xml:space="preserve">
+    <value>Invalid value</value>
+  </data>
+  <data name="cboTipoNroResource1.ButtonEditEllipsisImage.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cboTipoNroResource1.ButtonEditEllipsisImage.DescriptionUrl" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cboTipoNroResource1.ButtonEditEllipsisImage.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cboTipoNroResource1.DisplayFormatString" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cboTipoNroResource1.DropDownButton.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cboTipoNroResource1.DropDownButton.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cboTipoNroResource1.ItemImage.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cboTipoNroResource1.ItemImage.DescriptionUrl" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cboTipoNroResource1.ItemImage.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cboTipoNroResource1.LoadingPanelImage.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cboTipoNroResource1.LoadingPanelImage.DescriptionUrl" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cboTipoNroResource1.LoadingPanelImage.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cboTipoNroResource1.LoadingPanelText" xml:space="preserve">
+    <value>Loading&amp;hellip;</value>
+  </data>
+  <data name="cboTipoNroResource1.TextFormatString" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cboTipoNroResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cboTipoNroResource1.ValidationSettings.ErrorText" xml:space="preserve">
+    <value>Invalid value</value>
+  </data>
+  <data name="cboTipoSubNroResource1.ButtonEditEllipsisImage.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cboTipoSubNroResource1.ButtonEditEllipsisImage.DescriptionUrl" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cboTipoSubNroResource1.ButtonEditEllipsisImage.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cboTipoSubNroResource1.DisplayFormatString" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cboTipoSubNroResource1.DropDownButton.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cboTipoSubNroResource1.DropDownButton.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cboTipoSubNroResource1.ItemImage.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cboTipoSubNroResource1.ItemImage.DescriptionUrl" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cboTipoSubNroResource1.ItemImage.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cboTipoSubNroResource1.LoadingPanelImage.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cboTipoSubNroResource1.LoadingPanelImage.DescriptionUrl" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cboTipoSubNroResource1.LoadingPanelImage.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cboTipoSubNroResource1.LoadingPanelText" xml:space="preserve">
+    <value>Loading&amp;hellip;</value>
+  </data>
+  <data name="cboTipoSubNroResource1.TextFormatString" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cboTipoSubNroResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="cboTipoSubNroResource1.ValidationSettings.ErrorText" xml:space="preserve">
+    <value>Invalid value</value>
+  </data>
+  <data name="dddResource1.Text" xml:space="preserve">
+    <value>Ver Detalle</value>
+  </data>
+  <data name="dddResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="dvInmueblesResource1.EmptyDataText" xml:space="preserve">
+    <value>No Se Encontraron Resultados</value>
+  </data>
+  <data name="dvInmueblesResource1.LoadingPanelImage.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="dvInmueblesResource1.LoadingPanelImage.DescriptionUrl" xml:space="preserve">
+    <value />
+  </data>
+  <data name="dvInmueblesResource1.LoadingPanelImage.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="dvInmueblesResource1.LoadingPanelText" xml:space="preserve">
+    <value>Cargando...</value>
+  </data>
+  <data name="dvInmueblesResource1.PagerSettings.CurrentPageNumberFormat" xml:space="preserve">
+    <value>[{0}]</value>
+  </data>
+  <data name="dvInmueblesResource1.PagerSettings.PageNumberFormat" xml:space="preserve">
+    <value>{0}</value>
+  </data>
+  <data name="dvInmueblesResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="hlBajarManualMargesiResource1.Text" xml:space="preserve">
+    <value>Descargar Manual de Ayuda</value>
+  </data>
+  <data name="hlBajarManualMargesiResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="PageResource1.Title" xml:space="preserve">
+    <value>..:: Consultor de Inmuebles ::..</value>
+  </data>
+  <data name="PanelContent10Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="pcInmuebleResource1.CloseButtonImage.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="pcInmuebleResource1.CloseButtonImage.DescriptionUrl" xml:space="preserve">
+    <value />
+  </data>
+  <data name="pcInmuebleResource1.CloseButtonImage.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="pcInmuebleResource1.ContentUrlIFrameTitle" xml:space="preserve">
+    <value />
+  </data>
+  <data name="pcInmuebleResource1.FooterImage.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="pcInmuebleResource1.FooterImage.DescriptionUrl" xml:space="preserve">
+    <value />
+  </data>
+  <data name="pcInmuebleResource1.FooterImage.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="pcInmuebleResource1.FooterText" xml:space="preserve">
+    <value>Footer</value>
+  </data>
+  <data name="pcInmuebleResource1.HeaderImage.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="pcInmuebleResource1.HeaderImage.DescriptionUrl" xml:space="preserve">
+    <value />
+  </data>
+  <data name="pcInmuebleResource1.HeaderImage.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="pcInmuebleResource1.HeaderText" xml:space="preserve">
+    <value>Inmueble Margesi</value>
+  </data>
+  <data name="pcInmuebleResource1.LoadingPanelImage.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="pcInmuebleResource1.LoadingPanelImage.DescriptionUrl" xml:space="preserve">
+    <value />
+  </data>
+  <data name="pcInmuebleResource1.LoadingPanelImage.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="pcInmuebleResource1.LoadingPanelText" xml:space="preserve">
+    <value>Loading&amp;hellip;</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="pcInmuebleResource1.Modal" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="pcInmuebleResource1.SizeGripImage.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="pcInmuebleResource1.SizeGripImage.DescriptionUrl" xml:space="preserve">
+    <value />
+  </data>
+  <data name="pcInmuebleResource1.SizeGripImage.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="pcInmuebleResource1.SizeGripRtlImage.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="pcInmuebleResource1.SizeGripRtlImage.DescriptionUrl" xml:space="preserve">
+    <value />
+  </data>
+  <data name="pcInmuebleResource1.SizeGripRtlImage.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="pcInmuebleResource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="pcInmuebleResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="SaimtASPxBinaryImage1Resource1.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="SaimtASPxBinaryImage1Resource1.EmptyImage.AlternateText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="SaimtASPxBinaryImage1Resource1.EmptyImage.DescriptionUrl" xml:space="preserve">
+    <value />
+  </data>
+  <data name="SaimtASPxBinaryImage1Resource1.EmptyImage.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="SaimtASPxBinaryImage1Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="SaimtASPxCheckBox11Resource1.CheckedImage.DescriptionUrl" xml:space="preserve">
+    <value />
+  </data>
+  <data name="SaimtASPxCheckBox11Resource1.CheckedImage.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="SaimtASPxCheckBox11Resource1.GrayedImage.DescriptionUrl" xml:space="preserve">
+    <value />
+  </data>
+  <data name="SaimtASPxCheckBox11Resource1.GrayedImage.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="SaimtASPxCheckBox11Resource1.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="SaimtASPxCheckBox11Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="SaimtASPxCheckBox11Resource1.UncheckedImage.DescriptionUrl" xml:space="preserve">
+    <value />
+  </data>
+  <data name="SaimtASPxCheckBox11Resource1.UncheckedImage.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="SaimtASPxCheckBox11Resource1.ValidationSettings.ErrorText" xml:space="preserve">
+    <value>Invalid value</value>
+  </data>
+  <data name="SaimtASPxLabel1Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="SaimtASPxLabel2Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="SaimtASPxLabel3Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="SaimtASPxLabel4Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="SaimtASPxLabel5Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="SaimtASPxLabel6Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="SaimtASPxPanel11Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtBarrioResource1.DisplayFormatString" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtBarrioResource1.NullText" xml:space="preserve">
+    <value />
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="txtBarrioResource1.Text" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="txtBarrioResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtBarrioResource1.ValidationSettings.ErrorText" xml:space="preserve">
+    <value>Invalid value</value>
+  </data>
+  <data name="txtEtapaResource1.DisplayFormatString" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtEtapaResource1.NullText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtEtapaResource1.Text" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="txtEtapaResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtEtapaResource1.ValidationSettings.ErrorText" xml:space="preserve">
+    <value>Invalid value</value>
+  </data>
+  <data name="txtFaseResource1.DisplayFormatString" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtFaseResource1.NullText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtFaseResource1.Text" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="txtFaseResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtFaseResource1.ValidationSettings.ErrorText" xml:space="preserve">
+    <value>Invalid value</value>
+  </data>
+  <data name="txtLocalizacion0Resource1.DisplayFormatString" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtLocalizacion0Resource1.NullText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtLocalizacion0Resource1.Text" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="txtLocalizacion0Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtLocalizacion0Resource1.ValidationSettings.ErrorText" xml:space="preserve">
+    <value>Invalid value</value>
+  </data>
+  <data name="txtLocalizacion1Resource1.DisplayFormatString" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtLocalizacion1Resource1.NullText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtLocalizacion1Resource1.Text" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="txtLocalizacion1Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtLocalizacion1Resource1.ValidationSettings.ErrorText" xml:space="preserve">
+    <value>Invalid value</value>
+  </data>
+  <data name="txtLocalizacion2Resource1.DisplayFormatString" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtLocalizacion2Resource1.NullText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtLocalizacion2Resource1.Text" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="txtLocalizacion2Resource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtLocalizacion2Resource1.ValidationSettings.ErrorText" xml:space="preserve">
+    <value>Invalid value</value>
+  </data>
+  <data name="txtLocalizacionResource1.DisplayFormatString" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtLocalizacionResource1.NullText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtLocalizacionResource1.Text" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="txtLocalizacionResource1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="txtLocalizacionResource1.ValidationSettings.ErrorText" xml:space="preserve">
+    <value>Invalid value</value>
+  </data>
+</root>

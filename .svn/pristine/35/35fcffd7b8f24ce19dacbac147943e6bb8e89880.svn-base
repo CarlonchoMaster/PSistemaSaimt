@@ -1,0 +1,1006 @@
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+Partial Class frmVincular
+    Inherits Presentacion.frmGeneral
+
+    'Form overrides dispose to clean up the component list.
+    <System.Diagnostics.DebuggerNonUserCode()> _
+    Protected Overrides Sub Dispose(ByVal disposing As Boolean)
+        If disposing AndAlso components IsNot Nothing Then
+            components.Dispose()
+        End If
+        MyBase.Dispose(disposing)
+    End Sub
+
+    'Required by the Windows Form Designer
+    Private components As System.ComponentModel.IContainer
+
+    'NOTE: The following procedure is required by the Windows Form Designer
+    'It can be modified using the Windows Form Designer.  
+    'Do not modify it using the code editor.
+    <System.Diagnostics.DebuggerStepThrough()> _
+    Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmVincular))
+        Me.btnVincular = New SaimtControles.SaimtButton()
+        Me.btnDesvincular = New SaimtControles.SaimtButton()
+        Me.SaimtGroupBox1 = New SaimtControles.SaimtGroupBox()
+        Me.lstDocumentos = New SaimtControles.SaimtListBox()
+        Me.txtBuscarPor = New SaimtControles.SaimtTextBox()
+        Me.SaimtLabel4 = New SaimtControles.SaimtLabel()
+        Me.rdbPrincipalVinculado = New SaimtControles.SaimtRadioGroup()
+        Me.grbDocumentoPrincipal = New SaimtControles.SaimtGroupBox()
+        Me.txtAsuntoPrincipal = New SaimtControles.SaimtTextBoxMultiline()
+        Me.SaimtLabel12 = New SaimtControles.SaimtLabel()
+        Me.txtAreaPrincipal = New SaimtControles.SaimtTextBox()
+        Me.SaimtLabel11 = New SaimtControles.SaimtLabel()
+        Me.btnVerDocumentoPrincipal = New SaimtControles.SaimtButton()
+        Me.txtCodigoDocumentoPrincipal = New SaimtControles.SaimtTextBox()
+        Me.SaimtLabel9 = New SaimtControles.SaimtLabel()
+        Me.spnPartePrincipal = New SaimtControles.SaimtSpinner()
+        Me.SaimtLabel1 = New SaimtControles.SaimtLabel()
+        Me.SaimtLabel19 = New SaimtControles.SaimtLabel()
+        Me.txtNroDocumentoPrincipal = New SaimtControles.SaimtTextBox()
+        Me.txtAñoPrincipal = New SaimtControles.SaimtTextBox()
+        Me.txtSiglasPrincipal = New SaimtControles.SaimtTextBox()
+        Me.SaimtLabel22 = New SaimtControles.SaimtLabel()
+        Me.cboInstitucionPrincipal = New SaimtControles.SaimtComboBoxLookUp()
+        Me.SaimtLabel21 = New SaimtControles.SaimtLabel()
+        Me.SaimtLabel20 = New SaimtControles.SaimtLabel()
+        Me.grbDocumentoVinculado = New SaimtControles.SaimtGroupBox()
+        Me.txtAsuntoVinculado = New SaimtControles.SaimtTextBoxMultiline()
+        Me.SaimtLabel13 = New SaimtControles.SaimtLabel()
+        Me.txtAreaVinculado = New SaimtControles.SaimtTextBox()
+        Me.SaimtLabel14 = New SaimtControles.SaimtLabel()
+        Me.btnVerDocumentoVinculado = New SaimtControles.SaimtButton()
+        Me.txtCodigoDocumentoVinculado = New SaimtControles.SaimtTextBox()
+        Me.SaimtLabel10 = New SaimtControles.SaimtLabel()
+        Me.spnParteVinculado = New SaimtControles.SaimtSpinner()
+        Me.SaimtLabel8 = New SaimtControles.SaimtLabel()
+        Me.txtCodigoPadreVinculado = New SaimtControles.SaimtTextBox()
+        Me.SaimtLabel7 = New SaimtControles.SaimtLabel()
+        Me.SaimtLabel2 = New SaimtControles.SaimtLabel()
+        Me.txtNroDocumentoVinculado = New SaimtControles.SaimtTextBox()
+        Me.txtAñoVinculado = New SaimtControles.SaimtTextBox()
+        Me.txtSiglasVinculado = New SaimtControles.SaimtTextBox()
+        Me.SaimtLabel3 = New SaimtControles.SaimtLabel()
+        Me.cboInstitucionVinculado = New SaimtControles.SaimtComboBoxLookUp()
+        Me.SaimtLabel5 = New SaimtControles.SaimtLabel()
+        Me.SaimtLabel6 = New SaimtControles.SaimtLabel()
+        Me.SaimtGroupBox4 = New SaimtControles.SaimtGroupBox()
+        Me.dgvDocumentosVinculados = New SaimtControles.SaimtDataGrid()
+        Me.lvDocumentosVinculados = New DevExpress.XtraGrid.Views.Layout.LayoutView()
+        Me.lvcCodInterno = New DevExpress.XtraGrid.Columns.LayoutViewColumn()
+        Me.layoutViewField_LayoutViewColumn12 = New DevExpress.XtraGrid.Views.Layout.LayoutViewField()
+        Me.LayoutViewColumn8 = New DevExpress.XtraGrid.Columns.LayoutViewColumn()
+        Me.layoutViewField_LayoutViewColumn8 = New DevExpress.XtraGrid.Views.Layout.LayoutViewField()
+        Me.LayoutViewColumn9 = New DevExpress.XtraGrid.Columns.LayoutViewColumn()
+        Me.layoutViewField_LayoutViewColumn9 = New DevExpress.XtraGrid.Views.Layout.LayoutViewField()
+        Me.LayoutViewColumn7 = New DevExpress.XtraGrid.Columns.LayoutViewColumn()
+        Me.layoutViewField_LayoutViewColumn7 = New DevExpress.XtraGrid.Views.Layout.LayoutViewField()
+        Me.LayoutViewColumn2 = New DevExpress.XtraGrid.Columns.LayoutViewColumn()
+        Me.layoutViewField_LayoutViewColumn2 = New DevExpress.XtraGrid.Views.Layout.LayoutViewField()
+        Me.LayoutViewColumn3 = New DevExpress.XtraGrid.Columns.LayoutViewColumn()
+        Me.layoutViewField_LayoutViewColumn3 = New DevExpress.XtraGrid.Views.Layout.LayoutViewField()
+        Me.LayoutViewColumn1 = New DevExpress.XtraGrid.Columns.LayoutViewColumn()
+        Me.layoutViewField_LayoutViewColumn1 = New DevExpress.XtraGrid.Views.Layout.LayoutViewField()
+        Me.LayoutViewColumn10 = New DevExpress.XtraGrid.Columns.LayoutViewColumn()
+        Me.RepositoryItemMemoExEdit3 = New DevExpress.XtraEditors.Repository.RepositoryItemMemoExEdit()
+        Me.layoutViewField_LayoutViewColumn10 = New DevExpress.XtraGrid.Views.Layout.LayoutViewField()
+        Me.LayoutViewColumn11 = New DevExpress.XtraGrid.Columns.LayoutViewColumn()
+        Me.layoutViewField_LayoutViewColumn11 = New DevExpress.XtraGrid.Views.Layout.LayoutViewField()
+        Me.LayoutViewColumn4 = New DevExpress.XtraGrid.Columns.LayoutViewColumn()
+        Me.layoutViewField_LayoutViewColumn4 = New DevExpress.XtraGrid.Views.Layout.LayoutViewField()
+        Me.LayoutViewColumn5 = New DevExpress.XtraGrid.Columns.LayoutViewColumn()
+        Me.layoutViewField_LayoutViewColumn5 = New DevExpress.XtraGrid.Views.Layout.LayoutViewField()
+        Me.LayoutViewColumn6 = New DevExpress.XtraGrid.Columns.LayoutViewColumn()
+        Me.layoutViewField_LayoutViewColumn6 = New DevExpress.XtraGrid.Views.Layout.LayoutViewField()
+        Me.LayoutViewCard1 = New DevExpress.XtraGrid.Views.Layout.LayoutViewCard()
+        Me.RepositoryItemMemoExEdit1 = New DevExpress.XtraEditors.Repository.RepositoryItemMemoExEdit()
+        Me.RepositoryItemMemoExEdit2 = New DevExpress.XtraEditors.Repository.RepositoryItemMemoExEdit()
+        Me.rdbCriterios = New SaimtControles.SaimtRadioGroup()
+        CType(Me.pmconsultorpropagos, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.SaimtGroupBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SaimtGroupBox1.SuspendLayout()
+        CType(Me.lstDocumentos, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtBuscarPor.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.rdbPrincipalVinculado.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.grbDocumentoPrincipal, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.grbDocumentoPrincipal.SuspendLayout()
+        CType(Me.txtAsuntoPrincipal.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtAreaPrincipal.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtCodigoDocumentoPrincipal.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.spnPartePrincipal.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtNroDocumentoPrincipal.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtAñoPrincipal.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtSiglasPrincipal.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.cboInstitucionPrincipal.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.grbDocumentoVinculado, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.grbDocumentoVinculado.SuspendLayout()
+        CType(Me.txtAsuntoVinculado.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtAreaVinculado.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtCodigoDocumentoVinculado.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.spnParteVinculado.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtCodigoPadreVinculado.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtNroDocumentoVinculado.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtAñoVinculado.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtSiglasVinculado.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.cboInstitucionVinculado.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.SaimtGroupBox4, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SaimtGroupBox4.SuspendLayout()
+        CType(Me.dgvDocumentosVinculados, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.lvDocumentosVinculados, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.layoutViewField_LayoutViewColumn12, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.layoutViewField_LayoutViewColumn8, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.layoutViewField_LayoutViewColumn9, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.layoutViewField_LayoutViewColumn7, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.layoutViewField_LayoutViewColumn2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.layoutViewField_LayoutViewColumn3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.layoutViewField_LayoutViewColumn1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.RepositoryItemMemoExEdit3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.layoutViewField_LayoutViewColumn10, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.layoutViewField_LayoutViewColumn11, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.layoutViewField_LayoutViewColumn4, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.layoutViewField_LayoutViewColumn5, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.layoutViewField_LayoutViewColumn6, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutViewCard1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.RepositoryItemMemoExEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.RepositoryItemMemoExEdit2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.rdbCriterios.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SuspendLayout()
+        '
+        'rsbMensajeBarra
+        '
+        Me.rsbMensajeBarra.Location = New System.Drawing.Point(0, 755)
+        Me.rsbMensajeBarra.Size = New System.Drawing.Size(1051, 27)
+        '
+        'btnVincular
+        '
+        Me.btnVincular.Image = CType(resources.GetObject("btnVincular.Image"), System.Drawing.Image)
+        Me.btnVincular.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter
+        Me.btnVincular.Location = New System.Drawing.Point(635, 31)
+        Me.btnVincular.LookAndFeel.SkinName = "Seven"
+        Me.btnVincular.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Style3D
+        Me.btnVincular.Name = "btnVincular"
+        Me.btnVincular.Size = New System.Drawing.Size(65, 64)
+        Me.btnVincular.TabIndex = 3
+        Me.btnVincular.Text = "Limpiar"
+        '
+        'btnDesvincular
+        '
+        Me.btnDesvincular.Image = CType(resources.GetObject("btnDesvincular.Image"), System.Drawing.Image)
+        Me.btnDesvincular.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter
+        Me.btnDesvincular.Location = New System.Drawing.Point(635, 101)
+        Me.btnDesvincular.LookAndFeel.SkinName = "Seven"
+        Me.btnDesvincular.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Style3D
+        Me.btnDesvincular.Name = "btnDesvincular"
+        Me.btnDesvincular.Size = New System.Drawing.Size(65, 64)
+        Me.btnDesvincular.TabIndex = 6
+        Me.btnDesvincular.Text = "Limpiar"
+        '
+        'SaimtGroupBox1
+        '
+        Me.SaimtGroupBox1.Controls.Add(Me.lstDocumentos)
+        Me.SaimtGroupBox1.Location = New System.Drawing.Point(4, 178)
+        Me.SaimtGroupBox1.LookAndFeel.SkinName = "Office 2010 Blue"
+        Me.SaimtGroupBox1.LookAndFeel.UseDefaultLookAndFeel = False
+        Me.SaimtGroupBox1.Name = "SaimtGroupBox1"
+        Me.SaimtGroupBox1.Size = New System.Drawing.Size(294, 573)
+        Me.SaimtGroupBox1.TabIndex = 8
+        Me.SaimtGroupBox1.Text = "Resultados de Busqueda"
+        '
+        'lstDocumentos
+        '
+        Me.lstDocumentos.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.lstDocumentos.HorizontalScrollbar = True
+        Me.lstDocumentos.Location = New System.Drawing.Point(2, 22)
+        Me.lstDocumentos.Name = "lstDocumentos"
+        Me.lstDocumentos.Size = New System.Drawing.Size(290, 549)
+        Me.lstDocumentos.TabIndex = 0
+        '
+        'txtBuscarPor
+        '
+        Me.txtBuscarPor.Location = New System.Drawing.Point(4, 120)
+        Me.txtBuscarPor.Name = "txtBuscarPor"
+        Me.txtBuscarPor.Size = New System.Drawing.Size(294, 20)
+        Me.txtBuscarPor.TabIndex = 2
+        '
+        'SaimtLabel4
+        '
+        Me.SaimtLabel4.Location = New System.Drawing.Point(7, 5)
+        Me.SaimtLabel4.Name = "SaimtLabel4"
+        Me.SaimtLabel4.Size = New System.Drawing.Size(58, 13)
+        Me.SaimtLabel4.TabIndex = 0
+        Me.SaimtLabel4.Text = "Buscar por :"
+        '
+        'rdbPrincipalVinculado
+        '
+        Me.rdbPrincipalVinculado.EditValue = CType(1, Short)
+        Me.rdbPrincipalVinculado.Location = New System.Drawing.Point(4, 145)
+        Me.rdbPrincipalVinculado.MenuManager = Me.RibbonControl
+        Me.rdbPrincipalVinculado.Name = "rdbPrincipalVinculado"
+        Me.rdbPrincipalVinculado.Properties.Appearance.BackColor = System.Drawing.Color.Transparent
+        Me.rdbPrincipalVinculado.Properties.Appearance.Options.UseBackColor = True
+        Me.rdbPrincipalVinculado.Properties.Columns = 2
+        Me.rdbPrincipalVinculado.Properties.Items.AddRange(New DevExpress.XtraEditors.Controls.RadioGroupItem() {New DevExpress.XtraEditors.Controls.RadioGroupItem(CType(1, Short), "Doc. Principal"), New DevExpress.XtraEditors.Controls.RadioGroupItem(CType(2, Short), "Doc. Vinculado")})
+        Me.rdbPrincipalVinculado.Size = New System.Drawing.Size(294, 27)
+        Me.rdbPrincipalVinculado.TabIndex = 4
+        Me.rdbPrincipalVinculado.Tag = "0"
+        '
+        'grbDocumentoPrincipal
+        '
+        Me.grbDocumentoPrincipal.Controls.Add(Me.txtAsuntoPrincipal)
+        Me.grbDocumentoPrincipal.Controls.Add(Me.SaimtLabel12)
+        Me.grbDocumentoPrincipal.Controls.Add(Me.txtAreaPrincipal)
+        Me.grbDocumentoPrincipal.Controls.Add(Me.SaimtLabel11)
+        Me.grbDocumentoPrincipal.Controls.Add(Me.btnVerDocumentoPrincipal)
+        Me.grbDocumentoPrincipal.Controls.Add(Me.txtCodigoDocumentoPrincipal)
+        Me.grbDocumentoPrincipal.Controls.Add(Me.SaimtLabel9)
+        Me.grbDocumentoPrincipal.Controls.Add(Me.spnPartePrincipal)
+        Me.grbDocumentoPrincipal.Controls.Add(Me.SaimtLabel1)
+        Me.grbDocumentoPrincipal.Controls.Add(Me.SaimtLabel19)
+        Me.grbDocumentoPrincipal.Controls.Add(Me.txtNroDocumentoPrincipal)
+        Me.grbDocumentoPrincipal.Controls.Add(Me.txtAñoPrincipal)
+        Me.grbDocumentoPrincipal.Controls.Add(Me.txtSiglasPrincipal)
+        Me.grbDocumentoPrincipal.Controls.Add(Me.SaimtLabel22)
+        Me.grbDocumentoPrincipal.Controls.Add(Me.cboInstitucionPrincipal)
+        Me.grbDocumentoPrincipal.Controls.Add(Me.SaimtLabel21)
+        Me.grbDocumentoPrincipal.Controls.Add(Me.SaimtLabel20)
+        Me.grbDocumentoPrincipal.Location = New System.Drawing.Point(305, 5)
+        Me.grbDocumentoPrincipal.LookAndFeel.SkinName = "Office 2010 Blue"
+        Me.grbDocumentoPrincipal.LookAndFeel.UseDefaultLookAndFeel = False
+        Me.grbDocumentoPrincipal.Name = "grbDocumentoPrincipal"
+        Me.grbDocumentoPrincipal.Size = New System.Drawing.Size(324, 300)
+        Me.grbDocumentoPrincipal.TabIndex = 5
+        Me.grbDocumentoPrincipal.Text = "Doc. Principal"
+        '
+        'txtAsuntoPrincipal
+        '
+        Me.txtAsuntoPrincipal.Location = New System.Drawing.Point(10, 192)
+        Me.txtAsuntoPrincipal.MenuManager = Me.RibbonControl
+        Me.txtAsuntoPrincipal.Name = "txtAsuntoPrincipal"
+        Me.txtAsuntoPrincipal.Size = New System.Drawing.Size(281, 61)
+        Me.txtAsuntoPrincipal.TabIndex = 16
+        '
+        'SaimtLabel12
+        '
+        Me.SaimtLabel12.Location = New System.Drawing.Point(12, 176)
+        Me.SaimtLabel12.Name = "SaimtLabel12"
+        Me.SaimtLabel12.Size = New System.Drawing.Size(34, 13)
+        Me.SaimtLabel12.TabIndex = 15
+        Me.SaimtLabel12.Text = "Asunto"
+        '
+        'txtAreaPrincipal
+        '
+        Me.txtAreaPrincipal.Location = New System.Drawing.Point(10, 154)
+        Me.txtAreaPrincipal.MenuManager = Me.RibbonControl
+        Me.txtAreaPrincipal.Name = "txtAreaPrincipal"
+        Me.txtAreaPrincipal.Size = New System.Drawing.Size(281, 20)
+        Me.txtAreaPrincipal.TabIndex = 14
+        '
+        'SaimtLabel11
+        '
+        Me.SaimtLabel11.Location = New System.Drawing.Point(13, 139)
+        Me.SaimtLabel11.Name = "SaimtLabel11"
+        Me.SaimtLabel11.Size = New System.Drawing.Size(23, 13)
+        Me.SaimtLabel11.TabIndex = 13
+        Me.SaimtLabel11.Text = "Área"
+        '
+        'btnVerDocumentoPrincipal
+        '
+        Me.btnVerDocumentoPrincipal.Image = CType(resources.GetObject("btnVerDocumentoPrincipal.Image"), System.Drawing.Image)
+        Me.btnVerDocumentoPrincipal.Location = New System.Drawing.Point(236, 29)
+        Me.btnVerDocumentoPrincipal.Name = "btnVerDocumentoPrincipal"
+        Me.btnVerDocumentoPrincipal.Size = New System.Drawing.Size(28, 23)
+        Me.btnVerDocumentoPrincipal.TabIndex = 12
+        '
+        'txtCodigoDocumentoPrincipal
+        '
+        Me.txtCodigoDocumentoPrincipal.Location = New System.Drawing.Point(64, 31)
+        Me.txtCodigoDocumentoPrincipal.MenuManager = Me.RibbonControl
+        Me.txtCodigoDocumentoPrincipal.Name = "txtCodigoDocumentoPrincipal"
+        Me.txtCodigoDocumentoPrincipal.Size = New System.Drawing.Size(170, 20)
+        Me.txtCodigoDocumentoPrincipal.TabIndex = 1
+        '
+        'SaimtLabel9
+        '
+        Me.SaimtLabel9.Location = New System.Drawing.Point(10, 34)
+        Me.SaimtLabel9.Name = "SaimtLabel9"
+        Me.SaimtLabel9.Size = New System.Drawing.Size(48, 13)
+        Me.SaimtLabel9.TabIndex = 0
+        Me.SaimtLabel9.Text = "Cod. Doc."
+        '
+        'spnPartePrincipal
+        '
+        Me.spnPartePrincipal.EditValue = New Decimal(New Integer() {0, 0, 0, 0})
+        Me.spnPartePrincipal.Location = New System.Drawing.Point(42, 265)
+        Me.spnPartePrincipal.MenuManager = Me.RibbonControl
+        Me.spnPartePrincipal.Name = "spnPartePrincipal"
+        Me.spnPartePrincipal.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton()})
+        Me.spnPartePrincipal.Properties.Mask.EditMask = "f0"
+        Me.spnPartePrincipal.Size = New System.Drawing.Size(84, 20)
+        Me.spnPartePrincipal.TabIndex = 11
+        '
+        'SaimtLabel1
+        '
+        Me.SaimtLabel1.Location = New System.Drawing.Point(10, 268)
+        Me.SaimtLabel1.Name = "SaimtLabel1"
+        Me.SaimtLabel1.Size = New System.Drawing.Size(26, 13)
+        Me.SaimtLabel1.TabIndex = 10
+        Me.SaimtLabel1.Text = "Parte"
+        '
+        'SaimtLabel19
+        '
+        Me.SaimtLabel19.Location = New System.Drawing.Point(13, 59)
+        Me.SaimtLabel19.Name = "SaimtLabel19"
+        Me.SaimtLabel19.Size = New System.Drawing.Size(37, 13)
+        Me.SaimtLabel19.TabIndex = 2
+        Me.SaimtLabel19.Text = "Nº Doc."
+        '
+        'txtNroDocumentoPrincipal
+        '
+        Me.txtNroDocumentoPrincipal.Location = New System.Drawing.Point(10, 74)
+        Me.txtNroDocumentoPrincipal.Name = "txtNroDocumentoPrincipal"
+        Me.txtNroDocumentoPrincipal.Size = New System.Drawing.Size(55, 20)
+        Me.txtNroDocumentoPrincipal.TabIndex = 5
+        '
+        'txtAñoPrincipal
+        '
+        Me.txtAñoPrincipal.Location = New System.Drawing.Point(71, 74)
+        Me.txtAñoPrincipal.Name = "txtAñoPrincipal"
+        Me.txtAñoPrincipal.Size = New System.Drawing.Size(55, 20)
+        Me.txtAñoPrincipal.TabIndex = 6
+        '
+        'txtSiglasPrincipal
+        '
+        Me.txtSiglasPrincipal.Location = New System.Drawing.Point(132, 74)
+        Me.txtSiglasPrincipal.Name = "txtSiglasPrincipal"
+        Me.txtSiglasPrincipal.Size = New System.Drawing.Size(55, 20)
+        Me.txtSiglasPrincipal.TabIndex = 7
+        '
+        'SaimtLabel22
+        '
+        Me.SaimtLabel22.Location = New System.Drawing.Point(13, 100)
+        Me.SaimtLabel22.Name = "SaimtLabel22"
+        Me.SaimtLabel22.Size = New System.Drawing.Size(50, 13)
+        Me.SaimtLabel22.TabIndex = 8
+        Me.SaimtLabel22.Text = "Institución"
+        '
+        'cboInstitucionPrincipal
+        '
+        Me.cboInstitucionPrincipal.Location = New System.Drawing.Point(10, 115)
+        Me.cboInstitucionPrincipal.MenuManager = Me.RibbonControl
+        Me.cboInstitucionPrincipal.Name = "cboInstitucionPrincipal"
+        Me.cboInstitucionPrincipal.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.cboInstitucionPrincipal.Properties.NullText = ""
+        Me.cboInstitucionPrincipal.Size = New System.Drawing.Size(281, 20)
+        Me.cboInstitucionPrincipal.TabIndex = 9
+        '
+        'SaimtLabel21
+        '
+        Me.SaimtLabel21.Location = New System.Drawing.Point(135, 59)
+        Me.SaimtLabel21.Name = "SaimtLabel21"
+        Me.SaimtLabel21.Size = New System.Drawing.Size(27, 13)
+        Me.SaimtLabel21.TabIndex = 4
+        Me.SaimtLabel21.Text = "Siglas"
+        '
+        'SaimtLabel20
+        '
+        Me.SaimtLabel20.Location = New System.Drawing.Point(75, 59)
+        Me.SaimtLabel20.Name = "SaimtLabel20"
+        Me.SaimtLabel20.Size = New System.Drawing.Size(19, 13)
+        Me.SaimtLabel20.TabIndex = 3
+        Me.SaimtLabel20.Text = "Año"
+        '
+        'grbDocumentoVinculado
+        '
+        Me.grbDocumentoVinculado.Controls.Add(Me.txtAsuntoVinculado)
+        Me.grbDocumentoVinculado.Controls.Add(Me.SaimtLabel13)
+        Me.grbDocumentoVinculado.Controls.Add(Me.txtAreaVinculado)
+        Me.grbDocumentoVinculado.Controls.Add(Me.SaimtLabel14)
+        Me.grbDocumentoVinculado.Controls.Add(Me.btnVerDocumentoVinculado)
+        Me.grbDocumentoVinculado.Controls.Add(Me.txtCodigoDocumentoVinculado)
+        Me.grbDocumentoVinculado.Controls.Add(Me.SaimtLabel10)
+        Me.grbDocumentoVinculado.Controls.Add(Me.spnParteVinculado)
+        Me.grbDocumentoVinculado.Controls.Add(Me.SaimtLabel8)
+        Me.grbDocumentoVinculado.Controls.Add(Me.txtCodigoPadreVinculado)
+        Me.grbDocumentoVinculado.Controls.Add(Me.SaimtLabel7)
+        Me.grbDocumentoVinculado.Controls.Add(Me.SaimtLabel2)
+        Me.grbDocumentoVinculado.Controls.Add(Me.txtNroDocumentoVinculado)
+        Me.grbDocumentoVinculado.Controls.Add(Me.txtAñoVinculado)
+        Me.grbDocumentoVinculado.Controls.Add(Me.txtSiglasVinculado)
+        Me.grbDocumentoVinculado.Controls.Add(Me.SaimtLabel3)
+        Me.grbDocumentoVinculado.Controls.Add(Me.cboInstitucionVinculado)
+        Me.grbDocumentoVinculado.Controls.Add(Me.SaimtLabel5)
+        Me.grbDocumentoVinculado.Controls.Add(Me.SaimtLabel6)
+        Me.grbDocumentoVinculado.Location = New System.Drawing.Point(706, 5)
+        Me.grbDocumentoVinculado.LookAndFeel.SkinName = "Office 2010 Blue"
+        Me.grbDocumentoVinculado.LookAndFeel.UseDefaultLookAndFeel = False
+        Me.grbDocumentoVinculado.Name = "grbDocumentoVinculado"
+        Me.grbDocumentoVinculado.Size = New System.Drawing.Size(324, 300)
+        Me.grbDocumentoVinculado.TabIndex = 7
+        Me.grbDocumentoVinculado.Text = "Doc. Vinculado"
+        '
+        'txtAsuntoVinculado
+        '
+        Me.txtAsuntoVinculado.Location = New System.Drawing.Point(8, 180)
+        Me.txtAsuntoVinculado.MenuManager = Me.RibbonControl
+        Me.txtAsuntoVinculado.Name = "txtAsuntoVinculado"
+        Me.txtAsuntoVinculado.Size = New System.Drawing.Size(284, 55)
+        Me.txtAsuntoVinculado.TabIndex = 20
+        '
+        'SaimtLabel13
+        '
+        Me.SaimtLabel13.Location = New System.Drawing.Point(13, 164)
+        Me.SaimtLabel13.Name = "SaimtLabel13"
+        Me.SaimtLabel13.Size = New System.Drawing.Size(34, 13)
+        Me.SaimtLabel13.TabIndex = 19
+        Me.SaimtLabel13.Text = "Asunto"
+        '
+        'txtAreaVinculado
+        '
+        Me.txtAreaVinculado.Location = New System.Drawing.Point(11, 142)
+        Me.txtAreaVinculado.MenuManager = Me.RibbonControl
+        Me.txtAreaVinculado.Name = "txtAreaVinculado"
+        Me.txtAreaVinculado.Size = New System.Drawing.Size(281, 20)
+        Me.txtAreaVinculado.TabIndex = 18
+        '
+        'SaimtLabel14
+        '
+        Me.SaimtLabel14.Location = New System.Drawing.Point(14, 127)
+        Me.SaimtLabel14.Name = "SaimtLabel14"
+        Me.SaimtLabel14.Size = New System.Drawing.Size(23, 13)
+        Me.SaimtLabel14.TabIndex = 17
+        Me.SaimtLabel14.Text = "Área"
+        '
+        'btnVerDocumentoVinculado
+        '
+        Me.btnVerDocumentoVinculado.Image = CType(resources.GetObject("btnVerDocumentoVinculado.Image"), System.Drawing.Image)
+        Me.btnVerDocumentoVinculado.Location = New System.Drawing.Point(232, 26)
+        Me.btnVerDocumentoVinculado.Name = "btnVerDocumentoVinculado"
+        Me.btnVerDocumentoVinculado.Size = New System.Drawing.Size(28, 23)
+        Me.btnVerDocumentoVinculado.TabIndex = 13
+        '
+        'txtCodigoDocumentoVinculado
+        '
+        Me.txtCodigoDocumentoVinculado.Location = New System.Drawing.Point(65, 28)
+        Me.txtCodigoDocumentoVinculado.MenuManager = Me.RibbonControl
+        Me.txtCodigoDocumentoVinculado.Name = "txtCodigoDocumentoVinculado"
+        Me.txtCodigoDocumentoVinculado.Size = New System.Drawing.Size(165, 20)
+        Me.txtCodigoDocumentoVinculado.TabIndex = 1
+        '
+        'SaimtLabel10
+        '
+        Me.SaimtLabel10.Location = New System.Drawing.Point(11, 31)
+        Me.SaimtLabel10.Name = "SaimtLabel10"
+        Me.SaimtLabel10.Size = New System.Drawing.Size(48, 13)
+        Me.SaimtLabel10.TabIndex = 0
+        Me.SaimtLabel10.Text = "Cod. Doc."
+        '
+        'spnParteVinculado
+        '
+        Me.spnParteVinculado.EditValue = New Decimal(New Integer() {0, 0, 0, 0})
+        Me.spnParteVinculado.Location = New System.Drawing.Point(40, 276)
+        Me.spnParteVinculado.MenuManager = Me.RibbonControl
+        Me.spnParteVinculado.Name = "spnParteVinculado"
+        Me.spnParteVinculado.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton()})
+        Me.spnParteVinculado.Properties.Mask.EditMask = "f0"
+        Me.spnParteVinculado.Size = New System.Drawing.Size(84, 20)
+        Me.spnParteVinculado.TabIndex = 13
+        '
+        'SaimtLabel8
+        '
+        Me.SaimtLabel8.Location = New System.Drawing.Point(11, 279)
+        Me.SaimtLabel8.Name = "SaimtLabel8"
+        Me.SaimtLabel8.Size = New System.Drawing.Size(26, 13)
+        Me.SaimtLabel8.TabIndex = 12
+        Me.SaimtLabel8.Text = "Parte"
+        '
+        'txtCodigoPadreVinculado
+        '
+        Me.txtCodigoPadreVinculado.Location = New System.Drawing.Point(8, 252)
+        Me.txtCodigoPadreVinculado.MenuManager = Me.RibbonControl
+        Me.txtCodigoPadreVinculado.Name = "txtCodigoPadreVinculado"
+        Me.txtCodigoPadreVinculado.Size = New System.Drawing.Size(281, 20)
+        Me.txtCodigoPadreVinculado.TabIndex = 11
+        '
+        'SaimtLabel7
+        '
+        Me.SaimtLabel7.Location = New System.Drawing.Point(11, 237)
+        Me.SaimtLabel7.Name = "SaimtLabel7"
+        Me.SaimtLabel7.Size = New System.Drawing.Size(54, 13)
+        Me.SaimtLabel7.TabIndex = 10
+        Me.SaimtLabel7.Text = "Cod. Padre"
+        '
+        'SaimtLabel2
+        '
+        Me.SaimtLabel2.Location = New System.Drawing.Point(11, 51)
+        Me.SaimtLabel2.Name = "SaimtLabel2"
+        Me.SaimtLabel2.Size = New System.Drawing.Size(37, 13)
+        Me.SaimtLabel2.TabIndex = 2
+        Me.SaimtLabel2.Text = "Nº Doc."
+        '
+        'txtNroDocumentoVinculado
+        '
+        Me.txtNroDocumentoVinculado.Location = New System.Drawing.Point(8, 66)
+        Me.txtNroDocumentoVinculado.Name = "txtNroDocumentoVinculado"
+        Me.txtNroDocumentoVinculado.Size = New System.Drawing.Size(55, 20)
+        Me.txtNroDocumentoVinculado.TabIndex = 5
+        '
+        'txtAñoVinculado
+        '
+        Me.txtAñoVinculado.Location = New System.Drawing.Point(69, 66)
+        Me.txtAñoVinculado.Name = "txtAñoVinculado"
+        Me.txtAñoVinculado.Size = New System.Drawing.Size(55, 20)
+        Me.txtAñoVinculado.TabIndex = 6
+        '
+        'txtSiglasVinculado
+        '
+        Me.txtSiglasVinculado.Location = New System.Drawing.Point(130, 66)
+        Me.txtSiglasVinculado.Name = "txtSiglasVinculado"
+        Me.txtSiglasVinculado.Size = New System.Drawing.Size(55, 20)
+        Me.txtSiglasVinculado.TabIndex = 7
+        '
+        'SaimtLabel3
+        '
+        Me.SaimtLabel3.Location = New System.Drawing.Point(11, 89)
+        Me.SaimtLabel3.Name = "SaimtLabel3"
+        Me.SaimtLabel3.Size = New System.Drawing.Size(50, 13)
+        Me.SaimtLabel3.TabIndex = 8
+        Me.SaimtLabel3.Text = "Institución"
+        '
+        'cboInstitucionVinculado
+        '
+        Me.cboInstitucionVinculado.Location = New System.Drawing.Point(8, 104)
+        Me.cboInstitucionVinculado.MenuManager = Me.RibbonControl
+        Me.cboInstitucionVinculado.Name = "cboInstitucionVinculado"
+        Me.cboInstitucionVinculado.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.cboInstitucionVinculado.Properties.NullText = ""
+        Me.cboInstitucionVinculado.Size = New System.Drawing.Size(281, 20)
+        Me.cboInstitucionVinculado.TabIndex = 9
+        '
+        'SaimtLabel5
+        '
+        Me.SaimtLabel5.Location = New System.Drawing.Point(133, 51)
+        Me.SaimtLabel5.Name = "SaimtLabel5"
+        Me.SaimtLabel5.Size = New System.Drawing.Size(27, 13)
+        Me.SaimtLabel5.TabIndex = 4
+        Me.SaimtLabel5.Text = "Siglas"
+        '
+        'SaimtLabel6
+        '
+        Me.SaimtLabel6.Location = New System.Drawing.Point(73, 51)
+        Me.SaimtLabel6.Name = "SaimtLabel6"
+        Me.SaimtLabel6.Size = New System.Drawing.Size(19, 13)
+        Me.SaimtLabel6.TabIndex = 3
+        Me.SaimtLabel6.Text = "Año"
+        '
+        'SaimtGroupBox4
+        '
+        Me.SaimtGroupBox4.Controls.Add(Me.dgvDocumentosVinculados)
+        Me.SaimtGroupBox4.Location = New System.Drawing.Point(302, 311)
+        Me.SaimtGroupBox4.Name = "SaimtGroupBox4"
+        Me.SaimtGroupBox4.Size = New System.Drawing.Size(739, 439)
+        Me.SaimtGroupBox4.TabIndex = 9
+        Me.SaimtGroupBox4.Text = "Documentos Vinculados al Doc. Principal"
+        '
+        'dgvDocumentosVinculados
+        '
+        Me.dgvDocumentosVinculados.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.dgvDocumentosVinculados.Location = New System.Drawing.Point(2, 22)
+        Me.dgvDocumentosVinculados.LookAndFeel.SkinName = "Office 2010 Blue"
+        Me.dgvDocumentosVinculados.LookAndFeel.UseDefaultLookAndFeel = False
+        Me.dgvDocumentosVinculados.MainView = Me.lvDocumentosVinculados
+        Me.dgvDocumentosVinculados.MenuManager = Me.RibbonControl
+        Me.dgvDocumentosVinculados.Name = "dgvDocumentosVinculados"
+        Me.dgvDocumentosVinculados.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemMemoExEdit1, Me.RepositoryItemMemoExEdit2, Me.RepositoryItemMemoExEdit3})
+        Me.dgvDocumentosVinculados.Size = New System.Drawing.Size(735, 415)
+        Me.dgvDocumentosVinculados.TabIndex = 0
+        Me.dgvDocumentosVinculados.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.lvDocumentosVinculados})
+        '
+        'lvDocumentosVinculados
+        '
+        Me.lvDocumentosVinculados.CardMinSize = New System.Drawing.Size(322, 182)
+        Me.lvDocumentosVinculados.Columns.AddRange(New DevExpress.XtraGrid.Columns.LayoutViewColumn() {Me.lvcCodInterno, Me.LayoutViewColumn8, Me.LayoutViewColumn9, Me.LayoutViewColumn7, Me.LayoutViewColumn2, Me.LayoutViewColumn3, Me.LayoutViewColumn1, Me.LayoutViewColumn10, Me.LayoutViewColumn11, Me.LayoutViewColumn4, Me.LayoutViewColumn5, Me.LayoutViewColumn6})
+        Me.lvDocumentosVinculados.GridControl = Me.dgvDocumentosVinculados
+        Me.lvDocumentosVinculados.HiddenItems.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.layoutViewField_LayoutViewColumn7, Me.layoutViewField_LayoutViewColumn8, Me.layoutViewField_LayoutViewColumn9, Me.layoutViewField_LayoutViewColumn2, Me.layoutViewField_LayoutViewColumn3, Me.layoutViewField_LayoutViewColumn1})
+        Me.lvDocumentosVinculados.Name = "lvDocumentosVinculados"
+        Me.lvDocumentosVinculados.OptionsBehavior.ReadOnly = True
+        Me.lvDocumentosVinculados.OptionsView.ViewMode = DevExpress.XtraGrid.Views.Layout.LayoutViewMode.MultiColumn
+        Me.lvDocumentosVinculados.TemplateCard = Me.LayoutViewCard1
+        '
+        'lvcCodInterno
+        '
+        Me.lvcCodInterno.Caption = "Cod. Interno"
+        Me.lvcCodInterno.FieldName = "docId"
+        Me.lvcCodInterno.LayoutViewField = Me.layoutViewField_LayoutViewColumn12
+        Me.lvcCodInterno.Name = "lvcCodInterno"
+        '
+        'layoutViewField_LayoutViewColumn12
+        '
+        Me.layoutViewField_LayoutViewColumn12.EditorPreferredWidth = 217
+        Me.layoutViewField_LayoutViewColumn12.Location = New System.Drawing.Point(0, 0)
+        Me.layoutViewField_LayoutViewColumn12.Name = "layoutViewField_LayoutViewColumn12"
+        Me.layoutViewField_LayoutViewColumn12.Size = New System.Drawing.Size(326, 20)
+        Me.layoutViewField_LayoutViewColumn12.TextSize = New System.Drawing.Size(76, 13)
+        Me.layoutViewField_LayoutViewColumn12.TextToControlDistance = 5
+        '
+        'LayoutViewColumn8
+        '
+        Me.LayoutViewColumn8.Caption = "DocVinId"
+        Me.LayoutViewColumn8.FieldName = "docVinId"
+        Me.LayoutViewColumn8.LayoutViewField = Me.layoutViewField_LayoutViewColumn8
+        Me.LayoutViewColumn8.Name = "LayoutViewColumn8"
+        '
+        'layoutViewField_LayoutViewColumn8
+        '
+        Me.layoutViewField_LayoutViewColumn8.EditorPreferredWidth = 10
+        Me.layoutViewField_LayoutViewColumn8.Location = New System.Drawing.Point(0, 0)
+        Me.layoutViewField_LayoutViewColumn8.Name = "layoutViewField_LayoutViewColumn8"
+        Me.layoutViewField_LayoutViewColumn8.Size = New System.Drawing.Size(302, 160)
+        Me.layoutViewField_LayoutViewColumn8.TextSize = New System.Drawing.Size(54, 13)
+        Me.layoutViewField_LayoutViewColumn8.TextToControlDistance = 5
+        '
+        'LayoutViewColumn9
+        '
+        Me.LayoutViewColumn9.Caption = "DocNParte"
+        Me.LayoutViewColumn9.FieldName = "docNParte"
+        Me.LayoutViewColumn9.LayoutViewField = Me.layoutViewField_LayoutViewColumn9
+        Me.LayoutViewColumn9.Name = "LayoutViewColumn9"
+        '
+        'layoutViewField_LayoutViewColumn9
+        '
+        Me.layoutViewField_LayoutViewColumn9.EditorPreferredWidth = 10
+        Me.layoutViewField_LayoutViewColumn9.Location = New System.Drawing.Point(0, 0)
+        Me.layoutViewField_LayoutViewColumn9.Name = "layoutViewField_LayoutViewColumn9"
+        Me.layoutViewField_LayoutViewColumn9.Size = New System.Drawing.Size(302, 160)
+        Me.layoutViewField_LayoutViewColumn9.TextSize = New System.Drawing.Size(64, 20)
+        Me.layoutViewField_LayoutViewColumn9.TextToControlDistance = 5
+        '
+        'LayoutViewColumn7
+        '
+        Me.LayoutViewColumn7.Caption = "InstitucionId"
+        Me.LayoutViewColumn7.FieldName = "institucionId"
+        Me.LayoutViewColumn7.LayoutViewField = Me.layoutViewField_LayoutViewColumn7
+        Me.LayoutViewColumn7.Name = "LayoutViewColumn7"
+        '
+        'layoutViewField_LayoutViewColumn7
+        '
+        Me.layoutViewField_LayoutViewColumn7.EditorPreferredWidth = 10
+        Me.layoutViewField_LayoutViewColumn7.Location = New System.Drawing.Point(0, 0)
+        Me.layoutViewField_LayoutViewColumn7.Name = "layoutViewField_LayoutViewColumn7"
+        Me.layoutViewField_LayoutViewColumn7.Size = New System.Drawing.Size(302, 160)
+        Me.layoutViewField_LayoutViewColumn7.TextSize = New System.Drawing.Size(54, 20)
+        Me.layoutViewField_LayoutViewColumn7.TextToControlDistance = 5
+        '
+        'LayoutViewColumn2
+        '
+        Me.LayoutViewColumn2.Caption = "Año"
+        Me.LayoutViewColumn2.FieldName = "año"
+        Me.LayoutViewColumn2.LayoutViewField = Me.layoutViewField_LayoutViewColumn2
+        Me.LayoutViewColumn2.Name = "LayoutViewColumn2"
+        '
+        'layoutViewField_LayoutViewColumn2
+        '
+        Me.layoutViewField_LayoutViewColumn2.EditorPreferredWidth = 10
+        Me.layoutViewField_LayoutViewColumn2.Location = New System.Drawing.Point(0, 120)
+        Me.layoutViewField_LayoutViewColumn2.Name = "layoutViewField_LayoutViewColumn2"
+        Me.layoutViewField_LayoutViewColumn2.Size = New System.Drawing.Size(326, 20)
+        Me.layoutViewField_LayoutViewColumn2.TextSize = New System.Drawing.Size(76, 20)
+        Me.layoutViewField_LayoutViewColumn2.TextToControlDistance = 5
+        '
+        'LayoutViewColumn3
+        '
+        Me.LayoutViewColumn3.Caption = "Siglas"
+        Me.LayoutViewColumn3.FieldName = "siglas"
+        Me.LayoutViewColumn3.LayoutViewField = Me.layoutViewField_LayoutViewColumn3
+        Me.LayoutViewColumn3.Name = "LayoutViewColumn3"
+        '
+        'layoutViewField_LayoutViewColumn3
+        '
+        Me.layoutViewField_LayoutViewColumn3.EditorPreferredWidth = 10
+        Me.layoutViewField_LayoutViewColumn3.Location = New System.Drawing.Point(0, 120)
+        Me.layoutViewField_LayoutViewColumn3.Name = "layoutViewField_LayoutViewColumn3"
+        Me.layoutViewField_LayoutViewColumn3.Size = New System.Drawing.Size(326, 20)
+        Me.layoutViewField_LayoutViewColumn3.TextSize = New System.Drawing.Size(76, 20)
+        Me.layoutViewField_LayoutViewColumn3.TextToControlDistance = 5
+        '
+        'LayoutViewColumn1
+        '
+        Me.LayoutViewColumn1.Caption = "N° Doc"
+        Me.LayoutViewColumn1.FieldName = "nroDocumento"
+        Me.LayoutViewColumn1.LayoutViewField = Me.layoutViewField_LayoutViewColumn1
+        Me.LayoutViewColumn1.Name = "LayoutViewColumn1"
+        '
+        'layoutViewField_LayoutViewColumn1
+        '
+        Me.layoutViewField_LayoutViewColumn1.EditorPreferredWidth = 217
+        Me.layoutViewField_LayoutViewColumn1.Location = New System.Drawing.Point(0, 20)
+        Me.layoutViewField_LayoutViewColumn1.Name = "layoutViewField_LayoutViewColumn1"
+        Me.layoutViewField_LayoutViewColumn1.Size = New System.Drawing.Size(326, 20)
+        Me.layoutViewField_LayoutViewColumn1.TextSize = New System.Drawing.Size(76, 13)
+        Me.layoutViewField_LayoutViewColumn1.TextToControlDistance = 5
+        '
+        'LayoutViewColumn10
+        '
+        Me.LayoutViewColumn10.Caption = "Asunto"
+        Me.LayoutViewColumn10.ColumnEdit = Me.RepositoryItemMemoExEdit3
+        Me.LayoutViewColumn10.FieldName = "asunto"
+        Me.LayoutViewColumn10.LayoutViewField = Me.layoutViewField_LayoutViewColumn10
+        Me.LayoutViewColumn10.Name = "LayoutViewColumn10"
+        '
+        'RepositoryItemMemoExEdit3
+        '
+        Me.RepositoryItemMemoExEdit3.AutoHeight = False
+        Me.RepositoryItemMemoExEdit3.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.RepositoryItemMemoExEdit3.Name = "RepositoryItemMemoExEdit3"
+        Me.RepositoryItemMemoExEdit3.ShowIcon = False
+        '
+        'layoutViewField_LayoutViewColumn10
+        '
+        Me.layoutViewField_LayoutViewColumn10.EditorPreferredWidth = 217
+        Me.layoutViewField_LayoutViewColumn10.Location = New System.Drawing.Point(0, 20)
+        Me.layoutViewField_LayoutViewColumn10.Name = "layoutViewField_LayoutViewColumn10"
+        Me.layoutViewField_LayoutViewColumn10.Size = New System.Drawing.Size(326, 20)
+        Me.layoutViewField_LayoutViewColumn10.TextSize = New System.Drawing.Size(76, 13)
+        Me.layoutViewField_LayoutViewColumn10.TextToControlDistance = 5
+        '
+        'LayoutViewColumn11
+        '
+        Me.LayoutViewColumn11.Caption = "Fecha Registro"
+        Me.LayoutViewColumn11.FieldName = "fechaRegistro"
+        Me.LayoutViewColumn11.LayoutViewField = Me.layoutViewField_LayoutViewColumn11
+        Me.LayoutViewColumn11.Name = "LayoutViewColumn11"
+        '
+        'layoutViewField_LayoutViewColumn11
+        '
+        Me.layoutViewField_LayoutViewColumn11.EditorPreferredWidth = 217
+        Me.layoutViewField_LayoutViewColumn11.Location = New System.Drawing.Point(0, 40)
+        Me.layoutViewField_LayoutViewColumn11.Name = "layoutViewField_LayoutViewColumn11"
+        Me.layoutViewField_LayoutViewColumn11.Size = New System.Drawing.Size(326, 20)
+        Me.layoutViewField_LayoutViewColumn11.TextSize = New System.Drawing.Size(76, 13)
+        Me.layoutViewField_LayoutViewColumn11.TextToControlDistance = 5
+        '
+        'LayoutViewColumn4
+        '
+        Me.LayoutViewColumn4.Caption = "N° Registro"
+        Me.LayoutViewColumn4.FieldName = "nroRegistro"
+        Me.LayoutViewColumn4.LayoutViewField = Me.layoutViewField_LayoutViewColumn4
+        Me.LayoutViewColumn4.Name = "LayoutViewColumn4"
+        '
+        'layoutViewField_LayoutViewColumn4
+        '
+        Me.layoutViewField_LayoutViewColumn4.EditorPreferredWidth = 10
+        Me.layoutViewField_LayoutViewColumn4.Location = New System.Drawing.Point(0, 60)
+        Me.layoutViewField_LayoutViewColumn4.Name = "layoutViewField_LayoutViewColumn4"
+        Me.layoutViewField_LayoutViewColumn4.Size = New System.Drawing.Size(326, 20)
+        Me.layoutViewField_LayoutViewColumn4.TextSize = New System.Drawing.Size(76, 13)
+        Me.layoutViewField_LayoutViewColumn4.TextToControlDistance = 5
+        '
+        'LayoutViewColumn5
+        '
+        Me.LayoutViewColumn5.Caption = "Institución"
+        Me.LayoutViewColumn5.FieldName = "institucion"
+        Me.LayoutViewColumn5.LayoutViewField = Me.layoutViewField_LayoutViewColumn5
+        Me.LayoutViewColumn5.Name = "LayoutViewColumn5"
+        '
+        'layoutViewField_LayoutViewColumn5
+        '
+        Me.layoutViewField_LayoutViewColumn5.EditorPreferredWidth = 10
+        Me.layoutViewField_LayoutViewColumn5.Location = New System.Drawing.Point(0, 80)
+        Me.layoutViewField_LayoutViewColumn5.Name = "layoutViewField_LayoutViewColumn5"
+        Me.layoutViewField_LayoutViewColumn5.Size = New System.Drawing.Size(326, 20)
+        Me.layoutViewField_LayoutViewColumn5.TextSize = New System.Drawing.Size(76, 13)
+        Me.layoutViewField_LayoutViewColumn5.TextToControlDistance = 5
+        '
+        'LayoutViewColumn6
+        '
+        Me.LayoutViewColumn6.Caption = "Área"
+        Me.LayoutViewColumn6.FieldName = "area"
+        Me.LayoutViewColumn6.LayoutViewField = Me.layoutViewField_LayoutViewColumn6
+        Me.LayoutViewColumn6.Name = "LayoutViewColumn6"
+        '
+        'layoutViewField_LayoutViewColumn6
+        '
+        Me.layoutViewField_LayoutViewColumn6.EditorPreferredWidth = 10
+        Me.layoutViewField_LayoutViewColumn6.Location = New System.Drawing.Point(0, 100)
+        Me.layoutViewField_LayoutViewColumn6.Name = "layoutViewField_LayoutViewColumn6"
+        Me.layoutViewField_LayoutViewColumn6.Size = New System.Drawing.Size(326, 20)
+        Me.layoutViewField_LayoutViewColumn6.TextSize = New System.Drawing.Size(76, 13)
+        Me.layoutViewField_LayoutViewColumn6.TextToControlDistance = 5
+        '
+        'LayoutViewCard1
+        '
+        Me.LayoutViewCard1.CustomizationFormText = "TemplateCard"
+        Me.LayoutViewCard1.ExpandButtonLocation = DevExpress.Utils.GroupElementLocation.AfterText
+        Me.LayoutViewCard1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.layoutViewField_LayoutViewColumn10, Me.layoutViewField_LayoutViewColumn11, Me.layoutViewField_LayoutViewColumn12, Me.layoutViewField_LayoutViewColumn4, Me.layoutViewField_LayoutViewColumn5, Me.layoutViewField_LayoutViewColumn6})
+        Me.LayoutViewCard1.Name = "LayoutViewCard1"
+        Me.LayoutViewCard1.OptionsItemText.TextToControlDistance = 5
+        Me.LayoutViewCard1.Text = "TemplateCard"
+        '
+        'RepositoryItemMemoExEdit1
+        '
+        Me.RepositoryItemMemoExEdit1.AutoHeight = False
+        Me.RepositoryItemMemoExEdit1.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.RepositoryItemMemoExEdit1.Name = "RepositoryItemMemoExEdit1"
+        Me.RepositoryItemMemoExEdit1.ShowIcon = False
+        '
+        'RepositoryItemMemoExEdit2
+        '
+        Me.RepositoryItemMemoExEdit2.AutoHeight = False
+        Me.RepositoryItemMemoExEdit2.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.RepositoryItemMemoExEdit2.Name = "RepositoryItemMemoExEdit2"
+        Me.RepositoryItemMemoExEdit2.ShowIcon = False
+        '
+        'rdbCriterios
+        '
+        Me.rdbCriterios.EditValue = CType(1, Short)
+        Me.rdbCriterios.Location = New System.Drawing.Point(4, 25)
+        Me.rdbCriterios.Name = "rdbCriterios"
+        Me.rdbCriterios.Properties.Appearance.BackColor = System.Drawing.Color.Transparent
+        Me.rdbCriterios.Properties.Appearance.Options.UseBackColor = True
+        Me.rdbCriterios.Properties.Columns = 3
+        Me.rdbCriterios.Properties.Items.AddRange(New DevExpress.XtraEditors.Controls.RadioGroupItem() {New DevExpress.XtraEditors.Controls.RadioGroupItem(CType(1, Short), "N° Registro"), New DevExpress.XtraEditors.Controls.RadioGroupItem(CType(2, Short), "Asunto"), New DevExpress.XtraEditors.Controls.RadioGroupItem(CType(3, Short), "Asunto TUPA"), New DevExpress.XtraEditors.Controls.RadioGroupItem(CType(4, Short), "Fec. Ingreso"), New DevExpress.XtraEditors.Controls.RadioGroupItem(CType(5, Short), "Siglas Dep."), New DevExpress.XtraEditors.Controls.RadioGroupItem(CType(6, Short), "Cod. Int."), New DevExpress.XtraEditors.Controls.RadioGroupItem("7", "Internos"), New DevExpress.XtraEditors.Controls.RadioGroupItem("8", "Externos"), New DevExpress.XtraEditors.Controls.RadioGroupItem(CType(9, Short), "Expediente MPT"), New DevExpress.XtraEditors.Controls.RadioGroupItem(CType(10, Short), "Documento"), New DevExpress.XtraEditors.Controls.RadioGroupItem(CType(11, Short), "Expediente SAIMT")})
+        Me.rdbCriterios.Size = New System.Drawing.Size(294, 89)
+        Me.rdbCriterios.TabIndex = 10
+        '
+        'frmVincular
+        '
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.ClientSize = New System.Drawing.Size(1051, 782)
+        Me.Controls.Add(Me.rdbCriterios)
+        Me.Controls.Add(Me.SaimtGroupBox4)
+        Me.Controls.Add(Me.grbDocumentoVinculado)
+        Me.Controls.Add(Me.grbDocumentoPrincipal)
+        Me.Controls.Add(Me.rdbPrincipalVinculado)
+        Me.Controls.Add(Me.SaimtGroupBox1)
+        Me.Controls.Add(Me.txtBuscarPor)
+        Me.Controls.Add(Me.SaimtLabel4)
+        Me.Controls.Add(Me.btnDesvincular)
+        Me.Controls.Add(Me.btnVincular)
+        Me.LookAndFeel.SkinName = "Seven"
+        Me.Name = "frmVincular"
+        Me.Tag = "btiVincularDesvincularDocumento"
+        Me.Text = "VINCULAR O DESVINCULAR DOCUMENTO"
+        Me.Controls.SetChildIndex(Me.rsbMensajeBarra, 0)
+        Me.Controls.SetChildIndex(Me.btnVincular, 0)
+        Me.Controls.SetChildIndex(Me.btnDesvincular, 0)
+        Me.Controls.SetChildIndex(Me.SaimtLabel4, 0)
+        Me.Controls.SetChildIndex(Me.txtBuscarPor, 0)
+        Me.Controls.SetChildIndex(Me.SaimtGroupBox1, 0)
+        Me.Controls.SetChildIndex(Me.rdbPrincipalVinculado, 0)
+        Me.Controls.SetChildIndex(Me.grbDocumentoPrincipal, 0)
+        Me.Controls.SetChildIndex(Me.grbDocumentoVinculado, 0)
+        Me.Controls.SetChildIndex(Me.SaimtGroupBox4, 0)
+        Me.Controls.SetChildIndex(Me.rdbCriterios, 0)
+        CType(Me.pmconsultorpropagos, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.SaimtGroupBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.SaimtGroupBox1.ResumeLayout(False)
+        CType(Me.lstDocumentos, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtBuscarPor.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.rdbPrincipalVinculado.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.grbDocumentoPrincipal, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.grbDocumentoPrincipal.ResumeLayout(False)
+        Me.grbDocumentoPrincipal.PerformLayout()
+        CType(Me.txtAsuntoPrincipal.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtAreaPrincipal.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtCodigoDocumentoPrincipal.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.spnPartePrincipal.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtNroDocumentoPrincipal.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtAñoPrincipal.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtSiglasPrincipal.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.cboInstitucionPrincipal.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.grbDocumentoVinculado, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.grbDocumentoVinculado.ResumeLayout(False)
+        Me.grbDocumentoVinculado.PerformLayout()
+        CType(Me.txtAsuntoVinculado.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtAreaVinculado.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtCodigoDocumentoVinculado.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.spnParteVinculado.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtCodigoPadreVinculado.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtNroDocumentoVinculado.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtAñoVinculado.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtSiglasVinculado.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.cboInstitucionVinculado.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.SaimtGroupBox4, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.SaimtGroupBox4.ResumeLayout(False)
+        CType(Me.dgvDocumentosVinculados, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.lvDocumentosVinculados, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.layoutViewField_LayoutViewColumn12, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.layoutViewField_LayoutViewColumn8, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.layoutViewField_LayoutViewColumn9, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.layoutViewField_LayoutViewColumn7, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.layoutViewField_LayoutViewColumn2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.layoutViewField_LayoutViewColumn3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.layoutViewField_LayoutViewColumn1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.RepositoryItemMemoExEdit3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.layoutViewField_LayoutViewColumn10, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.layoutViewField_LayoutViewColumn11, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.layoutViewField_LayoutViewColumn4, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.layoutViewField_LayoutViewColumn5, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.layoutViewField_LayoutViewColumn6, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutViewCard1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.RepositoryItemMemoExEdit1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.RepositoryItemMemoExEdit2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.rdbCriterios.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ResumeLayout(False)
+        Me.PerformLayout()
+
+    End Sub
+    Friend WithEvents btnVincular As SaimtControles.SaimtButton
+    Friend WithEvents btnDesvincular As SaimtControles.SaimtButton
+    Friend WithEvents SaimtGroupBox1 As SaimtControles.SaimtGroupBox
+    Friend WithEvents lstDocumentos As SaimtControles.SaimtListBox
+    Friend WithEvents txtBuscarPor As SaimtControles.SaimtTextBox
+    Friend WithEvents SaimtLabel4 As SaimtControles.SaimtLabel
+    Friend WithEvents rdbPrincipalVinculado As SaimtControles.SaimtRadioGroup
+    Friend WithEvents grbDocumentoPrincipal As SaimtControles.SaimtGroupBox
+    Friend WithEvents grbDocumentoVinculado As SaimtControles.SaimtGroupBox
+    Friend WithEvents SaimtLabel19 As SaimtControles.SaimtLabel
+    Friend WithEvents txtNroDocumentoPrincipal As SaimtControles.SaimtTextBox
+    Friend WithEvents txtAñoPrincipal As SaimtControles.SaimtTextBox
+    Friend WithEvents txtSiglasPrincipal As SaimtControles.SaimtTextBox
+    Friend WithEvents SaimtLabel22 As SaimtControles.SaimtLabel
+    Friend WithEvents cboInstitucionPrincipal As SaimtControles.SaimtComboBoxLookUp
+    Friend WithEvents SaimtLabel21 As SaimtControles.SaimtLabel
+    Friend WithEvents SaimtLabel20 As SaimtControles.SaimtLabel
+    Friend WithEvents txtCodigoPadreVinculado As SaimtControles.SaimtTextBox
+    Friend WithEvents SaimtLabel7 As SaimtControles.SaimtLabel
+    Friend WithEvents SaimtLabel2 As SaimtControles.SaimtLabel
+    Friend WithEvents txtNroDocumentoVinculado As SaimtControles.SaimtTextBox
+    Friend WithEvents txtAñoVinculado As SaimtControles.SaimtTextBox
+    Friend WithEvents txtSiglasVinculado As SaimtControles.SaimtTextBox
+    Friend WithEvents SaimtLabel3 As SaimtControles.SaimtLabel
+    Friend WithEvents cboInstitucionVinculado As SaimtControles.SaimtComboBoxLookUp
+    Friend WithEvents SaimtLabel5 As SaimtControles.SaimtLabel
+    Friend WithEvents SaimtLabel6 As SaimtControles.SaimtLabel
+    Friend WithEvents spnPartePrincipal As SaimtControles.SaimtSpinner
+    Friend WithEvents SaimtLabel1 As SaimtControles.SaimtLabel
+    Friend WithEvents spnParteVinculado As SaimtControles.SaimtSpinner
+    Friend WithEvents SaimtLabel8 As SaimtControles.SaimtLabel
+    Friend WithEvents SaimtGroupBox4 As SaimtControles.SaimtGroupBox
+    Friend WithEvents dgvDocumentosVinculados As SaimtControles.SaimtDataGrid
+    Friend WithEvents lvDocumentosVinculados As DevExpress.XtraGrid.Views.Layout.LayoutView
+    Friend WithEvents LayoutViewColumn1 As DevExpress.XtraGrid.Columns.LayoutViewColumn
+    Friend WithEvents txtCodigoDocumentoPrincipal As SaimtControles.SaimtTextBox
+    Friend WithEvents SaimtLabel9 As SaimtControles.SaimtLabel
+    Friend WithEvents txtCodigoDocumentoVinculado As SaimtControles.SaimtTextBox
+    Friend WithEvents SaimtLabel10 As SaimtControles.SaimtLabel
+    Friend WithEvents LayoutViewColumn7 As DevExpress.XtraGrid.Columns.LayoutViewColumn
+    Friend WithEvents LayoutViewColumn8 As DevExpress.XtraGrid.Columns.LayoutViewColumn
+    Friend WithEvents LayoutViewColumn9 As DevExpress.XtraGrid.Columns.LayoutViewColumn
+    Friend WithEvents RepositoryItemMemoExEdit1 As DevExpress.XtraEditors.Repository.RepositoryItemMemoExEdit
+    Friend WithEvents RepositoryItemMemoExEdit2 As DevExpress.XtraEditors.Repository.RepositoryItemMemoExEdit
+    Friend WithEvents LayoutViewColumn10 As DevExpress.XtraGrid.Columns.LayoutViewColumn
+    Friend WithEvents RepositoryItemMemoExEdit3 As DevExpress.XtraEditors.Repository.RepositoryItemMemoExEdit
+    Friend WithEvents LayoutViewColumn11 As DevExpress.XtraGrid.Columns.LayoutViewColumn
+    Friend WithEvents layoutViewField_LayoutViewColumn8 As DevExpress.XtraGrid.Views.Layout.LayoutViewField
+    Friend WithEvents layoutViewField_LayoutViewColumn9 As DevExpress.XtraGrid.Views.Layout.LayoutViewField
+    Friend WithEvents layoutViewField_LayoutViewColumn7 As DevExpress.XtraGrid.Views.Layout.LayoutViewField
+    Friend WithEvents layoutViewField_LayoutViewColumn1 As DevExpress.XtraGrid.Views.Layout.LayoutViewField
+    Friend WithEvents layoutViewField_LayoutViewColumn10 As DevExpress.XtraGrid.Views.Layout.LayoutViewField
+    Friend WithEvents layoutViewField_LayoutViewColumn11 As DevExpress.XtraGrid.Views.Layout.LayoutViewField
+    Friend WithEvents lvcCodInterno As DevExpress.XtraGrid.Columns.LayoutViewColumn
+    Friend WithEvents layoutViewField_LayoutViewColumn12 As DevExpress.XtraGrid.Views.Layout.LayoutViewField
+    Friend WithEvents LayoutViewCard1 As DevExpress.XtraGrid.Views.Layout.LayoutViewCard
+    Friend WithEvents LayoutViewColumn2 As DevExpress.XtraGrid.Columns.LayoutViewColumn
+    Friend WithEvents layoutViewField_LayoutViewColumn2 As DevExpress.XtraGrid.Views.Layout.LayoutViewField
+    Friend WithEvents LayoutViewColumn3 As DevExpress.XtraGrid.Columns.LayoutViewColumn
+    Friend WithEvents layoutViewField_LayoutViewColumn3 As DevExpress.XtraGrid.Views.Layout.LayoutViewField
+    Friend WithEvents LayoutViewColumn4 As DevExpress.XtraGrid.Columns.LayoutViewColumn
+    Friend WithEvents layoutViewField_LayoutViewColumn4 As DevExpress.XtraGrid.Views.Layout.LayoutViewField
+    Friend WithEvents LayoutViewColumn5 As DevExpress.XtraGrid.Columns.LayoutViewColumn
+    Friend WithEvents layoutViewField_LayoutViewColumn5 As DevExpress.XtraGrid.Views.Layout.LayoutViewField
+    Friend WithEvents LayoutViewColumn6 As DevExpress.XtraGrid.Columns.LayoutViewColumn
+    Friend WithEvents layoutViewField_LayoutViewColumn6 As DevExpress.XtraGrid.Views.Layout.LayoutViewField
+    Friend WithEvents btnVerDocumentoPrincipal As SaimtControles.SaimtButton
+    Friend WithEvents btnVerDocumentoVinculado As SaimtControles.SaimtButton
+    Friend WithEvents rdbCriterios As SaimtControles.SaimtRadioGroup
+    Friend WithEvents txtAsuntoPrincipal As SaimtControles.SaimtTextBoxMultiline
+    Friend WithEvents SaimtLabel12 As SaimtControles.SaimtLabel
+    Friend WithEvents txtAreaPrincipal As SaimtControles.SaimtTextBox
+    Friend WithEvents SaimtLabel11 As SaimtControles.SaimtLabel
+    Friend WithEvents txtAsuntoVinculado As SaimtControles.SaimtTextBoxMultiline
+    Friend WithEvents SaimtLabel13 As SaimtControles.SaimtLabel
+    Friend WithEvents txtAreaVinculado As SaimtControles.SaimtTextBox
+    Friend WithEvents SaimtLabel14 As SaimtControles.SaimtLabel
+End Class

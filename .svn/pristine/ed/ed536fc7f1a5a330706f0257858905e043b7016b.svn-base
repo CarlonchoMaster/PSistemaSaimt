@@ -1,0 +1,249 @@
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+Partial Class frmRptDecoin
+    Inherits frmGeneral
+
+    'Form overrides dispose to clean up the component list.
+    <System.Diagnostics.DebuggerNonUserCode()> _
+    Protected Overrides Sub Dispose(ByVal disposing As Boolean)
+        If disposing AndAlso components IsNot Nothing Then
+            components.Dispose()
+        End If
+        MyBase.Dispose(disposing)
+    End Sub
+
+    'Required by the Windows Form Designer
+    Private components As System.ComponentModel.IContainer
+
+    'NOTE: The following procedure is required by the Windows Form Designer
+    'It can be modified using the Windows Form Designer.  
+    'Do not modify it using the code editor.
+    <System.Diagnostics.DebuggerStepThrough()> _
+    Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmRptDecoin))
+        Me.SaimtGroupBox1 = New SaimtControles.SaimtGroupBox()
+        Me.chlbaños = New SaimtControles.SaimtCheckedListBoxControl()
+        Me.SaimtGroupBox2 = New SaimtControles.SaimtGroupBox()
+        Me.chlbmes = New SaimtControles.SaimtCheckedListBoxControl()
+        Me.SaimtGroupBox3 = New SaimtControles.SaimtGroupBox()
+        Me.chlbreportes = New SaimtControles.SaimtCheckedListBoxControl()
+        Me.btnexportarrep = New SaimtControles.SaimtButton()
+        Me.beiprogreso = New DevExpress.XtraBars.BarEditItem()
+        Me.riprogreso = New DevExpress.XtraEditors.Repository.RepositoryItemProgressBar()
+        Me.SaimtGroupBox4 = New SaimtControles.SaimtGroupBox()
+        Me.dtpfechaFin = New SaimtControles.SaimtDateTimePicker()
+        Me.SaimtLabel2 = New SaimtControles.SaimtLabel()
+        Me.dtpfechaInicio = New SaimtControles.SaimtDateTimePicker()
+        Me.SaimtLabel1 = New SaimtControles.SaimtLabel()
+        Me.fbdExportar = New System.Windows.Forms.FolderBrowserDialog()
+        CType(Me.pmconsultorpropagos, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.SaimtGroupBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SaimtGroupBox1.SuspendLayout()
+        CType(Me.chlbaños, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.SaimtGroupBox2, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SaimtGroupBox2.SuspendLayout()
+        CType(Me.chlbmes, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.SaimtGroupBox3, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SaimtGroupBox3.SuspendLayout()
+        CType(Me.chlbreportes, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.riprogreso, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.SaimtGroupBox4, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SaimtGroupBox4.SuspendLayout()
+        CType(Me.dtpfechaFin.Properties.VistaTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dtpfechaFin.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dtpfechaInicio.Properties.VistaTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dtpfechaInicio.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SuspendLayout()
+        '
+        'rsbMensajeBarra
+        '
+        Me.rsbMensajeBarra.ItemLinks.Add(Me.beiprogreso)
+        Me.rsbMensajeBarra.Location = New System.Drawing.Point(0, 584)
+        Me.rsbMensajeBarra.Size = New System.Drawing.Size(971, 27)
+        '
+        'SaimtGroupBox1
+        '
+        Me.SaimtGroupBox1.Controls.Add(Me.chlbaños)
+        Me.SaimtGroupBox1.Location = New System.Drawing.Point(4, 4)
+        Me.SaimtGroupBox1.LookAndFeel.SkinName = "Office 2010 Blue"
+        Me.SaimtGroupBox1.LookAndFeel.UseDefaultLookAndFeel = False
+        Me.SaimtGroupBox1.Name = "SaimtGroupBox1"
+        Me.SaimtGroupBox1.Size = New System.Drawing.Size(225, 186)
+        Me.SaimtGroupBox1.TabIndex = 2
+        Me.SaimtGroupBox1.Text = "Años"
+        '
+        'chlbaños
+        '
+        Me.chlbaños.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.chlbaños.Location = New System.Drawing.Point(2, 22)
+        Me.chlbaños.Name = "chlbaños"
+        Me.chlbaños.Size = New System.Drawing.Size(221, 162)
+        Me.chlbaños.TabIndex = 3
+        '
+        'SaimtGroupBox2
+        '
+        Me.SaimtGroupBox2.Controls.Add(Me.chlbmes)
+        Me.SaimtGroupBox2.Location = New System.Drawing.Point(4, 191)
+        Me.SaimtGroupBox2.LookAndFeel.SkinName = "Office 2010 Blue"
+        Me.SaimtGroupBox2.LookAndFeel.UseDefaultLookAndFeel = False
+        Me.SaimtGroupBox2.Name = "SaimtGroupBox2"
+        Me.SaimtGroupBox2.Size = New System.Drawing.Size(223, 251)
+        Me.SaimtGroupBox2.TabIndex = 3
+        Me.SaimtGroupBox2.Text = "Meses"
+        '
+        'chlbmes
+        '
+        Me.chlbmes.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.chlbmes.Items.AddRange(New DevExpress.XtraEditors.Controls.CheckedListBoxItem() {New DevExpress.XtraEditors.Controls.CheckedListBoxItem(CType(1, Short), "Enero"), New DevExpress.XtraEditors.Controls.CheckedListBoxItem(CType(2, Short), "Febrero"), New DevExpress.XtraEditors.Controls.CheckedListBoxItem(CType(3, Short), "Marzo"), New DevExpress.XtraEditors.Controls.CheckedListBoxItem(CType(4, Short), "Abril"), New DevExpress.XtraEditors.Controls.CheckedListBoxItem(CType(5, Short), "Mayo"), New DevExpress.XtraEditors.Controls.CheckedListBoxItem(CType(6, Short), "Junio"), New DevExpress.XtraEditors.Controls.CheckedListBoxItem(CType(7, Short), "Julio"), New DevExpress.XtraEditors.Controls.CheckedListBoxItem(CType(8, Short), "Agosto"), New DevExpress.XtraEditors.Controls.CheckedListBoxItem(CType(9, Short), "Septiembre"), New DevExpress.XtraEditors.Controls.CheckedListBoxItem(CType(10, Short), "Octubre"), New DevExpress.XtraEditors.Controls.CheckedListBoxItem(CType(11, Short), "Noviembre"), New DevExpress.XtraEditors.Controls.CheckedListBoxItem(CType(12, Short), "Diciembre")})
+        Me.chlbmes.Location = New System.Drawing.Point(2, 22)
+        Me.chlbmes.Name = "chlbmes"
+        Me.chlbmes.Size = New System.Drawing.Size(219, 227)
+        Me.chlbmes.TabIndex = 4
+        '
+        'SaimtGroupBox3
+        '
+        Me.SaimtGroupBox3.Controls.Add(Me.chlbreportes)
+        Me.SaimtGroupBox3.Location = New System.Drawing.Point(235, 4)
+        Me.SaimtGroupBox3.Name = "SaimtGroupBox3"
+        Me.SaimtGroupBox3.Size = New System.Drawing.Size(716, 529)
+        Me.SaimtGroupBox3.TabIndex = 4
+        Me.SaimtGroupBox3.Text = "Reportes"
+        '
+        'chlbreportes
+        '
+        Me.chlbreportes.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.chlbreportes.Items.AddRange(New DevExpress.XtraEditors.Controls.CheckedListBoxItem() {New DevExpress.XtraEditors.Controls.CheckedListBoxItem(Nothing, "Reporte de Deudores por Arrendatario"), New DevExpress.XtraEditors.Controls.CheckedListBoxItem(Nothing, "Reporte de Proyección e Ingresos por fecha de Venc. y Pago"), New DevExpress.XtraEditors.Controls.CheckedListBoxItem(Nothing, "Reporte del Total de Contratos por año"), New DevExpress.XtraEditors.Controls.CheckedListBoxItem(Nothing, "Reporte de Ingresos Diarios TTSC, PEM y Fincas"), New DevExpress.XtraEditors.Controls.CheckedListBoxItem(Nothing, "Notificaciones para Deudores"), New DevExpress.XtraEditors.Controls.CheckedListBoxItem(Nothing, "Notificaciones para deudores con requisitos de renovación"), New DevExpress.XtraEditors.Controls.CheckedListBoxItem(Nothing, "Notificaciones para renovación"), New DevExpress.XtraEditors.Controls.CheckedListBoxItem("Reporte de Control de Ingresos Diarios"), New DevExpress.XtraEditors.Controls.CheckedListBoxItem(Nothing, "Reporte de Deudores para Infocorp"), New DevExpress.XtraEditors.Controls.CheckedListBoxItem(Nothing, "Reporte de la diferencia de contratos entre año anterior")})
+        Me.chlbreportes.Location = New System.Drawing.Point(2, 22)
+        Me.chlbreportes.Name = "chlbreportes"
+        Me.chlbreportes.Size = New System.Drawing.Size(712, 505)
+        Me.chlbreportes.TabIndex = 0
+        '
+        'btnexportarrep
+        '
+        Me.btnexportarrep.Image = CType(resources.GetObject("btnexportarrep.Image"), System.Drawing.Image)
+        Me.btnexportarrep.Location = New System.Drawing.Point(416, 537)
+        Me.btnexportarrep.Name = "btnexportarrep"
+        Me.btnexportarrep.Size = New System.Drawing.Size(126, 42)
+        Me.btnexportarrep.TabIndex = 5
+        Me.btnexportarrep.Text = "Exportar a Excel"
+        '
+        'beiprogreso
+        '
+        Me.beiprogreso.Caption = "BarEditItem1"
+        Me.beiprogreso.Edit = Me.riprogreso
+        Me.beiprogreso.Id = 2
+        Me.beiprogreso.Name = "beiprogreso"
+        Me.beiprogreso.Visibility = DevExpress.XtraBars.BarItemVisibility.Never
+        Me.beiprogreso.Width = 110
+        '
+        'riprogreso
+        '
+        Me.riprogreso.Name = "riprogreso"
+        '
+        'SaimtGroupBox4
+        '
+        Me.SaimtGroupBox4.Controls.Add(Me.dtpfechaFin)
+        Me.SaimtGroupBox4.Controls.Add(Me.SaimtLabel2)
+        Me.SaimtGroupBox4.Controls.Add(Me.dtpfechaInicio)
+        Me.SaimtGroupBox4.Controls.Add(Me.SaimtLabel1)
+        Me.SaimtGroupBox4.Location = New System.Drawing.Point(6, 444)
+        Me.SaimtGroupBox4.LookAndFeel.SkinName = "Office 2010 Blue"
+        Me.SaimtGroupBox4.LookAndFeel.UseDefaultLookAndFeel = False
+        Me.SaimtGroupBox4.Name = "SaimtGroupBox4"
+        Me.SaimtGroupBox4.Size = New System.Drawing.Size(221, 89)
+        Me.SaimtGroupBox4.TabIndex = 6
+        Me.SaimtGroupBox4.Text = "Fechas"
+        '
+        'dtpfechaFin
+        '
+        Me.dtpfechaFin.EditValue = Nothing
+        Me.dtpfechaFin.Location = New System.Drawing.Point(68, 57)
+        Me.dtpfechaFin.MenuManager = Me.RibbonControl
+        Me.dtpfechaFin.Name = "dtpfechaFin"
+        Me.dtpfechaFin.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.dtpfechaFin.Properties.VistaTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton()})
+        Me.dtpfechaFin.Size = New System.Drawing.Size(148, 20)
+        Me.dtpfechaFin.TabIndex = 9
+        '
+        'SaimtLabel2
+        '
+        Me.SaimtLabel2.Location = New System.Drawing.Point(16, 60)
+        Me.SaimtLabel2.Name = "SaimtLabel2"
+        Me.SaimtLabel2.Size = New System.Drawing.Size(46, 13)
+        Me.SaimtLabel2.TabIndex = 8
+        Me.SaimtLabel2.Text = "Fecha Fin"
+        '
+        'dtpfechaInicio
+        '
+        Me.dtpfechaInicio.EditValue = Nothing
+        Me.dtpfechaInicio.Location = New System.Drawing.Point(68, 31)
+        Me.dtpfechaInicio.MenuManager = Me.RibbonControl
+        Me.dtpfechaInicio.Name = "dtpfechaInicio"
+        Me.dtpfechaInicio.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.dtpfechaInicio.Properties.VistaTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton()})
+        Me.dtpfechaInicio.Size = New System.Drawing.Size(148, 20)
+        Me.dtpfechaInicio.TabIndex = 7
+        '
+        'SaimtLabel1
+        '
+        Me.SaimtLabel1.Location = New System.Drawing.Point(5, 33)
+        Me.SaimtLabel1.Name = "SaimtLabel1"
+        Me.SaimtLabel1.Size = New System.Drawing.Size(57, 13)
+        Me.SaimtLabel1.TabIndex = 7
+        Me.SaimtLabel1.Text = "Fecha Inicio"
+        '
+        'frmRptDecoin
+        '
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.ClientSize = New System.Drawing.Size(971, 611)
+        Me.Controls.Add(Me.SaimtGroupBox1)
+        Me.Controls.Add(Me.SaimtGroupBox4)
+        Me.Controls.Add(Me.SaimtGroupBox3)
+        Me.Controls.Add(Me.SaimtGroupBox2)
+        Me.Controls.Add(Me.btnexportarrep)
+        Me.LookAndFeel.SkinName = "Seven"
+        Me.Name = "frmRptDecoin"
+        Me.Text = "REPORTES DECOIN"
+        Me.Controls.SetChildIndex(Me.btnexportarrep, 0)
+        Me.Controls.SetChildIndex(Me.SaimtGroupBox2, 0)
+        Me.Controls.SetChildIndex(Me.SaimtGroupBox3, 0)
+        Me.Controls.SetChildIndex(Me.SaimtGroupBox4, 0)
+        Me.Controls.SetChildIndex(Me.SaimtGroupBox1, 0)
+        Me.Controls.SetChildIndex(Me.rsbMensajeBarra, 0)
+        CType(Me.pmconsultorpropagos, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.SaimtGroupBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.SaimtGroupBox1.ResumeLayout(False)
+        CType(Me.chlbaños, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.SaimtGroupBox2, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.SaimtGroupBox2.ResumeLayout(False)
+        CType(Me.chlbmes, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.SaimtGroupBox3, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.SaimtGroupBox3.ResumeLayout(False)
+        CType(Me.chlbreportes, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.riprogreso, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.SaimtGroupBox4, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.SaimtGroupBox4.ResumeLayout(False)
+        Me.SaimtGroupBox4.PerformLayout()
+        CType(Me.dtpfechaFin.Properties.VistaTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dtpfechaFin.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dtpfechaInicio.Properties.VistaTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dtpfechaInicio.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ResumeLayout(False)
+
+    End Sub
+    Friend WithEvents SaimtGroupBox1 As SaimtControles.SaimtGroupBox
+    Friend WithEvents chlbaños As SaimtControles.SaimtCheckedListBoxControl
+    Friend WithEvents SaimtGroupBox2 As SaimtControles.SaimtGroupBox
+    Friend WithEvents chlbmes As SaimtControles.SaimtCheckedListBoxControl
+    Friend WithEvents SaimtGroupBox3 As SaimtControles.SaimtGroupBox
+    Friend WithEvents chlbreportes As SaimtControles.SaimtCheckedListBoxControl
+    Friend WithEvents btnexportarrep As SaimtControles.SaimtButton
+    Friend WithEvents beiprogreso As DevExpress.XtraBars.BarEditItem
+    Friend WithEvents riprogreso As DevExpress.XtraEditors.Repository.RepositoryItemProgressBar
+    Friend WithEvents SaimtGroupBox4 As SaimtControles.SaimtGroupBox
+    Friend WithEvents dtpfechaFin As SaimtControles.SaimtDateTimePicker
+    Friend WithEvents SaimtLabel2 As SaimtControles.SaimtLabel
+    Friend WithEvents dtpfechaInicio As SaimtControles.SaimtDateTimePicker
+    Friend WithEvents SaimtLabel1 As SaimtControles.SaimtLabel
+    Friend WithEvents fbdExportar As System.Windows.Forms.FolderBrowserDialog
+End Class

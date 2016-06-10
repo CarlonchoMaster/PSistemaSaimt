@@ -1,0 +1,104 @@
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+Partial Class frmSplash
+    Inherits System.Windows.Forms.Form
+
+    'Form reemplaza a Dispose para limpiar la lista de componentes.
+    <System.Diagnostics.DebuggerNonUserCode()> _
+    Protected Overrides Sub Dispose(ByVal disposing As Boolean)
+        Try
+            If disposing AndAlso components IsNot Nothing Then
+                components.Dispose()
+            End If
+        Finally
+            MyBase.Dispose(disposing)
+        End Try
+    End Sub
+
+    'Requerido por el Diseñador de Windows Forms
+    Private components As System.ComponentModel.IContainer
+
+    'NOTA: el Diseñador de Windows Forms necesita el siguiente procedimiento
+    'Se puede modificar usando el Diseñador de Windows Forms.  
+    'No lo modifique con el editor de código.
+    <System.Diagnostics.DebuggerStepThrough()> _
+    Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmSplash))
+        Me.AxShockwaveFlash1 = New AxShockwaveFlashObjects.AxShockwaveFlash()
+        Me.SaimtLabel1 = New SaimtControles.SaimtLabel()
+        Me.SaimtPictureBox2 = New SaimtControles.SaimtPictureBox()
+        Me.SaimtPictureBox1 = New SaimtControles.SaimtPictureBox()
+        CType(Me.AxShockwaveFlash1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.SaimtPictureBox2.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.SaimtPictureBox1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SuspendLayout()
+        '
+        'AxShockwaveFlash1
+        '
+        Me.AxShockwaveFlash1.Enabled = True
+        Me.AxShockwaveFlash1.Location = New System.Drawing.Point(13, 13)
+        Me.AxShockwaveFlash1.Name = "AxShockwaveFlash1"
+        Me.AxShockwaveFlash1.OcxState = CType(resources.GetObject("AxShockwaveFlash1.OcxState"), System.Windows.Forms.AxHost.State)
+        Me.AxShockwaveFlash1.Size = New System.Drawing.Size(434, 353)
+        Me.AxShockwaveFlash1.TabIndex = 1
+        '
+        'SaimtLabel1
+        '
+        Me.SaimtLabel1.Appearance.BackColor = System.Drawing.Color.White
+        Me.SaimtLabel1.Appearance.BackColor2 = System.Drawing.Color.Transparent
+        Me.SaimtLabel1.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold)
+        Me.SaimtLabel1.Location = New System.Drawing.Point(348, 373)
+        Me.SaimtLabel1.Name = "SaimtLabel1"
+        Me.SaimtLabel1.Size = New System.Drawing.Size(54, 13)
+        Me.SaimtLabel1.TabIndex = 3
+        Me.SaimtLabel1.Text = "Cargando"
+        '
+        'SaimtPictureBox2
+        '
+        Me.SaimtPictureBox2.EditValue = Global.Presentacion.My.Resources.Resources.loading
+        Me.SaimtPictureBox2.Location = New System.Drawing.Point(407, 370)
+        Me.SaimtPictureBox2.Name = "SaimtPictureBox2"
+        Me.SaimtPictureBox2.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
+        Me.SaimtPictureBox2.Properties.NullText = "Sin Imagen"
+        Me.SaimtPictureBox2.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch
+        Me.SaimtPictureBox2.Size = New System.Drawing.Size(40, 20)
+        Me.SaimtPictureBox2.TabIndex = 2
+        '
+        'SaimtPictureBox1
+        '
+        Me.SaimtPictureBox1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.SaimtPictureBox1.EditValue = Global.Presentacion.My.Resources.Resources.SAIMT
+        Me.SaimtPictureBox1.Location = New System.Drawing.Point(0, 0)
+        Me.SaimtPictureBox1.Name = "SaimtPictureBox1"
+        Me.SaimtPictureBox1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple
+        Me.SaimtPictureBox1.Properties.NullText = "Sin Imagen"
+        Me.SaimtPictureBox1.Size = New System.Drawing.Size(460, 395)
+        Me.SaimtPictureBox1.TabIndex = 0
+        '
+        'frmSplash
+        '
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.ClientSize = New System.Drawing.Size(460, 395)
+        Me.ControlBox = False
+        Me.Controls.Add(Me.SaimtLabel1)
+        Me.Controls.Add(Me.SaimtPictureBox2)
+        Me.Controls.Add(Me.AxShockwaveFlash1)
+        Me.Controls.Add(Me.SaimtPictureBox1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.Name = "frmSplash"
+        Me.ShowInTaskbar = False
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.Text = "frmSplash"
+        CType(Me.AxShockwaveFlash1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.SaimtPictureBox2.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.SaimtPictureBox1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ResumeLayout(False)
+        Me.PerformLayout()
+
+    End Sub
+    Friend WithEvents SaimtPictureBox1 As SaimtControles.SaimtPictureBox
+    Friend WithEvents AxShockwaveFlash1 As AxShockwaveFlashObjects.AxShockwaveFlash
+    Friend WithEvents SaimtPictureBox2 As SaimtControles.SaimtPictureBox
+    Friend WithEvents SaimtLabel1 As SaimtControles.SaimtLabel
+End Class

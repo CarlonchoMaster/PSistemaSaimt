@@ -1,0 +1,180 @@
+﻿Imports Microsoft.Practices.EnterpriseLibrary.Data
+Imports System.Data.Common
+Imports System.Data
+Imports Entidades
+
+Public Class ProcedimientosDAS
+
+    Public Shared Function NewCodigo(ByVal subProcId As String) As String
+        Dim codigo As String = String.Empty
+        Try
+            Dim db As Database = DatabaseFactory.CreateDatabase()
+            Dim cmd As DbCommand = db.GetStoredProcCommand("Mostrar_Procedimientos_NewCodigo")
+
+            db.AddInParameter(cmd, "SubProcId", DbType.String, subProcId)
+            codigo = db.ExecuteScalar(cmd)
+        Catch ex As Exception
+            Throw New Exception("Nuevo Codigo Procedimientos => " + ex.Message, ex)
+        End Try
+        Return codigo
+    End Function
+
+    Public Shared Function ListarXSubProcId(ByVal SubProcId As [String]) As List(Of EEProcedimientos)
+        Dim ListaProcedimientos As List(Of EEProcedimientos) = Nothing
+        Dim loProcedimientos As EEProcedimientos = Nothing
+        Dim dr As IDataReader = Nothing
+        Try
+            Dim db As Database = DatabaseFactory.CreateDatabase()
+            Dim cmd As DbCommand = db.GetStoredProcCommand("Listar_Procedimientos_xSubProcId_pa")
+            db.AddInParameter(cmd, "SubProcId", DbType.String, SubProcId)
+
+            dr = db.ExecuteReader(cmd)
+            While dr.Read()
+                If ListaProcedimientos Is Nothing Then
+                    ListaProcedimientos = New List(Of EEProcedimientos)()
+                End If
+                loProcedimientos = New EEProcedimientos()
+                loProcedimientos.ProcdId = dr("procdId").ToString()
+                loProcedimientos.ProcdNombre = dr("procdNombre").ToString()
+                loProcedimientos.ProcdDescripcion = dr("procdDescripcion").ToString()
+                loProcedimientos.ProcdMaxDia = Convert.ToInt32(dr("procdMaxDia").ToString())
+                loProcedimientos.TgArea = dr("TgArea").ToString()
+                loProcedimientos.TgAreaId = dr("TgAreaId").ToString()
+                loProcedimientos.ProcdActivo = Convert.ToBoolean(dr("procdActivo").ToString())
+                loProcedimientos.TgCargo = dr("TgCargo").ToString()
+                loProcedimientos.TgCargoId = dr("TgCargoId").ToString()
+                loProcedimientos.ProcId = dr("procId").ToString()
+                loProcedimientos.ProcNombre = dr("procNombre").ToString()
+                loProcedimientos.SubProcId = SubProcId
+                loProcedimientos.SubProcNombre = dr("SubProcNombre").ToString()
+                loProcedimientos.Orden = dr("orden").ToString()
+                ListaProcedimientos.Add(loProcedimientos)
+            End While
+            dr.Close()
+        Catch ex As Exception
+            Throw New Exception("Listar Procedimientos x SubProcId => " + ex.Message, ex)
+        End Try
+        Return ListaProcedimientos
+    End Function
+
+    Public Shared Function listar_procedimientos_subprocesos_procesos_Activos() As List(Of EEProcesos)
+        Dim ListaProcesos As List(Of EEProcesos) = Nothing
+        Dim loProcesos As EEProcesos = Nothing
+        Dim ListaSubProcesos As List(Of EESubProcesos) = Nothing
+        Dim loSubProcesos As EESubProcesos = Nothing
+        Dim ListaProcedimientos As List(Of EEProcedimientos) = Nothing
+        Dim loProcedimientos As EEProcedimientos = Nothing
+        Dim dr As IDataReader = Nothing
+        Try
+            Dim db As Database = DatabaseFactory.CreateDatabase()
+            Dim cmd As DbCommand = db.GetStoredProcCommand("Listar_procedimientos_subprocesos_procesos_Activos_pa")
+            dr = db.ExecuteReader(cmd)
+            While dr.Read()
+                If ListaProcesos Is Nothing Then
+                    ListaProcesos = New List(Of EEProcesos)()
+                End If
+                loProcesos = New EEProcesos()
+                loProcesos.ProcId = dr("ProcId").ToString()
+                loProcesos.ProcNombre = dr("ProcNombre").ToString()
+                ' loProcesos.ProcDescripcion = dr("ProcDescripcion").ToString()
+                ' loProcesos.ProcActivo = Convert.ToBoolean(dr("ProcActivo").ToString())
+                loProcesos.loSubProcesos = New EESubProcesos
+                loProcesos.loSubProcesos.ProcId = dr("ProcId").ToString()
+                loProcesos.loSubProcesos.SubProcNombre = dr("SubProcNombre").ToString()
+                'loProcesos.loSubProcesos.SubProcDescripcion = dr("SubProcDescripcion").ToString()
+                'loProcesos.loSubProcesos.SubProcActivo = Convert.ToBoolean(dr("SubProcActivo").ToString())
+                loProcesos.loSubProcesos.SubProcId = dr("SubProcId").ToString()
+                loProcesos.loSubProcesos.loProcedimientos = New EEProcedimientos()
+                loProcesos.loSubProcesos.loProcedimientos.ProcdId = dr("procdId").ToString()
+                loProcesos.loSubProcesos.loProcedimientos.ProcdNombre = dr("procdNombre").ToString()
+                ' loProcesos.loSubProcesos.loProcedimientos.ProcdDescripcion = dr("procdDescripcion").ToString()
+                ' loProcesos.loSubProcesos.loProcedimientos.ProcdMaxDia = Convert.ToInt32(dr("procdMaxDia").ToString())
+                'loProcesos.loSubProcesos.loProcedimientos.TgArea = dr("TgArea").ToString()
+                ' loProcesos.loSubProcesos.loProcedimientos.ProcdActivo = Convert.ToBoolean(dr("procdActivo").ToString())
+                ' loProcesos.loSubProcesos.loProcedimientos.TgCargo = dr("TgCargo").ToString()
+                ' loProcesos.loSubProcesos.loProcedimientos.ProcId = dr("procId").ToString()
+                ' loProcesos.loSubProcesos.loProcedimientos.ProcNombre = dr("procNombre").ToString()
+                ' loProcesos.loSubProcesos.loProcedimientos.SubProcId = dr("SubProcId").ToString()
+                ' loProcesos.loSubProcesos.loProcedimientos.SubProcNombre = dr("SubProcNombre").ToString()
+                ListaProcesos.Add(loProcesos)
+            End While
+            dr.Close()
+        Catch ex As Exception
+            Throw New Exception("Listar Procedimientos Criterio => " + ex.Message, ex)
+        End Try
+        Return ListaProcesos
+    End Function
+
+    Public Shared Function listarCriterio(ByVal aiTipoCriterio As Int32, ByVal asCriterio As [String]) As List(Of EEProcedimientos)
+        Dim ListaProcedimientos As List(Of EEProcedimientos) = Nothing
+        Dim loProcedimientos As EEProcedimientos = Nothing
+        Dim dr As IDataReader = Nothing
+        Try
+            Dim db As Database = DatabaseFactory.CreateDatabase()
+            Dim cmd As DbCommand = db.GetStoredProcCommand("Listar_Procedimientos_Criterio_pa")
+            db.AddInParameter(cmd, "criterio", DbType.String, asCriterio)
+            db.AddInParameter(cmd, "tipoCriterio", DbType.Int32, aiTipoCriterio)
+
+            dr = db.ExecuteReader(cmd)
+            While dr.Read()
+                If ListaProcedimientos Is Nothing Then
+                    ListaProcedimientos = New List(Of EEProcedimientos)()
+                End If
+                loProcedimientos = New EEProcedimientos()
+                loProcedimientos.ProcdId = dr("procdId").ToString()
+                loProcedimientos.ProcdNombre = dr("procdNombre").ToString()
+                loProcedimientos.ProcdDescripcion = dr("procdDescripcion").ToString()
+                loProcedimientos.ProcdMaxDia = Convert.ToInt32(dr("procdMaxDia").ToString())
+                loProcedimientos.TgArea = dr("TgArea").ToString()
+                loProcedimientos.ProcdActivo = Convert.ToBoolean(dr("procdActivo").ToString())
+                loProcedimientos.TgCargo = dr("TgCargo").ToString()
+                loProcedimientos.ProcId = dr("procId").ToString()
+                loProcedimientos.ProcNombre = dr("procNombre").ToString()
+                loProcedimientos.SubProcId = dr("SubProcId").ToString()
+                loProcedimientos.SubProcNombre = dr("SubProcNombre").ToString()
+                ListaProcedimientos.Add(loProcedimientos)
+            End While
+            dr.Close()
+        Catch ex As Exception
+            Throw New Exception("Listar Procedimientos Criterio => " + ex.Message, ex)
+        End Try
+        Return ListaProcedimientos
+    End Function
+
+
+    Public Shared Function MostrarxProcdId(ByVal ProcdId As [String]) As EEProcedimientos
+        Dim ListaProcedimientos As List(Of EEProcedimientos) = Nothing
+        Dim loProcedimientos As EEProcedimientos = Nothing
+        Dim dr As IDataReader = Nothing
+        Try
+            Dim db As Database = DatabaseFactory.CreateDatabase()
+            Dim cmd As DbCommand = db.GetStoredProcCommand("Listar_Procedimientos_xProcdId_pa")
+            db.AddInParameter(cmd, "procdId", DbType.String, ProcdId)
+
+
+            dr = db.ExecuteReader(cmd)
+            If dr.Read() Then
+                If ListaProcedimientos Is Nothing Then
+                    ListaProcedimientos = New List(Of EEProcedimientos)()
+                End If
+                loProcedimientos = New EEProcedimientos()
+                loProcedimientos.ProcdId = dr("procdId").ToString()
+                loProcedimientos.ProcdNombre = dr("procdNombre").ToString()
+                loProcedimientos.ProcdDescripcion = dr("procdDescripcion").ToString()
+                loProcedimientos.ProcdMaxDia = Convert.ToInt32(dr("procdMaxDia").ToString())
+                loProcedimientos.TgArea = Trim(dr("TgArea").ToString())
+                loProcedimientos.ProcdActivo = Convert.ToBoolean(dr("procdActivo").ToString())
+                loProcedimientos.TgCargo = Trim(dr("TgCargo").ToString())
+                '  loProcedimientos.ProcId = dr("procId").ToString()
+                ' loProcedimientos.ProcNombre = dr("procNombre").ToString()
+                'loProcedimientos.SubProcId = dr("SubProcId").ToString()
+                'loProcedimientos.SubProcNombre = dr("SubProcNombre").ToString()
+                'ListaProcedimientos.Add(loProcedimientos)
+            End If
+            dr.Close()
+        Catch ex As Exception
+            Throw New Exception("Listar Procedimientos Criterio => " + ex.Message, ex)
+        End Try
+        Return loProcedimientos
+    End Function
+End Class

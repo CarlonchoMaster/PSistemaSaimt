@@ -1,0 +1,45 @@
+﻿Imports Microsoft.Practices.EnterpriseLibrary.Data
+Imports System.Data.Common
+Imports System.Data
+Imports Entidades
+
+Public Class InmBajasDAO
+    Public Shared Function guardar(ByVal aoInmBajas As EEInmueble.EEInmBajas) As Boolean
+        Try
+            Dim db As Database = DatabaseFactory.CreateDatabase(EEConexiones.CN_BDSaimt_General)
+            Dim cmd As DbCommand = db.GetStoredProcCommand("InsertarU_InmBajas_pa")
+
+            db.AddInParameter(cmd, "inmbajaid", DbType.String, aoInmBajas.InmBajaId)
+            db.AddInParameter(cmd, "inmbajanrodoc", DbType.String, aoInmBajas.InmBajaNroDoc)
+            db.AddInParameter(cmd, "inmbajafecha", DbType.DateTime, aoInmBajas.InmBajaFecha)
+            db.AddInParameter(cmd, "inmbajadocfecha", DbType.DateTime, aoInmBajas.InmBajaDocFecha)
+            db.AddInParameter(cmd, "inmbajadocarchivo", DbType.String, aoInmBajas.InmBajaDocArchivo)
+            db.AddInParameter(cmd, "inmbajaobservacion", DbType.String, aoInmBajas.InmBajaObservacion)
+            db.AddInParameter(cmd, "inmBajaDatoAdicional", DbType.String, aoInmBajas.InmBajaDatoAdicional)
+            db.AddInParameter(cmd, "perregbajaid", DbType.String, aoInmBajas.PerRegBajaId)
+            db.AddInParameter(cmd, "inmbajatemporal", DbType.Boolean, aoInmBajas.InmBajaTemporal)
+            db.AddInParameter(cmd, "inmbajacausa", DbType.String, aoInmBajas.InmBajaCausa)
+            db.ExecuteNonQuery(cmd)
+        Catch ex As Exception
+            Throw New Exception("Guardar InmBajas => " + ex.Message, ex)
+        End Try
+        Return True
+    End Function
+
+    Public Shared Function ActualizarInmbajaDocArchivo(ByVal aoInmBajas As EEInmueble.EEInmBajas) As Boolean
+        Try
+            Dim db As Database = DatabaseFactory.CreateDatabase(EEConexiones.CN_BDSaimt_General)
+            Dim cmd As DbCommand = db.GetStoredProcCommand("Update_InmBajas_inmbajadocarchivo_pa")
+            db.AddInParameter(cmd, "inmbajaid", DbType.String, aoInmBajas.InmBajaId)
+            db.AddInParameter(cmd, "inmbajadocarchivo", DbType.String, aoInmBajas.InmBajaDocArchivo)
+            db.ExecuteNonQuery(cmd)
+        Catch ex As Exception
+            Throw New Exception("Guardar InmBajas => " + ex.Message, ex)
+        End Try
+        Return True
+    End Function
+
+
+
+
+End Class

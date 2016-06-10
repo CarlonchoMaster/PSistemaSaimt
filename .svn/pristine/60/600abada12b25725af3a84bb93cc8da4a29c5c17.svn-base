@@ -1,0 +1,547 @@
+﻿Imports Microsoft.Practices.EnterpriseLibrary.Data
+Imports System.Data.Common
+Imports System.Data
+Imports Entidades
+
+Public Class AbonoPEMDAS
+
+#Region "Genera Codigo Abono"
+    Public Shared Function GeneraCodigo() As String
+        Dim dr As IDataReader = Nothing
+        Dim cmd As DbCommand = Nothing
+        Dim Codigo As String = Nothing
+        Try
+            Dim db As Database = DatabaseFactory.CreateDatabase()
+            cmd = db.GetStoredProcCommand("Genera_Codigo_AbonoPEM")
+            dr = db.ExecuteReader(cmd)
+            If dr.Read() Then
+
+                Codigo = dr("AbonId").ToString()
+            End If
+            dr.Close()
+        Catch ex As Exception
+            Throw New Exception("Genera Codigo AbonoPEM => " + ex.Message, ex)
+        End Try
+        Return Codigo
+    End Function
+#End Region
+
+    Public Shared Function listarXAbonId(ByVal asAbonID As String) As EEAbonoPEM
+        Dim loAbonoPEM As EEAbonoPEM = Nothing
+        Dim dr As IDataReader = Nothing
+        Try
+            Dim db As Database = DatabaseFactory.CreateDatabase(EEConexiones.CN_BDSaimt_General)
+            Dim cmd As DbCommand = db.GetStoredProcCommand("Listar_AbonadoPEM_XAbonId_pa")
+            db.AddInParameter(cmd, "abonId", DbType.String, asAbonID)
+
+            dr = db.ExecuteReader(cmd)
+            If dr.Read() Then
+                loAbonoPEM = New EEAbonoPEM()
+
+                loAbonoPEM.OPersona = New EEPersona()
+                loAbonoPEM.OPersona.PerId = dr("PerId").ToString()
+                loAbonoPEM.OPersona.Persona = dr("Persona").ToString()
+                loAbonoPEM.OPersona.PerNDoc = dr("PerNDoc").ToString()
+                loAbonoPEM.OPersona.TgDocumento = dr("tgTipoDoc").ToString()
+                loAbonoPEM.OPersona.TgTipoPersId = dr("tgTipoPersId").ToString()
+                loAbonoPEM.OPersona.PerDireccion = dr("perDireccion").ToString()
+                loAbonoPEM.OPersona.PerDistrito = dr("perDistrito").ToString()
+                loAbonoPEM.OPersona.PerProvincia = dr("perProvincia").ToString()
+                loAbonoPEM.OPersona.PerDepartamento = dr("perDepartamento").ToString()
+                loAbonoPEM.AbonId = dr("AbonId").ToString()
+                loAbonoPEM.OTgTipoVehiculo = New EETablaGeneral()
+                loAbonoPEM.OTgTipoVehiculo.TgCodigo = dr("tgTipoVehId").ToString()
+                loAbonoPEM.AbonFechaIni = IIf(IsDBNull(dr("AbonFechaIni")), Nothing, dr("AbonFechaIni"))
+                loAbonoPEM.AbonFechaFin = IIf(IsDBNull(dr("AbonFechaFin")), Nothing, dr("AbonFechaFin"))
+                loAbonoPEM.AbonHoraIni = String.Format("{0} {1}", Date.Now.ToShortDateString, IIf(IsDBNull(dr("AbonHoraIni")), Nothing, dr("AbonHoraIni")))
+                loAbonoPEM.AbonHoraFin = String.Format("{0} {1}", Date.Now.ToShortDateString, IIf(IsDBNull(dr("AbonHoraFin")), Nothing, dr("AbonHoraFin")))
+                loAbonoPEM.abonAplicaHora = IIf(IsDBNull(dr("AbonAplicaHora")), 0, dr("AbonAplicaHora"))
+                loAbonoPEM.AbonHoraReg = dr("abonHoraReg").ToString()
+                loAbonoPEM.OTgNivel = New EETablaGeneral()
+                loAbonoPEM.OTgNivel.TgCodigo = dr("tgNivelId").ToString()
+                loAbonoPEM.AbonNroEspacio = dr("abonNroEspacio").ToString()
+
+                loAbonoPEM.OTgEstado = New EETablaGeneral()
+                loAbonoPEM.OTgEstado.TgCodigo = dr("TgEstadoId").ToString()
+                loAbonoPEM.OTgEstado.TgNombre = dr("TgEstado").ToString()
+
+                loAbonoPEM.AbonNPlaca1 = dr("AbonNPlaca1").ToString()
+                loAbonoPEM.AbonNPlaca2 = dr("AbonNPlaca2").ToString()
+                loAbonoPEM.AbonNPlaca3 = dr("AbonNPlaca3").ToString()
+                loAbonoPEM.AbonImporte = Convert.ToDecimal(dr("AbonImporte").ToString())
+                loAbonoPEM.AbonNroMeses = Val(dr("AbonNroMeses").ToString())
+
+                loAbonoPEM.OConcepto = New EEConceptos()
+                loAbonoPEM.OConcepto.ConNombre = dr("conNombre").ToString()
+                loAbonoPEM.OConcepto.ConId = dr("ConId").ToString()
+            End If
+        Catch ex As Exception
+            Throw New Exception("Listar X AbonId => " & ex.Message, ex)
+        End Try
+        Return loAbonoPEM
+    End Function
+
+    Public Shared Function listarCriterios(ByVal aiTipoCriterio As Int16, ByVal asCriterio As String) As List(Of EEAbonoPEM)
+        Dim ListaAbonoPEM As List(Of EEAbonoPEM) = Nothing
+        Dim loAbonoPEM As EEAbonoPEM = Nothing
+        Dim dr As IDataReader = Nothing
+        Try
+            Dim db As Database = DatabaseFactory.CreateDatabase(EEConexiones.CN_BDSaimt_General)
+            Dim cmd As DbCommand = db.GetStoredProcCommand("Listar_AbonadoPEM_Criterio_pa")
+            db.AddInParameter(cmd, "tipocriterio", DbType.Int16, aiTipoCriterio)
+            db.AddInParameter(cmd, "criterio", DbType.String, asCriterio)
+            dr = db.ExecuteReader(cmd)
+            While dr.Read()
+                If ListaAbonoPEM Is Nothing Then
+                    ListaAbonoPEM = New List(Of EEAbonoPEM)()
+                End If
+
+                loAbonoPEM = New EEAbonoPEM()
+                loAbonoPEM.AbonId = dr("AbonId").ToString()
+                loAbonoPEM.AbonFechaIni = IIf(IsDBNull(dr("AbonFechaIni")), Nothing, dr("AbonFechaIni"))
+                loAbonoPEM.AbonFechaFin = IIf(IsDBNull(dr("AbonFechaFin")), Nothing, dr("AbonFechaFin"))
+                loAbonoPEM.AbonImporte = Convert.ToDecimal(dr("AbonImporte").ToString())
+                ListaAbonoPEM.Add(loAbonoPEM)
+            End While
+        Catch ex As Exception
+            Throw New Exception("Listar Criterios => " & ex.Message, ex)
+        End Try
+        Return ListaAbonoPEM
+    End Function
+
+    Public Shared Function AbonadoActivoXabonNPlaca(ByVal asAbonNPlaca As [String]) As EEAbonoPEM
+        Dim loAbonoPEM As EEAbonoPEM = Nothing
+        Dim dr As IDataReader = Nothing
+        Try
+            Dim db As Database = DatabaseFactory.CreateDatabase()
+            Dim cmd As DbCommand = db.GetStoredProcCommand("Mostrar_AbonoPEMActivo_XabonNPlaca_pa")
+            db.AddInParameter(cmd, "abonNPlaca", DbType.String, asAbonNPlaca)
+
+            dr = db.ExecuteReader(cmd)
+            If dr.Read() Then
+                loAbonoPEM = New EEAbonoPEM
+                loAbonoPEM.OPersona = New EEPersona()
+                loAbonoPEM.OPersona.PerId = dr("PerId").ToString()
+                loAbonoPEM.LoAbonadoDetalle = New EEAbonoPEM.EEAbonoDetPEM()
+                loAbonoPEM.LoAbonadoDetalle.AbonDetId = dr("AbonDetId").ToString()
+                loAbonoPEM.LoAbonadoDetalle.AbonDetFechaFin = IIf(IsDBNull(dr("AbonDetFechaFin")), Nothing, dr("AbonDetFechaFin"))
+                loAbonoPEM.AbonFechaFin = IIf(IsDBNull(dr("AbonFechaFin")), Nothing, dr("AbonFechaFin"))
+                loAbonoPEM.OConcepto = New EEConceptos()
+                loAbonoPEM.OConcepto.ConId = dr("ConId").ToString()
+
+            End If
+        Catch ex As Exception
+            Throw New Exception("Listar AbonoPEM Criterio => " & ex.Message, ex)
+        End Try
+        Return loAbonoPEM
+    End Function
+
+    Public Shared Function AbonadoActivoPendienteXabonNPlacaXAbonDetFechaIni(ByVal asAbonNPlaca As [String], ByVal adAbonDetFechaIni As Date) As EEAbonoPEM
+        Dim loAbonoPEM As EEAbonoPEM = Nothing
+        Dim dr As IDataReader = Nothing
+        Try
+            Dim db As Database = DatabaseFactory.CreateDatabase()
+            Dim cmd As DbCommand = db.GetStoredProcCommand("Mostrar_AbonoPEMActivoyPendiente_XabonNPlaca_XAbonDetfechaIni_pa")
+            db.AddInParameter(cmd, "abonNPlaca", DbType.String, asAbonNPlaca)
+            db.AddInParameter(cmd, "AbonDetFechaIni", DbType.Date, adAbonDetFechaIni)
+
+            dr = db.ExecuteReader(cmd)
+            If dr.Read() Then
+                loAbonoPEM = New EEAbonoPEM
+                loAbonoPEM.OPersona = New EEPersona()
+                loAbonoPEM.OPersona.PerId = dr("PerId").ToString()
+                loAbonoPEM.LoAbonadoDetalle = New EEAbonoPEM.EEAbonoDetPEM()
+                loAbonoPEM.LoAbonadoDetalle.AbonDetId = dr("AbonDetId").ToString()
+                loAbonoPEM.LoAbonadoDetalle.AbonDetFechaFin = IIf(IsDBNull(dr("AbonDetFechaFin")), Nothing, dr("AbonDetFechaFin"))
+                loAbonoPEM.LoAbonadoDetalle.AbonDetFechaIni = IIf(IsDBNull(dr("AbonDetFechaIni")), Nothing, dr("AbonDetFechaIni"))
+                loAbonoPEM.OConcepto = New EEConceptos()
+                loAbonoPEM.OConcepto.ConId = dr("ConId").ToString()
+
+            End If
+        Catch ex As Exception
+            Throw New Exception("Listar AbonoPEM Criterio => " & ex.Message, ex)
+        End Try
+        Return loAbonoPEM
+    End Function
+
+    Public Shared Function listarParaExtorno_XCriterios(ByVal tipocriterio As Int16, ByVal criterio As String) As List(Of EEAbonoPEM)
+        Dim ListaAbonoPEM As List(Of EEAbonoPEM) = Nothing
+        Dim loAbonoPEM As EEAbonoPEM = Nothing
+        Dim dr As IDataReader = Nothing
+        Try
+            Dim db As Database = DatabaseFactory.CreateDatabase(EEConexiones.CN_BDSaimt_General)
+            Dim cmd As DbCommand = db.GetStoredProcCommand("Listar_AbonoPEM_ParaExtorno_XCriterio_pa")
+            db.AddInParameter(cmd, "tipocriterio", DbType.Int16, tipocriterio)
+            db.AddInParameter(cmd, "criterio", DbType.String, criterio)
+
+            dr = db.ExecuteReader(cmd)
+            While dr.Read()
+                If ListaAbonoPEM Is Nothing Then
+                    ListaAbonoPEM = New List(Of EEAbonoPEM)()
+                End If
+                loAbonoPEM = New EEAbonoPEM()
+                loAbonoPEM.AbonId = dr("AbonId").ToString()
+                loAbonoPEM.AbonFechaIni = IIf(IsDBNull(dr("AbonFechaIni")), Nothing, dr("AbonFechaIni"))
+                loAbonoPEM.AbonFechaFin = IIf(IsDBNull(dr("AbonFechaFin")), Nothing, dr("AbonFechaFin"))
+                loAbonoPEM.OTgEstado = New EETablaGeneral()
+                loAbonoPEM.OTgEstado.TgCodigo = dr("TgEstadoId").ToString()
+                loAbonoPEM.OTgEstado.TgNombre = dr("TgEstado").ToString()
+                loAbonoPEM.AbonNPlaca1 = dr("AbonNPlaca1").ToString()
+                loAbonoPEM.AbonNPlaca2 = dr("AbonNPlaca2").ToString()
+                loAbonoPEM.AbonNPlaca3 = dr("AbonNPlaca3").ToString()
+                loAbonoPEM.AbonImporte = Convert.ToDecimal(dr("AbonImporte").ToString())
+                loAbonoPEM.OPersona = New EEPersona()
+                loAbonoPEM.OPersona.Persona = dr("Persona").ToString()
+                loAbonoPEM.OPersona.PerNDoc = dr("PerNDoc").ToString()
+                loAbonoPEM.OPersona.TgDocumento = dr("TgDocumento").ToString()
+                ListaAbonoPEM.Add(loAbonoPEM)
+            End While
+        Catch ex As Exception
+            Throw New Exception("Listar AbonoPEM Para Extono XFecha => " & ex.Message, ex)
+        End Try
+        Return ListaAbonoPEM
+    End Function
+
+    Public Shared Function listarXtgEstadoId_XConId(ByVal asTgEstadoId As String, ByVal asConId As String) As List(Of EEAbonoPEM)
+        Dim ListaAbonoPEM As List(Of EEAbonoPEM) = Nothing
+        Dim loAbonoPEM As EEAbonoPEM = Nothing
+        Dim dr As IDataReader = Nothing
+        Try
+            Dim db As Database = DatabaseFactory.CreateDatabase(EEConexiones.CN_BDSaimt_General)
+            Dim cmd As DbCommand = db.GetStoredProcCommand("Listar_AbonoPEM_XTgEstadoId_XConId_pa")
+            db.AddInParameter(cmd, "TgEstadoId", DbType.String, asTgEstadoId)
+            db.AddInParameter(cmd, "ConId", DbType.String, asConId)
+
+            dr = db.ExecuteReader(cmd)
+            While dr.Read()
+                If ListaAbonoPEM Is Nothing Then
+                    ListaAbonoPEM = New List(Of EEAbonoPEM)()
+                End If
+
+                loAbonoPEM = New EEAbonoPEM()
+                loAbonoPEM.AbonId = dr("AbonId").ToString()
+                loAbonoPEM.AbonFechaIni = IIf(IsDBNull(dr("AbonFechaIni")), Nothing, dr("AbonFechaIni"))
+                loAbonoPEM.AbonFechaFin = IIf(IsDBNull(dr("AbonFechaFin")), Nothing, dr("AbonFechaFin"))
+
+                loAbonoPEM.OTgEstado = New EETablaGeneral()
+                loAbonoPEM.OTgEstado.TgCodigo = dr("TgEstadoId").ToString()
+                loAbonoPEM.OTgEstado.TgNombre = dr("TgEstado").ToString()
+
+                loAbonoPEM.AbonNPlaca1 = dr("AbonNPlaca1").ToString()
+                loAbonoPEM.AbonNPlaca2 = dr("AbonNPlaca2").ToString()
+                loAbonoPEM.AbonNPlaca3 = dr("AbonNPlaca3").ToString()
+                loAbonoPEM.AbonImporte = Convert.ToDecimal(dr("AbonImporte").ToString())
+
+                loAbonoPEM.OPersona = New EEPersona()
+                loAbonoPEM.OPersona.Persona = dr("Persona").ToString()
+                loAbonoPEM.OPersona.PerNDoc = dr("PerNDoc").ToString()
+                loAbonoPEM.OPersona.TgDocumento = dr("TgDocumento").ToString()
+
+                loAbonoPEM.OConcepto = New EEConceptos()
+                loAbonoPEM.OConcepto.ConNombre = dr("conNombre").ToString()
+                loAbonoPEM.OConcepto.ConId = dr("ConId").ToString()
+
+                ListaAbonoPEM.Add(loAbonoPEM)
+            End While
+        Catch ex As Exception
+            Throw New Exception("Listar AbonoPEM XTgEstadoId y Concepto => " & ex.Message, ex)
+        End Try
+        Return ListaAbonoPEM
+    End Function
+
+    Public Shared Function ReporteXFechasXtgEstadoIdXOPtgTipoVehiculoIdXOPConId(ByVal adFechaIni As Date, ByVal adFechaFin As Date, ByVal astgEstadoId As [String], Optional ByVal asTgTipoVehiculoId As String = Nothing, Optional ByVal asConId As [String] = Nothing) As List(Of EEAbonoPEM)
+        Dim ListaAbonoPEM As List(Of EEAbonoPEM) = Nothing
+        Dim loAbonoPEM As EEAbonoPEM = Nothing
+        Dim dr As IDataReader = Nothing
+        Try
+            Dim db As Database = DatabaseFactory.CreateDatabase(EEConexiones.CN_BDSaimt_General)
+            Dim cmd As DbCommand = db.GetStoredProcCommand("Reporte_AbonoPEM_XFechas_XtgEstadoId_pa")
+            db.AddInParameter(cmd, "fechaInicio", DbType.Date, adFechaIni)
+            db.AddInParameter(cmd, "fechaFin", DbType.Date, adFechaFin)
+            db.AddInParameter(cmd, "tgEstadoId", DbType.String, astgEstadoId)
+            db.AddInParameter(cmd, "tgTipoVehiculoId", DbType.String, asTgTipoVehiculoId)
+            db.AddInParameter(cmd, "conId", DbType.String, asConId)
+
+            dr = db.ExecuteReader(cmd)
+            While dr.Read()
+                If ListaAbonoPEM Is Nothing Then
+                    ListaAbonoPEM = New List(Of EEAbonoPEM)()
+                End If
+
+                loAbonoPEM = New EEAbonoPEM()
+                loAbonoPEM.AbonId = dr("AbonId").ToString()
+                loAbonoPEM.AbonFechaIni = IIf(IsDBNull(dr("AbonFechaIni")), Nothing, dr("AbonFechaIni"))
+                loAbonoPEM.AbonFechaFin = IIf(IsDBNull(dr("AbonFechaFin")), Nothing, dr("AbonFechaFin"))
+
+                loAbonoPEM.OTgEstado = New EETablaGeneral()
+                loAbonoPEM.OTgEstado.TgCodigo = dr("TgEstadoId").ToString()
+                loAbonoPEM.OTgEstado.TgNombre = dr("TgEstado").ToString()
+
+                loAbonoPEM.AbonNPlaca1 = dr("AbonNPlaca1").ToString()
+                loAbonoPEM.AbonNPlaca2 = dr("AbonNPlaca2").ToString()
+                loAbonoPEM.AbonNPlaca3 = dr("AbonNPlaca3").ToString()
+                loAbonoPEM.AbonImporte = Convert.ToDecimal(dr("AbonImporte").ToString())
+
+                loAbonoPEM.OPersona = New EEPersona()
+                loAbonoPEM.OPersona.Persona = dr("Persona").ToString()
+                loAbonoPEM.OPersona.PerNDoc = dr("PerNDoc").ToString()
+                loAbonoPEM.OPersona.TgDocumento = dr("TgDocumento").ToString()
+
+                loAbonoPEM.OConcepto = New EEConceptos()
+                loAbonoPEM.OConcepto.ConNombre = dr("conNombre").ToString()
+                loAbonoPEM.OConcepto.ConId = dr("ConId").ToString()
+
+                ListaAbonoPEM.Add(loAbonoPEM)
+            End While
+        Catch ex As Exception
+            Throw New Exception("Reporte AbonoPEM XTgEstadoId y Fechas => " & ex.Message, ex)
+        End Try
+        Return ListaAbonoPEM
+    End Function
+
+    Public Shared Function listarDetalleAbono(ByVal aiTipoCriterio As Int16, ByVal asCriterio As String) As List(Of EEAbonoPEM)
+        Dim ListaAbonoPEM As List(Of EEAbonoPEM) = Nothing
+        Dim loAbonoPEM As EEAbonoPEM = Nothing
+        Dim dr As IDataReader = Nothing
+        Try
+            Dim db As Database = DatabaseFactory.CreateDatabase(EEConexiones.CN_BDSaimt_General)
+            Dim cmd As DbCommand = db.GetStoredProcCommand("Listar_AbonadoPEM_DetalleAbono_pa")
+            db.AddInParameter(cmd, "tipocriterio", DbType.Int16, aiTipoCriterio)
+            db.AddInParameter(cmd, "criterio", DbType.String, asCriterio)
+            dr = db.ExecuteReader(cmd)
+            While dr.Read()
+                If ListaAbonoPEM Is Nothing Then
+                    ListaAbonoPEM = New List(Of EEAbonoPEM)()
+                End If
+                loAbonoPEM = New EEAbonoPEM()
+                loAbonoPEM.AbonId = dr("AbonId").ToString()
+                loAbonoPEM.AbonFechaIni = IIf(IsDBNull(dr("AbonFechaIni")), Nothing, dr("AbonFechaIni"))
+                loAbonoPEM.AbonFechaFin = IIf(IsDBNull(dr("AbonFechaFin")), Nothing, dr("AbonFechaFin"))
+                loAbonoPEM.OTgEstado = New EETablaGeneral()
+                loAbonoPEM.OTgEstado.TgCodigo = dr("TgEstadoId").ToString()
+                loAbonoPEM.OTgEstado.TgNombre = dr("TgEstado").ToString()
+                loAbonoPEM.OTgTipoVehiculo = New EETablaGeneral()
+                loAbonoPEM.OTgTipoVehiculo.TgCodigo = dr("TgTipoVehId").ToString()
+                loAbonoPEM.OTgTipoVehiculo.TgNombre = dr("TgTipoVehiculo").ToString()
+                loAbonoPEM.AbonNPlaca1 = dr("AbonNPlaca1").ToString()
+                loAbonoPEM.AbonNPlaca2 = dr("AbonNPlaca2").ToString()
+                loAbonoPEM.AbonNPlaca3 = dr("AbonNPlaca3").ToString()
+                loAbonoPEM.AbonImporte = Convert.ToDecimal(dr("AbonImporte").ToString())
+                loAbonoPEM.AbonNroEspacio = Convert.ToInt16(dr("AbonNroEspacio").ToString())
+                loAbonoPEM.AbonNroMeses = Convert.ToInt16(dr("AbonNroMeses").ToString())
+                loAbonoPEM.OTgNivel = New EETablaGeneral
+                loAbonoPEM.OTgNivel.TgCodigo = dr("TgNivelId").ToString()
+                loAbonoPEM.OTgNivel.TgNombre = dr("TgNivel").ToString()
+                loAbonoPEM.OPersona = New EEPersona()
+                loAbonoPEM.OPersona.PerId = dr("PerId").ToString()
+                loAbonoPEM.OConcepto = New EEConceptos()
+                loAbonoPEM.OConcepto.ConNombre = dr("conNombre").ToString()
+                loAbonoPEM.OConcepto.ConId = dr("ConId").ToString()
+                ListaAbonoPEM.Add(loAbonoPEM)
+            End While
+        Catch ex As Exception
+            Throw New Exception("Listar AbonoPEM DetalleAbono => " & ex.Message, ex)
+        End Try
+        Return ListaAbonoPEM
+    End Function
+
+    Public Shared Function listarDetalleXAbonId(ByVal asAbonId As String) As EEAbonoPEM
+        Dim loAbonoPEM As EEAbonoPEM = Nothing
+        Dim loAbonoDetPEM As EEAbonoPEM.EEAbonoDetPEM = Nothing
+        Dim dr As IDataReader = Nothing
+        Try
+            Dim db As Database = DatabaseFactory.CreateDatabase(EEConexiones.CN_BDSaimt_General)
+            Dim cmd As DbCommand = db.GetStoredProcCommand("Listar_AbonoDetPEM_XAbonId_pa")
+            db.AddInParameter(cmd, "abonId", DbType.String, asAbonId)
+
+            dr = db.ExecuteReader(cmd)
+            While dr.Read()
+                If loAbonoPEM Is Nothing Then
+                    loAbonoPEM = New EEAbonoPEM()
+                End If
+
+                loAbonoDetPEM = New EEAbonoPEM.EEAbonoDetPEM()
+                loAbonoDetPEM.AbonDetId = dr("AbonDetId").ToString()
+                loAbonoDetPEM.AbonDetNroCuota = Convert.ToInt32(dr("AbonDetNroCuota").ToString())
+
+                If Not IsDBNull(dr("AbonDetFechaIni")) Then
+                    loAbonoDetPEM.AbonDetFechaIni = Convert.ToDateTime(dr("AbonDetFechaIni"))
+                End If
+
+                If Not IsDBNull(dr("AbonDetFechaFin")) Then
+                    loAbonoDetPEM.AbonDetFechaFin = Convert.ToDateTime(dr("AbonDetFechaFin"))
+                End If
+
+                If Not IsDBNull(dr("AbonDetFecPago")) Then
+                    loAbonoDetPEM.AbonDetFecPago = Convert.ToDateTime(dr("AbonDetFecPago"))
+                End If
+                If Not IsDBNull(dr("abonDetFechaGenera")) Then
+                    loAbonoDetPEM.AbonDetFechaGenera = Convert.ToDateTime(dr("abonDetFechaGenera"))
+                End If
+                loAbonoDetPEM.OTgEstado = New EETablaGeneral()
+                loAbonoDetPEM.OTgEstado.TgCodigo = dr("TgEstadoId").ToString()
+                loAbonoDetPEM.OTgEstado.TgNombre = dr("TgEstado").ToString()
+
+                loAbonoDetPEM.AbonDetPagado = Convert.ToBoolean(dr("AbonDetPagado").ToString())
+                loAbonoDetPEM.AbonDetImporte = Convert.ToDecimal(dr("AbonDetImporte").ToString())
+
+                loAbonoDetPEM.OAbonoPEM = New EEAbonoPEM()
+                loAbonoDetPEM.OAbonoPEM.AbonId = dr("AbonId").ToString()
+
+                loAbonoPEM.ListaAbonoDetPEM.Add(loAbonoDetPEM)
+            End While
+        Catch ex As Exception
+            Throw New Exception("Listar Detalle X AbonId => " & ex.Message, ex)
+        End Try
+        Return loAbonoPEM
+    End Function
+
+#Region "Mostrar Numero Cuotas No Pagadas En Cancelacion Contrato Abonado ID"
+    Public Shared Function listarNroCuotasNoPagadasXConAbonId(ByVal asAbonId As [String]) As List(Of EEAbonoPEM.EEAbonoDetPEM)
+        Dim ListaAbonadoDetPEM As List(Of EEAbonoPEM.EEAbonoDetPEM) = Nothing
+        Dim loAbonadoDetPEM As EEAbonoPEM.EEAbonoDetPEM = Nothing
+
+        Dim dr As IDataReader = Nothing
+        Try
+            Dim db As Database = DatabaseFactory.CreateDatabase(EEConexiones.CN_BDSaimt_General)
+            Dim cmd As DbCommand = db.GetStoredProcCommand("Listar_NroCuotasNoPagadas_XAbonId_pa")
+            db.AddInParameter(cmd, "AbonId", DbType.String, asAbonId)
+            dr = db.ExecuteReader(cmd)
+            While dr.Read()
+                If ListaAbonadoDetPEM Is Nothing Then
+                    ListaAbonadoDetPEM = New List(Of EEAbonoPEM.EEAbonoDetPEM)()
+                End If
+                loAbonadoDetPEM = New EEAbonoPEM.EEAbonoDetPEM()
+                loAbonadoDetPEM.AbonDetNroCuota = dr("abonDetNroCuota").ToString()
+                ListaAbonadoDetPEM.Add(loAbonadoDetPEM)
+            End While
+            dr.Close()
+        Catch ex As Exception
+            Throw New Exception("Listar Nro Cuotas No Pagadas X AbonId  => " + ex.Message, ex)
+        End Try
+        Return ListaAbonadoDetPEM
+    End Function
+#End Region
+
+#Region "Mostrar Numero Cuotas ALL XConInmId"
+    Public Shared Function mostrarNroCuotasALLXAbonId(ByVal asAbonId As [String]) As Int32
+        Dim dr As IDataReader = Nothing
+        Dim NrosCuotas As Int32 = 0
+        Try
+            Dim db As Database = DatabaseFactory.CreateDatabase(EEConexiones.CN_BDSaimt_General)
+            Dim cmd As DbCommand = db.GetStoredProcCommand("Listar_NroCuotasALL_XAbonadoId_pa")
+            db.AddInParameter(cmd, "AbonId", DbType.String, asAbonId)
+            dr = db.ExecuteReader(cmd)
+            If dr.Read() Then
+                NrosCuotas = Convert.ToInt32(dr("NumeroCuotas").ToString)
+            End If
+            dr.Close()
+        Catch ex As Exception
+            Throw New Exception("Listar Nro Cuotas ALL X AbonID  => " + ex.Message, ex)
+        End Try
+        Return NrosCuotas
+    End Function
+#End Region
+
+    Public Shared Function ValidarNroCuotasNoPagadasXAbonPlaca(ByVal asAbonPlaca As [String]) As Int32
+        Dim dr As IDataReader = Nothing
+        Dim NrosCuotas As Int32 = 0
+        Try
+            Dim db As Database = DatabaseFactory.CreateDatabase(EEConexiones.CN_BDSaimt_General)
+            Dim cmd As DbCommand = db.GetStoredProcCommand("Valida_NroCuotasNoPagadas_AbonoPEM_XAbonPlaca_pa")
+            db.AddInParameter(cmd, "AbonPlaca", DbType.String, asAbonPlaca)
+            dr = db.ExecuteReader(cmd)
+            If dr.Read() Then
+                NrosCuotas = Convert.ToInt32(dr("NumeroCuotas").ToString)
+            End If
+            dr.Close()
+        Catch ex As Exception
+            Throw New Exception("Validar Nro Cuotas No Pagadas X AbonPlaca  => " + ex.Message, ex)
+        End Try
+        Return NrosCuotas
+    End Function
+
+    ''' <summary>
+    ''' LISTAR DETALLE ABONO EN REPORTE X FECHA
+    ''' </summary>
+    ''' <param name="aiTipo">0 = FECHA INICIO, 1 = FECHA FIN</param>
+    ''' <param name="adAbonFecha">FECHA</param>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    ''' 
+
+    Public Shared Function listarDetalleEnReportePEMXAbonDetFecha(aiTipo As Int16, ByVal adAbonFecha As Date) As List(Of EEAbonoPEM)
+        Dim ListaAbonoPEM As List(Of EEAbonoPEM) = Nothing
+        Dim loAbonoPEM As EEAbonoPEM = Nothing
+        Dim dr As IDataReader = Nothing
+        Try
+            Dim db As Database = DatabaseFactory.CreateDatabase(EEConexiones.CN_BDSaimt_General)
+            Dim cmd As DbCommand = db.GetStoredProcCommand("Listar_AbonoDetPEM_EnReporteGeneralPEM_XAbonDetFecha_pa")
+            db.AddInParameter(cmd, "tipo", DbType.Int16, aiTipo)
+            db.AddInParameter(cmd, "AbonDetFecha", DbType.Date, adAbonFecha)
+
+            dr = db.ExecuteReader(cmd)
+            While dr.Read()
+                If ListaAbonoPEM Is Nothing Then
+                    ListaAbonoPEM = New List(Of EEAbonoPEM)
+                End If
+
+                loAbonoPEM = New EEAbonoPEM()
+                loAbonoPEM.LoAbonadoDetalle = New EEAbonoPEM.EEAbonoDetPEM()
+                loAbonoPEM.LoAbonadoDetalle.AbonDetId = dr("AbonDetId").ToString()
+                loAbonoPEM.LoAbonadoDetalle.AbonDetNroCuota = Convert.ToInt32(dr("AbonDetNroCuota").ToString())
+
+                If Not IsDBNull(dr("AbonDetFechaIni")) Then
+                    loAbonoPEM.LoAbonadoDetalle.AbonDetFechaIni = Convert.ToDateTime(dr("AbonDetFechaIni"))
+                End If
+
+                If Not IsDBNull(dr("AbonDetFechaFin")) Then
+                    loAbonoPEM.LoAbonadoDetalle.AbonDetFechaFin = Convert.ToDateTime(dr("AbonDetFechaFin"))
+                End If
+
+                If Not IsDBNull(dr("AbonDetFecPago")) Then
+                    loAbonoPEM.LoAbonadoDetalle.AbonDetFecPago = Convert.ToDateTime(dr("AbonDetFecPago"))
+                End If
+
+                loAbonoPEM.LoAbonadoDetalle.OTgEstado = New EETablaGeneral()
+                loAbonoPEM.LoAbonadoDetalle.OTgEstado.TgCodigo = dr("TgEstadoId").ToString()
+                loAbonoPEM.LoAbonadoDetalle.OTgEstado.TgNombre = dr("TgEstado").ToString()
+
+                loAbonoPEM.LoAbonadoDetalle.AbonDetPagado = Convert.ToBoolean(dr("AbonDetPagado").ToString())
+                loAbonoPEM.LoAbonadoDetalle.AbonDetImporte = Convert.ToDecimal(dr("AbonDetImporte").ToString())
+
+                loAbonoPEM.AbonId = dr("AbonId").ToString()
+                loAbonoPEM.OPersona = New EEPersona
+                loAbonoPEM.OPersona.Persona = dr("Persona").ToString()
+                loAbonoPEM.OPersona.PerNDoc = dr("perNDoc").ToString()
+                loAbonoPEM.OPersona.TgDocumento = dr("tgDocumento").ToString()
+                ListaAbonoPEM.Add(loAbonoPEM)
+            End While
+        Catch ex As Exception
+            Throw New Exception("Listar Detalle X FechaFin En Reporte General => " & ex.Message, ex)
+        End Try
+        Return ListaAbonoPEM
+    End Function
+
+    Public Shared Function MostrarPuedeEditar_XabonId_pa(ByVal asAbonId As [String]) As Boolean
+        Dim puede As Boolean
+        Dim dr As IDataReader = Nothing
+        Try
+            Dim db As Database = DatabaseFactory.CreateDatabase(EEConexiones.CN_BDSaimt_General)
+            Dim cmd As DbCommand = db.GetStoredProcCommand("Mostrar_AbonadoPEM_PuedeEditar_XabonId_pa")
+            db.AddInParameter(cmd, "abonId", DbType.String, asAbonId)
+            dr = db.ExecuteReader(cmd)
+            If dr.Read() Then
+                If Not IsDBNull(dr("puede").ToString()) Then
+                    puede = dr("puede").ToString()
+                End If
+            End If
+            dr.Close()
+        Catch ex As Exception
+            Throw New Exception("Mostrar Puede Editar  => " + ex.Message, ex)
+        End Try
+        Return puede
+    End Function
+
+End Class
+

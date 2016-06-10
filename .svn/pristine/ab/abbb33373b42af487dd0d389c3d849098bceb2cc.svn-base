@@ -1,0 +1,76 @@
+Imports Microsoft.Practices.EnterpriseLibrary.Data
+Imports System.Data.Common
+Imports System.Data
+Imports Entidades
+
+Public Class DiarioPEMDAO	
+    Public Shared Function guardar(ByVal aoDiarioPEM As EEDiarioPEM) As String
+        Dim DiarioCodigo As String = String.Empty
+        Try
+
+            Dim db As Database = DatabaseFactory.CreateDatabase(EEConexiones.CN_BDSaimt_General)
+            Dim cmd As DbCommand = db.GetStoredProcCommand("InsertarU_DiarioPEM_pa")
+
+            db.AddInParameter(cmd, "diarioid", DbType.Int32, aoDiarioPEM.DiarioId)
+            db.AddInParameter(cmd, "dianplaca", DbType.String, aoDiarioPEM.DiaNPlaca)
+            db.AddInParameter(cmd, "diafechaing", DbType.DateTime, aoDiarioPEM.DiaFechaIng)
+            db.AddInParameter(cmd, "diafechasal", DbType.DateTime, aoDiarioPEM.DiaFechaSal)
+            db.AddInParameter(cmd, "diaprecio", DbType.Decimal, aoDiarioPEM.DiaPrecio)
+            db.AddInParameter(cmd, "tgestadoid", DbType.String, aoDiarioPEM.TgEstadoId)
+            db.AddInParameter(cmd, "diahoraing", DbType.DateTime, aoDiarioPEM.DiaHoraIng)
+            db.AddInParameter(cmd, "diahorasal", DbType.DateTime, aoDiarioPEM.DiaHoraSal)
+            db.AddInParameter(cmd, "tgtipoabonoid", DbType.String, aoDiarioPEM.TgTipoAbonoId)
+            db.AddInParameter(cmd, "conid", DbType.String, aoDiarioPEM.ConId)
+            db.AddInParameter(cmd, "perregid", DbType.String, aoDiarioPEM.PerRegId)
+            db.AddInParameter(cmd, "abonDetid", DbType.String, aoDiarioPEM.AbonDetId)
+            db.AddOutParameter(cmd, "diariocod", DbType.String, 9)
+            db.ExecuteNonQuery(cmd)
+            DiarioCodigo = db.GetParameterValue(cmd, "diariocod")
+        Catch ex As Exception
+            Throw New Exception("Guardar DiarioPEM => " & ex.Message, ex)
+        End Try
+        Return DiarioCodigo
+    End Function
+
+    Public Shared Function guardarRinconada(ByVal aoDiarioPEM As EEDiarioPEM) As String
+        Dim DiarioCodigo As String = String.Empty
+        Try
+
+            Dim db As Database = DatabaseFactory.CreateDatabase(EEConexiones.CN_BDSaimt_General)
+            Dim cmd As DbCommand = db.GetStoredProcCommand("InsertarU_DiarioRinconada_pa")
+
+            db.AddInParameter(cmd, "diarioid", DbType.Int32, aoDiarioPEM.DiarioId)
+            db.AddInParameter(cmd, "dianplaca", DbType.String, aoDiarioPEM.DiaNPlaca)
+            db.AddInParameter(cmd, "diafechaing", DbType.DateTime, aoDiarioPEM.DiaFechaIng)
+            db.AddInParameter(cmd, "diafechasal", DbType.DateTime, aoDiarioPEM.DiaFechaSal)
+            db.AddInParameter(cmd, "diaprecio", DbType.Decimal, aoDiarioPEM.DiaPrecio)
+            db.AddInParameter(cmd, "tgestadoid", DbType.String, aoDiarioPEM.TgEstadoId)
+            db.AddInParameter(cmd, "diahoraing", DbType.DateTime, aoDiarioPEM.DiaHoraIng)
+            db.AddInParameter(cmd, "diahorasal", DbType.DateTime, aoDiarioPEM.DiaHoraSal)
+            db.AddInParameter(cmd, "tgtipoabonoid", DbType.String, aoDiarioPEM.TgTipoAbonoId)
+            db.AddInParameter(cmd, "conid", DbType.String, aoDiarioPEM.ConId)
+            db.AddInParameter(cmd, "perregid", DbType.String, aoDiarioPEM.PerRegId)
+            'db.AddInParameter(cmd, "abonDetid", DbType.String, aoDiarioPEM.AbonDetId)
+            db.AddOutParameter(cmd, "diariocod", DbType.String, 9)
+            db.ExecuteNonQuery(cmd)
+            DiarioCodigo = db.GetParameterValue(cmd, "diariocod")
+        Catch ex As Exception
+            Throw New Exception("Guardar DiarioPEM => " & ex.Message, ex)
+        End Try
+        Return DiarioCodigo
+    End Function
+
+    Public Shared Function ComprobacionXAbonId(ByVal asAbonId As String) As Boolean
+        Try
+
+            Dim db As Database = DatabaseFactory.CreateDatabase(EEConexiones.CN_BDSaimt_General)
+            Dim cmd As DbCommand = db.GetStoredProcCommand("Comprobacion_DiariaPEM_XAbonId")
+
+            db.AddInParameter(cmd, "abonId", DbType.String, asAbonId)
+            db.ExecuteNonQuery(cmd)
+        Catch ex As Exception
+            Throw New Exception("Comprobacion DiarioPEM xAbonId => " & ex.Message, ex)
+        End Try
+        Return True
+    End Function
+End Class

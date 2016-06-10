@@ -1,0 +1,9 @@
+﻿Imports DevExpress.Web.ASPxEditors
+Public Class SaimtASPxComboBox
+    Inherits ASPxComboBox
+    Public Sub New()
+        Me.CssFilePath = SaimtVariables.CssFilePath
+        Me.CssPostfix = SaimtVariables.CssPostfix
+        Me.SpriteCssFilePath = SaimtVariables.SpriteCssFilePath
+    End Sub
+End Class

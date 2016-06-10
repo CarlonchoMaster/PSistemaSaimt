@@ -1,0 +1,59 @@
+﻿Imports Entidades
+Imports ReglasNegocio
+Imports SaimtControles
+Public Class frmTransferencia
+    Inherits frmGeneral
+
+    Private Sub SimpleButton1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SimpleButton1.Click
+        If DateEdit1.EditValue IsNot Nothing Then
+            SimpleButton1.Enabled = False
+            MarqueeProgressBarControl1.Visible = True
+            MarqueeProgressBarControl1.Properties.Stopped = False
+            Dim ListaDiarioPEM1 As List(Of EEBoleteriaRinconada) = MantenimientosBL.Instancia.boleteriaRinconadaListarPreTrasDelDia(DateEdit1.EditValue)
+            LabelControl2.Text = " Boleteria Transferido"
+            If ListaDiarioPEM1 IsNot Nothing Then
+                For Each lista As EEBoleteriaRinconada In ListaDiarioPEM1
+                    Application.DoEvents()
+                    Dim bolId As String = String.Empty
+                    bolId = MantenimientosBL.Instancia.boleteriaTransferirRinconadaGuardar(lista)
+                    If Len(bolId) > 0 Then
+                        LabelControl2.Text = lista.bolCod & " Dato Transferido"
+
+                    Else
+                        LabelControl2.Text = lista.bolCod & " No se pudo Transferir"
+                        SaimtMessageBox.mostrarAlertaInformativa("Los datos a transferir ya se encuentra registrados")
+                        Exit For
+                    End If
+                Next
+            End If
+            ' Diario
+            Dim ListaDiarioPEM2 As List(Of EEDiarioPEM) = MantenimientosBL.Instancia.diarioRinconadaListarPreTrasDelDia(DateEdit1.EditValue)
+
+            LabelControl2.Text = " Boleteria Transferido"
+            If ListaDiarioPEM2 IsNot Nothing Then
+                For Each lista As EEDiarioPEM In ListaDiarioPEM2
+                    'ProgressBarControl1.va
+                    Application.DoEvents()
+                    Dim diaId As String = String.Empty
+                    diaId = MantenimientosBL.Instancia.diarioRinconadaTransferenciaGuardar(lista)
+                    If Len(diaId) > 0 Then
+                        LabelControl2.Text = lista.DiarioCod & " Dato Transferido"
+                    Else
+                        LabelControl2.Text = lista.DiarioCod & " No se pudo Transferir"
+                        SaimtMessageBox.mostrarAlertaInformativa("Los datos a transferir ya se encuentra registrados")
+                        Exit For
+
+                    End If
+                Next
+            End If
+            SaimtMessageBox.mostrarAlertaInformativa("Transferencia Terminada")
+            MarqueeProgressBarControl1.Properties.Stopped = True
+            MarqueeProgressBarControl1.Visible = False
+            SimpleButton1.Enabled = True
+        Else
+            SaimtMessageBox.mostrarAlertaInformativa("Debe seleccionar una fecha para la transferencia")
+        End If
+    End Sub
+
+    
+End Class

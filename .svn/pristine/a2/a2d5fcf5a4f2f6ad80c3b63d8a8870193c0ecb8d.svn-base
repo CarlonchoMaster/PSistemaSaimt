@@ -1,0 +1,16 @@
+﻿.tdLabel
+{
+    font-weight: bolder;
+    text-align: right;
+}
+
+.tablaImagenInmueble
+{
+    margin: 0 auto;
+}
+
+.tdLabelLeft
+{
+    font-weight: bolder;
+    text-align: left;
+}

@@ -1,0 +1,230 @@
+﻿Imports ReglasNegocio
+Imports SaimtControles
+Imports Entidades
+Imports DevExpress.XtraEditors.Controls
+Public Class frmOrigenDocsMovDoc
+    Inherits frmMantenimientos
+    'Dim iClase As Integer = 101
+    'Dim iClaseMov As Integer = 96
+    ' Dim iClaseOrigenSeleccionado As Integer = 85
+    Dim dtTablaGeneral As DataTable = New DataTable()
+    Dim EstSelecCodigo As String
+    Dim ListaTemporalTablaGeneralEliminados As List(Of String) = New List(Of String)
+    Dim ListaTemporalTablaGeneralNuevos As List(Of EETablaGeneral) = Nothing
+
+#Region "Construir Table"
+    Private Sub ConstruirTable()
+        dtTablaGeneral.Columns.Add("tgId", GetType(Integer))
+        dtTablaGeneral.Columns.Add("clsId", GetType(Integer))
+        dtTablaGeneral.Columns.Add("tgNombre", GetType(String))
+        dtTablaGeneral.Columns.Add("tgCodigo", GetType(String))
+        dtTablaGeneral.Columns.Add("tgExtra", GetType(String))
+        dtTablaGeneral.Columns.Add("tgActivo", GetType(Boolean))
+    End Sub
+#End Region
+
+#Region "Funciones Sobrescritas"
+
+    Protected Overrides Sub seleccionarListado()
+        Try
+            If lstTablaGeneral.SelectedItem IsNot Nothing Then
+                limpiarControlesTotal(SaimtGroupBox2.Controls)
+                Dim loTablaGeneral As EETablaGeneral = DirectCast(lstTablaGeneral.SelectedValue, EETablaGeneral)
+                txtNombre.Text = loTablaGeneral.TgNombre
+                EstSelecCodigo = loTablaGeneral.TgCodigo
+                Dim lTablaGeneral As List(Of EETablaGeneral)
+                lTablaGeneral = MantenimientosBL.Instancia.tablageneralListar_XClsId_XTgExtra(EEComun.ClasesTramiteSTD.tgOrigen_vs_tgAccion, loTablaGeneral.TgCodigo)
+                dtTablaGeneral.Clear()
+                If lTablaGeneral IsNot Nothing Then
+                    For Each fTablaGeneral As EETablaGeneral In lTablaGeneral
+                        dtTablaGeneral.LoadDataRow(New Object() { _
+                               fTablaGeneral.TgId, _
+                               EEComun.ClasesTramiteSTD.tgOrigen_vs_tgAccion, _
+                               fTablaGeneral.TgNombre, _
+                               fTablaGeneral.TgCodigo, _
+                               fTablaGeneral.TgExtra, _
+                               fTablaGeneral.TgActivo
+                       }, True)
+                    Next
+                End If
+
+                MyBase.seleccionarListado()
+                Me.gvTablaGeneral.BestFitColumns()
+            End If
+        Catch ex As Exception
+            SaimtMessageBox.mostrarAlertaError(ex.Message)
+        End Try
+    End Sub
+    Protected Overrides Sub listar()
+        Try
+            lstTablaGeneral.DisplayMember = "TgNombre"
+            lstTablaGeneral.DataSource = MantenimientosBL.Instancia.tablageneralListarXClsIdListarCriterio(EEComun.ClasesTramiteSTD.tgOrigen, GCriterioBuscado, GValorTextoBuscado)
+            MyBase.listar()
+        Catch ex As Exception
+            SaimtMessageBox.mostrarAlertaError(ex.Message)
+        End Try
+    End Sub
+
+    Protected Overrides Sub Buscar()
+        Try
+            lstTablaGeneral.DisplayMember = "TgNombre"
+            GValorTextoBuscado = txtBuscarPor.Text
+            GCriterioBuscado = 1
+            lstTablaGeneral.DataSource = MantenimientosBL.Instancia.tablageneralListarXClsIdListarCriterio(EEComun.ClasesTramiteSTD.tgOrigen, 1, txtBuscarPor.Text)
+            MyBase.Buscar()
+        Catch ex As Exception
+            SaimtMessageBox.mostrarAlertaError(ex.Message)
+        End Try
+
+    End Sub
+    Protected Overrides Sub editar()
+        MyBase.editar()
+        txtNombre.Focus()
+    End Sub
+    Protected Overrides Sub guardar()
+        Try
+            Dim loTablaGeneral As EETablaGeneral = Nothing
+            Dim loTablaGeneralSA As EETablaGeneral = New EETablaGeneral()
+            Dim loClase As EEClase = Nothing
+            Dim loClaseExtra As EEClase = Nothing
+
+            For Each fTablaGeneral As DataRow In dtTablaGeneral.Rows
+                loTablaGeneral = New EETablaGeneral()
+                loClase = New EEClase()
+                loClaseExtra = New EEClase()
+
+                If loTablaGeneralSA.ListaTablaGeneral Is Nothing Then
+                    loTablaGeneralSA.ListaTablaGeneral = New List(Of EETablaGeneral)
+                End If
+
+                loClase.ClsId = EEComun.ClasesTramiteSTD.tgOrigen_vs_tgAccion
+                loClaseExtra.ClsId = EEComun.ClasesTramiteSTD.tgOrigen
+                loTablaGeneral.TgId = fTablaGeneral("tgId")
+                loTablaGeneral.TgNombre = fTablaGeneral("tgNombre")
+                loTablaGeneral.TgExtra = fTablaGeneral("tgExtra")
+                loTablaGeneral.TgCodigo = fTablaGeneral("tgCodigo")
+                loTablaGeneral.TgActivo = fTablaGeneral("tgActivo")
+                loTablaGeneral.OClase = loClase
+                loTablaGeneral.OClaseExtra = loClaseExtra
+
+                loTablaGeneralSA.ListaTablaGeneral.Add(loTablaGeneral)
+            Next
+
+            loTablaGeneralSA.ListaTablaGeneralTemporalNuevos = ListaTemporalTablaGeneralNuevos
+            loTablaGeneralSA.ListaTablaGeneralTemporalEliminados = ListaTemporalTablaGeneralEliminados
+            MantenimientosBL.Instancia.tablageneralActualizar(loTablaGeneralSA)
+
+            Me.enabledGA = False
+            MyBase.guardar()
+            ListaTemporalTablaGeneralNuevos = Nothing
+            ListaTemporalTablaGeneralEliminados = Nothing
+            listar()
+        Catch ex As Exception
+            SaimtMessageBox.mostrarAlertaError(ex.Message)
+        End Try
+    End Sub
+#End Region
+
+    Private Sub btnAgregar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAgregar.Click
+        If String.IsNullOrEmpty(txtNombre.Text) Then
+            SaimtMessageBox.mostrarAlertaAdvertencia("Ingrese Nombre")
+            txtNombre.Focus()
+            Exit Sub
+        End If
+        If String.IsNullOrEmpty(sCboAccion.EditValue) Then
+            SaimtMessageBox.mostrarAlertaAdvertencia("Ingrese Nombre")
+            sCboAccion.Focus()
+            Exit Sub
+        End If
+
+
+        Dim repite As Boolean = False
+        For Each fTablaGeneral As DataRow In dtTablaGeneral.Rows
+            If (fTablaGeneral("tgCodigo") = sCboAccion.EditValue) Then 'Or sCboEstadoSiguiente.Text = txtNombre.EditValue Then
+                repite = True
+            End If
+        Next
+
+        If repite = True Then
+            SaimtMessageBox.mostrarAlertaAdvertencia("Verifique que el elemento seleccionado no este incuido o sea igual al Estado que selecciono")
+            Return
+        End If
+
+
+        dtTablaGeneral.LoadDataRow(New Object() { _
+            0, _
+          EEComun.ClasesTramiteSTD.tgOrigen_vs_tgAccion, _
+            sCboAccion.Text, _
+           sCboAccion.EditValue, _
+            EstSelecCodigo, _
+            chkEstado.Checked
+        }, True)
+
+        If ListaTemporalTablaGeneralNuevos Is Nothing Then
+            ListaTemporalTablaGeneralNuevos = New List(Of EETablaGeneral)
+        End If
+
+        Dim loTablaGeneral As EETablaGeneral = New EETablaGeneral()
+        Dim loClase As EEClase = New EEClase()
+        loClase.ClsId = EEComun.ClasesTramiteSTD.tgOrigen_vs_tgAccion
+        loTablaGeneral.TgNombre = sCboAccion.Text
+        loTablaGeneral.TgExtra = EstSelecCodigo
+        loTablaGeneral.TgCodigo = sCboAccion.EditValue
+        loTablaGeneral.TgActivo = chkEstado.Checked
+        loTablaGeneral.OClase = loClase
+        ListaTemporalTablaGeneralNuevos.Add(loTablaGeneral)
+        sCboAccion.Focus()
+    End Sub
+
+    Private Sub btnQuitar_Click(sender As System.Object, e As System.EventArgs) Handles btnQuitar.Click
+        If Me.gvTablaGeneral.DataRowCount <> 0 Then
+
+            If dtTablaGeneral.Rows(Me.gvTablaGeneral.GetSelectedRows(0))("tgId").ToString() > 0 Then
+                If ListaTemporalTablaGeneralEliminados Is Nothing Then
+                    ListaTemporalTablaGeneralEliminados = New List(Of String)
+                End If
+                ListaTemporalTablaGeneralEliminados.Add(dtTablaGeneral.Rows(Me.gvTablaGeneral.GetSelectedRows(0))("tgId").ToString())
+
+            End If
+
+            If ListaTemporalTablaGeneralNuevos IsNot Nothing Then
+
+                If ListaTemporalTablaGeneralNuevos.Count > 0 Then
+                    Dim liIndiceNuevoModificar As Int16 = 0
+                    Dim liFila As Int16 = -1
+
+                    For Each fTablaGeneral As DataRow In dtTablaGeneral.Rows
+                        If String.IsNullOrEmpty(fTablaGeneral("tgId")) And Me.gvTablaGeneral.FocusedRowHandle = liFila Then
+                            liIndiceNuevoModificar = liIndiceNuevoModificar + 1
+                        End If
+                        liFila = liFila + 1
+                    Next
+                    ListaTemporalTablaGeneralNuevos.RemoveAt(liIndiceNuevoModificar)
+                End If
+            End If
+
+            dtTablaGeneral.Rows.RemoveAt(Me.gvTablaGeneral.GetSelectedRows(0))
+        Else
+            SaimtMessageBox.mostrarAlertaAdvertencia("No Hay Ninguna Fila Seleccionada")
+        End If
+    End Sub
+
+
+    Private Sub frmEstadosVsAcciones_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
+        Me.PuedeBuscar = True
+        Me.PuedeCrear = True
+        Me.PuedeEditar = True
+        Me.PuedeExportar = True
+        Me.PuedeImprimir = True
+        ConstruirTable()
+        dgvTablaGeneral.DataSource = dtTablaGeneral
+        sCboAccion.mColumnas(SaimtComboBoxLookUp.Entidades.TablaGeneral)
+        sCboAccion.Properties.DisplayMember = "TgNombre"
+        sCboAccion.Properties.ValueMember = "TgCodigo"
+        sCboAccion.Properties.DataSource = MantenimientosBL.Instancia.tablageneralListarXClsId(EEComun.ClasesTramiteSTD.tgAccion)
+        sCboAccion.ItemIndex = 0
+
+    End Sub
+
+
+End Class

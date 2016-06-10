@@ -1,0 +1,96 @@
+﻿Public Class EERecaudacion
+
+    Public Property RecId() As Int32
+    Public Property RecFecPago() As DateTime?
+    Public Property RecNroOrden() As String
+    Public Property ConId() As String
+    Public Property ConNombre() As String
+    Public Property RecNro() As String
+    ''' <summary>
+    ''' Tipo Documento Id o Codigo
+    ''' </summary>
+    ''' <value></value>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Public Property TgTipoDoc() As String
+    Public Property TgGrupoConId() As String
+
+    ''' <summary>
+    ''' Nombre del Tipo Documento
+    ''' </summary>
+    ''' <value></value>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Public Property TgNombreTipoDoc() As String
+    Public Property PerNroDoc() As String
+    ''' <summary>
+    ''' Nombre Completo de Persona ya Sea Natural o Juridica
+    ''' </summary>
+    ''' <value></value>
+    ''' <returns></returns>
+    ''' <remarks></remarks>
+    Public Property PerNombre() As String
+    Public Property RecMonto() As Decimal?
+    Public Property ConPorcentaje() As Decimal?
+    Public Property RecTotalIng() As Decimal?
+    Public Property RecVComision() As Decimal?
+    Public Property recIngMuni() As Decimal?
+    Public Property RecComision() As Decimal?
+    Public Property RecNeto() As Decimal?
+    Public Property RecDiferencia() As Decimal?
+    Public Property RecFechaReg() As DateTime?
+    Public Property UsuId() As Int32?
+    Public Property RecContrato() As String
+    Public Property TgRecaudadorId() As String
+    Public Property TgNombreRecaudador() As String
+    Public Property RecAct() As String
+    Public Property RecFecAct() As DateTime?
+    Public Property RecAño() As Int16?
+    Public Property RecMesId As Int16?
+    Public Property RecMesNombre As String
+    Public Property RecPartida As String
+    Public Property RecCentroProd As String
+    Public Property RecFechaLiquidacion As DateTime?
+    Public Property OConcepto As EEConceptos
+    Public Property OTBancos As EETablaGeneral
+    Public Property OTGrupo As EETablaGeneral
+    Public Property OTCentroProduccion As EETablaGeneral
+    Public Property OTRecaudadora As EETablaGeneral
+
+
+    Public Property ListaRecaudacion As List(Of EERecaudacion) = Nothing
+
+    Public ReadOnly Property KeyGridRecaudacionWEB As String
+        Get
+            Return RecId & "-" & RecFecPago.Value.ToShortDateString() & "-" & TgRecaudadorId
+        End Get
+    End Property
+
+#Region "Recaudacion Detalle"
+    Public Property ListaRecaudacionDetalle As List(Of EERecaudacionDet) = Nothing
+    Public Class EERecaudacionDet
+        Public Property RecId() As Int32?
+        Public Property RecFecPago() As DateTime?
+        Public Property TgRecaudadorId() As String
+        Public Property ConId() As String
+        Public Property ConNombre() As String
+        Public Property RecDMonto() As Decimal?
+        Public Property ConPorcentaje() As Decimal?
+        Public Property RecDTotalIng() As Decimal?
+        Public Property RecDFechaReg() As DateTime?
+        Public Property UsuId() As Int32?
+        Public Property RecDEstado() As String
+        Public Property RecDFechaLiquidacion As DateTime?
+
+        Public ReadOnly Property KeyGridRecaudacionDetalleWEB As String
+            Get
+                Return RecId & "-" & RecFecPago.Value.ToShortDateString() & "-" & TgRecaudadorId & "-" & ConId
+            End Get
+        End Property
+    End Class
+#End Region
+
+End Class
+
+
+

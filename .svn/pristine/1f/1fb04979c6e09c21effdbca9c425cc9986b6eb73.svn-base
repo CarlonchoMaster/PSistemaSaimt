@@ -1,0 +1,266 @@
+﻿Imports SaimtControles
+Imports ReglasNegocio
+Imports Entidades
+Public Class frmEnviarDoc
+    Public Sub New()
+        ' Llamada necesaria para el diseñador.
+        InitializeComponent()
+        ' Agregue cualquier inicialización después de la llamada a InitializeComponent().
+    End Sub
+    Private ReadOnly vDocId As String = Nothing
+    Private ReadOnly vTTramiteId As String = Nothing
+    Private ReadOnly vEstMovId As String = Nothing
+    Private ReadOnly vtDocId As String = Nothing
+    Private ReadOnly vOrigenId As String = Nothing
+    Private ReadOnly cargoOrigen As String = Nothing
+
+    Public Sub New(v_DocId As String, v_TTramiteId As String, v_TDocId As String, cargo As String, v_origenId As String, v_EstMovId As String)
+        ' Llamada necesaria para el diseñador.
+        InitializeComponent()
+        ' Agregue cualquier inicialización después de la llamada a InitializeComponent().
+        vDocId = v_DocId
+        vTTramiteId = v_TTramiteId
+        vtDocId = v_TDocId
+        vOrigenId = v_origenId
+        cargoOrigen = cargo
+        vEstMovId = v_EstMovId
+    End Sub
+    Public Sub New(v_DocId As String, v_TTramiteId As String, v_TDocId As String, cargo As String, v_origenId As String)
+        ' Llamada necesaria para el diseñador.
+        InitializeComponent()
+        ' Agregue cualquier inicialización después de la llamada a InitializeComponent().
+        vDocId = v_DocId
+        vTTramiteId = v_TTramiteId
+        vtDocId = v_TDocId
+        vOrigenId = v_origenId
+        cargoOrigen = cargo
+    End Sub
+    Dim InstitucionId As String
+    Enum Cls_TramiteDoc
+        tgInstitucion = 82
+        tgArea = 83
+        tgCargo = 84
+        tgEstadoTramite = 89
+        tgEstMovVstgEstMov = 99
+        tgTipoDestino = 96
+        tgTipoDestinoVsEstado = 100
+    End Enum
+    Dim dtTablaGeneral As DataTable = New DataTable()
+#Region "Construir Table"
+    Private Sub ConstruirTable()
+        dtTablaGeneral.Columns.Add("DestinoId", GetType(String))
+        dtTablaGeneral.Columns.Add("MovPerPara", GetType(String))
+        dtTablaGeneral.Columns.Add("tgInstitucion", GetType(String))
+        dtTablaGeneral.Columns.Add("tgArea", GetType(String))
+        dtTablaGeneral.Columns.Add("tgCargo", GetType(String))
+        dtTablaGeneral.Columns.Add("tgTipoDestinoId", GetType(String))
+        dtTablaGeneral.Columns.Add("tgTipoDestino", GetType(String))
+        dtTablaGeneral.Columns.Add("Comentario", GetType(String))
+
+    End Sub
+#End Region
+
+    Private Sub frmEnviarDoc_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
+        ConstruirTable()
+        gvDestinos.DataSource = dtTablaGeneral
+        sCboEstado.mColumnas(SaimtComboBoxLookUp.Entidades.TablaGeneral)
+        sCboEstado.Properties.DisplayMember = "TgNombre"
+        sCboEstado.Properties.ValueMember = "TgCodigo"
+        If vEstMovId Is Nothing Or vEstMovId = "" Then
+            sCboEstado.Properties.DataSource = MantenimientosBL.Instancia.tablageneralListarXClsId(Cls_TramiteDoc.tgEstadoTramite)
+        Else
+            sCboEstado.Properties.DataSource = MantenimientosBL.Instancia.tablageneralListar_XClsId_XTgExtra(Cls_TramiteDoc.tgEstMovVstgEstMov, vEstMovId)
+        End If
+        sCboEstado.ItemIndex = 0
+        txtdocID.EditValue = vDocId
+        txtdocID.Properties.ReadOnly = True
+        'If vOrigenId = 1 Then
+        btnInstitucion.Enabled = False
+        sTxtInstitucion.Properties.ReadOnly = True
+        sTxtInstitucion.EditValue = "SERVICIO DE ADMINISTRACIÓN DE INMUEBLES MUNICIPALES DE TRUJILLO"
+        InstitucionId = "0001"
+        Dim listaJeraquia As New List(Of EEJerarquiaSTD)
+        Dim JerDeId As String = cargoOrigen
+        Dim valido As Boolean = False
+        listaJeraquia = MantenimientosBL.Instancia.jerarquiastdListarInstitucionDestinosXJerDeId_tgTDocId(JerDeId, vtDocId)
+        If listaJeraquia IsNot Nothing Then
+            For Each fJerarquiaInst As EEJerarquiaSTD In listaJeraquia
+                If InstitucionId = fJerarquiaInst.CodInstitucionDestino Then
+                    valido = True
+                    Exit For
+                End If
+            Next
+        Else
+            SaimtMessageBox.mostrarAlertaAdvertencia("No le es permitido enviar el documento a esta institucion")
+            Return
+        End If
+        sCboArea.mColumnas(SaimtComboBoxLookUp.Entidades.JerAreaDestino)
+        sCboArea.Properties.DisplayMember = "AreaDestino"
+        sCboArea.Properties.ValueMember = "CodAreaDestino"
+        sCboArea.Properties.DataSource = MantenimientosBL.Instancia.jerarquiastdListarAreasDestinosXJerDeId_tgTDocId(JerDeId, vtDocId, InstitucionId)
+        sCboArea.ItemIndex = 0
+        'End If
+    End Sub
+    
+    Private Sub btnInstitucion_Click(sender As System.Object, e As System.EventArgs) Handles btnInstitucion.Click
+        Using fmConsultaTablaGeneral As frmConsultaTablaGeneral = New frmConsultaTablaGeneral(Cls_TramiteDoc.tgInstitucion)
+            If fmConsultaTablaGeneral.ShowDialog() = DialogResult.OK Then
+                Dim listaJeraquia As New List(Of EEJerarquiaSTD)
+                Dim JerDeId As String = cargoOrigen
+                Dim valido As Boolean = False
+                listaJeraquia = MantenimientosBL.Instancia.jerarquiastdListarInstitucionDestinosXJerDeId_tgTDocId(JerDeId, vtDocId)
+                If listaJeraquia IsNot Nothing Then
+                    For Each fJerarquiaInst As EEJerarquiaSTD In listaJeraquia
+                        sTxtInstitucion.EditValue = fmConsultaTablaGeneral.TgNombre
+                        InstitucionId = fmConsultaTablaGeneral.TgCodigo
+                        If InstitucionId = fJerarquiaInst.CodInstitucionDestino Then
+                            valido = True
+                            Exit For
+                        End If
+                    Next
+                Else
+                    SaimtMessageBox.mostrarAlertaAdvertencia("No le es permitido enviar el documento a esta institucion")
+                    Return
+                End If
+                If valido = False Then
+                    SaimtMessageBox.mostrarAlertaAdvertencia("No le es permitido enviar el documento a esta institucion")
+                    Return
+                End If
+                sCboArea.mColumnas(SaimtComboBoxLookUp.Entidades.JerAreaDestino)
+                sCboArea.Properties.DisplayMember = "AreaDestino"
+                sCboArea.Properties.ValueMember = "CodAreaDestino"
+                sCboArea.Properties.DataSource = MantenimientosBL.Instancia.jerarquiastdListarAreasDestinosXJerDeId_tgTDocId(JerDeId, vtDocId, InstitucionId)
+                sCboArea.ItemIndex = 0
+            End If
+        End Using
+    End Sub
+
+    Private Sub sCboArea_EditValueChanged(sender As System.Object, e As System.EventArgs) Handles sCboArea.EditValueChanged
+        If sCboArea.EditValue IsNot Nothing Then
+            sCboCargoDest.mColumnas(SaimtComboBoxLookUp.Entidades.JerCargoDestino)
+            sCboCargoDest.Properties.DisplayMember = "CargoDestino"
+            sCboCargoDest.Properties.ValueMember = "CodCargoDestino"
+            sCboCargoDest.Properties.DataSource = MantenimientosBL.Instancia.jerarquiastdListarCargosDestinosXJerDeId_tgTDocId(cargoOrigen, vtDocId, sCboArea.EditValue & InstitucionId)
+            sCboCargoDest.ItemIndex = 0
+            Cargar_CargoDest(sCboCargoDest.EditValue)
+        End If
+
+    End Sub
+    Sub Cargar_CargoDest(CargoID As String)
+        Dim lPersona As List(Of EEPersona)
+        Dim carPerID As String = InstitucionId & sCboArea.EditValue & CargoID
+        lPersona = MantenimientosBL.Instancia.personaListarXCargoId(carPerID)
+        If lPersona IsNot Nothing Then
+            LstTrabajador.Items.Clear()
+            LstTrabajador.ValueMember = "PerId"
+            LstTrabajador.DisplayMember = "PerNombreCompleto"
+            LstTrabajador.DataSource = lPersona
+        End If
+    End Sub
+
+    Private Sub sCboCargoDest_EditValueChanged(sender As System.Object, e As System.EventArgs) Handles sCboCargoDest.EditValueChanged
+        If sCboCargoDest.EditValue IsNot Nothing Then
+            Cargar_CargoDest(sCboCargoDest.EditValue)
+
+        End If
+
+    End Sub
+
+    Private Sub sBtnAgregar_Click(sender As System.Object, e As System.EventArgs) Handles sBtnAgregar.Click
+        If String.IsNullOrEmpty(InstitucionId) Then
+            SaimtMessageBox.mostrarAlertaAdvertencia("No ha Seleccionado la Institucion")
+            btnInstitucion.Focus()
+            Exit Sub
+        End If
+
+        If String.IsNullOrEmpty(sCboArea.EditValue) Then
+            SaimtMessageBox.mostrarAlertaAdvertencia("No ha seleccionado el area ")
+            sCboArea.Focus()
+            Exit Sub
+        End If
+
+        If String.IsNullOrEmpty(sCboCargoDest.EditValue) Then
+            SaimtMessageBox.mostrarAlertaAdvertencia("No ha seleccionado el cargo destino")
+            sCboCargoDest.Focus()
+            Exit Sub
+        End If
+
+        Dim destinoId As String = InstitucionId & sCboArea.EditValue & sCboCargoDest.EditValue
+
+        For Each fTablaReqDoc As DataRow In dtTablaGeneral.Rows
+            If fTablaReqDoc("DestinoID") = destinoId Then
+                SaimtMessageBox.mostrarAlertaAdvertencia("Ya se tiene Agregado el Destino")
+                Return
+            End If
+        Next
+
+        dtTablaGeneral.LoadDataRow(New Object() {destinoId, _
+        LstTrabajador.SelectedValue, _
+        sTxtInstitucion.EditValue, _
+        sCboArea.Text, _
+        sCboCargoDest.Text, _
+        sCboTipoDestino.EditValue, _
+        sCboTipoDestino.Text, _
+        sTxtComentario.Text
+        }, True)
+
+
+    End Sub
+
+    Private Sub BtnEnviar_Click(sender As System.Object, e As System.EventArgs) Handles BtnEnviar.Click
+        Try
+            If Me.dgvTrabajadores.DataRowCount <> 0 Then
+
+                Dim loMovimiento As EEMovimientoSTD = Nothing
+                Dim ListaMovimiento As New List(Of EEMovimientoSTD)
+
+                For Each fMovimiento As DataRow In dtTablaGeneral.Rows
+                    loMovimiento = New EEMovimientoSTD()
+                    loMovimiento.DocId = txtdocID.EditValue
+                    loMovimiento.MovDe = cargoOrigen
+                    loMovimiento.MovPara = fMovimiento("DestinoId")
+                    loMovimiento.MovComentario = IIf(IsDBNull(fMovimiento("Comentario")), String.Empty, fMovimiento("Comentario"))
+                    loMovimiento.TgEstadoMovId = sCboEstado.EditValue
+                    loMovimiento.tgTDestinoId = fMovimiento("tgTipoDestinoId")
+                    loMovimiento.MovPerIdDe = EEComun._PerId
+                    loMovimiento.MovPerIdPara = fMovimiento("MovPerPara")
+                    ListaMovimiento.Add(loMovimiento)
+                Next
+
+                If MantenimientosBL.Instancia.movimientostdGuardar(ListaMovimiento) = True Then
+                    SaimtMessageBox.mostrarAlertaInformativa("Se envio Correctamente el documento")
+                    Me.Close()
+                End If
+            Else
+                SaimtMessageBox.mostrarAlertaAdvertencia("No Hay seleccionado ningun Destinatario")
+            End If
+            'listar()
+        Catch ex As Exception
+            SaimtMessageBox.mostrarAlertaError(ex.Message)
+        End Try
+    End Sub
+
+    Private Sub SaimtButton1_Click(sender As System.Object, e As System.EventArgs) Handles SaimtButton1.Click
+        If Me.dgvTrabajadores.DataRowCount <> 0 Then
+            dtTablaGeneral.Rows.RemoveAt(Me.dgvTrabajadores.GetSelectedRows(0))
+        Else
+            SaimtMessageBox.mostrarAlertaError("No Hay Ninguna Fila Seleccionada")
+        End If
+    End Sub
+
+    Private Sub sCboEstado_EditValueChanged(sender As System.Object, e As System.EventArgs) Handles sCboEstado.EditValueChanged
+        sCboTipoDestino.mColumnas(SaimtComboBoxLookUp.Entidades.TablaGeneral)
+        sCboTipoDestino.Properties.DisplayMember = "TgNombre"
+        sCboTipoDestino.Properties.ValueMember = "TgCodigo"
+        sCboTipoDestino.Properties.DataSource = MantenimientosBL.Instancia.tablageneralListar_XClsId_XTgExtra(Cls_TramiteDoc.tgTipoDestinoVsEstado, sCboEstado.EditValue)
+        sCboTipoDestino.ItemIndex = 0
+     
+    End Sub
+
+
+    Private Sub sCboTipoDestino_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles sCboTipoDestino.Click
+        If sCboTipoDestino.EditValue Is Nothing Then
+            SaimtMessageBox.mostrarAlertaInformativa("Usted a seleccionado el de estado de tramite : " & sCboEstado.Text)
+        End If
+    End Sub
+End Class

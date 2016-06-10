@@ -1,0 +1,105 @@
+﻿'------------------------------------------------------------------------------
+' <generado automáticamente>
+'     Este código fue generado por una herramienta.
+'
+'     Los cambios en este archivo podrían causar un comportamiento incorrecto y se perderán si
+'     se vuelve a generar el código. 
+' </generado automáticamente>
+'------------------------------------------------------------------------------
+
+Option Strict On
+Option Explicit On
+
+
+Partial Public Class frmBusquedaXDenominacion
+
+    '''<summary>
+    '''Control SaimtASPxRoundPanel1.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents SaimtASPxRoundPanel1 As Global.SaimtControlesWeb.SaimtASPxRoundPanel
+
+    '''<summary>
+    '''Control PanelContent1.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents PanelContent1 As Global.DevExpress.Web.ASPxPanel.PanelContent
+
+    '''<summary>
+    '''Control SaimtASPxComboBox1.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents SaimtASPxComboBox1 As Global.SaimtControlesWeb.SaimtASPxComboBox
+
+    '''<summary>
+    '''Control SaimtASPxTextBox1.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents SaimtASPxTextBox1 As Global.SaimtControlesWeb.SaimtASPxTextBox
+
+    '''<summary>
+    '''Control SaimtASPxComboBox2.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents SaimtASPxComboBox2 As Global.SaimtControlesWeb.SaimtASPxComboBox
+
+    '''<summary>
+    '''Control SaimtASPxComboBox3.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents SaimtASPxComboBox3 As Global.SaimtControlesWeb.SaimtASPxComboBox
+
+    '''<summary>
+    '''Control SaimtASPxButton1.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents SaimtASPxButton1 As Global.SaimtControlesWeb.SaimtASPxButton
+
+    '''<summary>
+    '''Control SaimtASPxButton2.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents SaimtASPxButton2 As Global.SaimtControlesWeb.SaimtASPxButton
+
+    '''<summary>
+    '''Control SaimtASPxGridView1.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents SaimtASPxGridView1 As Global.SaimtControlesWeb.SaimtASPxGridView
+
+    '''<summary>
+    '''Control SaimtASPxLabel1.
+    '''</summary>
+    '''<remarks>
+    '''Campo generado automáticamente.
+    '''Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+    '''</remarks>
+    Protected WithEvents SaimtASPxLabel1 As Global.SaimtControlesWeb.SaimtASPxLabel
+End Class

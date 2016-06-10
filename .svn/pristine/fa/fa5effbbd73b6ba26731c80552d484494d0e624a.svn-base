@@ -1,0 +1,32 @@
+﻿
+Public Class EEMovimientoSTD
+
+    Public Property MovId() As Integer
+    Public Property MovDe() As String
+    Public Property MovPerIdDe() As String
+    Public Property MovPerIdPara() As String
+    Public Property MovPerDe() As String
+    Public Property MovPerPara() As String
+    Public Property MovPara() As String
+    Public Property MovFechaEnv() As DateTime?
+    Public Property MovFechaRec() As DateTime?
+    Public Property MovComentario() As String
+    Public Property tgTDestinoId() As String
+    Public Property tgTDestino() As String
+    Public Property tgTDestinoExtra() As String
+    Public Property MovNroTDestino() As Int32
+    Public Property DocId() As String
+    Public Property TgEstadoMovId() As Int32
+    Public Property TgEstadoMov() As String
+    Public Property MovRead() As Boolean
+    Public Property ODocumento() As EEDocumentoSTD
+    Public Property OJerarquia() As EEJerarquiaSTD
+    Public Property DiasTenencia As Integer
+    Public Property DiasPasados As Integer
+    Public Property DiasProcedimiento As Integer
+    Public Property Trabajador As String
+    Public Property movAnulado As Boolean?
+    Public Property movEnviado As Boolean?
+    Public Property Mes As Short
+
+End Class

@@ -1,0 +1,320 @@
+﻿<%@ Page Title="" Language="vb" AutoEventWireup="false" MasterPageFile="~/Principal.Master" CodeBehind="frmTarifa.aspx.vb" Inherits="PresentacionWeb.frmTarifa" %>
+<%@ Register assembly="SaimtControlesWeb" namespace="SaimtControlesWeb" tagprefix="cc1" %>
+<%@ Register assembly="DevExpress.Web.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxPanel" tagprefix="dx" %>
+<%@ Register assembly="DevExpress.Web.ASPxScheduler.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxScheduler" tagprefix="dxwschs" %>
+<%@ Register assembly="DevExpress.Web.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxTimer" tagprefix="dx" %>
+<%@ Register assembly="DevExpress.Web.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxEditors" tagprefix="dx" %>
+<%@ Register assembly="DevExpress.Web.ASPxTreeList.v13.2, Version=13.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxTreeList" tagprefix="dx" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
+    </asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+    <table>
+        <tr>
+            <td valign="top">
+                <cc1:SaimtASPxRoundPanel ID="SaimtASPxRoundPanel2" runat="server" 
+                    HeaderText="Burcar por :">
+                    <PanelCollection>
+<dx:PanelContent runat="server" SupportsDisabledAttribute="True">
+<table><tr><td>
+    <cc1:SaimtASPxTextBox ID="txtBuscarSaimt" runat="server" 
+        CssFilePath="~/App_Themes/PlasticBlue/{0}/styles.css" CssPostfix="PlasticBlue" 
+        SpriteCssFilePath="~/App_Themes/PlasticBlue/{0}/sprite.css" 
+        Text="" Width="255px">
+    </cc1:SaimtASPxTextBox></td><td >
+    <cc1:SaimtASPxButton ID="btnSaimtBuscar" runat="server" 
+        CssFilePath="~/App_Themes/PlasticBlue/{0}/styles.css" CssPostfix="PlasticBlue" 
+        SpriteCssFilePath="~/App_Themes/PlasticBlue/{0}/sprite.css" 
+            HorizontalAlign="Center" ImagePosition="Top">
+        <Image Url="~/images/buscar.png">
+        </Image>
+    </cc1:SaimtASPxButton>
+    </td></tr></table>
+                        </dx:PanelContent>
+</PanelCollection>
+                </cc1:SaimtASPxRoundPanel>
+                <cc1:SaimtASPxRoundPanel ID="SaimtASPxRoundPanel3" runat="server" 
+                    HeaderText="Listado">
+                    <PanelCollection>
+<dx:PanelContent runat="server" SupportsDisabledAttribute="True">
+    <cc1:SaimtASPxListBox ID="LstListado" runat="server"  
+        AutoPostBack="True" Width="300px" >
+    </cc1:SaimtASPxListBox>
+                        </dx:PanelContent>
+</PanelCollection>
+                </cc1:SaimtASPxRoundPanel>
+            </td>
+            <td valign="top">
+    <cc1:SaimtASPxRoundPanel ID="rpDatosTarifa" runat="server" 
+        HeaderText="TARIFAS">
+        <PanelCollection>
+            <dx:PanelContent runat="server" SupportsDisabledAttribute="True">
+                <table>
+                    <tr>
+                        <td class="lbl_left_td">
+                            <cc1:SaimtASPxLabel ID="SaimtASPxLabel6" runat="server" 
+                                CssFilePath="~/App_Themes/PlasticBlue/{0}/styles.css" CssPostfix="PlasticBlue" 
+                                Text="Codigo :">
+                            </cc1:SaimtASPxLabel>
+                        </td>
+                        <td>
+                            <cc1:SaimtASPxTextBox ID="txtCodigo" runat="server" 
+                                CssFilePath="~/App_Themes/PlasticBlue/{0}/styles.css" CssPostfix="PlasticBlue" 
+                                SpriteCssFilePath="~/App_Themes/PlasticBlue/{0}/sprite.css" Text="" Width="50px" 
+                                >
+                            </cc1:SaimtASPxTextBox>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="lbl_left_td">
+                            <cc1:SaimtASPxLabel ID="SaimtASPxLabel5" runat="server" 
+                                CssFilePath="~/App_Themes/PlasticBlue/{0}/styles.css" CssPostfix="PlasticBlue" 
+                                Text="Institución :">
+                            </cc1:SaimtASPxLabel>
+                        </td>
+                        <td>
+                            <cc1:SaimtASPxComboBox ID="cboInstitucion" runat="server" 
+                                CssFilePath="~/App_Themes/PlasticBlue/{0}/styles.css" CssPostfix="PlasticBlue" 
+                                SpriteCssFilePath="~/App_Themes/PlasticBlue/{0}/sprite.css" 
+                                ValueType="System.String" AutoPostBack="True" Width="438px">
+                               
+
+                            </cc1:SaimtASPxComboBox>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="lbl_left_td">
+                            <cc1:SaimtASPxLabel ID="SaimtASPxLabel8" runat="server" 
+                                CssFilePath="~/App_Themes/PlasticBlue/{0}/styles.css" CssPostfix="PlasticBlue" 
+                                Text="Sede :">
+                            </cc1:SaimtASPxLabel>
+                        </td>
+                        <td>
+                            <cc1:SaimtASPxComboBox ID="cboSede" runat="server" 
+                                CssFilePath="~/App_Themes/PlasticBlue/{0}/styles.css" CssPostfix="PlasticBlue" 
+                                SpriteCssFilePath="~/App_Themes/PlasticBlue/{0}/sprite.css" 
+                                ValueType="System.String" Width="438px">
+                            </cc1:SaimtASPxComboBox>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="lbl_left_td">
+                            <cc1:SaimtASPxLabel ID="SaimtASPxLabel11" runat="server" 
+                                CssFilePath="~/App_Themes/PlasticBlue/{0}/styles.css" CssPostfix="PlasticBlue" 
+                                Text="Tipo de Cliente :">
+                            </cc1:SaimtASPxLabel>
+                        </td>
+                        <td>
+                            <cc1:SaimtASPxComboBox ID="cboTipoCliente" runat="server" 
+                                CssFilePath="~/App_Themes/PlasticBlue/{0}/styles.css" CssPostfix="PlasticBlue" 
+                                SpriteCssFilePath="~/App_Themes/PlasticBlue/{0}/sprite.css" 
+                                ValueType="System.String">
+                            </cc1:SaimtASPxComboBox>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="lbl_left_td">
+                            <cc1:SaimtASPxLabel ID="SaimtASPxLabel1" runat="server" 
+                                CssFilePath="~/App_Themes/PlasticBlue/{0}/styles.css" CssPostfix="PlasticBlue" 
+                                Text="Concepto :">
+                            </cc1:SaimtASPxLabel>
+                        </td>
+                        <td>
+                            <cc1:SaimtASPxComboBox ID="cboConcepto" runat="server" 
+                                CssFilePath="~/App_Themes/PlasticBlue/{0}/styles.css" CssPostfix="PlasticBlue" 
+                                SpriteCssFilePath="~/App_Themes/PlasticBlue/{0}/sprite.css" 
+                                ValueType="System.String" Width="438px">
+                            </cc1:SaimtASPxComboBox>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="lbl_left_td">
+                            <cc1:SaimtASPxLabel ID="SaimtASPxLabel3" runat="server" 
+                                CssFilePath="~/App_Themes/PlasticBlue/{0}/styles.css" CssPostfix="PlasticBlue" 
+                                Text="Tipo de Vehículo :">
+                            </cc1:SaimtASPxLabel>
+                        </td>
+                        <td>
+                            <cc1:SaimtASPxComboBox ID="cboTVehiculo" runat="server" 
+                                CssFilePath="~/App_Themes/PlasticBlue/{0}/styles.css" CssPostfix="PlasticBlue" 
+                                SpriteCssFilePath="~/App_Themes/PlasticBlue/{0}/sprite.css" 
+                                ValueType="System.String">
+                            </cc1:SaimtASPxComboBox>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="lbl_left_td">
+                            <cc1:SaimtASPxLabel ID="SaimtASPxLabel10" runat="server" 
+                                CssFilePath="~/App_Themes/PlasticBlue/{0}/styles.css" CssPostfix="PlasticBlue" 
+                                Text="Nro. Dias :">
+                            </cc1:SaimtASPxLabel>
+                        </td>
+                        <td>
+                            <cc1:SaimtASPxSpinner ID="spnNroDias" runat="server" 
+                                CssFilePath="~/App_Themes/PlasticBlue/{0}/styles.css" CssPostfix="PlasticBlue" 
+                                SpriteCssFilePath="~/App_Themes/PlasticBlue/{0}/sprite.css">
+                            </cc1:SaimtASPxSpinner>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="lbl_left_td">
+                            <cc1:SaimtASPxLabel ID="SaimtASPxLabel12" runat="server" 
+                                CssFilePath="~/App_Themes/PlasticBlue/{0}/styles.css" CssPostfix="PlasticBlue" 
+                                Text="Nro. Horas :">
+                            </cc1:SaimtASPxLabel>
+                        </td>
+                        <td>
+                            <cc1:SaimtASPxSpinner ID="spnNroHoras" runat="server" 
+                                CssFilePath="~/App_Themes/PlasticBlue/{0}/styles.css" CssPostfix="PlasticBlue" 
+                                SpriteCssFilePath="~/App_Themes/PlasticBlue/{0}/sprite.css" 
+                                AutoPostBack="True">
+                            </cc1:SaimtASPxSpinner>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="lbl_left_td">
+                            <cc1:SaimtASPxLabel ID="SaimtASPxLabel2" runat="server" 
+                                CssFilePath="~/App_Themes/PlasticBlue/{0}/styles.css" CssPostfix="PlasticBlue" 
+                                Text="Hora Inicio :">
+                            </cc1:SaimtASPxLabel>
+                        </td>
+                        <td>
+                            <cc1:SaimtASPxDateTime ID="dtHInicio" runat="server" 
+                                DateTime="07/20/2012 09:57:12" AutoPostBack="True" 
+                                DisplayFormatString="HH:mm:ss" EditFormat="Custom" EditFormatString="HH:mm:ss">
+                            </cc1:SaimtASPxDateTime>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="lbl_left_td">
+                            <cc1:SaimtASPxLabel ID="SaimtASPxLabel4" runat="server" 
+                                CssFilePath="~/App_Themes/PlasticBlue/{0}/styles.css" CssPostfix="PlasticBlue" 
+                                style="margin-left: 18px" Text="Hora Fin :">
+                            </cc1:SaimtASPxLabel>
+                        </td>
+                        <td>
+                            <cc1:SaimtASPxDateTime ID="dtHFin" runat="server" 
+                                CssFilePath="~/App_Themes/PlasticBlue/{0}/styles.css" CssPostfix="PlasticBlue" 
+                                DateTime="05/10/2012 14:25:28" 
+                                SpriteCssFilePath="~/App_Themes/PlasticBlue/{0}/sprite.css" 
+                                DisplayFormatString="HH:mm:ss" EditFormat="Custom" EditFormatString="HH:mm:ss">
+                            </cc1:SaimtASPxDateTime>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="lbl_left_td">
+                            <cc1:SaimtASPxLabel ID="SaimtASPxLabel9" runat="server" 
+                                CssFilePath="~/App_Themes/PlasticBlue/{0}/styles.css" CssPostfix="PlasticBlue" 
+                                Text="Precio (S/) :">
+                            </cc1:SaimtASPxLabel>
+                        </td>
+                        <td>
+                            <cc1:SaimtASPxTextBox ID="txtPrecioTarifa" runat="server" 
+                                CssFilePath="~/App_Themes/PlasticBlue/{0}/styles.css" CssPostfix="PlasticBlue" 
+                                SpriteCssFilePath="~/App_Themes/PlasticBlue/{0}/sprite.css" Text="0" 
+                                Width="170px">
+                                <MaskSettings Mask="&lt;0..9999999g&gt;.&lt;00..99&gt;" ShowHints="True" />
+                            </cc1:SaimtASPxTextBox>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="lbl_left_td">
+                            <cc1:SaimtASPxLabel ID="SaimtASPxLabel7" runat="server" 
+                                CssFilePath="~/App_Themes/PlasticBlue/{0}/styles.css" CssPostfix="PlasticBlue" 
+                                Text="Estado :">
+                            </cc1:SaimtASPxLabel>
+                        </td>
+                        <td>
+                            <cc1:SaimtASPxCheckBox ID="chbEstadoTarifa" runat="server" 
+                                CheckState="Unchecked" CssFilePath="~/App_Themes/PlasticBlue/{0}/styles.css" 
+                                CssPostfix="PlasticBlue" 
+                                SpriteCssFilePath="~/App_Themes/PlasticBlue/{0}/sprite.css" Text="Activo">
+                            </cc1:SaimtASPxCheckBox>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                        </td>
+                        <td>
+
+                            <table valing="left">
+                                <tr>
+                                    <td>
+                                        <cc1:SaimtASPxButton ID="btnNuevo" runat="server" 
+                                            CssFilePath="~/App_Themes/PlasticBlue/{0}/styles.css" CssPostfix="PlasticBlue" 
+                                            HorizontalAlign="Center" ImagePosition="Top" 
+                                            SpriteCssFilePath="~/App_Themes/PlasticBlue/{0}/sprite.css" Text="Nuevo" 
+                                            ToolTip="Nuevo Registro">
+                                            <Image Url="~/images/nuevo32.png">
+                                            </Image>
+                                        </cc1:SaimtASPxButton>
+                                    </td>
+                                    <td>
+                                        <cc1:SaimtASPxButton ID="btnEditar" runat="server" 
+                                            CssFilePath="~/App_Themes/PlasticBlue/{0}/styles.css" CssPostfix="PlasticBlue" 
+                                            HorizontalAlign="Center" ImagePosition="Top" 
+                                            SpriteCssFilePath="~/App_Themes/PlasticBlue/{0}/sprite.css" Text="Editar" 
+                                            >
+                                            <Image Url="~/images/editar32.png">
+                                            </Image>
+                                        </cc1:SaimtASPxButton>
+                                    </td>
+                                    <td>
+                                        <cc1:SaimtASPxButton ID="btnLimpiar" runat="server" 
+                                            CssFilePath="~/App_Themes/PlasticBlue/{0}/styles.css" CssPostfix="PlasticBlue" 
+                                            HorizontalAlign="Center" ImagePosition="Top" 
+                                            SpriteCssFilePath="~/App_Themes/PlasticBlue/{0}/sprite.css" Text="Limpiar" 
+                                            >
+                                            <Image Url="~/images/limpiar32.png">
+                                            </Image>
+                                        </cc1:SaimtASPxButton>
+                                    </td>
+                                    <td>
+                                        <cc1:SaimtASPxButton ID="btnCancelar" runat="server" 
+                                            CssFilePath="~/App_Themes/PlasticBlue/{0}/styles.css" CssPostfix="PlasticBlue" 
+                                            HorizontalAlign="Center" ImagePosition="Top" 
+                                            SpriteCssFilePath="~/App_Themes/PlasticBlue/{0}/sprite.css" Text="Cancelar" 
+                                            >
+                                            <Image Url="~/images/cancelar32.png">
+                                            </Image>
+                                        </cc1:SaimtASPxButton>
+                                    </td>
+                                    <td>
+                                        <cc1:SaimtASPxButton ID="btnGuardar" runat="server" 
+                                            CssFilePath="~/App_Themes/PlasticBlue/{0}/styles.css" CssPostfix="PlasticBlue" 
+                                            HorizontalAlign="Center" ImagePosition="Top" 
+                                            SpriteCssFilePath="~/App_Themes/PlasticBlue/{0}/sprite.css" Text="Guardar" 
+                                            >
+                                            <ClientSideEvents Click="function (s, e) {e.processOnServer = confirm('Desea Guardar?');}" />
+<ClientSideEvents Click="function (s, e) {e.processOnServer = confirm(&#39;Desea Guardar?&#39;);}"></ClientSideEvents>
+
+                                            <Image Url="~/images/guardar32(1).png">
+                                            </Image>
+                                        </cc1:SaimtASPxButton>
+                                    </td>
+                                    <td>
+                                        <cc1:SaimtASPxButton ID="btnEliminar" runat="server" 
+                                            CssFilePath="~/App_Themes/PlasticBlue/{0}/styles.css" CssPostfix="PlasticBlue" 
+                                            HorizontalAlign="Center" ImagePosition="Top" 
+                                            SpriteCssFilePath="~/App_Themes/PlasticBlue/{0}/sprite.css" Text="Eliminar" 
+                                            >
+                                            <ClientSideEvents Click="function (s, e) {e.processOnServer = confirm('Desea Eliminar?');}" />
+<ClientSideEvents Click="function (s, e) {e.processOnServer = confirm(&#39;Desea Eliminar?&#39;);}"></ClientSideEvents>
+
+                                            <Image Url="~/images/eliminar32(1).png">
+                                            </Image>
+                                        </cc1:SaimtASPxButton>
+                                    </td>
+                                </tr>
+                            </table>
+
+                        </td>
+                    </tr>
+                    
+                </table>
+            </dx:PanelContent>
+        </PanelCollection>
+    </cc1:SaimtASPxRoundPanel>
+            </td>
+        </tr>
+        </table>
+</asp:Content>

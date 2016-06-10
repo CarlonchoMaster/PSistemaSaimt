@@ -1,0 +1,246 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+DAS
+</name>
+</assembly>
+<members>
+<member name="M:DAS.ReportesGeneralDAS.reportePivotearProPagosCriterio(System.String,System.String)">
+	<summary>
+ Reporte PivotearProPagos
+ </summary>
+	<param name="asTipoCriterio"></param>
+	<param name="asCriterio"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:DAS.ReportesGeneralDAS.reporteProPagosDetalleXRangoFecha(System.DateTime,System.DateTime)">
+	<summary>
+ Reporte la Programacion Pagos Detalle X RangoFecha
+ </summary>
+	<param name="adtFecha1"></param>
+	<param name="adtFecha2"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:DAS.ReportesGeneralDAS.reporteProPagosDetalleConceptosXRangoFecha(System.DateTime,System.DateTime)">
+	<summary>
+ Reporte la Programacion Pagos Detalle X RangoFecha
+ </summary>
+	<param name="adtFecha1"></param>
+	<param name="adtFecha2"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:DAS.ReportesGeneralDAS.reporteRecaudacionDetXRangoFechaXTgGrupoConId(System.DateTime,System.DateTime,System.String)">
+	<summary>
+ Reporte Recaudacion Detalle XRangoFecha y XTgGrupoConId
+ </summary>
+	<param name="adtFecha1"></param>
+	<param name="adtFecha2"></param>
+	<param name="asTgGrupoConId">06=PEM,07=TTSC</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:DAS.ReportesGeneralDAS.reporteRecaudacionXRecFecPagoXTgGrupoConId(System.DateTime,System.String)">
+	<summary>
+ Reporte Recaudacion XRecFecPago y XTgGrupoConId
+ </summary>
+	<param name="adtRecFecPago"></param>
+	<param name="asTgGrupoConId">06=PEM,07=TTSC</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:DAS.ReportesGeneralDAS.reporteProgramacionPagosTotalXProPaFechaPag(System.DateTime)">
+	<summary>
+ Reporte Programacion Pagos Total XProPaFechaPag
+ </summary>
+	<param name="adtProPaFechaPag"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:DAS.ContratoInmDAS.listarXPerId_O_XInmIdConsultaProgramacionPagos(System.String,System.String)">
+	<summary>
+ Listar Contratos Por PerId o InmId en Consulta Programacion Pagos
+ </summary>
+	<param name="asPerId"></param>
+	<param name="asInmId"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:DAS.ContratoInmDAS.listarXInmId_EnInmuebles(System.String)">
+	<summary>
+ Listar Contratos Por InmId en Inmuebles
+ </summary>
+	<param name="asInmId"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:DAS.ContratoInmDAS.mostrarXPerIdXConInmId_EnConsultarMora(System.String,System.String)">
+	<summary>
+ Muestra El Contrato Con su Programación de Pagos Respectivo
+ </summary>
+	<param name="asPerId">PerId</param>
+	<param name="asConInmId">ConInmId</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="P:DAS.My.Resources.Resources.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:DAS.My.Resources.Resources.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="T:DAS.My.Resources.Resources">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member><member name="M:DAS.TablaGeneralDAS.Listar_XClsId_Opcional_tgCodigo_tgAbrev_tgExtra_pa(System.Int32,System.String,System.String,System.String)">
+	<summary>
+ Listar Items Segun ClsId Con Opcion de TgCodigo O/Y TgAbrev O/Y TgExtra
+ </summary>
+</member><member name="M:DAS.TablaGeneralDAS.listar_XClsId_XTgExtra(System.Int32,System.String)">
+	<summary>
+ Listar Sub Items Segun ClsId y TgExtra
+ </summary>
+	<param name="aiClsId">ClsId</param>
+	<param name="asTgExtra">TgExtra = TgCodigo Campo Seleccionado</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:DAS.TablaGeneralDAS.mostrarXClsIdXTgCodigo(System.Int32,System.String)">
+	<summary>
+ MUESTRA UN SOLO RESULTADO X ClsId y TgCodigo
+ </summary>
+	<param name="aiClsId">Clase Id</param>
+	<param name="asTgCodigo">TgCodigo</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:DAS.ParametroDAS.mostrarXClsId(System.Int32)">
+	<summary>
+ RETORNA EL VALOR DE LA TABLA PARAMETRO
+ SEGUN LA CLASE ID
+ </summary>
+	<param name="aiClsId">ClsId</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:DAS.DiarioPEMDAS.ReporteXFecha(System.Int16,System.DateTime)">
+	<summary>
+ REPORTE X FECHA
+ </summary>
+	<param name="aiTipo">0 = FECHA INGRESO, 1 = FECHA SALIDA, </param>
+	<param name="adFecha">FECHA</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:DAS.DocumentoSTDDAS.listarCriterioVincular(System.Int32,System.String)">
+	<summary>
+ Listar Documentos en Vinculas
+ </summary>
+	<param name="aiTipoCriterio">1 Nro Registro, 2 Asunto, 3 Asunto TUPA, 4 Fec. Ingreso, 5 Siglas, 6 Prioridad</param>
+	<param name="asCriterio">Criterio</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:DAS.PersonaDAS.consultarGeneral(System.Int16,System.Int16,System.String)">
+	<summary>
+ CONSULTAR PERSONA GENERAL
+ </summary>
+	<param name="aiTipoPersona">1=PERSONA NATURAL, 2=PERSONA JURIDICA, 3=AMBOS</param>
+	<param name="asCriterio">TEXTO A CONSULTAR</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:DAS.HorarioPerDAS.ListarHorario">
+	<summary>
+ Consultar Horario en Formulario Trabajador
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:DAS.AbonoPEMDAS.listarDetalleEnReportePEMXAbonDetFecha(System.Int16,System.DateTime)">
+	<summary>
+ LISTAR DETALLE ABONO EN REPORTE X FECHA
+ </summary>
+	<param name="aiTipo">0 = FECHA INICIO, 1 = FECHA FIN</param>
+	<param name="adAbonFecha">FECHA</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:DAS.GrupoFormulariosDAS.listarALL_EnUsuarios">
+	<summary>
+ LISTA TODOS LOS FORMULARIOS CON SU RESPECTIVO GRUPO
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:DAS.GrupoFormulariosDAS.listarCriterio_EnMenuFomulario(System.Int32,System.String)">
+	<summary>
+ LISTA TODOS LOS FORMULARIOS CON SU RESPECTIVO GRUPO EN MENUFORMULARIOS
+ </summary>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:DAS.ProPagosDAS.listarXConInmIdConsultaProgramacionPagos(System.String)">
+	<summary>
+ Mostrar la Programacion de Pagos X Contrato
+ </summary>
+	<param name="asConInmId">ContratoId</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:DAS.ProPagosDAS.listarProPagosDetalleXProPaId(System.String)">
+	<summary>
+ Listar la Programacion Pagos Detalle X ProPaId
+ </summary>
+	<param name="asProPaId"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:DAS.ProPagosDAS.mostrarProPagosMontoTotalXEstadoXConInmIdConsultaProgramacionPagos(System.String,System.String,System.String)">
+	<summary>
+ Mostrar el Total Pagado si estado es P = Pagado o el Total por pagar si el estado es N = No Pagado
+ </summary>
+	<param name="asConInmId">ContratoId</param>
+	<param name="asEstado">Estado</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:DAS.ProPagosDAS.listarProPagosDetalleXProPaIdXEstado_EnConsultarMora(System.String,System.String)">
+	<summary>
+ Listar la Programacion Pagos Detalle X ProPaId En Consultar Mora
+ </summary>
+	<param name="asProPaId">ProPaId</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:DAS.ValidacionDAS.ValidarCampoLongitud(System.String,System.String)">
+	<summary>
+ Validar
+ </summary>
+	<param name="asTabla">Nombre Tabla BD</param>
+	<param name="asCampo">Campo de Tabla BD</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:DAS.ValidacionDAS.UsuariosValidarXUsuLogin(System.String,System.Int32)">
+	<summary>
+ Validar Usuario X UsuLogin
+ </summary>
+	<param name="asUsuLogin">Usuario</param>
+	<param name="aiUsuId">0 = Save, &gt; 0 = Update</param>
+	<returns></returns>
+	<remarks></remarks>
+</member><member name="M:DAS.ValidacionDAS.RecaudacionDetalleValidar(System.Int32,System.DateTime,System.String,System.String)">
+	<summary>
+ Validar Recaudacion Detalle
+ </summary>
+	<param name="aiRecId"></param>
+	<param name="adRecFecPago"></param>
+	<param name="asTgRecaudadorId"></param>
+	<returns>True=No Existe, False = Existe</returns>
+	<remarks></remarks>
+</member><member name="M:DAS.ValidacionDAS.PersonaValidarXPerNDoc(System.String,System.String,System.String,System.String)">
+	<summary>
+ PERSONA VALIDAR X
+ </summary>
+	<param name="asPerId"></param>
+	<param name="asPerNDoc"></param>
+	<param name="asSaveUpdate"></param>
+	<returns>TRUE = SI NO EXISTE</returns>
+	<remarks></remarks>
+</member><member name="M:DAS.ValidacionDAS.NivelesPEMValidarXInstitucionSedeNombre(System.String,System.String,System.String,System.String,System.String)">
+	<summary>
+ Validar NivelesPEM X NivNombre,Institucion,Sede
+ </summary>
+	<param name="asInstitucion"></param>
+	<param name="asSede"></param>
+	<param name="asNombre"></param>
+	<param name="asId"></param>
+	<returns></returns>
+	<remarks></remarks>
+</member>
+</members>
+</doc>
